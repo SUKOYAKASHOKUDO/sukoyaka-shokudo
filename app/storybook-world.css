@@ -1391,9 +1391,9 @@ body::selection {
   left: 2.4%;
   z-index: 3;
   display: block;
-  width: 8.9%;
+  width: 8.5%;
   height: 13.2%;
-  overflow: visible;
+  overflow: hidden;
   pointer-events: none;
 }
 
