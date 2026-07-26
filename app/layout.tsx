@@ -6,7 +6,7 @@ import "./storybook-world.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "すこやか食堂｜札幌市中央区の子ども食堂",
+    default: "札幌市中央区の子ども食堂 | すこやか食堂",
     template: "%s｜すこやか食堂",
   },
   description:
@@ -47,8 +47,11 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: {
+      url: "/images/brand/sukoyaka-onigiri-logo-transparent.png",
+      type: "image/png",
+    },
+    shortcut: "/images/brand/sukoyaka-onigiri-logo-transparent.png",
   },
 };
 

@@ -76,6 +76,18 @@ export function StorybookHero() {
           draggable={false}
         />
 
+        <span className="reference-design-logo-swap" aria-hidden="true">
+          <Image
+            src="/images/brand/sukoyaka-onigiri-logo-transparent.png"
+            alt=""
+            width={1254}
+            height={1254}
+            priority
+            unoptimized
+            draggable={false}
+          />
+        </span>
+
         <div className="reference-design-copy">
           <h1 id="storybook-heading">おなかも こころも ぽかぽかに。</h1>
           <p>中学生以下 無料／大人 500円</p>
