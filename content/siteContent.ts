@@ -3,7 +3,7 @@ export type PublicationStatus = "draft" | "published";
 export const site = {
   name: "すこやか食堂",
   subtitle: "札幌の子ども食堂",
-  url: "https://sukoyakashokudo.com",
+  url: "https://sukoyaka-shokudo.com",
   operator: "ミレポリト合同会社",
   address:
     "〒064-0809 北海道札幌市中央区南9条西8丁目1-26 オリンピア南9条 1階",
