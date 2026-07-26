@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "../components/SiteFooter";
-import { SiteHeader } from "../components/SiteHeader";
 import { StorybookHero } from "../components/StorybookHero";
 import {
   legacyAbout,
@@ -56,7 +55,6 @@ export default function Home() {
       <a className="skip-link" href="#main">
         本文へ移動
       </a>
-      <SiteHeader />
 
       <main id="main" className="mashiro-site">
         <StorybookHero />
