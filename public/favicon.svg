@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="22" fill="#1F6977"/>
+  <circle cx="49" cy="14" r="7" fill="#F5C85B"/>
+  <text
+    x="31"
+    y="45"
+    fill="#FFFFFF"
+    font-family="sans-serif"
+    font-size="39"
+    font-weight="700"
+    text-anchor="middle"
+  >す</text>
+</svg>

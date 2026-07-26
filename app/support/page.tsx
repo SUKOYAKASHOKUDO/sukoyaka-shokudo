@@ -1,0 +1,190 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageIntro } from "../../components/PageIntro";
+import { SiteFooter } from "../../components/SiteFooter";
+import { SiteHeader } from "../../components/SiteHeader";
+import {
+  homePage,
+  site,
+  sponsors,
+  supportBankAccount,
+  supportMethods,
+} from "../../content/siteContent";
+
+export const metadata: Metadata = {
+  title: "企業・団体の皆さまへ｜ご支援の相談",
+  description:
+    "すこやか食堂への食材・物品提供、ボランティア、活動資金のご支援について、相談前の確認事項をご案内します。",
+  alternates: {
+    canonical: "/support",
+  },
+};
+
+export default function SupportPage() {
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        本文へ移動
+      </a>
+      <SiteHeader />
+      <main id="main">
+        <PageIntro
+          eyebrow="FOR PARTNERS"
+          title="企業・団体の皆さまへ"
+          description="食材・物品のご提供、ボランティア、活動資金のご支援について、受入条件や日程を確認しながら個別にご相談を承ります。"
+        />
+
+        <section className="section support-detail-section">
+          <div className="shell">
+            <div className="support-detail-grid">
+              {supportMethods.map((method) => (
+                <article key={method.title}>
+                  <span aria-hidden="true">{method.symbol}</span>
+                  <h2>{method.title}</h2>
+                  <p>{method.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="support-process">
+              <div>
+                <p className="eyebrow">BEFORE CONTACT</p>
+                <h2>ご相談前にお知らせいただきたいこと</h2>
+              </div>
+              <ol>
+                <li>
+                  <span>01</span>
+                  <div>
+                    <strong>企業・団体名とご担当者名</strong>
+                    <p>差し支えない範囲で、ご連絡元をお知らせください。</p>
+                  </div>
+                </li>
+                <li>
+                  <span>02</span>
+                  <div>
+                    <strong>ご支援を検討している内容</strong>
+                    <p>
+                      食材・物品の場合は、品名、数量、賞味期限、保管条件などをお知らせください。
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span>03</span>
+                  <div>
+                    <strong>希望時期・参加人数</strong>
+                    <p>
+                      ボランティアの場合は、候補日と参加予定人数もあわせてご相談ください。
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div className="contact-callout">
+              <div>
+                <p className="eyebrow light">CONTACT</p>
+                <h2>ご支援・ボランティアのご相談</h2>
+                <p>
+                  公式Instagram、メール、電話でご相談いただけます。受入条件や日程を確認するため、物資をお持ち込みになる前にご連絡ください。
+                </p>
+                <div className="contact-details">
+                  <a href={`mailto:${site.email}`}>{site.email}</a>
+                  <a href={site.phoneHref}>{site.phone}</a>
+                </div>
+              </div>
+              <a
+                className="button button-light"
+                href={site.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="公式Instagramを新しいタブで開く"
+              >
+                Instagramで相談する
+              </a>
+            </div>
+
+            <section className="bank-account" aria-labelledby="bank-heading">
+              <div>
+                <p className="eyebrow">DONATION</p>
+                <h2 id="bank-heading">活動資金のご支援先</h2>
+                <p>
+                  お振込前に、公式Instagram・メール・電話のいずれかで、最新の活動状況と口座情報をご確認ください。
+                </p>
+              </div>
+              <dl>
+                <div>
+                  <dt>銀行名</dt>
+                  <dd>{supportBankAccount.bankName}</dd>
+                </div>
+                <div>
+                  <dt>支店名</dt>
+                  <dd>
+                    {supportBankAccount.branchName}（店番号
+                    {supportBankAccount.branchNumber}）
+                  </dd>
+                </div>
+                <div>
+                  <dt>口座種別</dt>
+                  <dd>{supportBankAccount.accountType}</dd>
+                </div>
+                <div>
+                  <dt>口座番号</dt>
+                  <dd>{supportBankAccount.accountNumber}</dd>
+                </div>
+                <div>
+                  <dt>名義</dt>
+                  <dd>{supportBankAccount.accountName}</dd>
+                </div>
+              </dl>
+            </section>
+          </div>
+        </section>
+
+        <section className="section sponsor-page-section" id="supporters">
+          <div className="shell">
+            <div className="section-heading centered">
+              <p className="eyebrow">{homePage.support.sponsorEyebrow}</p>
+              <h2>{homePage.support.sponsorTitle}</h2>
+              <p>{homePage.support.sponsorDescription}</p>
+            </div>
+            {sponsors.length === 0 ? (
+              <div className="content-empty">
+                掲載許可を確認できた企業・団体様から順次ご紹介します。現在は掲載準備中です。
+              </div>
+            ) : (
+              <div className="supporter-list">
+                {sponsors.map((sponsor) => (
+                  <article key={sponsor.name}>
+                    <span aria-hidden="true">{sponsor.name.slice(0, 1)}</span>
+                    <div>
+                      <h3>{sponsor.name}</h3>
+                      <p>ご支援：{sponsor.support}</p>
+                      {sponsor.url ? (
+                        <a
+                          href={sponsor.url}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored"
+                        >
+                          公式サイト
+                        </a>
+                      ) : null}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
+            <p className="sponsor-policy centered-policy">
+              ※{homePage.support.sponsorPolicy}
+            </p>
+            <div className="section-more">
+              <Link className="text-link" href="/">
+                ← ホームへ戻る
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </>
+  );
+}

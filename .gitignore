@@ -1,0 +1,29 @@
+# dependencies
+/node_modules
+
+# Next.js
+/.next/
+/out/
+
+# production
+/build
+
+# local settings and secrets
+.env*
+!.env.example
+.vercel
+.vercel-auth-sukoyaka/
+.source-assets/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+.codex-*.log
+
+# operating systems and editors
+.DS_Store
+Thumbs.db
+*.swp
