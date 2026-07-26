@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageIntro } from "../../components/PageIntro";
 import { SiteFooter } from "../../components/SiteFooter";
@@ -10,6 +11,7 @@ import {
   supportBankAccount,
   supportMethods,
 } from "../../content/siteContent";
+import { legacySupport } from "../../content/legacyContent";
 
 export const metadata: Metadata = {
   title: "企業・団体の皆さまへ｜ご支援の相談",
@@ -27,7 +29,7 @@ export default function SupportPage() {
         本文へ移動
       </a>
       <SiteHeader />
-      <main id="main">
+      <main id="main" className="mashiro-site">
         <PageIntro
           eyebrow="FOR PARTNERS"
           title="企業・団体の皆さまへ"
@@ -36,6 +38,24 @@ export default function SupportPage() {
 
         <section className="section support-detail-section">
           <div className="shell">
+            <div className="mashiro-support-message">
+              <div className="mashiro-prose">
+                <p className="mashiro-kicker">THANK YOU</p>
+                <h2>4.支援について</h2>
+                {legacySupport.message.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <figure>
+                <Image
+                  src="/images/legacy/legacy-member-03.jpg"
+                  alt="カレーとサラダ、汁物、果物の献立"
+                  fill
+                  sizes="(max-width: 900px) 92vw, 42vw"
+                />
+              </figure>
+            </div>
+
             <div className="support-detail-grid">
               {supportMethods.map((method) => (
                 <article key={method.title}>
@@ -144,7 +164,7 @@ export default function SupportPage() {
           <div className="shell">
             <div className="section-heading centered">
               <p className="eyebrow">{homePage.support.sponsorEyebrow}</p>
-              <h2>{homePage.support.sponsorTitle}</h2>
+              <h2>協賛企業様一覧</h2>
               <p>{homePage.support.sponsorDescription}</p>
             </div>
             {sponsors.length === 0 ? (
@@ -176,6 +196,11 @@ export default function SupportPage() {
             <p className="sponsor-policy centered-policy">
               ※{homePage.support.sponsorPolicy}
             </p>
+            <div className="mashiro-supporter-note">
+              {legacySupport.supporterNote.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
             <div className="section-more">
               <Link className="text-link" href="/">
                 ← ホームへ戻る

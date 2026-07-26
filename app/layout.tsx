@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { site } from "../content/siteContent";
 import "./globals.css";
+import "./storybook-world.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s｜すこやか食堂",
   },
   description:
-    "札幌市中央区の子ども食堂「すこやか食堂」。開催案内、活動動画、企業・団体からのご支援、親子向けコラム、料理レシピをご案内します。",
+    "札幌市中央区の子ども食堂「すこやか食堂」。開催案内、日程とメニュー、活動記録、ボランティア、ご支援、親子向けレシピをご案内します。",
   keywords: [
     "すこやか食堂",
     "子ども食堂",
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1f6977",
+  themeColor: "#c7f0f2",
   colorScheme: "light",
 };
 

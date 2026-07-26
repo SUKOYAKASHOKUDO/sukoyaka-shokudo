@@ -12,19 +12,22 @@ export const site = {
   phone: "080-8216-7040",
   phoneHref: "tel:+818082167040",
   instagram: "https://www.instagram.com/mi_repollito/",
+  line: "https://line.me/R/ti/p/%40424ryewz",
+  youtube: "https://www.youtube.com/watch?v=eZLZiTmpS3s",
   oldWebsite: "https://sukoyakegao.wixstudio.com/kidsdining-sukoyaka",
   map: "https://www.google.com/maps/search/?api=1&query=%E3%81%99%E3%81%93%E3%82%84%E3%81%8B%E9%A3%9F%E5%A0%82+%E6%9C%AD%E5%B9%8C%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%8D%979%E6%9D%A1%E8%A5%BF8%E4%B8%81%E7%9B%AE1-26",
   informationNote:
     "開催日時・料金・支援方法は変更される場合があります。最新情報は公式Instagramをご確認ください。",
-  sourceCheckedAt: "2026年7月25日（旧公式サイトを確認）",
+  sourceCheckedAt: "2026年7月26日（旧公式サイトを確認）",
 };
 
 export const navigation = [
-  { href: "/#about", label: "すこやか食堂とは" },
-  { href: "/#schedule", label: "開催案内" },
+  { href: "/about", label: "すこやか食堂について" },
+  { href: "/schedule", label: "日程とメニュー" },
+  { href: "/team", label: "私たち・ボランティア" },
   { href: "/support", label: "ご支援" },
-  { href: "/columns", label: "コラム" },
-  { href: "/recipes", label: "レシピ" },
+  { href: "/columns", label: "活動記録" },
+  { href: "/recipes", label: "レシピ・食育" },
   { href: "/#access", label: "アクセス" },
 ];
 
@@ -106,7 +109,7 @@ export const homePage = {
     ],
     cta: "最新の開催情報を確認",
     note:
-      "食物アレルギーへの対応可否は、開催ごとに事前確認が必要です。",
+      "旧公式サイトでは、アレルギー対応はしていないと案内されています。",
     photoNote: "こののぼりが目印です",
   },
   movie: {
@@ -380,28 +383,5 @@ export const recipes: Recipe[] = [
     safetyNote:
       "オーブン、包丁、熱い天板は、必ず大人が扱ってください。",
     status: "published",
-  },
-];
-
-export const faqs = [
-  {
-    question: "大人も利用できますか？",
-    answer:
-      "旧公式サイトでは、どなたでも来店でき、大人は1食500円と案内されています。開催日ごとの最新案内もあわせてご確認ください。",
-  },
-  {
-    question: "小さな子どもと一緒でも大丈夫ですか？",
-    answer:
-      "旧公式サイトでは、食事ができるお子さんは利用できると案内されています。食育ランチクッキングの対象年齢や内容は開催ごとにご確認ください。",
-  },
-  {
-    question: "企業・団体でボランティアに参加できますか？",
-    answer:
-      "団体での参加も相談できます。人数・希望日・活動内容を事前にお知らせいただくと調整がスムーズです。",
-  },
-  {
-    question: "どのような支援ができますか？",
-    answer:
-      "食材・物品の提供、ボランティア、活動資金の支援などがあります。受入条件があるため、持ち込み前にお問い合わせください。",
   },
 ];

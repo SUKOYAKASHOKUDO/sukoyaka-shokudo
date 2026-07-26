@@ -2,413 +2,256 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
+import { StorybookHero } from "../components/StorybookHero";
 import {
-  columns,
-  faqs,
-  homePage,
-  recipes,
-  site,
-  sponsors,
-  supportMethods,
-  youtubeVideos,
-} from "../content/siteContent";
+  legacyAbout,
+  legacyFaqs,
+  legacyImages,
+  legacySchedule,
+} from "../content/legacyContent";
+import { site, sponsors, youtubeVideos } from "../content/siteContent";
+
+const gateways = [
+  {
+    number: "01",
+    href: "/about",
+    label: "すこやか食堂について",
+    sub: "思いと、目指している場所",
+  },
+  {
+    number: "02",
+    href: "/schedule",
+    label: "日程とメニュー",
+    sub: "開催日時と献立のご案内",
+  },
+  {
+    number: "03",
+    href: "/team",
+    label: "私たち・ボランティア",
+    sub: "運営メンバーと参加方法",
+  },
+  {
+    number: "04",
+    href: "/support",
+    label: "ご支援",
+    sub: "食材・物品・寄付について",
+  },
+  {
+    number: "05",
+    href: "/columns",
+    label: "活動記録",
+    sub: "食堂の日々を伝える記録",
+  },
+  {
+    number: "06",
+    href: "/recipes",
+    label: "レシピ・食育",
+    sub: "親子で楽しめる料理",
+  },
+] as const;
 
 export default function Home() {
-  const publishedColumns = columns.filter(
-    (column) => column.status === "published",
-  );
-  const publishedRecipes = recipes.filter(
-    (recipe) => recipe.status === "published",
-  );
-  const featuredSponsors = sponsors.slice(0, 6);
-
   return (
     <>
       <a className="skip-link" href="#main">
         本文へ移動
       </a>
-
       <SiteHeader />
 
-      <main id="main">
-        <section className="hero" id="top">
-          <div className="hero-dots" aria-hidden="true" />
-          <div className="shell hero-grid">
-            <div className="hero-copy">
-              <p className="eyebrow">{homePage.hero.eyebrow}</p>
-              <h1>
-                {homePage.hero.headingLine1}
-                <br />
-                {homePage.hero.headingLine2}
-                <br />
-                <span>{homePage.hero.headingAccent}</span>
-                {homePage.hero.headingAfter}
-                <br />
-                {homePage.hero.headingClosing}
-              </h1>
-              <p className="hero-lead">{homePage.hero.lead}</p>
+      <main id="main" className="mashiro-site">
+        <StorybookHero />
 
-              <div className="hero-actions">
-                <a className="button" href="#schedule">
-                  {homePage.hero.primaryCta}
-                </a>
-                <a className="button button-outline" href="#support">
-                  {homePage.hero.secondaryCta}
-                </a>
-              </div>
-
-              <ul className="quick-facts" aria-label="旧公式サイトの利用案内">
-                {homePage.hero.quickFacts.map((fact) => (
-                  <li key={fact.value}>
-                    <strong>{fact.value}</strong>
-                    <span>{fact.label}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="hero-visual">
-              <div className="photo-frame">
-                <Image
-                  src="/images/sukoyaka-storefront.jpg"
-                  alt="すこやか食堂の窓に掲示された利用案内"
-                  fill
-                  priority
-                  sizes="(max-width: 1020px) 90vw, 46vw"
-                />
-              </div>
-              <p className="hand-note">{homePage.hero.handNote}</p>
-              <div className="hero-badge">
-                <span>場所</span>
-                <strong>札幌市中央区</strong>
-                <small>南9条西8丁目</small>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <aside className="announcement" aria-label="大切なお知らせ">
-          <div className="shell announcement-inner">
-            <span className="announcement-label">
-              {homePage.announcement.label}
-            </span>
-            <p>{homePage.announcement.text}</p>
+        <aside className="mashiro-notice" aria-label="大切なお知らせ">
+          <div className="shell">
+            <span>NOTICE</span>
+            <p>{site.informationNote}</p>
             <a
               href={site.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${homePage.announcement.linkLabel}（新しいタブで開く）`}
             >
-              {homePage.announcement.linkLabel}
+              最新情報を確認
             </a>
           </div>
         </aside>
 
-        <section className="section intro-section" id="about">
+        <section className="mashiro-section mashiro-intro" id="about">
+          <div className="shell mashiro-intro-grid">
+            <div className="mashiro-section-index">
+              <span>OUR MESSAGE</span>
+              <strong>01</strong>
+            </div>
+            <div className="mashiro-statement">
+              <p>{legacyAbout.opening[0]}</p>
+              <h2>
+                食事は、
+                <br />
+                おいしく楽しいものです。
+              </h2>
+              {legacyAbout.opening.slice(1).map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <Link className="mashiro-arrow-link" href="/about">
+                すこやか食堂の思いを読む
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="mashiro-section mashiro-gateway-section">
           <div className="shell">
-            <div className="section-heading centered">
-              <p className="eyebrow">{homePage.about.eyebrow}</p>
-              <h2>{homePage.about.title}</h2>
-              <p>{homePage.about.description}</p>
+            <div className="mashiro-section-title">
+              <div>
+                <p className="mashiro-kicker">CHOOSE YOUR PAGE</p>
+                <h2>知りたいことを、ひとつの画面から。</h2>
+              </div>
+              <p>
+                メニューを閉じ込めず、すべての入口をいつでも見える場所に置きました。
+              </p>
             </div>
 
-            <div className="value-grid">
-              {homePage.about.values.map((value) => (
-                <article
-                  className={`value-card value-card-${value.tone}`}
-                  key={value.number}
-                >
-                  <span className="card-number">{value.number}</span>
-                  <h3>{value.title}</h3>
-                  <p>{value.description}</p>
-                </article>
+            <div className="mashiro-gateway-grid">
+              {gateways.map((item) => (
+                <Link href={item.href} key={item.href}>
+                  <span>{item.number}</span>
+                  <strong>{item.label}</strong>
+                  <small>{item.sub}</small>
+                  <i aria-hidden="true">↗</i>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section schedule-section" id="schedule">
-          <div className="shell schedule-grid">
+        <section className="mashiro-section mashiro-schedule-preview" id="schedule">
+          <div className="shell mashiro-schedule-grid">
             <div>
-              <div className="section-heading">
-                <p className="eyebrow">{homePage.schedule.eyebrow}</p>
-                <h2>{homePage.schedule.title}</h2>
-                <p>{homePage.schedule.description}</p>
+              <p className="mashiro-kicker">SCHEDULE &amp; MENU</p>
+              <h2>開催予定</h2>
+              <div className="mashiro-schedule-lines">
+                {legacySchedule.recurring.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
               </div>
-
-              <div className="schedule-card">
-                <div className="schedule-status">
-                  <span className="pulse" aria-hidden="true" />
-                  {homePage.schedule.status}
-                </div>
-                <dl>
-                  {homePage.schedule.details.map((detail) => (
-                    <div key={detail.label}>
-                      <dt>{detail.label}</dt>
-                      <dd>{detail.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <a
-                  className="button"
-                  href={site.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${homePage.schedule.cta}（新しいタブで開く）`}
-                >
-                  {homePage.schedule.cta}
-                </a>
-                <p className="small-note">{homePage.schedule.note}</p>
-              </div>
+              <p className="mashiro-muted">{legacySchedule.notices[0]}</p>
+              <p className="mashiro-muted">{legacySchedule.notices[1]}</p>
+              <Link className="mashiro-button" href="/schedule">
+                日程とメニューの詳細
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
-
-            <div className="banner-photo">
+            <figure className="mashiro-menu-art">
               <Image
-                src="/images/sukoyaka-banner.jpg"
-                alt="すこやか食堂の青緑色ののぼり"
-                fill
-                sizes="(max-width: 1020px) 90vw, 42vw"
+                src="/images/legacy/legacy-menu-plan.png"
+                alt="カレーライスのイラスト"
+                width={1238}
+                height={1239}
               />
-              <span>{homePage.schedule.photoNote}</span>
-            </div>
+              <figcaption>当日の献立はInstagramでお知らせします。</figcaption>
+            </figure>
           </div>
         </section>
 
-        <section className="section video-section" id="activity">
+        <section className="mashiro-section mashiro-gallery-section">
           <div className="shell">
-            <div className="section-heading video-heading">
+            <div className="mashiro-section-title">
               <div>
-                <p className="eyebrow">{homePage.movie.eyebrow}</p>
-                <h2>{homePage.movie.title}</h2>
+                <p className="mashiro-kicker">LEGACY PHOTO ARCHIVE</p>
+                <h2>旧サイトから受け継いだ、活動の記録。</h2>
               </div>
-              <p>{homePage.movie.description}</p>
+              <p>
+                写真・イラストは、権利確認済みの旧公式サイト元画像のみを使用しています。
+              </p>
             </div>
 
-            <div className="video-grid">
-              {youtubeVideos.map((video) => (
-                <article className="video-card" key={video.id}>
-                  <div className="video-frame">
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${video.id}`}
-                      title={video.title}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
+            <div className="mashiro-gallery">
+              {legacyImages.map((image, index) => (
+                <figure
+                  className={`mashiro-gallery-item mashiro-gallery-${image.kind}`}
+                  key={image.src}
+                >
+                  <div className="mashiro-gallery-media">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      sizes="(max-width: 700px) 92vw, (max-width: 1100px) 45vw, 30vw"
                     />
                   </div>
-                  <div className="video-copy">
-                    <p>{video.category}</p>
-                    <h3>{video.title}</h3>
-                  </div>
-                </article>
+                  <figcaption>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    {image.caption}
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section support-section" id="support">
-          <div className="shell">
-            <div className="support-lead">
-              <div className="section-heading">
-                <p className="eyebrow light">{homePage.support.eyebrow}</p>
-                <h2>{homePage.support.title}</h2>
-                <p>{homePage.support.description}</p>
-              </div>
-              <a
-                className="button button-light"
-                href="/support"
-              >
-                {homePage.support.cta}
-              </a>
-            </div>
-
-            <div className="support-methods">
-              {supportMethods.map((method) => (
-                <article key={method.title}>
-                  <span aria-hidden="true">{method.symbol}</span>
-                  <h3>{method.title}</h3>
-                  <p>{method.description}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="sponsor-showcase">
-              <div className="sponsor-heading">
-                <div>
-                  <p className="eyebrow">{homePage.support.sponsorEyebrow}</p>
-                  <h3>{homePage.support.sponsorTitle}</h3>
-                </div>
-                <p>{homePage.support.sponsorDescription}</p>
-              </div>
-
-              {sponsors.length > 0 ? (
-                <div className="sponsor-grid">
-                  {featuredSponsors.map((sponsor) => (
-                    <article className="sponsor-card" key={sponsor.name}>
-                      <div className="sponsor-logo">
-                        {sponsor.logo ? (
-                          <Image
-                            src={sponsor.logo}
-                            alt={`${sponsor.name}のロゴ`}
-                            width={80}
-                            height={80}
-                          />
-                        ) : (
-                          <span>{sponsor.name.slice(0, 1)}</span>
-                        )}
-                      </div>
-                      <div>
-                        <p className="sponsor-type">{sponsor.support}</p>
-                        <h4>{sponsor.name}</h4>
-                        {sponsor.summary ? <p>{sponsor.summary}</p> : null}
-                        {sponsor.message ? (
-                          <blockquote>{sponsor.message}</blockquote>
-                        ) : null}
-                        {sponsor.supportPeriod ? (
-                          <p className="sponsor-period">
-                            支援実施時期：{sponsor.supportPeriod}
-                          </p>
-                        ) : null}
-                        {sponsor.url ? (
-                          <a
-                            href={sponsor.url}
-                            target="_blank"
-                            rel="noopener noreferrer sponsored"
-                            aria-label={`${sponsor.name}の公式サイトを新しいタブで開く`}
-                          >
-                            企業・団体サイトを見る
-                          </a>
-                        ) : null}
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              ) : (
-                <div className="sponsor-empty">
-                  <div>
-                    <span>企業ロゴ</span>
-                    <strong>掲載準備中</strong>
-                    <small>会社概要／ご支援内容／公式URL</small>
-                  </div>
-                  <div>
-                    <span>企業ロゴ</span>
-                    <strong>掲載準備中</strong>
-                    <small>応援メッセージ／支援実施時期</small>
-                  </div>
-                  <p>
-                    掲載情報は企業・団体様の確認後に公開します。現在、掲載準備中です。
-                  </p>
-                </div>
-              )}
-
-              <p className="sponsor-policy">
-                ※{homePage.support.sponsorPolicy}
+        <section className="mashiro-section mashiro-video-section">
+          <div className="shell mashiro-video-grid">
+            <div>
+              <p className="mashiro-kicker">MOVIE</p>
+              <h2>動画で知る、すこやか食堂</h2>
+              <p>
+                活動の空気感や、食を通じた地域とのつながりをご覧いただけます。
               </p>
-              <div className="section-more">
-                <Link className="text-link" href="/support#supporters">
-                  ご支援者一覧を見る →
-                </Link>
-              </div>
             </div>
+            {youtubeVideos.map((video) => (
+              <div className="mashiro-video-frame" key={video.id}>
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+                  title={video.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            ))}
           </div>
         </section>
 
-        <section className="section column-section" id="columns">
+        <section className="mashiro-section mashiro-support-preview">
           <div className="shell">
-            <div className="section-heading centered">
-              <p className="eyebrow">{homePage.columns.eyebrow}</p>
-              <h2>{homePage.columns.title}</h2>
-              <p>{homePage.columns.description}</p>
-            </div>
-
-            {publishedColumns.length > 0 ? (
-              <div className="column-grid">
-                {publishedColumns.map((column) => (
-                  <article
-                    className={`column-card ${column.tone}`}
-                    key={column.title}
-                  >
-                    <div className="column-meta">
-                      <span>{column.audience}</span>
-                      <span>{column.readingTime}</span>
-                    </div>
-                    <h3>{column.title}</h3>
-                    <p>{column.summary}</p>
-                    <Link
-                      className="text-link"
-                      href={`/columns/${column.slug}`}
-                    >
-                      記事を読む →
-                    </Link>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <p className="content-empty">{homePage.columns.emptyText}</p>
-            )}
-            <div className="section-more">
-              <Link className="button button-outline" href="/columns">
-                コラム一覧を見る
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="section recipe-section" id="recipes">
-          <div className="shell">
-            <div className="section-heading split-heading">
+            <div className="mashiro-support-head">
               <div>
-                <p className="eyebrow">{homePage.recipes.eyebrow}</p>
-                <h2>{homePage.recipes.title}</h2>
+                <p className="mashiro-kicker">WITH THANKS</p>
+                <h2>地域の食卓を、一緒に。</h2>
               </div>
-              <p>{homePage.recipes.description}</p>
-            </div>
-
-            {publishedRecipes.length > 0 ? (
-              <div className="recipe-grid">
-                {publishedRecipes.map((recipe) => (
-                  <article className="recipe-card" key={recipe.title}>
-                    <div className={`recipe-illustration ${recipe.tone}`}>
-                      <span aria-hidden="true">{recipe.symbol}</span>
-                      <small>{recipe.time}</small>
-                    </div>
-                    <div className="recipe-body">
-                      <p>{recipe.label}</p>
-                      <h3>{recipe.title}</h3>
-                      <p>{recipe.description}</p>
-                      <Link
-                        className="text-link recipe-link"
-                        href={`/recipes/${recipe.slug}`}
-                      >
-                        材料と作り方を見る →
-                      </Link>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <p className="content-empty">{homePage.recipes.emptyText}</p>
-            )}
-            <div className="section-more">
-              <Link className="button button-outline" href="/recipes">
-                レシピ一覧を見る
+              <p>
+                すこやか食堂は、食材提供、ボランティア、寄付金で支えられています。
+              </p>
+              <Link className="mashiro-button mashiro-button-light" href="/support">
+                ご支援について
+                <span aria-hidden="true">→</span>
               </Link>
+            </div>
+            <div className="mashiro-sponsor-strip" aria-label="協賛企業・支援者">
+              {sponsors.map((sponsor) => (
+                <span key={sponsor.name}>{sponsor.name}</span>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="section faq-section" id="faq">
-          <div className="shell faq-grid">
-            <div className="section-heading">
-              <p className="eyebrow">{homePage.faq.eyebrow}</p>
-              <h2>{homePage.faq.title}</h2>
-              <p>{homePage.faq.description}</p>
+        <section className="mashiro-section mashiro-faq-section">
+          <div className="shell mashiro-faq-grid">
+            <div>
+              <p className="mashiro-kicker">QUESTIONS</p>
+              <h2>よくある質問</h2>
+              <p>
+                旧公式サイトに掲載していた質問と回答を、すべて引き継ぎました。
+              </p>
             </div>
-            <div className="faq-list">
-              {faqs.map((faq) => (
+            <div className="mashiro-faq-list">
+              {legacyFaqs.map((faq, index) => (
                 <details key={faq.question}>
-                  <summary>{faq.question}</summary>
+                  <summary>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    {faq.question}
+                  </summary>
                   <p>{faq.answer}</p>
                 </details>
               ))}
@@ -416,41 +259,32 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section access-section" id="access">
-          <div className="shell access-card">
+        <section className="mashiro-access" id="access">
+          <div className="shell mashiro-access-grid">
             <div>
-              <p className="eyebrow light">{homePage.access.eyebrow}</p>
-              <h2>{homePage.access.title}</h2>
+              <p className="mashiro-kicker">ACCESS</p>
+              <h2>すこやか食堂</h2>
               <address>{site.address}</address>
-              <p>{homePage.access.note}</p>
-              <div className="access-actions">
-                <a
-                  className="button button-light"
-                  href={site.map}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${homePage.access.mapCta}（新しいタブで開く）`}
-                >
-                  {homePage.access.mapCta}
+              <p>cafe de lueee と同じ場所です。</p>
+              <p>札幌市電「山鼻9条駅」徒歩4分</p>
+            </div>
+            <div className="mashiro-contact-card">
+              <p>開催日は気軽にご利用ください。</p>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <a href={site.phoneHref}>{site.phone}</a>
+              <div>
+                <a href={site.map} target="_blank" rel="noopener noreferrer">
+                  Google Map
                 </a>
                 <a
-                  className="text-link light-link"
                   href={site.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Instagramを新しいタブで開く"
                 >
-                  Instagram →
+                  Instagram
                 </a>
               </div>
             </div>
-            <Image
-              src="/images/sukoyaka-storefront.jpg"
-              alt="すこやか食堂の店頭に掲示された利用案内"
-              width={1125}
-              height={2000}
-              sizes="(max-width: 760px) 100vw, 44vw"
-            />
           </div>
         </section>
       </main>

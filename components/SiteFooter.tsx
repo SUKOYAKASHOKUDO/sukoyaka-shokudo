@@ -1,13 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
-import { site } from "../content/siteContent";
+import { navigation, site } from "../content/siteContent";
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="shell footer-grid">
-        <div className="brand footer-brand">
-          <span className="brand-mark" aria-hidden="true">
-            す
+        <div className="brand footer-brand storybook-footer-brand">
+          <span className="storybook-footer-logo">
+            <Image
+              src="/images/brand/sukoyaka-official-logo.png"
+              alt="子ども食堂 すこやか食堂"
+              fill
+              sizes="94px"
+            />
           </span>
           <span>
             <strong>{site.name}</strong>
@@ -17,6 +23,7 @@ export function SiteFooter() {
 
         <div>
           <p>{site.shortAddress}</p>
+          <p>札幌市電「山鼻9条駅」徒歩4分</p>
           <p>
             <a href={`mailto:${site.email}`}>{site.email}</a>
             <span aria-hidden="true"> ／ </span>
@@ -27,15 +34,20 @@ export function SiteFooter() {
         </div>
 
         <nav className="footer-links" aria-label="フッターメニュー">
-          <Link href="/support">ご支援</Link>
-          <Link href="/columns">コラム</Link>
-          <Link href="/recipes">レシピ</Link>
+          {navigation.slice(0, 6).map((item) => (
+            <Link href={item.href} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
           <a
             href={site.instagram}
             target="_blank"
             rel="noopener noreferrer"
           >
             Instagram
+          </a>
+          <a href={site.line} target="_blank" rel="noopener noreferrer">
+            LINE
           </a>
         </nav>
       </div>
