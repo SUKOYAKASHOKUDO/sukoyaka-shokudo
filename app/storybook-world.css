@@ -828,15 +828,26 @@ body::selection {
 
 .mashiro-video-section {
   background:
-    radial-gradient(circle at 12% 68%, #fff 0 42px, transparent 43px),
+    radial-gradient(
+      circle at 8% 72%,
+      rgba(255, 255, 255, 0.58) 0 38px,
+      transparent 39px
+    ),
+    radial-gradient(
+      circle at 92% 20%,
+      rgba(255, 255, 255, 0.42) 0 52px,
+      transparent 53px
+    ),
     var(--storybook-sky-pale);
 }
 
 .mashiro-video-frame {
   overflow: hidden;
-  border: 7px solid #fff;
-  border-radius: 36px;
-  box-shadow: var(--storybook-shadow);
+  border: 5px solid rgba(255, 255, 255, 0.94);
+  border-radius: 32px;
+  box-shadow:
+    0 0 0 1px rgba(40, 126, 137, 0.16),
+    0 18px 42px rgba(42, 91, 97, 0.12);
 }
 
 .mashiro-support-preview {
@@ -1112,8 +1123,8 @@ body::selection {
 }
 
 .story-movie-heading {
-  max-width: 780px;
-  margin-bottom: 34px;
+  width: min(920px, 100%);
+  margin: 0 auto 34px;
 }
 
 .story-movie-heading > p:last-child {
@@ -1122,11 +1133,15 @@ body::selection {
 }
 
 .story-video-grid {
-  width: min(920px, 100%);
+  width: min(1120px, 100%);
+  margin-inline: auto;
 }
 
 .story-movie-link {
-  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  width: min(920px, 100%);
+  margin: 28px auto 0;
 }
 
 .story-home-link {
@@ -1508,6 +1523,14 @@ body::selection {
     box-shadow:
       0 0 0 4px rgba(255, 255, 255, 0.72),
       0 16px 34px rgba(65, 92, 94, 0.12);
+  }
+
+  .mashiro-video-frame {
+    border-width: 4px;
+    border-radius: 26px;
+    box-shadow:
+      0 0 0 1px rgba(40, 126, 137, 0.14),
+      0 14px 30px rgba(42, 91, 97, 0.1);
   }
 
   .mashiro-page-hero {
