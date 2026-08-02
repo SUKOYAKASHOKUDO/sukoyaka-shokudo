@@ -1582,8 +1582,8 @@ body::selection {
   background: #afe5ce;
   color: #076d80;
   font-family: var(--storybook-round);
-  grid-template-columns: 25% minmax(0, 1fr) 12%;
-  gap: 3%;
+  grid-template-columns: 24% minmax(0, 1fr) 11%;
+  gap: 2.5%;
   line-height: 1.35;
   pointer-events: auto;
   text-decoration: none;
@@ -1637,11 +1637,18 @@ body::selection {
 }
 
 .reference-card-replacement strong {
+  display: flex;
+  height: 100%;
   min-width: 0;
-  font-size: clamp(8px, 1.45vw, 24px);
+  align-items: center;
+  font-size: clamp(8px, 2vw, 29px);
   font-weight: 900;
-  line-height: 1.45;
-  text-wrap: balance;
+  letter-spacing: 0.035em;
+  line-height: 1.35;
+}
+
+.reference-card-replacement-story strong {
+  white-space: nowrap;
 }
 
 .reference-card-replacement-arrow {
@@ -2120,6 +2127,14 @@ body::selection {
 @media (max-width: 560px) {
   .reference-card-replacement {
     border-radius: 7px;
+  }
+
+  .reference-card-replacement strong {
+    line-height: 1.25;
+  }
+
+  .reference-card-replacement-story strong {
+    white-space: normal;
   }
 
   .reference-hotspot {
