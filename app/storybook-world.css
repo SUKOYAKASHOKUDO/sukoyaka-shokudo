@@ -1580,7 +1580,6 @@ body::selection {
   border: clamp(2px, 0.34vw, 6px) solid #fff;
   border-radius: 2.2vw;
   background: #afe5ce;
-  box-shadow: 0 clamp(2px, 0.55vw, 9px) 0 rgba(46, 148, 133, 0.2);
   color: #076d80;
   font-family: var(--storybook-round);
   grid-template-columns: 25% minmax(0, 1fr) 12%;
@@ -1622,15 +1621,11 @@ body::selection {
   overflow: visible;
 }
 
-.replacement-icon-heart {
-  fill: #f47c67;
-}
-
-.replacement-icon-hand {
-  fill: #f6c28e;
-  stroke: #ce8d55;
-  stroke-linejoin: round;
-  stroke-width: 2.4;
+.reference-card-replacement-icon .reference-card-heart-hands {
+  display: block;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
 }
 
 .replacement-icon-mic-body {

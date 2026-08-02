@@ -69,20 +69,14 @@ function ReplacementCardIcon({
 }) {
   if (name === "heartHands") {
     return (
-      <svg viewBox="0 0 96 96" aria-hidden="true">
-        <path
-          className="replacement-icon-heart"
-          d="M48 47C27 35 24 20 33 14c7-5 13-1 15 5 3-6 9-10 16-5 9 6 6 21-16 33Z"
-        />
-        <path
-          className="replacement-icon-hand"
-          d="M43 80c-10-4-20-9-28-16-4-4-5-9-3-12 2-3 6-2 9 1l9 7-10-16c-2-4-1-8 2-9 3-1 6 1 8 4l10 16 4-8c2-4 7-5 10-2 2 2 2 5 1 8l-5 14c-1 5-3 9-7 13Z"
-        />
-        <path
-          className="replacement-icon-hand"
-          d="M53 80c10-4 20-9 28-16 4-4 5-9 3-12-2-3-6-2-9 1l-9 7 10-16c2-4 1-8-2-9-3-1-6 1-8 4L56 55l-4-8c-2-4-7-5-10-2-2 2-2 5-1 8l5 14c1 5 3 9 7 13Z"
-        />
-      </svg>
+      <Image
+        className="reference-card-heart-hands"
+        src="/images/brand/support-heart-hands.png"
+        alt=""
+        width={256}
+        height={256}
+        unoptimized
+      />
     );
   }
 
