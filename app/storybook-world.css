@@ -1713,7 +1713,7 @@ body::selection {
 .partner-showcase-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 18px;
 }
 
 .partner-showcase-card {
@@ -1723,7 +1723,7 @@ body::selection {
   overflow: hidden;
   flex-direction: column;
   border: 1px solid rgba(49, 95, 90, 0.16);
-  border-radius: 34px;
+  border-radius: 28px;
   background:
     radial-gradient(circle at 88% 10%, rgba(184, 155, 86, 0.09), transparent 25%),
     linear-gradient(180deg, #fff 0%, #fffefb 68%, #faf7ee 100%);
@@ -1746,12 +1746,12 @@ body::selection {
 
 .partner-showcase-body {
   display: grid;
-  min-height: 520px;
+  min-height: 374px;
   flex: 1;
   grid-template-columns: 1fr;
   align-content: start;
-  gap: 26px;
-  padding: clamp(28px, 3.4vw, 42px) clamp(22px, 2.6vw, 34px);
+  gap: 14px;
+  padding: clamp(22px, 2.5vw, 30px) clamp(18px, 2vw, 26px);
 }
 
 .partner-logo-column {
@@ -1759,13 +1759,13 @@ body::selection {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 18px;
+  gap: 10px;
 }
 
 .partner-logo-arch {
   position: relative;
   display: grid;
-  width: min(190px, 72%);
+  width: min(132px, 54%);
   aspect-ratio: 1;
   overflow: hidden;
   place-items: center;
@@ -1781,7 +1781,7 @@ body::selection {
 
 .partner-logo-arch::after {
   position: absolute;
-  inset: 15px;
+  inset: 10px;
   border: 1px solid rgba(49, 95, 90, 0.24);
   border-radius: inherit;
   content: "";
@@ -1789,20 +1789,20 @@ body::selection {
 
 .partner-logo-arch img {
   object-fit: contain;
-  padding: 28px;
+  padding: 20px;
 }
 
 .partner-logo-arch span {
   z-index: 1;
   color: #315f5a;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(14px, 1.35vw, 19px);
+  font-size: clamp(11px, 1vw, 14px);
   letter-spacing: 0.12em;
 }
 
 .partner-card-label {
   color: #8b7139;
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.24em;
 }
@@ -1817,12 +1817,12 @@ body::selection {
 
 .partner-preview-badge {
   display: inline-flex;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   border: 1px solid rgba(184, 155, 86, 0.34);
   border-radius: 999px;
   background: linear-gradient(180deg, #fffefa, #f5f1e7);
-  padding: 7px 14px;
-  font-size: 12px;
+  padding: 5px 11px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
 }
@@ -1831,7 +1831,7 @@ body::selection {
   margin: 0;
   color: #467a75;
   font-family: var(--storybook-round);
-  font-size: clamp(28px, 2.8vw, 40px);
+  font-size: clamp(25px, 2.3vw, 33px);
   font-weight: 900;
   letter-spacing: 0.04em;
   line-height: 1.22;
@@ -1842,8 +1842,8 @@ body::selection {
   position: relative;
   display: block;
   width: 1px;
-  height: 42px;
-  margin: 20px 0;
+  height: 24px;
+  margin: 12px 0;
   background: linear-gradient(#467a75, #b89b56);
 }
 
@@ -1860,31 +1860,36 @@ body::selection {
 }
 
 .partner-showcase-copy p {
+  display: -webkit-box;
   max-width: 610px;
   margin: 0;
+  overflow: hidden;
   color: #496562;
-  line-height: 1.9;
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 1.75;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 .partner-showcase-copy small {
-  margin-top: 22px;
+  margin-top: 12px;
   color: #467a75;
   font-weight: 800;
+  font-size: 10px;
   letter-spacing: 0.05em;
 }
 
 .partner-showcase-footer {
   position: relative;
   display: flex;
-  min-height: 94px;
+  min-height: 70px;
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
   gap: 8px;
   background: linear-gradient(135deg, #3d706b, #527f79);
   color: #fff;
-  padding: 20px clamp(22px, 2.6vw, 34px);
+  padding: 14px clamp(18px, 2vw, 26px);
 }
 
 .partner-showcase-footer::before {
@@ -1899,7 +1904,7 @@ body::selection {
 
 .partner-showcase-footer strong {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(20px, 2vw, 27px);
+  font-size: clamp(18px, 1.65vw, 23px);
   font-style: italic;
   font-weight: 500;
 }
@@ -1907,7 +1912,7 @@ body::selection {
 .partner-showcase-footer a,
 .partner-showcase-footer span {
   color: inherit;
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.12em;
   overflow-wrap: anywhere;
@@ -1977,7 +1982,7 @@ body::selection {
   }
 
   .partner-logo-arch {
-    width: min(210px, 64vw);
+    width: min(150px, 48vw);
   }
 }
 
