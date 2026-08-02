@@ -81,16 +81,14 @@ function ReplacementCardIcon({
   }
 
   return (
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <path
-        className="replacement-icon-partner-building"
-        d="M22 78V37l26-15 26 15v41M15 78h66M32 45h9v9h-9zm23 0h9v9h-9zM32 62h9v9h-9zm23 0h9v9h-9z"
-      />
-      <path
-        className="replacement-icon-partner-heart"
-        d="M48 35c-5-7-14-3-14 4 0 7 14 15 14 15s14-8 14-15c0-7-9-11-14-4Z"
-      />
-    </svg>
+    <Image
+      className="reference-card-partner-icon"
+      src="/images/brand/support-partners-house-heart.png"
+      alt=""
+      width={447}
+      height={447}
+      unoptimized
+    />
   );
 }
 

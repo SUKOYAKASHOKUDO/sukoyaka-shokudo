@@ -1628,19 +1628,12 @@ body::selection {
   object-fit: contain;
 }
 
-.replacement-icon-partner-building {
-  fill: none;
-  stroke: #24776f;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 5;
-}
-
-.replacement-icon-partner-heart {
-  fill: #f58a74;
-  stroke: #24776f;
-  stroke-linejoin: round;
-  stroke-width: 3;
+.reference-card-replacement-icon .reference-card-partner-icon {
+  display: block;
+  width: 86%;
+  height: 86%;
+  border-radius: 50%;
+  object-fit: contain;
 }
 
 .reference-card-replacement strong {
