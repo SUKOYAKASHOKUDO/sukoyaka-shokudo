@@ -42,7 +42,15 @@ export default function SupportPage() {
               <div className="mashiro-prose">
                 <p className="mashiro-kicker">THANK YOU</p>
                 <h2>ご支援について</h2>
-                {legacySupport.message.map((paragraph) => (
+                {legacySupport.message.slice(0, 3).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+                <ul className="mashiro-support-methods">
+                  {legacySupport.methods.map((method) => (
+                    <li key={method}>{method}</li>
+                  ))}
+                </ul>
+                {legacySupport.message.slice(3).map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
