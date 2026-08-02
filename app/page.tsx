@@ -13,45 +13,6 @@ import {
   youtubeVideos,
 } from "../content/siteContent";
 
-const gateways = [
-  {
-    number: "01",
-    href: "/about",
-    label: "すこやか食堂について",
-    sub: "思いと、目指している場所",
-  },
-  {
-    number: "02",
-    href: "/schedule",
-    label: "日程とメニュー",
-    sub: "開催日時と献立のご案内",
-  },
-  {
-    number: "03",
-    href: "/team",
-    label: "私たち・ボランティア",
-    sub: "運営メンバーと参加方法",
-  },
-  {
-    number: "04",
-    href: "/support",
-    label: "ご支援",
-    sub: "食材・物品・寄付について",
-  },
-  {
-    number: "05",
-    href: "/columns",
-    label: "活動記録",
-    sub: "食堂の日々を伝える記録",
-  },
-  {
-    number: "06",
-    href: "/recipes",
-    label: "レシピ・食育",
-    sub: "親子で楽しめる料理",
-  },
-] as const;
-
 export default function Home() {
   return (
     <>
@@ -130,31 +91,6 @@ export default function Home() {
                 すこやか食堂の思いを読む
                 <span aria-hidden="true">↗</span>
               </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="mashiro-section mashiro-gateway-section">
-          <div className="shell">
-            <div className="mashiro-section-title">
-              <div>
-                <p className="mashiro-kicker">CHOOSE YOUR PAGE</p>
-                <h2>知りたいことを、ひとつの画面から。</h2>
-              </div>
-              <p>
-                メニューを閉じ込めず、すべての入口をいつでも見える場所に置きました。
-              </p>
-            </div>
-
-            <div className="mashiro-gateway-grid">
-              {gateways.map((item) => (
-                <Link href={item.href} key={item.href}>
-                  <span>{item.number}</span>
-                  <strong>{item.label}</strong>
-                  <small>{item.sub}</small>
-                  <i aria-hidden="true">↗</i>
-                </Link>
-              ))}
             </div>
           </div>
         </section>
