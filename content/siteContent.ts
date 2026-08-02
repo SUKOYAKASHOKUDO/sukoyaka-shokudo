@@ -220,6 +220,17 @@ export type Sponsor = {
 // 運営者から掲載許可を得た企業・団体・支援者のみ追加してください。
 export const sponsors: Sponsor[] = [];
 
+export type CommunityPartner = {
+  name: string;
+  summary: string;
+  url: string;
+  logo?: string;
+  supportLabel?: string;
+};
+
+// 会社情報・ロゴ・URLの掲載許可を確認できた企業のみ追加してください。
+export const communityPartners: CommunityPartner[] = [];
+
 export const supportBankAccount = {
   bankName: "北海道銀行",
   branchName: "薄野支店",

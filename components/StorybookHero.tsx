@@ -56,9 +56,9 @@ const replacementCards = [
   },
   {
     className: "reference-card-replacement-story",
-    href: "/story",
-    label: "すこやか食堂を知る",
-    icon: "microphone",
+    href: "/partners",
+    label: "応援企業のご紹介",
+    icon: "partnerBuilding",
   },
 ] as const;
 
@@ -82,21 +82,14 @@ function ReplacementCardIcon({
 
   return (
     <svg viewBox="0 0 96 96" aria-hidden="true">
-      <g transform="rotate(42 48 48)">
-        <rect
-          className="replacement-icon-mic-body"
-          x="35"
-          y="8"
-          width="26"
-          height="50"
-          rx="13"
-        />
-        <path
-          className="replacement-icon-mic-line"
-          d="M28 42v4c0 12 9 21 20 21s20-9 20-21v-4M48 67v16M36 83h24"
-        />
-        <path className="replacement-icon-mic-shine" d="M43 16c-4 2-6 6-6 11" />
-      </g>
+      <path
+        className="replacement-icon-partner-building"
+        d="M22 78V37l26-15 26 15v41M15 78h66M32 45h9v9h-9zm23 0h9v9h-9zM32 62h9v9h-9zm23 0h9v9h-9z"
+      />
+      <path
+        className="replacement-icon-partner-heart"
+        d="M48 35c-5-7-14-3-14 4 0 7 14 15 14 15s14-8 14-15c0-7-9-11-14-4Z"
+      />
     </svg>
   );
 }

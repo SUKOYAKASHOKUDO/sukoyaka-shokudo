@@ -5,6 +5,7 @@ import { MashiroPageHero } from "../../components/MashiroPageHero";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { legacyAbout } from "../../content/legacyContent";
+import { site, storyPage, youtubeVideos } from "../../content/siteContent";
 
 export const metadata: Metadata = {
   title: "すこやか食堂について｜代表の思い",
@@ -114,6 +115,54 @@ export default function AboutPage() {
               <p className="mashiro-small-note">
                 上記は旧公式サイトの文章をそのまま引き継いだアーカイブ情報です。統計や制度の最新状況は各引用元をご確認ください。
               </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mashiro-section story-interview-section">
+          <div className="shell story-reading-grid">
+            <div>
+              <p className="mashiro-kicker">{storyPage.interview.eyebrow}</p>
+              <h2>{storyPage.interview.title}</h2>
+            </div>
+            <div className="story-interview-pending" role="note">
+              <strong>{storyPage.interview.status}</strong>
+              <p>{storyPage.interview.notice}</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mashiro-section mashiro-video-section story-movie-section">
+          <div className="shell">
+            <div className="story-movie-heading">
+              <p className="mashiro-kicker">{storyPage.movie.eyebrow}</p>
+              <h2>{storyPage.movie.title}</h2>
+              <p>{storyPage.movie.description}</p>
+            </div>
+            <div className="story-video-grid">
+              {youtubeVideos.map((video) => (
+                <div className="mashiro-video-frame" key={video.id}>
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+                    title={video.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="story-movie-link">
+              <a
+                className="mashiro-button"
+                href={site.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTubeで動画を見る
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
         </section>
