@@ -48,10 +48,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: {
-      url: "/images/brand/sukoyaka-official-logo.png",
-      type: "image/png",
+      url: "/favicon.svg",
+      type: "image/svg+xml",
     },
-    shortcut: "/images/brand/sukoyaka-official-logo.png",
+    shortcut: "/favicon.svg",
   },
 };
 

@@ -140,7 +140,7 @@ export default function Home() {
             </div>
             <figure className="mashiro-menu-art">
               <Image
-                src="/images/legacy/legacy-menu-plan.png"
+                src="/images/legacy/legacy-menu-plan.webp"
                 alt="カレーライスのイラスト"
                 width={1238}
                 height={1239}

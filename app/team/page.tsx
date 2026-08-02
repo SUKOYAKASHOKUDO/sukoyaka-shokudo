@@ -32,7 +32,7 @@ export default function TeamPage() {
           <div className="shell mashiro-editorial-grid">
             <figure className="mashiro-editorial-photo">
               <Image
-                src="/images/legacy/legacy-member-02.jpg"
+                src="/images/legacy/legacy-member-02.webp"
                 alt="食育ランチクッキングに参加したメンバー"
                 fill
                 priority

@@ -55,7 +55,7 @@ export default function SchedulePage() {
             </div>
             <figure className="mashiro-menu-figure">
               <Image
-                src="/images/legacy/legacy-menu-plan.png"
+                src="/images/legacy/legacy-menu-plan.webp"
                 alt="カレーライスのイラスト"
                 width={1238}
                 height={1239}

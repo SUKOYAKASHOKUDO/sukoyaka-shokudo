@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="shell mashiro-editorial-grid">
             <figure className="mashiro-editorial-photo">
               <Image
-                src="/images/legacy/legacy-photo-01.jpg"
+                src="/images/legacy/legacy-photo-01.webp"
                 alt="すこやか食堂で食卓を囲む子どもたち"
                 fill
                 sizes="(max-width: 900px) 92vw, 45vw"
@@ -60,7 +60,7 @@ export default function AboutPage() {
             </div>
             <figure className="mashiro-editorial-photo mashiro-portrait-layout">
               <Image
-                src="/images/legacy/legacy-photo-02.jpg"
+                src="/images/legacy/legacy-photo-02.webp"
                 alt="すこやか食堂の店舗前に立つ運営スタッフ"
                 fill
                 sizes="(max-width: 900px) 92vw, 40vw"

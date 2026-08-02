@@ -9,13 +9,13 @@ export const legacySource = {
 
 export const legacyImages = [
   {
-    src: "/images/legacy/legacy-photo-01.jpg",
+    src: "/images/legacy/legacy-photo-01.webp",
     alt: "すこやか食堂で食卓を囲む子どもたち",
     caption: "みんなで囲む、すこやか食堂の食卓",
     kind: "photo",
   },
   {
-    src: "/images/legacy/legacy-photo-02.jpg",
+    src: "/images/legacy/legacy-photo-02.webp",
     alt: "すこやか食堂の店舗前に立つ運営スタッフ",
     caption: "店舗前で迎える運営スタッフ",
     kind: "portrait",
@@ -33,7 +33,7 @@ export const legacyImages = [
     kind: "artwork",
   },
   {
-    src: "/images/legacy/legacy-logo-2023.png",
+    src: "/images/legacy/legacy-logo-2023.webp",
     alt: "日記帳と鉛筆のイラスト",
     caption: "日々の活動を記録していきます",
     kind: "artwork",
@@ -45,13 +45,13 @@ export const legacyImages = [
     kind: "icon",
   },
   {
-    src: "/images/legacy/legacy-member-02.jpg",
+    src: "/images/legacy/legacy-member-02.webp",
     alt: "食育ランチクッキングに参加したメンバー",
     caption: "食育ランチクッキングのメンバー",
     kind: "photo",
   },
   {
-    src: "/images/legacy/legacy-member-03.jpg",
+    src: "/images/legacy/legacy-member-03.webp",
     alt: "カレーとサラダ、汁物、果物の献立",
     caption: "協賛食材も活かして完成した献立",
     kind: "photo",
@@ -75,7 +75,7 @@ export const legacyImages = [
     kind: "strip",
   },
   {
-    src: "/images/legacy/legacy-menu-plan.png",
+    src: "/images/legacy/legacy-menu-plan.webp",
     alt: "カレーライスのイラスト",
     caption: "当日の献立はInstagramでお知らせします",
     kind: "artwork",

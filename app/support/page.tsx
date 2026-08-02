@@ -48,7 +48,7 @@ export default function SupportPage() {
               </div>
               <figure>
                 <Image
-                  src="/images/legacy/legacy-member-03.jpg"
+                  src="/images/legacy/legacy-member-03.webp"
                   alt="カレーとサラダ、汁物、果物の献立"
                   fill
                   sizes="(max-width: 900px) 92vw, 42vw"

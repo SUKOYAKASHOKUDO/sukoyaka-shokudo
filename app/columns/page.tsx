@@ -38,7 +38,7 @@ export default function ColumnsPage() {
           <div className="shell mashiro-editorial-grid">
             <div className="mashiro-blog-art">
               <Image
-                src="/images/legacy/legacy-logo-2023.png"
+                src="/images/legacy/legacy-logo-2023.webp"
                 alt="日記帳と鉛筆のイラスト"
                 width={1500}
                 height={800}
