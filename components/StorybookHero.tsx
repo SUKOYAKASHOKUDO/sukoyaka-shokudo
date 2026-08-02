@@ -52,15 +52,60 @@ const replacementCards = [
     className: "reference-card-replacement-support",
     href: "/support",
     label: "すこやか食堂を応援する",
-    icon: "🤝",
+    icon: "heartHands",
   },
   {
     className: "reference-card-replacement-story",
     href: "/story",
     label: "すこやか食堂を知る",
-    icon: "🎤",
+    icon: "microphone",
   },
 ] as const;
+
+function ReplacementCardIcon({
+  name,
+}: {
+  name: (typeof replacementCards)[number]["icon"];
+}) {
+  if (name === "heartHands") {
+    return (
+      <svg viewBox="0 0 96 96" aria-hidden="true">
+        <path
+          className="replacement-icon-heart"
+          d="M48 47C27 35 24 20 33 14c7-5 13-1 15 5 3-6 9-10 16-5 9 6 6 21-16 33Z"
+        />
+        <path
+          className="replacement-icon-hand"
+          d="M43 80c-10-4-20-9-28-16-4-4-5-9-3-12 2-3 6-2 9 1l9 7-10-16c-2-4-1-8 2-9 3-1 6 1 8 4l10 16 4-8c2-4 7-5 10-2 2 2 2 5 1 8l-5 14c-1 5-3 9-7 13Z"
+        />
+        <path
+          className="replacement-icon-hand"
+          d="M53 80c10-4 20-9 28-16 4-4 5-9 3-12-2-3-6-2-9 1l-9 7 10-16c2-4 1-8-2-9-3-1-6 1-8 4L56 55l-4-8c-2-4-7-5-10-2-2 2-2 5-1 8l5 14c1 5 3 9 7 13Z"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <g transform="rotate(42 48 48)">
+        <rect
+          className="replacement-icon-mic-body"
+          x="35"
+          y="8"
+          width="26"
+          height="50"
+          rx="13"
+        />
+        <path
+          className="replacement-icon-mic-line"
+          d="M28 42v4c0 12 9 21 20 21s20-9 20-21v-4M48 67v16M36 83h24"
+        />
+        <path className="replacement-icon-mic-shine" d="M43 16c-4 2-6 6-6 11" />
+      </g>
+    </svg>
+  );
+}
 
 export function StorybookHero() {
   return (
@@ -124,7 +169,7 @@ export function StorybookHero() {
               key={card.label}
             >
               <span className="reference-card-replacement-icon" aria-hidden="true">
-                {card.icon}
+                <ReplacementCardIcon name={card.icon} />
               </span>
               <strong>{card.label}</strong>
               <span className="reference-card-replacement-arrow" aria-hidden="true">

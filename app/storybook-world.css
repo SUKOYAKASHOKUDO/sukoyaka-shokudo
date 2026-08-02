@@ -1577,8 +1577,10 @@ body::selection {
   display: grid;
   align-items: center;
   overflow: hidden;
+  border: clamp(2px, 0.34vw, 6px) solid #fff;
   border-radius: 2.2vw;
   background: #afe5ce;
+  box-shadow: 0 clamp(2px, 0.55vw, 9px) 0 rgba(46, 148, 133, 0.2);
   color: #076d80;
   font-family: var(--storybook-round);
   grid-template-columns: 25% minmax(0, 1fr) 12%;
@@ -1589,17 +1591,17 @@ body::selection {
 }
 
 .reference-card-replacement-support {
-  top: 64.1%;
-  left: 66.25%;
-  width: 30.1%;
-  height: 15.25%;
+  top: 63.25%;
+  left: 65.55%;
+  width: 31.55%;
+  height: 17.2%;
 }
 
 .reference-card-replacement-story {
-  top: 83.05%;
-  left: 66.25%;
-  width: 30.1%;
-  height: 12.85%;
+  top: 82.25%;
+  left: 65.55%;
+  width: 31.55%;
+  height: 14.65%;
 }
 
 .reference-card-replacement-icon {
@@ -1610,8 +1612,46 @@ body::selection {
   place-items: center;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
-  font-size: clamp(15px, 3.1vw, 50px);
   line-height: 1;
+}
+
+.reference-card-replacement-icon svg {
+  display: block;
+  width: 82%;
+  height: 82%;
+  overflow: visible;
+}
+
+.replacement-icon-heart {
+  fill: #f47c67;
+}
+
+.replacement-icon-hand {
+  fill: #f6c28e;
+  stroke: #ce8d55;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+}
+
+.replacement-icon-mic-body {
+  fill: #d8dde0;
+  stroke: #1f3339;
+  stroke-width: 5;
+}
+
+.replacement-icon-mic-line {
+  fill: none;
+  stroke: #1f3339;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 6;
+}
+
+.replacement-icon-mic-shine {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-width: 4;
 }
 
 .reference-card-replacement strong {
