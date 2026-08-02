@@ -5,7 +5,6 @@ import { StorybookHero } from "../components/StorybookHero";
 import {
   legacyAbout,
   legacyFaqs,
-  legacyImages,
   legacySchedule,
 } from "../content/legacyContent";
 import { site, sponsors, youtubeVideos } from "../content/siteContent";
@@ -151,42 +150,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mashiro-section mashiro-gallery-section">
-          <div className="shell">
-            <div className="mashiro-section-title">
-              <div>
-                <p className="mashiro-kicker">LEGACY PHOTO ARCHIVE</p>
-                <h2>旧サイトから受け継いだ、活動の記録。</h2>
-              </div>
-              <p>
-                写真・イラストは、権利確認済みの旧公式サイト元画像のみを使用しています。
-              </p>
-            </div>
-
-            <div className="mashiro-gallery">
-              {legacyImages.map((image, index) => (
-                <figure
-                  className={`mashiro-gallery-item mashiro-gallery-${image.kind}`}
-                  key={image.src}
-                >
-                  <div className="mashiro-gallery-media">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes="(max-width: 700px) 92vw, (max-width: 1100px) 45vw, 30vw"
-                    />
-                  </div>
-                  <figcaption>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    {image.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="mashiro-section mashiro-video-section">
           <div className="shell mashiro-video-grid">
             <div>
@@ -226,11 +189,13 @@ export default function Home() {
                 <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <div className="mashiro-sponsor-strip" aria-label="協賛企業・支援者">
-              {sponsors.map((sponsor) => (
-                <span key={sponsor.name}>{sponsor.name}</span>
-              ))}
-            </div>
+            {sponsors.length > 0 ? (
+              <div className="mashiro-sponsor-strip" aria-label="協賛企業・支援者">
+                {sponsors.map((sponsor) => (
+                  <span key={sponsor.name}>{sponsor.name}</span>
+                ))}
+              </div>
+            ) : null}
           </div>
         </section>
 

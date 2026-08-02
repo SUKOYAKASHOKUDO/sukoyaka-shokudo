@@ -78,10 +78,10 @@ export function StorybookHero() {
 
         <span className="reference-design-logo-swap" aria-hidden="true">
           <Image
-            src="/images/brand/sukoyaka-official-logo.png"
+            src="/images/brand/sukoyaka-onigiri-logo-transparent-clean.png"
             alt=""
-            width={1254}
-            height={1254}
+            width={1097}
+            height={731}
             priority
             unoptimized
             draggable={false}

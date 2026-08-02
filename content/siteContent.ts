@@ -199,38 +199,7 @@ export type Sponsor = {
 };
 
 // 運営者から掲載許可を得た企業・団体・支援者のみ追加してください。
-export const sponsors: Sponsor[] = [
-  { name: "有限会社日本マスターリンク社様", support: "お米、卵" },
-  { name: "株式会社明治様", support: "チョコレート、グミなど" },
-  { name: "きちのせ株式会社様", support: "食器" },
-  { name: "株式会社INNOVEGG様", support: "枝幸産の毛蟹" },
-  { name: "株式会社ダスキン中嶋様", support: "お掃除用品" },
-  { name: "株式会社かめはたリカーズ様", support: "飲料" },
-  {
-    name: "株式会社YOKI 代表取締役佐藤様",
-    support: "飲料",
-  },
-  { name: "合同会社KEL 高橋様", support: "中華おこわ" },
-  { name: "一家水産様", support: "厚岸産のあさり" },
-  {
-    name: "株式会社エフエー天内様",
-    support: "野菜や果物、お米",
-  },
-  { name: "サリーズカップケーキ様", support: "カップケーキ" },
-  {
-    name: "株式会社TASKAL様",
-    support: "野菜、お肉、ヨーグルト",
-  },
-  { name: "キープグループ小林様", support: "お米" },
-  { name: "株式会社ホームエージェント 中川様", support: "お米" },
-  { name: "土屋様", support: "鶏肉、調味料" },
-  { name: "株式会社pit様", support: "お米" },
-  { name: "One's Own Master様", support: "飲料" },
-  { name: "株式会社札幌春木商店様", support: "海鮮、絵本" },
-  { name: "株式会社さがみ屋様", support: "ラーメンの麺" },
-  { name: "株式会社亀井精肉店様", support: "お肉、ハム" },
-  { name: "MarcheJapan株式会社様", support: "クリームシチュー" },
-];
+export const sponsors: Sponsor[] = [];
 
 export const supportBankAccount = {
   bankName: "北海道銀行",

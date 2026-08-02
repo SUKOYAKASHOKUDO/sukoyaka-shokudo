@@ -146,10 +146,10 @@ export function SiteHeader() {
           aria-label={`${site.name} トップへ`}
         >
           <Image
-            src="/images/brand/sukoyaka-official-logo.png"
+            src="/images/brand/sukoyaka-onigiri-logo-transparent-clean.png"
             alt="子ども食堂 すこやか食堂"
-            width={1254}
-            height={1254}
+            width={1097}
+            height={731}
             priority
             sizes="(max-width: 760px) 82px, 118px"
           />

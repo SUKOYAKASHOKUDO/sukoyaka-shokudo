@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div className="brand footer-brand storybook-footer-brand">
           <span className="storybook-footer-logo">
             <Image
-              src="/images/brand/sukoyaka-official-logo.png"
+              src="/images/brand/sukoyaka-onigiri-logo-transparent-clean.png"
               alt="子ども食堂 すこやか食堂"
               fill
               sizes="94px"
