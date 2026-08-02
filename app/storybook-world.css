@@ -1565,89 +1565,79 @@ body::selection {
   z-index: 2;
 }
 
-.reference-card-grid {
+.reference-card-replacements {
   position: absolute;
-  top: 63.4%;
-  left: 3.1%;
+  inset: 0;
   z-index: 3;
-  display: grid;
-  width: 93.8%;
-  height: 33.2%;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 6.9% 1.6%;
+  pointer-events: none;
 }
 
-.reference-feature-card {
+.reference-card-replacement {
+  position: absolute;
   display: grid;
-  min-width: 0;
   align-items: center;
   overflow: hidden;
-  border: clamp(2px, 0.4vw, 6px) solid rgba(255, 255, 255, 0.96);
-  border-radius: clamp(12px, 2vw, 34px);
-  padding: clamp(5px, 1.1vw, 18px);
-  grid-template-columns: minmax(34px, 25%) minmax(0, 1fr) minmax(22px, 12%);
-  gap: clamp(4px, 0.8vw, 14px);
-  color: #096a7d;
+  border-radius: 2.2vw;
+  background: #afe5ce;
+  color: #076d80;
   font-family: var(--storybook-round);
+  grid-template-columns: 25% minmax(0, 1fr) 12%;
+  gap: 3%;
   line-height: 1.35;
+  pointer-events: auto;
   text-decoration: none;
-  box-shadow: 0 10px 24px rgba(31, 115, 124, 0.13);
 }
 
-.reference-feature-card:nth-child(3n + 1) {
-  background: linear-gradient(135deg, #ffe68c, #ffd15a);
+.reference-card-replacement-support {
+  top: 64.1%;
+  left: 66.25%;
+  width: 30.1%;
+  height: 15.25%;
 }
 
-.reference-feature-card:nth-child(3n + 2) {
-  background: linear-gradient(135deg, #ffad94, #ff846b);
+.reference-card-replacement-story {
+  top: 83.05%;
+  left: 66.25%;
+  width: 30.1%;
+  height: 12.85%;
 }
 
-.reference-feature-card:nth-child(3n) {
-  background: linear-gradient(135deg, #c8f0dd, #9edfc3);
-}
-
-.reference-feature-card:hover,
-.reference-feature-card:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(31, 115, 124, 0.2);
-}
-
-.reference-feature-card:focus-visible {
-  outline: 4px solid #0a7284;
-  outline-offset: -4px;
-}
-
-.reference-feature-icon {
+.reference-card-replacement-icon {
   display: grid;
-  width: clamp(32px, 5vw, 76px);
+  width: 72%;
   aspect-ratio: 1;
+  justify-self: center;
   place-items: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  font-size: clamp(20px, 3.5vw, 52px);
+  background: rgba(255, 255, 255, 0.92);
+  font-size: clamp(15px, 3.1vw, 50px);
   line-height: 1;
 }
 
-.reference-feature-card strong {
+.reference-card-replacement strong {
   min-width: 0;
-  font-size: clamp(10px, 1.55vw, 25px);
+  font-size: clamp(8px, 1.45vw, 24px);
   font-weight: 900;
-  line-height: 1.4;
+  line-height: 1.45;
   text-wrap: balance;
 }
 
-.reference-feature-arrow {
+.reference-card-replacement-arrow {
   display: grid;
-  width: clamp(22px, 2.7vw, 42px);
+  width: 72%;
   aspect-ratio: 1;
   place-items: center;
   border-radius: 50%;
   background: #fff;
   color: #ed765d;
-  font-size: clamp(20px, 2.5vw, 38px);
+  font-size: clamp(15px, 2.3vw, 36px);
   font-weight: 900;
   line-height: 1;
+}
+
+.reference-card-replacement:focus-visible {
+  outline: 4px solid #0a7284;
+  outline-offset: -4px;
 }
 
 .reference-hotspot {
@@ -1766,54 +1756,8 @@ body::selection {
 }
 
 @media (max-width: 560px) {
-  .reference-design-frame {
-    padding-bottom: calc(230px - 20.6vw);
-  }
-
-  .reference-design-image {
-    clip-path: inset(0 0 36.6% 0);
-  }
-
-  .reference-card-grid {
-    top: 35.7vw;
-    left: 14px;
-    width: calc(100% - 28px);
-    height: 230px;
-    gap: 8px;
-  }
-
-  .reference-feature-card {
-    min-height: 0;
-    border-radius: 14px;
-    padding: 5px;
-    grid-template-columns: minmax(0, 1fr) 18px;
-    grid-template-rows: 26px minmax(0, 1fr);
-    gap: 2px 3px;
-  }
-
-  .reference-feature-icon {
-    width: 26px;
-    grid-column: 1 / -1;
-    grid-row: 1;
-    justify-self: center;
-    font-size: 16px;
-  }
-
-  .reference-feature-card strong {
-    grid-column: 1;
-    grid-row: 2;
-    align-self: center;
-    font-size: clamp(10px, 3.3vw, 14px);
-    line-height: 1.35;
-    text-align: center;
-  }
-
-  .reference-feature-arrow {
-    width: 18px;
-    grid-column: 2;
-    grid-row: 2;
-    align-self: center;
-    font-size: 17px;
+  .reference-card-replacement {
+    border-radius: 7px;
   }
 
   .reference-hotspot {
