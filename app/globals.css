@@ -4008,6 +4008,12 @@ section[id] {
   line-height: 2.05;
 }
 
+.mashiro-support-methods {
+  margin: 4px 0 24px;
+  padding-left: 1.4em;
+  line-height: 2;
+}
+
 .mashiro-prose-large > p:not(.mashiro-kicker) {
   font-size: 15px;
 }
