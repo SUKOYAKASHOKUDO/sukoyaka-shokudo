@@ -1731,6 +1731,12 @@ body::selection {
   white-space: nowrap;
 }
 
+.reference-card-replacement-support strong {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .reference-card-replacement-arrow {
   display: grid;
   width: 72%;

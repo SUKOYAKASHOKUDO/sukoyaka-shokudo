@@ -52,12 +52,14 @@ const replacementCards = [
     className: "reference-card-replacement-support",
     href: "/support",
     label: "すこやか食堂を応援する",
+    lines: ["すこやか食堂を", "応援する"],
     icon: "heartHands",
   },
   {
     className: "reference-card-replacement-story",
     href: "/partners",
     label: "応援企業のご紹介",
+    lines: ["応援企業のご紹介"],
     icon: "partnerBuilding",
   },
 ] as const;
@@ -156,7 +158,11 @@ export function StorybookHero() {
               <span className="reference-card-replacement-icon" aria-hidden="true">
                 <ReplacementCardIcon name={card.icon} />
               </span>
-              <strong>{card.label}</strong>
+              <strong>
+                {card.lines.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </strong>
               <span className="reference-card-replacement-arrow" aria-hidden="true">
                 ›
               </span>
