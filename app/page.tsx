@@ -4,7 +4,6 @@ import { StorybookHero } from "../components/StorybookHero";
 import {
   legacyAbout,
   legacyFaqs,
-  legacySchedule,
 } from "../content/legacyContent";
 import {
   site,
@@ -90,26 +89,6 @@ export default function Home() {
               <Link className="mashiro-arrow-link" href="/about">
                 すこやか食堂の思いを読む
                 <span aria-hidden="true">↗</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="mashiro-section mashiro-schedule-preview" id="schedule">
-          <div className="shell mashiro-schedule-grid mashiro-schedule-text-only">
-            <div>
-              <p className="mashiro-kicker">SCHEDULE &amp; MENU</p>
-              <h2>開催予定</h2>
-              <div className="mashiro-schedule-lines">
-                {legacySchedule.recurring.map((line) => (
-                  <p key={line}>{line}</p>
-                ))}
-              </div>
-              <p className="mashiro-muted">{legacySchedule.notices[0]}</p>
-              <p className="mashiro-muted">{legacySchedule.notices[1]}</p>
-              <Link className="mashiro-button" href="/schedule">
-                日程とメニューの詳細
-                <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
