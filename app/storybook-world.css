@@ -617,9 +617,31 @@ body::selection {
 
 .mashiro-intro {
   background:
-    radial-gradient(circle at 8% 20%, #fff 0 36px, transparent 37px),
-    radial-gradient(circle at 91% 72%, #fff 0 44px, transparent 45px),
-    linear-gradient(180deg, #fffdf6, #fff7df);
+    radial-gradient(
+      circle at 96% 15%,
+      rgba(190, 223, 226, 0.66) 0 72px,
+      transparent 73px
+    ),
+    radial-gradient(
+      circle at 3% 82%,
+      rgba(239, 184, 118, 0.52) 0 62px,
+      transparent 63px
+    ),
+    linear-gradient(145deg, #fffdf8 0%, #fff8ea 58%, #fdf4e4 100%);
+}
+
+.mashiro-intro .mashiro-section-index {
+  justify-content: flex-start;
+  border-top-color: rgba(0, 101, 116, 0.18);
+  padding-top: 20px;
+}
+
+.mashiro-intro .mashiro-section-index span {
+  color: var(--storybook-teal-deep);
+  font-family: var(--storybook-round);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
 }
 
 .mashiro-intro-grid,
@@ -667,6 +689,19 @@ body::selection {
 
 .mashiro-statement p {
   line-height: 1.9;
+}
+
+.mashiro-intro .mashiro-statement {
+  border: 2px solid rgba(116, 188, 196, 0.72);
+  border-radius: 30px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 254, 250, 0.98),
+    rgba(255, 251, 243, 0.96)
+  );
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.76),
+    0 22px 48px rgba(65, 92, 94, 0.14);
 }
 
 .mashiro-section-index strong {
@@ -1451,6 +1486,28 @@ body::selection {
   .mashiro-contact-card {
     padding: 24px;
     border-radius: 27px;
+  }
+
+  .mashiro-intro {
+    background:
+      radial-gradient(
+        circle at 104% 10%,
+        rgba(190, 223, 226, 0.56) 0 54px,
+        transparent 55px
+      ),
+      radial-gradient(
+        circle at -8% 88%,
+        rgba(239, 184, 118, 0.42) 0 48px,
+        transparent 49px
+      ),
+      linear-gradient(145deg, #fffdf8 0%, #fff8ea 100%);
+  }
+
+  .mashiro-intro .mashiro-statement {
+    border-radius: 24px;
+    box-shadow:
+      0 0 0 4px rgba(255, 255, 255, 0.72),
+      0 16px 34px rgba(65, 92, 94, 0.12);
   }
 
   .mashiro-page-hero {

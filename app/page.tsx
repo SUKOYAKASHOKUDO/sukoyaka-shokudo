@@ -115,7 +115,6 @@ export default function Home() {
           <div className="shell mashiro-intro-grid">
             <div className="mashiro-section-index">
               <span>OUR MESSAGE</span>
-              <strong>01</strong>
             </div>
             <div className="mashiro-statement">
               <p>{legacyAbout.opening[0]}</p>
