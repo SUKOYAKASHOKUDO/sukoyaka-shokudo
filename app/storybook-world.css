@@ -1229,6 +1229,7 @@ body::selection {
 
 .footer-links a {
   border-bottom-color: rgba(255, 255, 255, 0.32);
+  white-space: nowrap;
 }
 
 @media (max-width: 1180px) {

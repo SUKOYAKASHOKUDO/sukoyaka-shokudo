@@ -30,7 +30,6 @@ export function SiteFooter() {
             <a href={site.phoneHref}>{site.phone}</a>
           </p>
           <p>{site.informationNote}</p>
-          <p className="source-date">{site.sourceCheckedAt}</p>
         </div>
 
         <nav className="footer-links" aria-label="フッターメニュー">
