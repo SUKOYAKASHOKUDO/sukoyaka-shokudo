@@ -1722,8 +1722,8 @@ body::selection {
   min-width: 0;
   overflow: hidden;
   flex-direction: column;
-  border: 1px solid rgba(49, 95, 90, 0.16);
-  border-radius: 28px;
+  border: 1px solid rgba(184, 155, 86, 0.3);
+  border-radius: 24px;
   background:
     radial-gradient(circle at 88% 10%, rgba(184, 155, 86, 0.09), transparent 25%),
     linear-gradient(180deg, #fff 0%, #fffefb 68%, #faf7ee 100%);
@@ -1746,12 +1746,12 @@ body::selection {
 
 .partner-showcase-body {
   display: grid;
-  min-height: 374px;
+  min-height: 268px;
   flex: 1;
-  grid-template-columns: 1fr;
-  align-content: start;
-  gap: 14px;
-  padding: clamp(22px, 2.5vw, 30px) clamp(18px, 2vw, 26px);
+  align-items: center;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: clamp(16px, 1.8vw, 24px);
+  padding: clamp(20px, 2vw, 26px);
 }
 
 .partner-logo-column {
@@ -1759,13 +1759,13 @@ body::selection {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 .partner-logo-arch {
   position: relative;
   display: grid;
-  width: min(132px, 54%);
+  width: 96px;
   aspect-ratio: 1;
   overflow: hidden;
   place-items: center;
@@ -1809,15 +1809,15 @@ body::selection {
 
 .partner-showcase-copy {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  text-align: left;
 }
 
 .partner-preview-badge {
   display: inline-flex;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   border: 1px solid rgba(184, 155, 86, 0.34);
   border-radius: 999px;
   background: linear-gradient(180deg, #fffefa, #f5f1e7);
@@ -1831,7 +1831,7 @@ body::selection {
   margin: 0;
   color: #467a75;
   font-family: var(--storybook-round);
-  font-size: clamp(25px, 2.3vw, 33px);
+  font-size: clamp(22px, 2vw, 29px);
   font-weight: 900;
   letter-spacing: 0.04em;
   line-height: 1.22;
@@ -1841,22 +1841,24 @@ body::selection {
 .partner-showcase-rule {
   position: relative;
   display: block;
-  width: 1px;
-  height: 24px;
-  margin: 12px 0;
-  background: linear-gradient(#467a75, #b89b56);
+  width: 38px;
+  height: 1px;
+  margin: 11px 0;
+  background: linear-gradient(90deg, #467a75, #b89b56);
 }
 
 .partner-showcase-rule::after {
   position: absolute;
-  bottom: -3px;
-  left: 50%;
+  top: 50%;
+  right: -3px;
+  bottom: auto;
+  left: auto;
   width: 7px;
   height: 7px;
   border: 1px solid #b89b56;
   background: #fffefb;
   content: "";
-  transform: translateX(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .partner-showcase-copy p {
@@ -1865,31 +1867,31 @@ body::selection {
   margin: 0;
   overflow: hidden;
   color: #496562;
-  font-size: 12px;
-  line-height: 1.75;
+  font-size: 11px;
+  line-height: 1.7;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
 }
 
 .partner-showcase-copy small {
-  margin-top: 12px;
+  margin-top: 9px;
   color: #467a75;
   font-weight: 800;
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.05em;
 }
 
 .partner-showcase-footer {
   position: relative;
   display: flex;
-  min-height: 70px;
-  align-items: flex-start;
-  flex-direction: column;
+  min-height: 58px;
+  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
-  gap: 8px;
+  gap: 14px;
   background: linear-gradient(135deg, #3d706b, #527f79);
   color: #fff;
-  padding: 14px clamp(18px, 2vw, 26px);
+  padding: 11px clamp(18px, 2vw, 24px);
 }
 
 .partner-showcase-footer::before {
@@ -1904,7 +1906,8 @@ body::selection {
 
 .partner-showcase-footer strong {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(18px, 1.65vw, 23px);
+  min-width: 0;
+  font-size: clamp(16px, 1.45vw, 20px);
   font-style: italic;
   font-weight: 500;
 }
@@ -1912,7 +1915,7 @@ body::selection {
 .partner-showcase-footer a,
 .partner-showcase-footer span {
   color: inherit;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.12em;
   overflow-wrap: anywhere;
@@ -1979,10 +1982,11 @@ body::selection {
 
   .partner-showcase-body {
     min-height: 0;
+    grid-template-columns: 96px minmax(0, 1fr);
   }
 
   .partner-logo-arch {
-    width: min(150px, 48vw);
+    width: 90px;
   }
 }
 
@@ -1993,15 +1997,15 @@ body::selection {
   }
 
   .partner-showcase-body {
-    gap: 30px;
-    padding: 28px 22px 34px;
+    gap: 14px;
+    padding: 20px 18px;
   }
 
   .partner-showcase-footer {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-    padding: 22px;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+    padding: 11px 18px;
   }
 }
 
