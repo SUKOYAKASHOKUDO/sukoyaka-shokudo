@@ -61,11 +61,14 @@ export default function PartnersPage() {
                   <PartnerShowcaseCard key={partner.name} {...partner} />
                 ))
               ) : (
-                <PartnerShowcaseCard
-                  name="貴社名"
-                  summary="会社や事業の概要、地域への想い、ご支援についてのメッセージなどを、読みやすく簡潔にご紹介します。"
-                  preview
-                />
+                Array.from({ length: 3 }, (_, index) => (
+                  <PartnerShowcaseCard
+                    key={`partner-preview-${index + 1}`}
+                    name="貴社名"
+                    summary="会社や事業の概要、地域への想い、ご支援についてのメッセージなどを、読みやすく簡潔にご紹介します。"
+                    preview
+                  />
+                ))
               )}
             </div>
           </div>
