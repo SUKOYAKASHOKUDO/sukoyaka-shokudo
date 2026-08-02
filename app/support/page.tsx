@@ -14,9 +14,9 @@ import {
 import { legacySupport } from "../../content/legacyContent";
 
 export const metadata: Metadata = {
-  title: "企業・団体の皆さまへ｜ご支援の相談",
+  title: "すこやか食堂を応援する｜ご支援の案内",
   description:
-    "すこやか食堂への食材・物品提供、ボランティア、活動資金のご支援について、相談前の確認事項をご案内します。",
+    "個人、企業・団体の皆さまへ、寄付金、食材・物品、ボランティア、協賛など、すこやか食堂への支援方法をご案内します。",
   alternates: {
     canonical: "/support",
   },
@@ -31,9 +31,9 @@ export default function SupportPage() {
       <SiteHeader />
       <main id="main" className="mashiro-site">
         <PageIntro
-          eyebrow="FOR PARTNERS"
-          title="企業・団体の皆さまへ"
-          description="食材・物品のご提供、ボランティア、活動資金のご支援について、受入条件や日程を確認しながら個別にご相談を承ります。"
+          eyebrow="SUPPORT SUKOYAKA"
+          title="すこやか食堂を応援する"
+          description="個人、企業・団体の皆さまからの、食材・物品、ボランティア、寄付金、協賛などのご支援についてご案内します。"
         />
 
         <section className="section support-detail-section">
@@ -41,7 +41,7 @@ export default function SupportPage() {
             <div className="mashiro-support-message">
               <div className="mashiro-prose">
                 <p className="mashiro-kicker">THANK YOU</p>
-                <h2>4.支援について</h2>
+                <h2>ご支援について</h2>
                 {legacySupport.message.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -56,6 +56,27 @@ export default function SupportPage() {
               </figure>
             </div>
 
+            <div className="support-audience-grid">
+              <article>
+                <p className="mashiro-kicker">FOR INDIVIDUALS</p>
+                <h2>個人の方へ</h2>
+                <p>
+                  食材や物品の提供、ボランティア、寄付金など、できる形でのご支援をご相談いただけます。
+                </p>
+              </article>
+              <article>
+                <p className="mashiro-kicker">FOR ORGANIZATIONS</p>
+                <h2>企業・団体の皆さまへ</h2>
+                <p>
+                  食材・物品の提供、団体でのボランティア、寄付金、協賛について、内容と日程を個別に確認します。
+                </p>
+              </article>
+            </div>
+
+            <div className="support-method-heading">
+              <p className="mashiro-kicker">HOW TO SUPPORT</p>
+              <h2>支援方法</h2>
+            </div>
             <div className="support-detail-grid">
               {supportMethods.map((method) => (
                 <article key={method.title}>
@@ -75,8 +96,10 @@ export default function SupportPage() {
                 <li>
                   <span>01</span>
                   <div>
-                    <strong>企業・団体名とご担当者名</strong>
-                    <p>差し支えない範囲で、ご連絡元をお知らせください。</p>
+                    <strong>お名前・企業名・団体名</strong>
+                    <p>
+                      個人の方はお名前を、企業・団体の方は名称とご担当者名を、差し支えない範囲でお知らせください。
+                    </p>
                   </div>
                 </li>
                 <li>

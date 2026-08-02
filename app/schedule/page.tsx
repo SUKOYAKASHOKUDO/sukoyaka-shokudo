@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { MashiroPageHero } from "../../components/MashiroPageHero";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
@@ -29,7 +28,7 @@ export default function SchedulePage() {
         />
 
         <section className="mashiro-section">
-          <div className="shell mashiro-schedule-detail">
+          <div className="shell mashiro-schedule-detail mashiro-schedule-detail-text-only">
             <div className="mashiro-date-panel">
               <p className="mashiro-kicker">2.営業について · CURRENT RHYTHM</p>
               <h2>日時</h2>
@@ -53,15 +52,6 @@ export default function SchedulePage() {
                 <span aria-hidden="true">↗</span>
               </a>
             </div>
-            <figure className="mashiro-menu-figure">
-              <Image
-                src="/images/legacy/legacy-menu-plan.webp"
-                alt="カレーライスのイラスト"
-                width={1238}
-                height={1239}
-                priority
-              />
-            </figure>
           </div>
         </section>
 

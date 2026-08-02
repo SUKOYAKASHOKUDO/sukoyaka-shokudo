@@ -23,38 +23,17 @@ const internalHotspots = [
   {
     className: "reference-hotspot-support-nav",
     href: "/support",
-    label: "応援したい企業・団体の方へ",
+    label: "すこやか食堂を応援する",
   },
-  {
-    className: "reference-hotspot-kids",
-    href: "/schedule",
-    label: "こどものみんなへ",
-  },
-  {
-    className: "reference-hotspot-family",
-    href: "/about",
-    label: "おうちの方へ",
-  },
-  {
-    className: "reference-hotspot-business",
-    href: "/support",
-    label: "応援したい企業・団体の方へ",
-  },
-  {
-    className: "reference-hotspot-schedule-card",
-    href: "/schedule",
-    label: "次回の開催",
-  },
-  {
-    className: "reference-hotspot-recipes-card",
-    href: "/recipes",
-    label: "レシピとコラム",
-  },
-  {
-    className: "reference-hotspot-support-card",
-    href: "/support",
-    label: "いっしょに応援する",
-  },
+] as const;
+
+const featureCards = [
+  { href: "/schedule", label: "こどものみんなへ", icon: "🧒" },
+  { href: "/about", label: "おうちの方へ", icon: "🏠" },
+  { href: "/support", label: "すこやか食堂を応援する", icon: "🤝" },
+  { href: "/schedule", label: "次回の開催", icon: "📅" },
+  { href: "/recipes", label: "レシピとコラム", icon: "📖" },
+  { href: "/story", label: "すこやか食堂を知る", icon: "🎤" },
 ] as const;
 
 export function StorybookHero() {
@@ -109,6 +88,24 @@ export function StorybookHero() {
           >
             <span>お問い合わせ</span>
           </a>
+        </nav>
+
+        <nav className="reference-card-grid" aria-label="目的別のご案内">
+          {featureCards.map((card) => (
+            <Link
+              className="reference-feature-card"
+              href={card.href}
+              key={card.label}
+            >
+              <span className="reference-feature-icon" aria-hidden="true">
+                {card.icon}
+              </span>
+              <strong>{card.label}</strong>
+              <span className="reference-feature-arrow" aria-hidden="true">
+                ›
+              </span>
+            </Link>
+          ))}
         </nav>
       </div>
     </section>

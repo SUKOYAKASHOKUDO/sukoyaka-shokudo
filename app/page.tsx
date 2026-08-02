@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "../components/SiteFooter";
 import { StorybookHero } from "../components/StorybookHero";
@@ -7,7 +6,7 @@ import {
   legacyFaqs,
   legacySchedule,
 } from "../content/legacyContent";
-import { site, sponsors, youtubeVideos } from "../content/siteContent";
+import { site, sponsors } from "../content/siteContent";
 
 const gateways = [
   {
@@ -122,7 +121,7 @@ export default function Home() {
         </section>
 
         <section className="mashiro-section mashiro-schedule-preview" id="schedule">
-          <div className="shell mashiro-schedule-grid">
+          <div className="shell mashiro-schedule-grid mashiro-schedule-text-only">
             <div>
               <p className="mashiro-kicker">SCHEDULE &amp; MENU</p>
               <h2>開催予定</h2>
@@ -138,39 +137,6 @@ export default function Home() {
                 <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <figure className="mashiro-menu-art">
-              <Image
-                src="/images/legacy/legacy-menu-plan.webp"
-                alt="カレーライスのイラスト"
-                width={1238}
-                height={1239}
-              />
-              <figcaption>当日の献立はInstagramでお知らせします。</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section className="mashiro-section mashiro-video-section">
-          <div className="shell mashiro-video-grid">
-            <div>
-              <p className="mashiro-kicker">MOVIE</p>
-              <h2>動画で知る、すこやか食堂</h2>
-              <p>
-                活動の空気感や、食を通じた地域とのつながりをご覧いただけます。
-              </p>
-            </div>
-            {youtubeVideos.map((video) => (
-              <div className="mashiro-video-frame" key={video.id}>
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${video.id}`}
-                  title={video.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            ))}
           </div>
         </section>
 
@@ -204,9 +170,6 @@ export default function Home() {
             <div>
               <p className="mashiro-kicker">QUESTIONS</p>
               <h2>よくある質問</h2>
-              <p>
-                旧公式サイトに掲載していた質問と回答を、すべて引き継ぎました。
-              </p>
             </div>
             <div className="mashiro-faq-list">
               {legacyFaqs.map((faq, index) => (
@@ -228,7 +191,6 @@ export default function Home() {
               <p className="mashiro-kicker">ACCESS</p>
               <h2>すこやか食堂</h2>
               <address>{site.address}</address>
-              <p>cafe de lueee と同じ場所です。</p>
               <p>札幌市電「山鼻9条駅」徒歩4分</p>
             </div>
             <div className="mashiro-contact-card">

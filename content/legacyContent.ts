@@ -39,12 +39,6 @@ export const legacyImages = [
     kind: "artwork",
   },
   {
-    src: "/images/legacy/legacy-member-01.jpg",
-    alt: "カフェを表すコーヒーカップのイラスト",
-    caption: "同じ場所で開く cafe de lueee",
-    kind: "icon",
-  },
-  {
     src: "/images/legacy/legacy-member-02.webp",
     alt: "食育ランチクッキングに参加したメンバー",
     caption: "食育ランチクッキングのメンバー",
@@ -74,12 +68,6 @@ export const legacyImages = [
     caption: "旧サイトから引き継いだメンバーの記録",
     kind: "strip",
   },
-  {
-    src: "/images/legacy/legacy-menu-plan.webp",
-    alt: "カレーライスのイラスト",
-    caption: "当日の献立はInstagramでお知らせします",
-    kind: "artwork",
-  },
 ] as const;
 
 export const legacyAbout = {
@@ -98,7 +86,7 @@ export const legacyAbout = {
   ],
   request: [
     "すこやか食堂の運営スタッフである管理栄養士らでメニューを考えて、美味しい料理を提供します。",
-    "場所は、札幌市中央区南9条西8丁目1-26 オリンピア南9条 1階、cafe de lueeeです。同じ場所にあります。",
+    "場所は、札幌市中央区南9条西8丁目1-26 オリンピア南9条 1階です。",
     "開催日は気軽にご利用ください。",
   ],
   background: [
@@ -170,8 +158,6 @@ export const legacyTeam = {
   operator: [
     "“ミレポリト”は、フランス語で愛すべき子とゆう意味です。",
     "すこやか食堂と食育ランチクッキング",
-    "グリーンコーヒーが飲めるCAFÉ de LUEEE カフェ ド ルー",
-    "と同じ場所で開催しています。",
   ],
   members: ["中西るな", "一家光栄", "三浦真美", "千葉涼平", "柏木なな", "蓮香"],
   examples: [

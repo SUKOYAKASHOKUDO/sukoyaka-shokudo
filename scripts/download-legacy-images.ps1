@@ -64,11 +64,6 @@ $legacyAssets = @(
         FileName = "legacy-member-06.png"
         SourceUrl = "https://static.wixstatic.com/media/7e980d_182f08329f0b48d79a476cacace80dee~mv2.png/v1/fit/w_1600,h_1600,q_90/child-kitchen-volunteer.png"
         Kind = "photo"
-    },
-    @{
-        FileName = "legacy-menu-plan.png"
-        SourceUrl = "https://static.wixstatic.com/media/7e980d_649b2f9976c14131b9e3e8e79114d12e~mv2.png/v1/fit/w_1800,h_1800,q_90/legacy-menu-plan.png"
-        Kind = "menu"
     }
 )
 
