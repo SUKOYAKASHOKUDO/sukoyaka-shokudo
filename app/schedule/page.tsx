@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MashiroPageHero } from "../../components/MashiroPageHero";
+import { PageIntro } from "../../components/PageIntro";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { legacySchedule } from "../../content/legacyContent";
@@ -20,11 +20,10 @@ export default function SchedulePage() {
       </a>
       <SiteHeader />
       <main id="main" className="mashiro-site">
-        <MashiroPageHero
+        <PageIntro
           eyebrow="SCHEDULE & MENU"
           title="すこやか食堂開催予定"
           description="現在は不定期で開催しています。開催日時と当日のメニューは、公式Instagramの最新投稿を必ずご確認ください。"
-          current="日程とメニュー"
         />
 
         <section className="mashiro-section">

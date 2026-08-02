@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MashiroPageHero } from "../../components/MashiroPageHero";
+import { PageIntro } from "../../components/PageIntro";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { legacyAbout } from "../../content/legacyContent";
@@ -22,11 +22,10 @@ export default function AboutPage() {
       </a>
       <SiteHeader />
       <main id="main" className="mashiro-site">
-        <MashiroPageHero
+        <PageIntro
           eyebrow="ABOUT SUKOYAKA"
           title="札幌市中央区にある、子ども食堂"
           description="どうか、子ども食堂にネガティブなイメージを持たないでください。食事をきっかけに、人と人が顔見知りになれる楽しい場所を目指しています。"
-          current="すこやか食堂について"
         />
 
         <section className="mashiro-section">

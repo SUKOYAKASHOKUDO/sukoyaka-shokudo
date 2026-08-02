@@ -15,9 +15,15 @@ export function PageIntro({ eyebrow, title, description }: PageIntroProps) {
           <span aria-hidden="true">／</span>
           <span>{title}</span>
         </nav>
-        <p className="eyebrow">{eyebrow}</p>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <div className="page-intro-title">
+          <span aria-hidden="true" />
+          <div>
+            <p className="eyebrow">{eyebrow}</p>
+            <h1>{title}</h1>
+          </div>
+          <span aria-hidden="true" />
+        </div>
+        <p className="sr-only">{description}</p>
       </div>
     </section>
   );
