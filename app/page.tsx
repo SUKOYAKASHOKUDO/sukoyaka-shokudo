@@ -114,29 +114,58 @@ export default function Home() {
         </section>
 
         <section className="mashiro-access" id="access">
-          <div className="shell mashiro-access-grid">
-            <div>
-              <p className="mashiro-kicker">ACCESS</p>
-              <h2>すこやか食堂</h2>
-              <address>{site.address}</address>
-              <p>札幌市電「山鼻9条駅」徒歩4分</p>
-            </div>
-            <div className="mashiro-contact-card">
-              <p>開催日は気軽にご利用ください。</p>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-              <a href={site.phoneHref}>{site.phone}</a>
+          <div className="shell mashiro-access-inner">
+            <div className="mashiro-access-grid">
               <div>
-                <a href={site.map} target="_blank" rel="noopener noreferrer">
-                  Google Map
-                </a>
-                <a
-                  href={site.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </a>
+                <p className="mashiro-kicker">ACCESS</p>
+                <h2>すこやか食堂</h2>
+                <address>{site.address}</address>
+                <p>札幌市電「山鼻9条駅」徒歩4分</p>
               </div>
+              <div className="mashiro-contact-card">
+                <p>開催日は気軽にご利用ください。</p>
+                <a href={`mailto:${site.email}`}>{site.email}</a>
+                <a href={site.phoneHref}>{site.phone}</a>
+                <div className="mashiro-access-links">
+                  <a href={site.map} target="_blank" rel="noopener noreferrer">
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z" />
+                      <circle cx="12" cy="9" r="2.4" />
+                    </svg>
+                    <span>Google Map</span>
+                  </a>
+                  <a
+                    className="mashiro-instagram-link"
+                    href={site.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="すこやか食堂のInstagramを開く"
+                  >
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="18" height="18" rx="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <circle
+                        cx="17.4"
+                        cy="6.6"
+                        r="1"
+                        fill="currentColor"
+                        stroke="none"
+                      />
+                    </svg>
+                    <span>Instagram</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="mashiro-map-frame">
+              <iframe
+                src="https://www.google.com/maps?q=%E3%81%99%E3%81%93%E3%82%84%E3%81%8B%E9%A3%9F%E5%A0%82%20%E6%9C%AD%E5%B9%8C%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%8D%979%E6%9D%A1%E8%A5%BF8%E4%B8%81%E7%9B%AE1-26&output=embed"
+                title="すこやか食堂の周辺地図"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
         </section>
