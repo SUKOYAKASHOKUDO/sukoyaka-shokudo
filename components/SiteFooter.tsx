@@ -13,7 +13,7 @@ export function SiteFooter() {
             aria-label="すこやか食堂 ホームへ戻る"
           >
             <Image
-              src="/images/brand/sukoyaka-official-logo.png"
+              src="/images/brand/sukoyaka-footer-logo.jpg"
               alt="子ども食堂 すこやか食堂"
               fill
               sizes="(max-width: 640px) 118px, 138px"
