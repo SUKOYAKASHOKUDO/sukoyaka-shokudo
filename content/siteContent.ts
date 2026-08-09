@@ -238,7 +238,7 @@ const sponsorEntries: Sponsor[] = [
   { name: "株式会社YOKI 代表取締役佐藤様", support: "飲料" },
   { name: "合同会社ＫＥＬ高橋様", support: "中華おこわ" },
   { name: "一家水産様", support: "厚岸産のあさり" },
-  { name: "株式会社エフエー天内様", support: "野菜や果物、お米" },
+  { name: "株式会社エフエー天内様", support: "野菜や果物" },
   { name: "サリーズカップケーキ様", support: "カップケーキ" },
   { name: "株式会社TASKAL様", support: "野菜とお肉とヨーグルト" },
   { name: "キープグループ小林様", support: "お米" },
