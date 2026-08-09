@@ -2,6 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { navigation, site } from "../content/siteContent";
 
+function FooterInformationNote() {
+  return (
+    <>
+      開催日時・料金・支援方法は変更される場合があります。
+      <br />
+      最新情報は公式Instagramをご確認ください。
+    </>
+  );
+}
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -33,7 +43,9 @@ export function SiteFooter() {
             <span aria-hidden="true"> ／ </span>
             <a href={site.phoneHref}>{site.phone}</a>
           </p>
-          <p>{site.informationNote}</p>
+          <p>
+            <FooterInformationNote />
+          </p>
         </div>
 
         <nav className="footer-links" aria-label="フッターメニュー">
@@ -59,7 +71,9 @@ export function SiteFooter() {
         <small>
           © {new Date().getFullYear()} {site.name}
         </small>
-        <small>{site.informationNote}</small>
+        <small>
+          <FooterInformationNote />
+        </small>
       </div>
     </footer>
   );
