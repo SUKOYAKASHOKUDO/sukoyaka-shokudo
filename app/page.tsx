@@ -7,7 +7,6 @@ import {
 } from "../content/legacyContent";
 import {
   site,
-  sponsors,
   storyPage,
   youtubeVideos,
 } from "../content/siteContent";
@@ -91,31 +90,6 @@ export default function Home() {
                 <span aria-hidden="true">↗</span>
               </Link>
             </div>
-          </div>
-        </section>
-
-        <section className="mashiro-section mashiro-support-preview">
-          <div className="shell">
-            <div className="mashiro-support-head">
-              <div>
-                <p className="mashiro-kicker">WITH THANKS</p>
-                <h2>地域の食卓を、一緒に。</h2>
-              </div>
-              <p>
-                すこやか食堂は、食材提供、ボランティア、寄付金で支えられています。
-              </p>
-              <Link className="mashiro-button mashiro-button-light" href="/support">
-                ご支援について
-                <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-            {sponsors.length > 0 ? (
-              <div className="mashiro-sponsor-strip" aria-label="協賛企業・支援者">
-                {sponsors.map((sponsor) => (
-                  <span key={sponsor.name}>{sponsor.name}</span>
-                ))}
-              </div>
-            ) : null}
           </div>
         </section>
 
