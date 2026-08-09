@@ -607,6 +607,10 @@ body::selection {
   line-height: 1.45;
 }
 
+.mashiro-faq-grid h2 {
+  white-space: nowrap;
+}
+
 .mashiro-kicker,
 .eyebrow {
   color: var(--storybook-coral);
