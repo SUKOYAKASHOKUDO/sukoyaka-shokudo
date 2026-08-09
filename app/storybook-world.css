@@ -842,8 +842,9 @@ body::selection {
       transparent 100%
     ),
     radial-gradient(
-      circle 126px at 96% 18%,
-      rgba(213, 235, 221, 0.62) 0 99%,
+      circle 88px at 96% 16%,
+      rgba(213, 235, 221, 0.48) 0 76%,
+      rgba(213, 235, 221, 0.22) 88%,
       transparent 100%
     ),
     #fff;
