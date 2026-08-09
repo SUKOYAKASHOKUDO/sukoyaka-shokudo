@@ -48,11 +48,29 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: {
-      url: "/favicon.svg",
-      type: "image/svg+xml",
+    icon: [
+      {
+        url: "/images/brand/sukoyaka-favicon-32.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: "/images/brand/sukoyaka-favicon-192.png",
+        type: "image/png",
+        sizes: "192x192",
+      },
+      {
+        url: "/images/brand/sukoyaka-favicon-512.png",
+        type: "image/png",
+        sizes: "512x512",
+      },
+    ],
+    shortcut: "/images/brand/sukoyaka-favicon-32.png",
+    apple: {
+      url: "/images/brand/sukoyaka-favicon-180.png",
+      type: "image/png",
+      sizes: "180x180",
     },
-    shortcut: "/favicon.svg",
   },
 };
 
