@@ -2448,8 +2448,8 @@ body::selection {
 .reference-hotspot-logo::before {
   position: absolute;
   top: -28%;
-  left: -9.5%;
-  width: 353%;
+  left: -6%;
+  width: 330%;
   height: 855%;
   background: url("/images/brand/sukoyaka-site-design-wordmark.webp") center / 100% 100%
     no-repeat;
