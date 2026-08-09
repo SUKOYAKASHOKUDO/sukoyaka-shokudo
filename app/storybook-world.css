@@ -2423,7 +2423,7 @@ body::selection {
   top: 2.4%;
   left: 2.3%;
   z-index: 2;
-  width: 31%;
+  width: 32%;
   height: 13.2%;
   overflow: hidden;
   border-radius: 18px;
@@ -2432,10 +2432,10 @@ body::selection {
 
 .reference-hotspot-logo::before {
   position: absolute;
-  top: -29%;
-  left: -9%;
-  width: 345%;
-  height: 819%;
+  top: -28%;
+  left: -9.5%;
+  width: 353%;
+  height: 855%;
   background: url("/images/brand/sukoyaka-site-design-wordmark.webp") center / 100% 100%
     no-repeat;
   content: "";
