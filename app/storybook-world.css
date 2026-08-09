@@ -1859,7 +1859,14 @@ body::selection {
 }
 
 .partner-intro-section {
-  background: #fffdf8;
+  border-top: 1px solid rgba(7, 109, 128, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(194, 238, 241, 0.56) 0,
+    rgba(231, 248, 248, 0.34) 20px,
+    #fffdf8 56px
+  );
+  padding-top: clamp(54px, 6vw, 82px);
 }
 
 .partner-intro-grid {
@@ -1868,7 +1875,7 @@ body::selection {
   gap: clamp(34px, 8vw, 110px);
 }
 
-.partner-intro-grid h2,
+.partner-intro-grid h1,
 .partner-section-heading h2,
 .partner-inquiry-card h2 {
   margin: 10px 0 0;

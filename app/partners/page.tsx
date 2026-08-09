@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { MashiroPageHero } from "../../components/MashiroPageHero";
 import { PartnerShowcaseCard } from "../../components/PartnerShowcaseCard";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
@@ -24,18 +23,11 @@ export default function PartnersPage() {
       </a>
       <SiteHeader />
       <main id="main" className="mashiro-site partners-page">
-        <MashiroPageHero
-          eyebrow="COMMUNITY PARTNERS"
-          title="応援企業のご紹介"
-          description="地域の子どもたちと食卓を支えてくださる企業・団体の皆さまを、感謝を込めてご紹介します。"
-          current="応援企業のご紹介"
-        />
-
         <section className="mashiro-section partner-intro-section">
           <div className="shell partner-intro-grid">
             <div>
               <p className="mashiro-kicker">TOGETHER FOR THE COMMUNITY</p>
-              <h2>地域への想いが、企業の信頼として届く場所。</h2>
+              <h1>地域への想いが、企業の信頼として届く場所。</h1>
             </div>
             <div className="mashiro-prose">
               <p>
