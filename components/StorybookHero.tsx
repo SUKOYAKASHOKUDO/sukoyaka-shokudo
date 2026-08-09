@@ -103,7 +103,7 @@ export function StorybookHero() {
       <div className="reference-design-frame">
         <Image
           className="reference-design-image"
-          src="/images/brand/sukoyaka-site-design-reference.webp"
+          src="/images/brand/sukoyaka-site-design-wordmark.webp"
           alt="水色の空と丘を背景に、おにぎりを持つクマ、食事を持つウサギ、小鳥が描かれた、すこやか食堂のご案内"
           width={1672}
           height={941}
@@ -112,18 +112,6 @@ export function StorybookHero() {
           unoptimized
           draggable={false}
         />
-
-        <span className="reference-design-logo-swap" aria-hidden="true">
-          <Image
-            src="/images/brand/sukoyaka-onigiri-logo-transparent-clean.webp"
-            alt=""
-            width={1097}
-            height={731}
-            priority
-            unoptimized
-            draggable={false}
-          />
-        </span>
 
         <div className="reference-design-copy">
           <h1 id="storybook-heading">おなかも こころも ぽかぽかに。</h1>
