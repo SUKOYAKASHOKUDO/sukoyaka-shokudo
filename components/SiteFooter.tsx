@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div className="brand footer-brand storybook-footer-brand">
-          <Link
+          <a
             className="storybook-footer-logo storybook-footer-logo-link"
             href="/"
             aria-label="すこやか食堂 ホームへ戻る"
@@ -18,7 +18,7 @@ export function SiteFooter() {
               fill
               sizes="(max-width: 640px) 118px, 138px"
             />
-          </Link>
+          </a>
           <span>
             <strong>{site.name}</strong>
             <small>運営：{site.operator}</small>
