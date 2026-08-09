@@ -204,9 +204,11 @@ export default function SupportPage() {
               </div>
             ) : (
               <div className="supporter-list">
-                {sponsors.map((sponsor) => (
+                {sponsors.map((sponsor, index) => (
                   <article key={sponsor.name}>
-                    <span aria-hidden="true">{sponsor.name.slice(0, 1)}</span>
+                    <span aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                     <div>
                       <h3>{sponsor.name}</h3>
                       <p>ご支援：{sponsor.support}</p>
