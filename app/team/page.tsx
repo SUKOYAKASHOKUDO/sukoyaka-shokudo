@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MashiroPageHero } from "../../components/MashiroPageHero";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { legacyTeam } from "../../content/legacyContent";
@@ -20,15 +19,8 @@ export default function TeamPage() {
         本文へ移動
       </a>
       <SiteHeader />
-      <main id="main" className="mashiro-site">
-        <MashiroPageHero
-          eyebrow="OUR PEOPLE"
-          title="私たち"
-          description="運営メンバーは、ミレポリト合同会社とボランティアで構成されています。地域の皆さまと一緒に、あたたかな居場所を支えています。"
-          current="私たち・ボランティア"
-        />
-
-        <section className="mashiro-section">
+      <main id="main" className="mashiro-site team-page">
+        <section className="mashiro-section team-content-start">
           <div className="shell mashiro-editorial-grid">
             <figure className="mashiro-editorial-photo">
               <Image

@@ -2060,6 +2060,17 @@ body::selection {
   padding-top: clamp(54px, 6vw, 82px);
 }
 
+.team-content-start {
+  border-top: 1px solid rgba(7, 109, 128, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(194, 238, 241, 0.56) 0,
+    rgba(231, 248, 248, 0.34) 20px,
+    #fffdf8 56px
+  );
+  padding-top: clamp(54px, 6vw, 82px);
+}
+
 .partner-intro-grid {
   display: grid;
   grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
