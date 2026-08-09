@@ -113,6 +113,8 @@ export function StorybookHero() {
           draggable={false}
         />
 
+        <div className="reference-nav-visual-shift" aria-hidden="true" />
+
         <div className="reference-design-copy">
           <h1 id="storybook-heading">おなかも こころも ぽかぽかに。</h1>
           <p>中学生以下 無料／大人 500円</p>
