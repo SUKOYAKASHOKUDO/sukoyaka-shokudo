@@ -7,14 +7,18 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div className="brand footer-brand storybook-footer-brand">
-          <span className="storybook-footer-logo">
+          <Link
+            className="storybook-footer-logo storybook-footer-logo-link"
+            href="/"
+            aria-label="すこやか食堂 ホームへ戻る"
+          >
             <Image
-              src="/images/brand/sukoyaka-onigiri-logo-transparent-clean.webp"
+              src="/images/brand/sukoyaka-official-logo.png"
               alt="子ども食堂 すこやか食堂"
               fill
-              sizes="94px"
+              sizes="(max-width: 640px) 118px, 138px"
             />
-          </span>
+          </Link>
           <span>
             <strong>{site.name}</strong>
             <small>運営：{site.operator}</small>
