@@ -835,7 +835,18 @@ body::selection {
 }
 
 .mashiro-video-section {
-  background: var(--storybook-sky-pale);
+  background:
+    radial-gradient(
+      circle 104px at 4% 78%,
+      rgba(247, 224, 205, 0.58) 0 99%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle 126px at 96% 18%,
+      rgba(213, 235, 221, 0.62) 0 99%,
+      transparent 100%
+    ),
+    #fff;
 }
 
 .mashiro-video-frame {
@@ -1092,8 +1103,6 @@ body::selection {
   background:
     radial-gradient(ellipse at 9% 90%, #a9d887 0 24%, transparent 24.5%),
     radial-gradient(ellipse at 88% 95%, #80ceb0 0 27%, transparent 27.5%),
-    radial-gradient(circle at 14% 22%, #fff 0 35px, transparent 36px),
-    radial-gradient(circle at 85% 27%, #fff 0 42px, transparent 43px),
     linear-gradient(180deg, #c9f1f3, #e0f7f2);
 }
 
@@ -1115,7 +1124,7 @@ body::selection {
   padding: clamp(30px, 5vw, 55px);
   border: 6px solid rgba(255, 255, 255, 0.84);
   border-radius: 46% 54% 48% 52% / 52% 45% 55% 48%;
-  background: rgba(255, 254, 249, 0.93);
+  background: #fff;
   box-shadow: var(--storybook-shadow);
   text-align: center;
 }
