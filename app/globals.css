@@ -3834,6 +3834,101 @@ section[id] {
   text-align: center;
 }
 
+.mashiro-instagram-section {
+  border-top: 1px solid var(--m-line);
+  border-bottom: 1px solid var(--m-line);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(232, 192, 127, 0.12), transparent 24%),
+    linear-gradient(180deg, var(--m-snow), var(--m-white));
+}
+
+.mashiro-instagram-heading {
+  display: grid;
+  align-items: end;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+  gap: clamp(42px, 7vw, 100px);
+}
+
+.mashiro-instagram-heading h2 {
+  margin: 0;
+  font-size: clamp(38px, 4.6vw, 64px);
+  line-height: 1.25;
+}
+
+.mashiro-instagram-intro {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mashiro-instagram-intro p {
+  max-width: 430px;
+  margin: 0;
+  color: var(--m-muted);
+  line-height: 1.9;
+}
+
+.mashiro-instagram-grid {
+  display: grid;
+  margin-top: clamp(38px, 5vw, 62px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.5vw, 20px);
+}
+
+.mashiro-instagram-slot {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(25, 101, 111, 0.13);
+  border-radius: clamp(18px, 2vw, 26px);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.7), transparent 55%),
+    #edf6f4;
+  box-shadow: 0 16px 38px rgba(18, 63, 71, 0.08);
+  color: rgba(25, 101, 111, 0.34);
+}
+
+.mashiro-instagram-slot:nth-child(2),
+.mashiro-instagram-slot:nth-child(4) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 55%),
+    #fff4df;
+  color: rgba(195, 116, 72, 0.35);
+}
+
+.mashiro-instagram-slot svg {
+  width: clamp(42px, 4.4vw, 58px);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.mashiro-instagram-slot .mashiro-instagram-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.mashiro-instagram-slot-number,
+.mashiro-instagram-slot-label {
+  position: absolute;
+  font-family: var(--m-serif);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+}
+
+.mashiro-instagram-slot-number {
+  top: 18px;
+  left: 20px;
+}
+
+.mashiro-instagram-slot-label {
+  right: 18px;
+  bottom: 16px;
+}
+
 .mashiro-faq-section {
   background: var(--m-white);
 }
@@ -4355,6 +4450,24 @@ section[id] {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .mashiro-instagram-heading {
+    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mashiro-instagram-intro {
+    align-items: flex-start;
+  }
+
+  .mashiro-instagram-intro p {
+    max-width: 680px;
+  }
+
+  .mashiro-instagram-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .mashiro-editorial-reverse > :first-child,
   .mashiro-editorial-reverse > :last-child {
     order: initial;
@@ -4502,6 +4615,7 @@ section[id] {
   .mashiro-section-title h2,
   .mashiro-video-grid h2,
   .mashiro-support-head h2,
+  .mashiro-instagram-heading h2,
   .mashiro-faq-grid h2,
   .mashiro-access h2 {
     font-size: 34px;
@@ -4533,6 +4647,25 @@ section[id] {
 
   .mashiro-sponsor-strip {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mashiro-instagram-grid {
+    margin-top: 34px;
+    gap: 10px;
+  }
+
+  .mashiro-instagram-slot {
+    border-radius: 18px;
+  }
+
+  .mashiro-instagram-slot-number {
+    top: 14px;
+    left: 15px;
+  }
+
+  .mashiro-instagram-slot-label {
+    right: 14px;
+    bottom: 13px;
   }
 
   .mashiro-faq-list summary {

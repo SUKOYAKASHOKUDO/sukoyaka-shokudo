@@ -11,6 +11,8 @@ import {
   youtubeVideos,
 } from "../content/siteContent";
 
+const instagramPhotoSlots = ["01", "02", "03", "04"] as const;
+
 export default function Home() {
   return (
     <>
@@ -89,6 +91,56 @@ export default function Home() {
                 すこやか食堂の思いを読む
                 <span aria-hidden="true">↗</span>
               </Link>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="mashiro-section mashiro-instagram-section"
+          id="instagram"
+          aria-labelledby="instagram-heading"
+        >
+          <div className="shell">
+            <div className="mashiro-instagram-heading">
+              <div>
+                <p className="mashiro-kicker">INSTAGRAM</p>
+                <h2 id="instagram-heading">すこやか食堂の日々</h2>
+              </div>
+              <div className="mashiro-instagram-intro">
+                <p>
+                  食卓の様子や当日のメニュー、地域のみなさんとの活動をご紹介しています。
+                </p>
+                <a
+                  className="mashiro-button"
+                  href={site.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagramでもっと見る
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <div
+              className="mashiro-instagram-grid"
+              aria-label="Instagram写真掲載予定枠"
+            >
+              {instagramPhotoSlots.map((slot) => (
+                <div
+                  className="mashiro-instagram-slot"
+                  key={slot}
+                  aria-hidden="true"
+                >
+                  <span className="mashiro-instagram-slot-number">{slot}</span>
+                  <svg viewBox="0 0 48 48">
+                    <rect x="8" y="8" width="32" height="32" rx="9" />
+                    <circle cx="24" cy="24" r="7" />
+                    <circle cx="34" cy="14" r="2" className="mashiro-instagram-dot" />
+                  </svg>
+                  <span className="mashiro-instagram-slot-label">PHOTO</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
