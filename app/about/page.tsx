@@ -41,7 +41,7 @@ export default function AboutPage() {
             </figure>
             <div className="mashiro-prose mashiro-prose-large">
               <p className="mashiro-kicker">“すこやか食堂”</p>
-              <h2>食事は、美味しく楽しいものです。</h2>
+              <h2>食事は、おいしく楽しいものです。</h2>
               {legacyAbout.opening.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
