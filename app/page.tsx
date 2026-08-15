@@ -77,7 +77,9 @@ export default function Home() {
               <span>OUR MESSAGE</span>
             </div>
             <div className="mashiro-statement">
-              <p>{legacyAbout.opening[0]}</p>
+              <p style={{ whiteSpace: "pre-line" }}>
+                {legacyAbout.opening[0]}
+              </p>
               <h2>
                 食事は、
                 <br />
