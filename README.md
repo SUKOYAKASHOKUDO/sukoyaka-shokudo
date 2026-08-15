@@ -15,6 +15,8 @@
 ## 主なページ
 
 - `/` ホーム
+- `/kids` こどものみんなへ・はじめての方向け案内
+- `/schedule` 開催カレンダー・最新日程案内
 - `/support` 企業・団体向け支援案内、支援先口座、支援実績
 - `/columns` 公開済みコラム一覧
 - `/columns/[slug]` コラム詳細
@@ -22,6 +24,17 @@
 - `/recipes/[slug]` レシピ詳細
 - `/sitemap.xml` サイトマップ
 - `/robots.txt` クローラー設定
+
+## Instagram開催カレンダー連携
+
+`/schedule` は `/api/instagram/calendar` の共通形式を読み込みます。現在は未連携時の案内枠を表示し、次のVercel環境変数を設定するとカレンダー画像へ切り替わります。
+
+- `INSTAGRAM_CALENDAR_IMAGE_URL`: 公開するカレンダー画像のHTTPS URL
+- `INSTAGRAM_CALENDAR_POST_URL`: 画像に対応するInstagram投稿URL（未設定時は公式プロフィール）
+- `INSTAGRAM_CALENDAR_IMAGE_ALT`: 画像の代替テキスト
+- `INSTAGRAM_CALENDAR_UPDATED_AT`: 公開画面に表示する更新日時
+
+Instagram Graph APIとの本接続時は、アクセストークンを公開環境変数へ渡さず、[`lib/instagramCalendar.ts`](lib/instagramCalendar.ts) 内の取得処理だけを置き換えます。
 
 ## 情報の更新
 

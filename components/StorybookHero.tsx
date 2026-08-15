@@ -6,7 +6,7 @@ import { SukoyakaBrandHomeLink } from "./SukoyakaBrandHomeLink";
 const internalHotspots = [
   {
     className: "reference-hotspot-kids",
-    href: "/schedule",
+    href: "/kids",
     label: "こどものみんなへ",
   },
   {
