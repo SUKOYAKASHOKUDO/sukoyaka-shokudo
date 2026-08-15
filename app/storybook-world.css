@@ -1965,7 +1965,7 @@ body::selection {
 }
 
 .reference-design-frame {
-  --reference-menu-gap: clamp(14px, 1.6vw, 28px);
+  --reference-menu-gap: clamp(6px, 0.7vw, 12px);
 
   position: relative;
   width: min(100%, 1672px);
@@ -2006,9 +2006,24 @@ body::selection {
 .reference-design-image-menu {
   position: absolute;
   inset: 0;
-  clip-path: inset(63.1% 0 0);
   pointer-events: none;
   transform: translateY(var(--reference-menu-gap));
+}
+
+.reference-design-image-menu-kids {
+  clip-path: inset(63.1% 66% 19.6% 3% round clamp(24px, 3vw, 48px));
+}
+
+.reference-design-image-menu-family {
+  clip-path: inset(63.1% 35.3% 19.6% 35.3% round clamp(24px, 3vw, 48px));
+}
+
+.reference-design-image-menu-schedule {
+  clip-path: inset(82.3% 66% 3% 3% round clamp(24px, 3vw, 48px));
+}
+
+.reference-design-image-menu-recipes {
+  clip-path: inset(82.3% 35.3% 3% 35.3% round clamp(24px, 3vw, 48px));
 }
 
 .reference-design-copy {

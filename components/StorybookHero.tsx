@@ -27,6 +27,8 @@ const internalHotspots = [
   },
 ] as const;
 
+const menuImageSlices = ["kids", "family", "schedule", "recipes"] as const;
+
 const replacementCards = [
   {
     className: "reference-card-replacement-support",
@@ -94,18 +96,21 @@ export function StorybookHero() {
             draggable={false}
           />
 
-          <Image
-            className="reference-design-image reference-design-image-menu"
-            src="/images/brand/sukoyaka-site-design-wordmark.webp"
-            alt=""
-            aria-hidden="true"
-            width={1672}
-            height={941}
-            sizes="100vw"
-            priority
-            unoptimized
-            draggable={false}
-          />
+          {menuImageSlices.map((slice) => (
+            <Image
+              className={`reference-design-image reference-design-image-menu reference-design-image-menu-${slice}`}
+              src="/images/brand/sukoyaka-site-design-wordmark.webp"
+              alt=""
+              aria-hidden="true"
+              width={1672}
+              height={941}
+              sizes="100vw"
+              priority
+              unoptimized
+              draggable={false}
+              key={slice}
+            />
+          ))}
 
           <div className="reference-nav-visual-shift" aria-hidden="true" />
           <div className="reference-design-nav-blank" aria-hidden="true" />
