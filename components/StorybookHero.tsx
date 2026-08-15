@@ -40,8 +40,8 @@ const replacementCards = [
   {
     className: "reference-card-replacement-story",
     href: "/partners",
-    label: "応援企業のご紹介",
-    lines: ["応援企業のご紹介"],
+    label: "スポンサー",
+    lines: ["スポンサー"],
     icon: "partnerBuilding",
   },
 ] as const;
