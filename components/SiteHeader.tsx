@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { site } from "../content/siteContent";
 
 type IconName =
@@ -17,31 +16,6 @@ type IconName =
   | "pot"
   | "pin"
   | "mail";
-
-const headerNavigation: ReadonlyArray<{
-  href: string;
-  label: string;
-  icon: IconName;
-}> = [
-  { href: "/", label: "ホーム", icon: "home" },
-];
-
-const relatedNavigationPaths: Readonly<Record<string, ReadonlyArray<string>>> = {
-  "/about": ["/about", "/story", "/team"],
-  "/schedule": ["/schedule"],
-  "/recipes": ["/recipes", "/columns"],
-  "/support": ["/support", "/partners"],
-};
-
-function isNavigationActive(href: string, pathname: string) {
-  if (href === "/") {
-    return pathname === "/";
-  }
-
-  return (relatedNavigationPaths[href] ?? [href]).some(
-    (path) => pathname === path || pathname.startsWith(`${path}/`),
-  );
-}
 
 function StorybookIcon({ name }: { name: IconName }) {
   const common = {
@@ -149,8 +123,6 @@ function StorybookIcon({ name }: { name: IconName }) {
 }
 
 export function SiteHeader() {
-  const pathname = usePathname();
-
   return (
     <header className="site-header storybook-site-header">
       <div className="storybook-header-panel">
@@ -168,24 +140,6 @@ export function SiteHeader() {
             sizes="(max-width: 760px) 82px, 118px"
           />
         </Link>
-
-        <nav className="storybook-main-nav" aria-label="メインメニュー">
-          {headerNavigation.map((item) => {
-            const isActive = isNavigationActive(item.href, pathname);
-
-            return (
-              <Link
-                className={isActive ? "is-active" : undefined}
-                href={item.href}
-                key={item.href}
-                aria-current={isActive ? "page" : undefined}
-              >
-                <StorybookIcon name={item.icon} />
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
-        </nav>
 
         <a className="storybook-contact" href={`mailto:${site.email}`}>
           <StorybookIcon name="mail" />

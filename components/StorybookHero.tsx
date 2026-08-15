@@ -4,7 +4,6 @@ import { site } from "../content/siteContent";
 
 const internalHotspots = [
   { className: "reference-hotspot-logo", href: "/", label: "すこやか食堂 ホーム" },
-  { className: "reference-hotspot-home", href: "/", label: "ホーム" },
   {
     className: "reference-hotspot-kids",
     href: "/schedule",
@@ -112,7 +111,7 @@ export function StorybookHero() {
             />
           ))}
 
-          <div className="reference-nav-visual-shift" aria-hidden="true" />
+          <div className="reference-logo-backdrop" aria-hidden="true" />
           <div className="reference-design-nav-blank" aria-hidden="true" />
 
           <div className="reference-design-copy">

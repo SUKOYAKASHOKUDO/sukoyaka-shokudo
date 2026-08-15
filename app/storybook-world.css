@@ -64,7 +64,7 @@ body::selection {
   border-radius: 32px;
   background: rgba(255, 254, 249, 0.97);
   box-shadow: 0 16px 36px rgba(26, 119, 129, 0.13);
-  grid-template-columns: 150px minmax(0, 1fr) 192px;
+  grid-template-columns: minmax(0, 1fr) 192px;
   gap: 18px;
 }
 
@@ -78,7 +78,11 @@ body::selection {
   justify-content: center;
   border-radius: 24px;
   background: #fffef9;
+  cursor: pointer;
   flex-shrink: 0;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .storybook-full-logo img {
@@ -87,6 +91,35 @@ body::selection {
   max-width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.storybook-full-logo:hover img,
+.storybook-full-logo:focus-visible img {
+  animation: storybook-logo-hello 560ms ease-in-out;
+}
+
+.storybook-full-logo:hover {
+  transform: translateY(-2px);
+}
+
+.storybook-full-logo:focus-visible {
+  outline: 4px solid var(--storybook-yellow);
+  outline-offset: 4px;
+}
+
+@keyframes storybook-logo-hello {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  35% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+
+  70% {
+    transform: translateY(-1px) rotate(1.5deg);
+  }
 }
 
 .storybook-main-nav {
@@ -175,6 +208,7 @@ body::selection {
   padding: 12px 20px;
   align-items: center;
   justify-content: center;
+  justify-self: end;
   border: 3px solid #0f8c9e;
   border-radius: 999px;
   background: linear-gradient(135deg, #0d91a1, #087486);
@@ -1576,20 +1610,14 @@ body::selection {
 @media (max-width: 1180px) {
   .storybook-header-panel {
     padding: 10px 18px 16px;
-    grid-template-areas:
-      "logo spacer contact"
-      "nav nav nav";
-    grid-template-columns: 112px 1fr 182px;
+    grid-template-areas: "logo contact";
+    grid-template-columns: minmax(112px, 1fr) 182px;
   }
 
   .storybook-full-logo {
     width: 104px;
     height: 104px;
     grid-area: logo;
-  }
-
-  .storybook-main-nav {
-    grid-area: nav;
   }
 
   .storybook-contact {
@@ -1617,7 +1645,7 @@ body::selection {
 
   .storybook-header-panel {
     border-radius: 26px;
-    grid-template-columns: 92px 1fr 166px;
+    grid-template-columns: minmax(92px, 1fr) 166px;
   }
 
   .storybook-full-logo {
@@ -1687,9 +1715,7 @@ body::selection {
     padding: 8px 10px 12px;
     border-width: 2px;
     border-radius: 22px;
-    grid-template-areas:
-      "logo contact"
-      "nav nav";
+    grid-template-areas: "logo contact";
     grid-template-columns: 86px 1fr;
     gap: 6px 10px;
   }
@@ -1960,6 +1986,17 @@ body::selection {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .storybook-full-logo:hover img,
+  .storybook-full-logo:focus-visible img {
+    animation: none;
+  }
+
+  .storybook-full-logo:hover,
+  .reference-hotspot-logo:hover,
+  .reference-hotspot-logo:focus-visible {
+    transform: none;
+  }
+
   .storybook-main-nav a,
   .storybook-contact,
   .storybook-audience-card,
@@ -2556,6 +2593,25 @@ body::selection {
   overflow: hidden;
   border-radius: 18px;
   background: #fffef9;
+  cursor: pointer;
+  transform-origin: left center;
+  transition:
+    filter 180ms ease,
+    transform 180ms ease;
+}
+
+.reference-hotspot-logo:hover,
+.reference-hotspot-logo:focus-visible {
+  filter: drop-shadow(0 8px 10px rgba(8, 116, 134, 0.14));
+  transform: translateY(-2px) rotate(-0.35deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reference-hotspot-logo:hover,
+  .reference-hotspot-logo:focus-visible {
+    filter: none;
+    transform: none;
+  }
 }
 
 .reference-hotspot-logo::before {
@@ -2570,46 +2626,26 @@ body::selection {
   pointer-events: none;
 }
 
-.reference-nav-visual-shift {
+.reference-logo-backdrop {
   position: absolute;
   top: 2.4%;
-  left: 34%;
-  z-index: 1;
-  width: 45%;
+  left: 2.3%;
+  z-index: 2;
+  width: 33.3%;
   height: 13.2%;
-  overflow: hidden;
   background: #fffef9;
-  pointer-events: none;
-}
-
-.reference-nav-visual-shift::before {
-  position: absolute;
-  top: -18.182%;
-  left: -73.333%;
-  width: 222.222%;
-  height: 757.576%;
-  background: url("/images/brand/sukoyaka-site-design-wordmark.webp") center / 100% 100%
-    no-repeat;
-  content: "";
   pointer-events: none;
 }
 
 .reference-design-nav-blank {
   position: absolute;
   top: 2.4%;
-  left: 43.1%;
+  left: 34%;
   z-index: 2;
-  width: 35.9%;
+  width: 45%;
   height: 13.2%;
   background: #fffef9;
   pointer-events: none;
-}
-
-.reference-hotspot-home {
-  top: 2.4%;
-  left: 36.3%;
-  width: 6.4%;
-  height: 13.2%;
 }
 
 .reference-hotspot-about {
