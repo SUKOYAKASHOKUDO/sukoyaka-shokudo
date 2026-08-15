@@ -3835,6 +3835,7 @@ section[id] {
 }
 
 .mashiro-instagram-section {
+  overflow: hidden;
   border-top: 1px solid var(--m-line);
   border-bottom: 1px solid var(--m-line);
   background:
@@ -3871,15 +3872,23 @@ section[id] {
 
 .mashiro-instagram-carousel {
   position: relative;
+  width: 100vw;
   margin-top: clamp(38px, 5vw, 62px);
+  margin-left: calc(50% - 50vw);
 }
 
 .mashiro-instagram-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 3;
   display: flex;
-  min-height: 48px;
+  width: 100%;
   align-items: center;
-  justify-content: center;
-  gap: 15px;
+  justify-content: space-between;
+  padding: 0 clamp(14px, 2.4vw, 34px);
+  pointer-events: none;
+  transform: translateY(-50%);
 }
 
 .mashiro-instagram-arrow {
@@ -3894,6 +3903,7 @@ section[id] {
   color: var(--m-teal);
   cursor: pointer;
   font-size: 18px;
+  pointer-events: auto;
   transition:
     background 160ms ease,
     color 160ms ease,
@@ -3909,15 +3919,23 @@ section[id] {
 }
 
 .mashiro-instagram-arrow:disabled {
-  cursor: default;
-  opacity: 0.32;
+  visibility: hidden;
 }
 
 .mashiro-instagram-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 6px 18px rgba(18, 63, 71, 0.12);
   gap: 9px;
+  pointer-events: auto;
+  transform: translateX(-50%);
 }
 
 .mashiro-instagram-dot-button {
@@ -3944,13 +3962,13 @@ section[id] {
 }
 
 .mashiro-instagram-grid {
-  --instagram-gap: clamp(12px, 1.5vw, 20px);
+  --instagram-gap: clamp(10px, 1vw, 14px);
 
   display: grid;
   overflow-x: auto;
-  margin-top: 18px;
-  padding: 2px 2px 28px;
-  grid-auto-columns: calc((100% - (3 * var(--instagram-gap))) / 4);
+  margin-top: 0;
+  padding: 2px 0 18px;
+  grid-auto-columns: clamp(280px, 27vw, 380px);
   grid-auto-flow: column;
   gap: var(--instagram-gap);
   overscroll-behavior-inline: contain;
@@ -3968,10 +3986,10 @@ section[id] {
   position: relative;
   display: grid;
   overflow: hidden;
-  aspect-ratio: 1;
+  aspect-ratio: 1.16 / 1;
   place-items: center;
   border: 1px solid rgba(25, 101, 111, 0.13);
-  border-radius: clamp(18px, 2vw, 26px);
+  border-radius: clamp(16px, 1.6vw, 24px);
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.7), transparent 55%),
     #edf6f4;
@@ -4564,7 +4582,7 @@ section[id] {
   }
 
   .mashiro-instagram-grid {
-    grid-auto-columns: calc((100% - var(--instagram-gap)) / 2);
+    grid-auto-columns: 44vw;
   }
 
   .mashiro-editorial-reverse > :first-child,
@@ -4751,7 +4769,7 @@ section[id] {
   .mashiro-instagram-grid {
     --instagram-gap: 10px;
 
-    margin-top: 16px;
+    grid-auto-columns: 78vw;
     gap: var(--instagram-gap);
   }
 
@@ -4760,7 +4778,7 @@ section[id] {
   }
 
   .mashiro-instagram-controls {
-    gap: 12px;
+    padding-inline: 10px;
   }
 
   .mashiro-instagram-arrow {
