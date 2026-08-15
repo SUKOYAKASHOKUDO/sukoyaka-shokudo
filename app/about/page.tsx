@@ -25,7 +25,7 @@ export default function AboutPage() {
         <PageIntro
           eyebrow="ABOUT SUKOYAKA"
           title="札幌市中央区にある、子ども食堂"
-          description="どうか、子ども食堂にネガティブなイメージを持たないでください。食事をきっかけに、人と人が顔見知りになれる楽しい場所を目指しています。"
+          description="おなかがすいた日も、だれかと一緒に食べたい日も。どなたでも気軽に来られる、地域の食堂です。"
         />
 
         <section className="mashiro-section">
