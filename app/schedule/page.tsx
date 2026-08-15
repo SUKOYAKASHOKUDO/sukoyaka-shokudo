@@ -48,36 +48,104 @@ const comicPanels = [
 
 const firstVisitFacts = [
   {
-    icon: "📅",
+    icon: "calendar",
     title: "開催日",
     text: "現在は不定期で開催しています。ご来場前に、公式Instagramで最新の開催日時とメニューをご確認ください。",
   },
   {
-    icon: "🍚",
+    icon: "meal",
     title: "利用料金",
     text: "中学生以下は無料です。大人の方は1食500円でご利用いただけます。",
   },
   {
-    icon: "📍",
+    icon: "location",
     title: "場所",
     text: `${site.shortAddress}。札幌市電「山鼻9条駅」から徒歩4分です。`,
   },
   {
-    icon: "🥕",
+    icon: "carrot",
     title: "食物アレルギー",
     text: "個別のアレルギー対応食・除去食は提供していません。食物アレルギーがある場合は、保護者の方が食事内容をご確認ください。",
   },
   {
-    icon: "🧸",
+    icon: "child",
     title: "小さなお子さま",
     text: "提供する食事を安全に食べられることを前提に、年齢や食事について心配がある場合は事前にご相談ください。",
   },
   {
-    icon: "📚",
+    icon: "book",
     title: "過ごし方",
     text: "絵本やおもちゃをご用意しています。にぎやかに過ごすことや、じっとしていることが苦手なお子さまもご利用いただけます。",
   },
 ] as const;
+
+type GuideIconName = (typeof firstVisitFacts)[number]["icon"];
+
+function GuideIcon({ name }: { name: GuideIconName }) {
+  const commonProps = {
+    viewBox: "0 0 48 48",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2.2,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    focusable: false,
+    "aria-hidden": true,
+  };
+
+  switch (name) {
+    case "calendar":
+      return (
+        <svg {...commonProps}>
+          <path d="M13 10v6M35 10v6M9 19h30" />
+          <rect x="9" y="13" width="30" height="27" rx="6" />
+          <path d="M16 26h4M28 26h4M16 33h4M28 33h4" />
+        </svg>
+      );
+    case "meal":
+      return (
+        <svg {...commonProps}>
+          <path d="M10 25h28c0 8-5.5 14-14 14S10 33 10 25Z" />
+          <path d="M14 25c1-7 6-11 10-11s9 4 10 11M17 39h14" />
+          <path d="M19 10c-2 2-2 4 0 6M27 8c-2 2-2 5 0 7" />
+        </svg>
+      );
+    case "location":
+      return (
+        <svg {...commonProps}>
+          <path d="M24 42s13-11.6 13-23a13 13 0 1 0-26 0c0 11.4 13 23 13 23Z" />
+          <circle cx="24" cy="19" r="4.5" />
+        </svg>
+      );
+    case "carrot":
+      return (
+        <svg {...commonProps}>
+          <path d="M17 18c6-4 11-2 14 1 3 3 4 8 0 14L20 43c-2 2-5 .4-4-2l4-15c.6-3-.6-5-3-8Z" />
+          <path d="M21 16c-1-5 1-9 5-11M25 16c2-6 6-8 10-8M28 18c5-4 9-3 12-1" />
+          <path d="m20 28 7 3M18 34l6 3" />
+        </svg>
+      );
+    case "child":
+      return (
+        <svg {...commonProps}>
+          <circle cx="15" cy="15" r="5" />
+          <circle cx="33" cy="15" r="5" />
+          <path d="M36 26c0 9-5 15-12 15S12 35 12 26c0-8 5-14 12-14s12 6 12 14Z" />
+          <circle cx="19.5" cy="25" r="1" fill="currentColor" stroke="none" />
+          <circle cx="28.5" cy="25" r="1" fill="currentColor" stroke="none" />
+          <path d="M21 32c2 2 4 2 6 0" />
+        </svg>
+      );
+    case "book":
+      return (
+        <svg {...commonProps}>
+          <path d="M7 11h11c4 0 6 2 6 6v24c0-4-2-6-6-6H7V11Z" />
+          <path d="M41 11H30c-4 0-6 2-6 6v24c0-4 2-6 6-6h11V11Z" />
+          <path d="M12 18h6M12 24h7M30 18h6M29 24h7" />
+        </svg>
+      );
+  }
+}
 
 export default function SchedulePage() {
   return (
@@ -151,7 +219,7 @@ export default function SchedulePage() {
               {firstVisitFacts.map((fact) => (
                 <article className={styles.factCard} key={fact.title}>
                   <span className={styles.factIcon} aria-hidden="true">
-                    {fact.icon}
+                    <GuideIcon name={fact.icon} />
                   </span>
                   <div>
                     <h3>{fact.title}</h3>
