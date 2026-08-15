@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { navigation, site } from "../content/siteContent";
+import { site } from "../content/siteContent";
 
 function FooterInformationNote() {
   return (
@@ -48,28 +48,14 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <nav className="footer-links" aria-label="フッターメニュー">
-          {navigation.slice(0, 6).map((item) => (
-            <Link href={item.href} key={item.href}>
-              {item.label}
-            </Link>
-          ))}
-          <a
-            href={site.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-          <a href={site.line} target="_blank" rel="noopener noreferrer">
-            LINE
-          </a>
+        <nav className="footer-team-nav" aria-label="フッターメニュー">
+          <Link href="/team">私たち・ボランティア</Link>
         </nav>
       </div>
 
       <div className="shell footer-bottom">
         <small>
-          © {new Date().getFullYear()} {site.name}
+          © 2023年〜 {site.name}｜2023年から活動しています。
         </small>
         <small>
           <FooterInformationNote />
