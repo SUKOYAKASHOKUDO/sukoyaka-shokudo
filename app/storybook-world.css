@@ -62,7 +62,7 @@ body::selection {
   align-items: center;
   border: 3px solid rgba(255, 255, 255, 0.88);
   border-radius: 48px;
-  background: #fff;
+  background: #fffef9;
   box-shadow: 0 16px 36px rgba(26, 119, 129, 0.13);
   grid-template-columns: minmax(0, 1fr) 192px;
   gap: 18px;
@@ -111,7 +111,6 @@ body::selection {
   display: block;
   min-width: 0;
   flex: 1 1 auto;
-  mix-blend-mode: multiply;
   pointer-events: none;
 }
 
@@ -2663,7 +2662,7 @@ body::selection {
   width: 31.8%;
   height: 12.6%;
   border-radius: clamp(22px, 2.2vw, 38px) 0 0 clamp(22px, 2.2vw, 38px);
-  background: #fff;
+  background: #fffef9;
   pointer-events: none;
 }
 
@@ -2674,7 +2673,7 @@ body::selection {
   z-index: 2;
   width: 45.4%;
   height: 12.6%;
-  background: #fff;
+  background: #fffef9;
   pointer-events: none;
 }
 
