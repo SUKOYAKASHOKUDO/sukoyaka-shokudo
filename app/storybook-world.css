@@ -61,57 +61,81 @@ body::selection {
   padding: 14px 26px;
   align-items: center;
   border: 3px solid rgba(255, 255, 255, 0.88);
-  border-radius: 32px;
-  background: rgba(255, 254, 249, 0.97);
+  border-radius: 48px;
+  background: #fff;
   box-shadow: 0 16px 36px rgba(26, 119, 129, 0.13);
   grid-template-columns: minmax(0, 1fr) 192px;
   gap: 18px;
 }
 
-.storybook-full-logo {
-  --logo-lift: 0px;
+.sukoyaka-brand-home-link {
   display: flex;
-  position: relative;
-  width: 400px;
-  height: 88px;
   min-width: 0;
-  overflow: hidden;
   align-items: center;
-  justify-content: center;
-  border-radius: 0;
-  background: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sukoyaka-brand-onigiri {
+  --onigiri-lift: 0px;
+
+  position: relative;
   cursor: pointer;
-  flex-shrink: 0;
-  transform: perspective(700px)
-    translate3d(
-      var(--logo-shift-x, 0px),
-      calc(var(--logo-shift-y, 0px) + var(--logo-lift)),
+  transform: translate3d(
+      var(--onigiri-shift-x, 0px),
+      calc(var(--onigiri-shift-y, 0px) + var(--onigiri-lift)),
       0
     )
-    rotateX(var(--logo-rotate-x, 0deg)) rotateY(var(--logo-rotate-y, 0deg));
-  transform-style: preserve-3d;
+    rotate(var(--onigiri-rotate, 0deg));
+  transform-origin: center;
   transition:
-    box-shadow 180ms ease,
+    filter 180ms ease,
     transform 90ms ease-out;
 }
 
-.storybook-full-logo-art {
+.sukoyaka-brand-onigiri:hover {
+  --onigiri-lift: -4px;
+
+  filter: drop-shadow(0 8px 8px rgba(8, 116, 134, 0.14));
+}
+
+.sukoyaka-brand-onigiri img {
   display: block;
   width: 100%;
   height: 100%;
-  background-image: url("/images/brand/sukoyaka-site-design-wordmark.webp");
-  background-position: -45px -18px;
-  background-repeat: no-repeat;
-  background-size: 1265px auto;
+  object-fit: contain;
   pointer-events: none;
 }
 
-.storybook-full-logo:hover {
-  --logo-lift: -3px;
-  filter: drop-shadow(0 8px 8px rgba(8, 116, 134, 0.12));
+.sukoyaka-brand-wordmark {
+  display: block;
+  min-width: 0;
+  flex: 1 1 auto;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.storybook-full-logo {
+  position: relative;
+  width: 440px;
+  height: 96px;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.storybook-full-logo .sukoyaka-brand-onigiri {
+  width: 120px;
+  height: 88px;
+  flex: 0 0 120px;
+}
+
+.storybook-full-logo .sukoyaka-brand-wordmark {
+  width: 300px;
+  height: 92px;
 }
 
 .storybook-full-logo:focus-visible {
+  border-radius: 22px;
   outline: 4px solid var(--storybook-yellow);
   outline-offset: 4px;
 }
@@ -1610,14 +1634,20 @@ body::selection {
   }
 
   .storybook-full-logo {
-    width: 370px;
-    height: 84px;
+    width: 410px;
+    height: 92px;
     grid-area: logo;
   }
 
-  .storybook-full-logo-art {
-    background-position: -42px -17px;
-    background-size: 1190px auto;
+  .storybook-full-logo .sukoyaka-brand-onigiri {
+    width: 112px;
+    height: 82px;
+    flex-basis: 112px;
+  }
+
+  .storybook-full-logo .sukoyaka-brand-wordmark {
+    width: 280px;
+    height: 86px;
   }
 
   .storybook-contact {
@@ -1645,18 +1675,24 @@ body::selection {
 
   .storybook-header-panel {
     min-height: 132px;
-    border-radius: 26px;
+    border-radius: 40px;
     grid-template-columns: minmax(0, 1fr) 166px;
   }
 
   .storybook-full-logo {
-    width: 285px;
-    height: 66px;
+    width: 300px;
+    height: 72px;
   }
 
-  .storybook-full-logo-art {
-    background-position: -32px -13px;
-    background-size: 910px auto;
+  .storybook-full-logo .sukoyaka-brand-onigiri {
+    width: 82px;
+    height: 64px;
+    flex-basis: 82px;
+  }
+
+  .storybook-full-logo .sukoyaka-brand-wordmark {
+    width: 208px;
+    height: 68px;
   }
 
   .storybook-contact {
@@ -1721,20 +1757,27 @@ body::selection {
     min-height: 116px;
     padding: 10px 12px;
     border-width: 2px;
-    border-radius: 22px;
+    border-radius: 34px;
     grid-template-areas: "logo contact";
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px;
   }
 
   .storybook-full-logo {
-    width: min(205px, 100%);
-    height: 50px;
+    width: min(210px, 100%);
+    height: 54px;
+    gap: 2px;
   }
 
-  .storybook-full-logo-art {
-    background-position: -23px -9px;
-    background-size: 650px auto;
+  .storybook-full-logo .sukoyaka-brand-onigiri {
+    width: 58px;
+    height: 48px;
+    flex-basis: 58px;
+  }
+
+  .storybook-full-logo .sukoyaka-brand-wordmark {
+    width: 146px;
+    height: 50px;
   }
 
   .storybook-contact {
@@ -2585,59 +2628,53 @@ body::selection {
   outline-offset: -4px;
 }
 
-.reference-hotspot-logo {
-  top: 2.4%;
-  left: 2.3%;
-  z-index: 2;
-  width: 33.3%;
-  height: 13.2%;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #fffef9;
-  cursor: pointer;
-  transform-origin: left center;
-  transition:
-    filter 180ms ease,
-    transform 180ms ease;
-}
-
-.reference-hotspot-logo:hover,
-.reference-hotspot-logo:focus-visible {
-  filter: drop-shadow(0 8px 10px rgba(8, 116, 134, 0.14));
-  transform: translateY(-5px) rotate(-0.65deg) scale(1.006);
-}
-
-.reference-hotspot-logo::before {
+.reference-brand-home {
   position: absolute;
-  top: -28%;
-  left: -6%;
-  width: 330%;
-  height: 855%;
-  background: url("/images/brand/sukoyaka-site-design-wordmark.webp") center / 100% 100%
-    no-repeat;
-  content: "";
-  pointer-events: none;
+  top: 3.15%;
+  left: 2.75%;
+  z-index: 4;
+  width: 28.9%;
+  height: 11.7%;
+  gap: 0.3%;
+}
+
+.reference-brand-home .sukoyaka-brand-onigiri {
+  width: 28%;
+  height: 100%;
+  flex: 0 0 28%;
+}
+
+.reference-brand-home .sukoyaka-brand-wordmark {
+  width: 71.7%;
+  height: 100%;
+}
+
+.reference-brand-home:focus-visible {
+  border-radius: clamp(14px, 1.5vw, 26px);
+  outline: 4px solid #0a7284;
+  outline-offset: 2px;
 }
 
 .reference-logo-backdrop {
   position: absolute;
-  top: 2.4%;
+  top: 2.7%;
   left: 2.3%;
   z-index: 2;
-  width: 33.3%;
-  height: 13.2%;
-  background: #fffef9;
+  width: 31.8%;
+  height: 12.6%;
+  border-radius: clamp(22px, 2.2vw, 38px) 0 0 clamp(22px, 2.2vw, 38px);
+  background: #fff;
   pointer-events: none;
 }
 
 .reference-design-nav-blank {
   position: absolute;
-  top: 2.4%;
-  left: 34%;
+  top: 2.7%;
+  left: 33.6%;
   z-index: 2;
-  width: 45%;
-  height: 13.2%;
-  background: #fffef9;
+  width: 45.4%;
+  height: 12.6%;
+  background: #fff;
   pointer-events: none;
 }
 

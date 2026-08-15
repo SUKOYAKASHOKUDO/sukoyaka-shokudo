@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "../content/siteContent";
+import { SukoyakaBrandHomeLink } from "./SukoyakaBrandHomeLink";
 
 const internalHotspots = [
-  { className: "reference-hotspot-logo", href: "/", label: "すこやか食堂 ホーム" },
   {
     className: "reference-hotspot-kids",
     href: "/schedule",
@@ -120,6 +120,10 @@ export function StorybookHero() {
           </div>
 
           <nav className="reference-design-links" aria-label="トップメニュー">
+            <SukoyakaBrandHomeLink
+              className="reference-brand-home"
+              priority
+            />
             {internalHotspots.map((hotspot) => (
               <Link
                 className={`reference-hotspot ${hotspot.className}`}
