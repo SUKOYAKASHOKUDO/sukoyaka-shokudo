@@ -55,7 +55,7 @@ export function SiteFooter() {
 
       <div className="shell footer-bottom">
         <small>
-          © 2023年〜 {site.name}｜2023年から活動しています。
+          © 2023年- {site.name}
         </small>
         <small>
           <FooterInformationNote />
