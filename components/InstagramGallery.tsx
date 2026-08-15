@@ -23,7 +23,7 @@ function getCarouselMetrics(track: HTMLDivElement) {
   const gap = Math.max(0, cardStep - firstCard.offsetWidth);
   const visibleCards = Math.max(
     1,
-    Math.round((track.clientWidth + gap) / cardStep),
+    Math.floor((track.clientWidth + gap) / cardStep),
   );
 
   return {
