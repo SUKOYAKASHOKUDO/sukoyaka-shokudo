@@ -3878,17 +3878,12 @@ section[id] {
 }
 
 .mashiro-instagram-controls {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  z-index: 3;
   display: flex;
-  width: 100%;
+  width: min(100% - 28px, 520px);
+  margin: 0 auto clamp(14px, 2vw, 22px);
   align-items: center;
-  justify-content: space-between;
-  padding: 0 clamp(14px, 2.4vw, 34px);
-  pointer-events: none;
-  transform: translateY(-50%);
+  justify-content: center;
+  gap: 12px;
 }
 
 .mashiro-instagram-arrow {
@@ -3903,7 +3898,6 @@ section[id] {
   color: var(--m-teal);
   cursor: pointer;
   font-size: 18px;
-  pointer-events: auto;
   transition:
     background 160ms ease,
     color 160ms ease,
@@ -3923,9 +3917,6 @@ section[id] {
 }
 
 .mashiro-instagram-dots {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3934,8 +3925,6 @@ section[id] {
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 6px 18px rgba(18, 63, 71, 0.12);
   gap: 9px;
-  pointer-events: auto;
-  transform: translateX(-50%);
 }
 
 .mashiro-instagram-dot-button {
@@ -4778,7 +4767,9 @@ section[id] {
   }
 
   .mashiro-instagram-controls {
-    padding-inline: 10px;
+    width: min(100% - 20px, 420px);
+    margin-bottom: 14px;
+    gap: 9px;
   }
 
   .mashiro-instagram-arrow {
