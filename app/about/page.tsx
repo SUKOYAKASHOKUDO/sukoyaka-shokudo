@@ -43,7 +43,9 @@ export default function AboutPage() {
               <p className="mashiro-kicker">“すこやか食堂”</p>
               <h2>食事は、おいしく楽しいものです。</h2>
               {legacyAbout.opening.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph} style={{ whiteSpace: "pre-line" }}>
+                  {paragraph}
+                </p>
               ))}
             </div>
           </div>
