@@ -24,14 +24,6 @@ const headerNavigation: ReadonlyArray<{
   icon: IconName;
 }> = [
   { href: "/", label: "ホーム", icon: "home" },
-  { href: "/about", label: "すこやか食堂\nについて", icon: "bowl" },
-  { href: "/schedule", label: "開催の\nおしらせ", icon: "calendar" },
-  { href: "/recipes", label: "レシピと\nコラム", icon: "book" },
-  {
-    href: "/support",
-    label: "応援したい\n企業・団体の方へ",
-    icon: "building",
-  },
 ];
 
 const relatedNavigationPaths: Readonly<Record<string, ReadonlyArray<string>>> = {
