@@ -1965,10 +1965,31 @@ body::selection {
 }
 
 .reference-design-frame {
+  --reference-menu-gap: clamp(14px, 1.6vw, 28px);
+
   position: relative;
   width: min(100%, 1672px);
+  padding-bottom: var(--reference-menu-gap);
   margin-inline: auto;
+  overflow: hidden;
+  background: #fdfbf5;
   line-height: 0;
+}
+
+.reference-design-canvas {
+  position: relative;
+}
+
+.reference-design-canvas::after {
+  position: absolute;
+  top: 62.9%;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: calc(var(--reference-menu-gap) + 0.6%);
+  background: #fffef9;
+  content: "";
+  pointer-events: none;
 }
 
 .reference-design-image {
@@ -1976,6 +1997,18 @@ body::selection {
   width: 100%;
   height: auto;
   user-select: none;
+}
+
+.reference-design-image-top {
+  clip-path: inset(0 0 36.9% 0);
+}
+
+.reference-design-image-menu {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(63.1% 0 0);
+  pointer-events: none;
+  transform: translateY(var(--reference-menu-gap));
 }
 
 .reference-design-copy {
@@ -2001,6 +2034,7 @@ body::selection {
   inset: 0;
   z-index: 3;
   pointer-events: none;
+  transform: translateY(var(--reference-menu-gap));
 }
 
 .reference-card-replacement {
@@ -2593,6 +2627,7 @@ body::selection {
   left: 3.1%;
   width: 30.8%;
   height: 16.7%;
+  transform: translateY(var(--reference-menu-gap));
 }
 
 .reference-hotspot-family {
@@ -2600,6 +2635,7 @@ body::selection {
   left: 35.4%;
   width: 29.2%;
   height: 16.7%;
+  transform: translateY(var(--reference-menu-gap));
 }
 
 .reference-hotspot-business {
@@ -2614,6 +2650,7 @@ body::selection {
   left: 3.1%;
   width: 30.8%;
   height: 14.2%;
+  transform: translateY(var(--reference-menu-gap));
 }
 
 .reference-hotspot-recipes-card {
@@ -2621,6 +2658,7 @@ body::selection {
   left: 35.4%;
   width: 29.2%;
   height: 14.2%;
+  transform: translateY(var(--reference-menu-gap));
 }
 
 .reference-hotspot-support-card {

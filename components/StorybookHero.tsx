@@ -81,65 +81,80 @@ export function StorybookHero() {
       aria-labelledby="storybook-heading"
     >
       <div className="reference-design-frame">
-        <Image
-          className="reference-design-image"
-          src="/images/brand/sukoyaka-site-design-wordmark.webp"
-          alt="水色の空と丘を背景に、おにぎりを持つクマ、食事を持つウサギ、小鳥が描かれた、すこやか食堂のご案内"
-          width={1672}
-          height={941}
-          sizes="100vw"
-          priority
-          unoptimized
-          draggable={false}
-        />
+        <div className="reference-design-canvas">
+          <Image
+            className="reference-design-image reference-design-image-top"
+            src="/images/brand/sukoyaka-site-design-wordmark.webp"
+            alt="水色の空と丘を背景に、おにぎりを持つクマ、食事を持つウサギ、小鳥が描かれた、すこやか食堂のご案内"
+            width={1672}
+            height={941}
+            sizes="100vw"
+            priority
+            unoptimized
+            draggable={false}
+          />
 
-        <div className="reference-nav-visual-shift" aria-hidden="true" />
-        <div className="reference-design-nav-blank" aria-hidden="true" />
+          <Image
+            className="reference-design-image reference-design-image-menu"
+            src="/images/brand/sukoyaka-site-design-wordmark.webp"
+            alt=""
+            aria-hidden="true"
+            width={1672}
+            height={941}
+            sizes="100vw"
+            priority
+            unoptimized
+            draggable={false}
+          />
 
-        <div className="reference-design-copy">
-          <h1 id="storybook-heading">おなかも こころも ぽかぽかに。</h1>
-          <p>中学生以下 無料／大人 500円</p>
+          <div className="reference-nav-visual-shift" aria-hidden="true" />
+          <div className="reference-design-nav-blank" aria-hidden="true" />
+
+          <div className="reference-design-copy">
+            <h1 id="storybook-heading">おなかも こころも ぽかぽかに。</h1>
+            <p>中学生以下 無料／大人 500円</p>
+          </div>
+
+          <nav className="reference-design-links" aria-label="トップメニュー">
+            {internalHotspots.map((hotspot) => (
+              <Link
+                className={`reference-hotspot ${hotspot.className}`}
+                href={hotspot.href}
+                key={hotspot.className}
+              >
+                <span>{hotspot.label}</span>
+              </Link>
+            ))}
+            <a
+              className="reference-hotspot reference-hotspot-contact"
+              href={`mailto:${site.email}`}
+            >
+              <span>お問い合わせ</span>
+            </a>
+          </nav>
+
+          <nav className="reference-card-replacements" aria-label="目的別のご案内">
+            {replacementCards.map((card) => (
+              <Link
+                className={`reference-card-replacement ${card.className}`}
+                href={card.href}
+                key={card.label}
+              >
+                <span className="reference-card-replacement-icon" aria-hidden="true">
+                  <ReplacementCardIcon name={card.icon} />
+                </span>
+                <strong>
+                  {card.lines.map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </strong>
+                <span className="reference-card-replacement-arrow" aria-hidden="true">
+                  ›
+                </span>
+              </Link>
+            ))}
+          </nav>
         </div>
-
-        <nav className="reference-design-links" aria-label="トップメニュー">
-          {internalHotspots.map((hotspot) => (
-            <Link
-              className={`reference-hotspot ${hotspot.className}`}
-              href={hotspot.href}
-              key={hotspot.className}
-            >
-              <span>{hotspot.label}</span>
-            </Link>
-          ))}
-          <a
-            className="reference-hotspot reference-hotspot-contact"
-            href={`mailto:${site.email}`}
-          >
-            <span>お問い合わせ</span>
-          </a>
-        </nav>
-
-        <nav className="reference-card-replacements" aria-label="目的別のご案内">
-          {replacementCards.map((card) => (
-            <Link
-              className={`reference-card-replacement ${card.className}`}
-              href={card.href}
-              key={card.label}
-            >
-              <span className="reference-card-replacement-icon" aria-hidden="true">
-                <ReplacementCardIcon name={card.icon} />
-              </span>
-              <strong>
-                {card.lines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </strong>
-              <span className="reference-card-replacement-arrow" aria-hidden="true">
-                ›
-              </span>
-            </Link>
-          ))}
-        </nav>
       </div>
     </section>
   );
