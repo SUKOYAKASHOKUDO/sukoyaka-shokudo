@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import type { PointerEvent } from "react";
 import { site } from "../content/siteContent";
 
 type IconName =
@@ -122,6 +122,28 @@ function StorybookIcon({ name }: { name: IconName }) {
   );
 }
 
+function moveHeaderLogo(event: PointerEvent<HTMLAnchorElement>) {
+  if (event.pointerType === "touch") return;
+
+  const logo = event.currentTarget;
+  const bounds = logo.getBoundingClientRect();
+  const horizontal = (event.clientX - bounds.left) / bounds.width - 0.5;
+  const vertical = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+  logo.style.setProperty("--logo-shift-x", `${horizontal * 6}px`);
+  logo.style.setProperty("--logo-shift-y", `${vertical * 3}px`);
+  logo.style.setProperty("--logo-rotate-x", `${vertical * -3}deg`);
+  logo.style.setProperty("--logo-rotate-y", `${horizontal * 4}deg`);
+}
+
+function resetHeaderLogo(event: PointerEvent<HTMLAnchorElement>) {
+  const logo = event.currentTarget;
+  logo.style.removeProperty("--logo-shift-x");
+  logo.style.removeProperty("--logo-shift-y");
+  logo.style.removeProperty("--logo-rotate-x");
+  logo.style.removeProperty("--logo-rotate-y");
+}
+
 export function SiteHeader() {
   return (
     <header className="site-header storybook-site-header">
@@ -130,15 +152,10 @@ export function SiteHeader() {
           className="storybook-full-logo"
           href="/"
           aria-label={`${site.name} トップへ`}
+          onPointerMove={moveHeaderLogo}
+          onPointerLeave={resetHeaderLogo}
         >
-          <Image
-            src="/images/brand/sukoyaka-onigiri-logo-transparent-clean.webp"
-            alt="子ども食堂 すこやか食堂"
-            width={1097}
-            height={731}
-            priority
-            sizes="(max-width: 760px) 82px, 118px"
-          />
+          <span className="storybook-full-logo-art" aria-hidden="true" />
         </Link>
 
         <a className="storybook-contact" href={`mailto:${site.email}`}>
