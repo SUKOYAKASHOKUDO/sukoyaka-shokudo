@@ -5,7 +5,74 @@ import { site } from "../content/siteContent";
 const internalHotspots = [
   { className: "reference-hotspot-logo", href: "/", label: "すこやか食堂 ホーム" },
   { className: "reference-hotspot-home", href: "/", label: "ホーム" },
+  {
+    className: "reference-hotspot-kids",
+    href: "/schedule",
+    label: "こどものみんなへ",
+  },
+  {
+    className: "reference-hotspot-family",
+    href: "/about",
+    label: "おうちの方へ",
+  },
+  {
+    className: "reference-hotspot-schedule-card",
+    href: "/schedule",
+    label: "次回の開催",
+  },
+  {
+    className: "reference-hotspot-recipes-card",
+    href: "/recipes",
+    label: "レシピとコラム",
+  },
 ] as const;
+
+const replacementCards = [
+  {
+    className: "reference-card-replacement-support",
+    href: "/support",
+    label: "すこやか食堂を応援する",
+    lines: ["すこやか食堂を", "応援する"],
+    icon: "heartHands",
+  },
+  {
+    className: "reference-card-replacement-story",
+    href: "/partners",
+    label: "応援企業のご紹介",
+    lines: ["応援企業のご紹介"],
+    icon: "partnerBuilding",
+  },
+] as const;
+
+function ReplacementCardIcon({
+  name,
+}: {
+  name: (typeof replacementCards)[number]["icon"];
+}) {
+  if (name === "heartHands") {
+    return (
+      <Image
+        className="reference-card-heart-hands"
+        src="/images/brand/support-heart-hands.png"
+        alt=""
+        width={256}
+        height={256}
+        unoptimized
+      />
+    );
+  }
+
+  return (
+    <Image
+      className="reference-card-partner-icon"
+      src="/images/brand/support-partners-house-heart.png"
+      alt=""
+      width={447}
+      height={447}
+      unoptimized
+    />
+  );
+}
 
 export function StorybookHero() {
   return (
@@ -50,6 +117,28 @@ export function StorybookHero() {
           >
             <span>お問い合わせ</span>
           </a>
+        </nav>
+
+        <nav className="reference-card-replacements" aria-label="目的別のご案内">
+          {replacementCards.map((card) => (
+            <Link
+              className={`reference-card-replacement ${card.className}`}
+              href={card.href}
+              key={card.label}
+            >
+              <span className="reference-card-replacement-icon" aria-hidden="true">
+                <ReplacementCardIcon name={card.icon} />
+              </span>
+              <strong>
+                {card.lines.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </strong>
+              <span className="reference-card-replacement-arrow" aria-hidden="true">
+                ›
+              </span>
+            </Link>
+          ))}
         </nav>
       </div>
     </section>

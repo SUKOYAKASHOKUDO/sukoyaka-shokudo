@@ -1960,7 +1960,6 @@ body::selection {
 /* The supplied design is the canonical artwork for the home screen.
    It is served byte-for-byte without image optimization or redraws. */
 .reference-design-hero {
-  height: min(35.526vw, 594px);
   overflow: hidden;
   background: #fdfbf5;
 }
