@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InstagramGallery } from "../components/InstagramGallery";
 import { SiteFooter } from "../components/SiteFooter";
 import { StorybookHero } from "../components/StorybookHero";
 import {
@@ -10,8 +11,6 @@ import {
   storyPage,
   youtubeVideos,
 } from "../content/siteContent";
-
-const instagramPhotoSlots = ["01", "02", "03", "04"] as const;
 
 export default function Home() {
   return (
@@ -122,26 +121,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div
-              className="mashiro-instagram-grid"
-              aria-label="Instagram写真掲載予定枠"
-            >
-              {instagramPhotoSlots.map((slot) => (
-                <div
-                  className="mashiro-instagram-slot"
-                  key={slot}
-                  aria-hidden="true"
-                >
-                  <span className="mashiro-instagram-slot-number">{slot}</span>
-                  <svg viewBox="0 0 48 48">
-                    <rect x="8" y="8" width="32" height="32" rx="9" />
-                    <circle cx="24" cy="24" r="7" />
-                    <circle cx="34" cy="14" r="2" className="mashiro-instagram-dot" />
-                  </svg>
-                  <span className="mashiro-instagram-slot-label">PHOTO</span>
-                </div>
-              ))}
-            </div>
+            <InstagramGallery />
           </div>
         </section>
 

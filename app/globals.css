@@ -3869,11 +3869,99 @@ section[id] {
   line-height: 1.9;
 }
 
-.mashiro-instagram-grid {
-  display: grid;
+.mashiro-instagram-carousel {
+  position: relative;
   margin-top: clamp(38px, 5vw, 62px);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(12px, 1.5vw, 20px);
+}
+
+.mashiro-instagram-controls {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mashiro-instagram-arrow {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(25, 101, 111, 0.2);
+  border-radius: 50%;
+  background: var(--m-white);
+  box-shadow: 0 8px 24px rgba(18, 63, 71, 0.08);
+  color: var(--m-teal);
+  cursor: pointer;
+  font-size: 18px;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.mashiro-instagram-arrow:hover:not(:disabled),
+.mashiro-instagram-arrow:focus-visible {
+  background: var(--m-teal);
+  color: var(--m-white);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.mashiro-instagram-arrow:disabled {
+  cursor: default;
+  opacity: 0.32;
+}
+
+.mashiro-instagram-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+.mashiro-instagram-dot-button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid rgba(25, 101, 111, 0.42);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.mashiro-instagram-dot-button[aria-current="true"] {
+  background: var(--m-teal);
+  transform: scale(1.25);
+}
+
+.mashiro-instagram-dot-button:focus-visible {
+  outline: 3px solid rgba(25, 101, 111, 0.2);
+  outline-offset: 3px;
+}
+
+.mashiro-instagram-grid {
+  --instagram-gap: clamp(12px, 1.5vw, 20px);
+
+  display: grid;
+  overflow-x: auto;
+  margin-top: 18px;
+  padding: 2px 2px 28px;
+  grid-auto-columns: calc((100% - (3 * var(--instagram-gap))) / 4);
+  grid-auto-flow: column;
+  gap: var(--instagram-gap);
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 2px;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
+}
+
+.mashiro-instagram-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .mashiro-instagram-slot {
@@ -3889,10 +3977,11 @@ section[id] {
     #edf6f4;
   box-shadow: 0 16px 38px rgba(18, 63, 71, 0.08);
   color: rgba(25, 101, 111, 0.34);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
-.mashiro-instagram-slot:nth-child(2),
-.mashiro-instagram-slot:nth-child(4) {
+.mashiro-instagram-slot:nth-child(even) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 55%),
     #fff4df;
@@ -3927,6 +4016,16 @@ section[id] {
 .mashiro-instagram-slot-label {
   right: 18px;
   bottom: 16px;
+}
+
+.mashiro-instagram-page-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .mashiro-faq-section {
@@ -4465,7 +4564,7 @@ section[id] {
   }
 
   .mashiro-instagram-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-columns: calc((100% - var(--instagram-gap)) / 2);
   }
 
   .mashiro-editorial-reverse > :first-child,
@@ -4650,8 +4749,23 @@ section[id] {
   }
 
   .mashiro-instagram-grid {
-    margin-top: 34px;
-    gap: 10px;
+    --instagram-gap: 10px;
+
+    margin-top: 16px;
+    gap: var(--instagram-gap);
+  }
+
+  .mashiro-instagram-carousel {
+    margin-top: 32px;
+  }
+
+  .mashiro-instagram-controls {
+    gap: 12px;
+  }
+
+  .mashiro-instagram-arrow {
+    width: 42px;
+    height: 42px;
   }
 
   .mashiro-instagram-slot {
