@@ -166,7 +166,7 @@ export default function PartnersPage() {
                   スポンサーについて相談する
                   <span aria-hidden="true">↗</span>
                 </a>
-                <a className="corporate-sponsor-text-link" href="#sponsorship">
+                <a className="corporate-sponsor-text-link" href="/sponsorship">
                   スポンサー制度を見る
                   <span aria-hidden="true">↓</span>
                 </a>
@@ -186,10 +186,7 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        <section
-          className="mashiro-section corporate-sponsor-about"
-          id="sponsorship"
-        >
+        <section className="mashiro-section corporate-sponsor-about">
           <div className="shell">
             <SectionHeading
               eyebrow="ABOUT SPONSORSHIP"
