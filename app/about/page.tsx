@@ -69,6 +69,36 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section className="about-media-section" aria-labelledby="about-media-title">
+          <div className="shell">
+            <article className="about-media-card">
+              <div className="about-media-card__heading">
+                <p className="mashiro-kicker">MEDIA</p>
+                <p className="about-media-card__source">
+                  財界さっぽろ「ほっかいどうデータベース」／2026年7月取材
+                </p>
+              </div>
+              <div className="about-media-card__body">
+                <h2 id="about-media-title">財界さっぽろに掲載されました</h2>
+                <p className="about-media-card__title">
+                  食を通じて子どもたちが集まる子ども食堂を運営
+                </p>
+                <p>
+                  すこやか食堂の立ち上げや、食を通じた地域の居場所づくりへの思いをご紹介いただきました。
+                </p>
+                <a
+                  className="mashiro-arrow-link"
+                  href="https://www.zaikaisapporo.co.jp/hdb/hdb-article.php?id=20978"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  財界さっぽろの記事を読む <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
       </main>
       <SiteFooter />
     </>
