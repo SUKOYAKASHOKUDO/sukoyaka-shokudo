@@ -217,44 +217,29 @@ export type Sponsor = {
 };
 
 // 運営者から掲載許可を得た企業・団体・支援者のみ追加してください。
-const sponsorSortKey = (name: string) =>
-  name
-    .replace(/^(株式会社|合同会社|有限会社|\(有\)|（有）)/, "")
-    .replace(/様$/, "")
-    .trim();
-
-const sponsorNameCollator = new Intl.Collator("ja", {
-  numeric: true,
-  sensitivity: "base",
-});
-
-const sponsorEntries: Sponsor[] = [
+export const sponsors: Sponsor[] = [
+  { name: "株式会社INNOVEGG様", support: "枝幸産の毛蟹" },
+  { name: "合同会社ＫＥＬ高橋様", support: "中華おこわ" },
+  { name: "MarcheJapan株式会社様", support: "クリームシチュー" },
+  { name: "One's Own Master様", support: "飲料" },
+  { name: "株式会社pit様", support: "お米" },
+  { name: "株式会社TASKAL様", support: "野菜とお肉とヨーグルト" },
+  { name: "株式会社YOKI 代表取締役佐藤様", support: "飲料" },
+  { name: "株式会社エフエー天内様", support: "野菜や果物" },
+  { name: "株式会社かめはたリカーズ様", support: "飲料" },
+  { name: "キープグループ小林様", support: "お米" },
+  { name: "きちのせ(株)様", support: "食器" },
+  { name: "株式会社さがみ屋様", support: "ラーメンの麺" },
+  { name: "サリーズカップケーキ様", support: "カップケーキ" },
+  { name: "株式会社ダスキン中嶋様", support: "お掃除用品" },
+  { name: "株式会社ホームエージェント 中川様", support: "お米" },
+  { name: "一家水産様", support: "厚岸産のあさり" },
+  { name: "株式会社亀井精肉店様", support: "お肉やハム" },
+  { name: "株式会社札幌春木商店様", support: "海鮮と絵本" },
+  { name: "土屋様", support: "鶏肉と調味料" },
   { name: "(有)日本マスターリンク社様", support: "お米、卵" },
   { name: "株式会社明治様", support: "チョコレート、グミなど" },
-  { name: "きちのせ(株)様", support: "食器" },
-  { name: "株式会社INNOVEGG様", support: "枝幸産の毛蟹" },
-  { name: "株式会社ダスキン中嶋様", support: "お掃除用品" },
-  { name: "株式会社かめはたリカーズ様", support: "飲料" },
-  { name: "株式会社YOKI 代表取締役佐藤様", support: "飲料" },
-  { name: "合同会社ＫＥＬ高橋様", support: "中華おこわ" },
-  { name: "一家水産様", support: "厚岸産のあさり" },
-  { name: "株式会社エフエー天内様", support: "野菜や果物" },
-  { name: "サリーズカップケーキ様", support: "カップケーキ" },
-  { name: "株式会社TASKAL様", support: "野菜とお肉とヨーグルト" },
-  { name: "キープグループ小林様", support: "お米" },
-  { name: "株式会社ホームエージェント 中川様", support: "お米" },
-  { name: "土屋様", support: "鶏肉と調味料" },
-  { name: "株式会社pit様", support: "お米" },
-  { name: "One's Own Master様", support: "飲料" },
-  { name: "株式会社札幌春木商店様", support: "海鮮と絵本" },
-  { name: "株式会社さがみ屋様", support: "ラーメンの麺" },
-  { name: "株式会社亀井精肉店様", support: "お肉やハム" },
-  { name: "MarcheJapan株式会社様", support: "クリームシチュー" },
 ];
-
-export const sponsors = sponsorEntries.sort((a, b) =>
-  sponsorNameCollator.compare(sponsorSortKey(a.name), sponsorSortKey(b.name)),
-);
 
 export type CommunityPartner = {
   name: string;

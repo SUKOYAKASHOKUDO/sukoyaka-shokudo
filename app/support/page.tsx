@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PageIntro } from "../../components/PageIntro";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
+import { SponsorCarousel } from "../../components/SponsorCarousel";
 import {
   homePage,
   site,
@@ -191,40 +192,25 @@ export default function SupportPage() {
           </div>
         </section>
 
-        <section className="section sponsor-page-section" id="supporters">
+        <section
+          className="section sponsor-page-section"
+          id="supporters"
+          aria-labelledby="supporters-heading"
+        >
           <div className="shell">
-            <div className="section-heading centered">
-              <p className="eyebrow">{homePage.support.sponsorEyebrow}</p>
-              <h2>協賛企業様一覧</h2>
-              <p>{homePage.support.sponsorDescription}</p>
+            <div className="section-heading centered sponsor-carousel-heading">
+              <p className="eyebrow">THANK YOU</p>
+              <h2 id="supporters-heading">協賛企業・ご支援者様</h2>
+              <p>
+                すこやか食堂へお寄せいただいた、あたたかいご支援をご紹介します。
+              </p>
             </div>
             {sponsors.length === 0 ? (
               <div className="content-empty">
                 掲載許可を確認できた企業・団体様から順次ご紹介します。現在は掲載準備中です。
               </div>
             ) : (
-              <div className="supporter-list">
-                {sponsors.map((sponsor, index) => (
-                  <article key={sponsor.name}>
-                    <span aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h3>{sponsor.name}</h3>
-                      <p>ご支援：{sponsor.support}</p>
-                      {sponsor.url ? (
-                        <a
-                          href={sponsor.url}
-                          target="_blank"
-                          rel="noopener noreferrer sponsored"
-                        >
-                          公式サイト
-                        </a>
-                      ) : null}
-                    </div>
-                  </article>
-                ))}
-              </div>
+              <SponsorCarousel sponsors={sponsors} />
             )}
             <p className="sponsor-policy centered-policy">
               ※{homePage.support.sponsorPolicy}
