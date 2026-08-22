@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { PageIntro } from "../../components/PageIntro";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { legacyAbout } from "../../content/legacyContent";
-import { storyPage } from "../../content/siteContent";
 
 export const metadata: Metadata = {
   title: "すこやか食堂について｜代表の思い",
@@ -68,68 +66,6 @@ export default function AboutPage() {
                 sizes="(max-width: 900px) 92vw, 40vw"
               />
             </figure>
-          </div>
-        </section>
-
-        <section className="mashiro-section">
-          <div className="shell mashiro-reading-layout">
-            <aside>
-              <p className="mashiro-kicker">OUR TABLE</p>
-              <h2>1.子ども食堂利用に対してのお願い</h2>
-            </aside>
-            <div className="mashiro-prose">
-              {legacyAbout.request.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-              <Link className="mashiro-arrow-link" href="/schedule">
-                日程とメニューを見る
-                <span aria-hidden="true">↗</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="mashiro-section mashiro-ink-section">
-          <div className="shell mashiro-reading-layout">
-            <aside>
-              <p className="mashiro-kicker">BACKGROUND</p>
-              <h2>札幌に、こんな子ども食堂が多い</h2>
-              <h3>一般的な“子ども食堂の目的”とは？</h3>
-            </aside>
-            <div className="mashiro-prose">
-              <h3>子ども食堂の現実</h3>
-              {legacyAbout.background.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-              <div className="mashiro-source-links">
-                {legacyAbout.sources.map((source) => (
-                  <a
-                    href={source.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={source.url}
-                  >
-                    引用：{source.label}
-                  </a>
-                ))}
-              </div>
-              <p className="mashiro-small-note">
-                上記は旧公式サイトの文章をそのまま引き継いだアーカイブ情報です。統計や制度の最新状況は各引用元をご確認ください。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mashiro-section story-interview-section">
-          <div className="shell story-reading-grid">
-            <div>
-              <p className="mashiro-kicker">{storyPage.interview.eyebrow}</p>
-              <h2>{storyPage.interview.title}</h2>
-            </div>
-            <div className="story-interview-pending" role="note">
-              <strong>{storyPage.interview.status}</strong>
-              <p>{storyPage.interview.notice}</p>
-            </div>
           </div>
         </section>
 
