@@ -2176,8 +2176,7 @@ body::selection {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.corporate-sponsor-benefits article,
-.corporate-sponsor-sdgs article {
+.corporate-sponsor-benefits article {
   min-width: 0;
   padding: 1.6rem;
   background: #f8fbf8;
@@ -2196,7 +2195,6 @@ body::selection {
 
 .corporate-sponsor-benefits h3,
 .corporate-sponsor-flow h3,
-.corporate-sponsor-sdgs h3,
 .corporate-sponsor-recruitment h3 {
   margin: 1rem 0 0.65rem;
   color: #2d575a;
@@ -2214,7 +2212,6 @@ body::selection {
 }
 
 .corporate-sponsor-list-section,
-.corporate-sponsor-sdgs-section,
 .corporate-sponsor-faq-section {
   background: #eff8f7;
 }
@@ -2280,35 +2277,6 @@ body::selection {
 
 .corporate-sponsor-report-list li:last-child {
   border-bottom: 0;
-}
-
-.corporate-sponsor-sdgs {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.corporate-sponsor-sdgs article {
-  background: rgba(255, 255, 255, 0.78);
-}
-
-.corporate-sponsor-sdgs article > span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 4.4rem;
-  height: 2.2rem;
-  padding-inline: 0.8rem;
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 800;
-  background: #438183;
-  border-radius: 999px;
-}
-
-.corporate-sponsor-sdgs h3 {
-  margin-top: 1.2rem;
-  font-size: 1.12rem;
 }
 
 .corporate-sponsor-flow {
@@ -2604,13 +2572,11 @@ body::selection {
   }
 
   .corporate-sponsor-benefits,
-  .corporate-sponsor-sdgs,
   .corporate-sponsor-flow {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .corporate-sponsor-benefits article,
-  .corporate-sponsor-sdgs article,
   .corporate-sponsor-flow li {
     padding: 1.35rem;
   }

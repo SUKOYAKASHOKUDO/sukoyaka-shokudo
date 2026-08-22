@@ -51,14 +51,7 @@ const reportItems = [
   "年間の延べ参加人数",
   "協賛金の主な活用内容",
   "活動写真",
-  "関連するSDGs",
   "すこやか食堂からの感謝メッセージ",
-] as const;
-
-const relatedSdgs = [
-  { number: "2", text: "食事を通じた子どもたちへの支援" },
-  { number: "11", text: "地域の安心できる居場所づくり" },
-  { number: "17", text: "企業と地域の連携" },
 ] as const;
 
 const sponsorSteps = [
@@ -92,34 +85,39 @@ const sponsorSteps = [
 
 const sponsorFaqs = [
   {
-    question: "スポンサー金額は決まっていますか？",
+    question: "相談だけでも大丈夫ですか？",
     answer:
-      "活動状況やご希望を確認しながら個別にご案内します。まずはお問い合わせください。",
+      "はい。まだ具体的な内容が決まっていない段階でも大丈夫です。まずはご希望やご関心についてお聞かせください。",
   },
   {
-    question: "どのような企業でも申し込めますか？",
+    question: "スポンサー料金はいくらですか？",
     answer:
-      "子どもたちの安心と安全、すこやか食堂の活動方針との適合性などを確認したうえでご案内します。",
+      "ご希望の期間や掲載内容などを確認しながら、個別にご案内します。ご相談いただいた時点で、お申込みが決まることはありません。",
   },
   {
-    question: "会社ロゴや公式サイトを掲載できますか？",
+    question: "小さな会社でもスポンサーになれますか？",
     answer:
-      "はい。正式なスポンサー企業については、掲載内容をご確認いただいたうえで、会社ロゴ、会社名、会社概要、応援メッセージ、公式サイトをご紹介します。",
+      "はい。会社の規模にかかわらず、すこやか食堂の活動に賛同してくださる企業・団体の皆さまからのご相談を受け付けています。",
   },
   {
-    question: "活動報告は受け取れますか？",
+    question: "どのように会社を紹介してもらえますか？",
     answer:
-      "はい。年度終了後に、開催回数、提供食数、延べ参加人数などをまとめたA4・1枚の年間スポンサー活動報告書をお送りします。",
+      "会社ロゴ、会社名、会社概要、応援メッセージ、公式サイトなどを掲載できます。掲載内容は、公開前に必ずご確認いただきます。",
   },
   {
-    question: "報告書を自社サイトで紹介できますか？",
+    question: "どのくらいの期間から申し込めますか？",
     answer:
-      "はい。自社の公式サイト、サステナビリティページ、社内報などで地域貢献活動を紹介する際の参考資料としてご利用いただけます。写真の社外利用については、事前にご確認ください。",
+      "ご希望を伺いながら、スポンサー期間を個別にご案内します。短期間のご相談についても、まずはお問い合わせください。",
   },
   {
-    question: "スポンサー料は寄付金控除の対象になりますか？",
+    question: "活動の報告は受け取れますか？",
     answer:
-      "契約内容や会計処理によって取扱いが異なるため、税務上の取扱いについては各企業の経理担当者または税理士へご確認ください。",
+      "はい。年1回、開催回数、提供食数、延べ参加人数、協賛金の主な活用内容などをまとめた、A4・1枚の活動報告書をお送りします。",
+  },
+  {
+    question: "まずは何を伝えればよいですか？",
+    answer:
+      "会社名、ご担当者名、ご希望の支援内容が分かる範囲でお知らせください。詳しい内容が決まっていなくても大丈夫です。",
   },
 ] as const;
 
@@ -263,24 +261,6 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        <section className="mashiro-section corporate-sponsor-sdgs-section">
-          <div className="shell">
-            <SectionHeading
-              eyebrow="RELATED SDGs"
-              title="活動に関連するSDGs"
-              description="すこやか食堂では、実際の活動内容と記録に基づき、関連するSDGsをご案内します。"
-            />
-            <div className="corporate-sponsor-sdgs">
-              {relatedSdgs.map((goal) => (
-                <article key={goal.number}>
-                  <span>目標 {goal.number}</span>
-                  <h3>{goal.text}</h3>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="mashiro-section corporate-sponsor-flow-section">
           <div className="shell">
             <SectionHeading
@@ -301,7 +281,7 @@ export default function PartnersPage() {
 
         <section className="mashiro-section corporate-sponsor-faq-section">
           <div className="shell corporate-sponsor-faq-grid">
-            <SectionHeading eyebrow="FAQ" title="よくある質問" />
+            <SectionHeading eyebrow="QUESTIONS" title="よくある質問" />
             <div className="corporate-sponsor-faqs">
               {sponsorFaqs.map((faq, index) => (
                 <details key={faq.question}>
@@ -322,11 +302,11 @@ export default function PartnersPage() {
               <p className="mashiro-kicker">PARTNERSHIP</p>
               <h2>企業スポンサーについて相談する</h2>
               <p>
-                協賛内容、契約期間、企業情報の掲載など、ご希望を確認しながら個別にご案内します。まずはお気軽にお問い合わせください。
+                具体的な内容がまだ決まっていなくても大丈夫です。ご希望やご関心を伺いながら、無理のない形をご案内します。まずはお気軽にお問い合わせください。
               </p>
             </div>
             <a className="mashiro-button" href={sponsorMailto}>
-              メールで相談する
+              まずは相談してみる
               <span aria-hidden="true">↗</span>
             </a>
           </div>
