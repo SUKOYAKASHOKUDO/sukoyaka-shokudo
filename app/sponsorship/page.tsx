@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CorporateSponsorCarousel } from "../../components/CorporateSponsorCarousel";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
+import { SponsorshipHashCleanup } from "../../components/SponsorshipHashCleanup";
 import {
   getPublishedCorporateSponsors,
   site,
@@ -142,6 +143,7 @@ export default function PartnersPage() {
 
   return (
     <>
+      <SponsorshipHashCleanup />
       <a className="skip-link" href="#main">
         本文へ移動
       </a>
