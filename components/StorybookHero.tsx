@@ -38,7 +38,7 @@ const replacementCards = [
   },
   {
     className: "reference-card-replacement-story",
-    href: "/partners",
+    href: "/sponsorship",
     label: "スポンサー",
     lines: ["スポンサー"],
     icon: "partnerBuilding",

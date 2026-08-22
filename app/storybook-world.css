@@ -2065,7 +2065,7 @@ body::selection {
   max-width: 13em;
   margin: 0.5rem 0 1.35rem;
   color: #234f52;
-  font-size: clamp(2.25rem, 5.3vw, 4.5rem);
+  font-size: clamp(2.25rem, 4.6vw, 3.5rem);
   font-weight: 650;
   letter-spacing: -0.04em;
   line-height: 1.17;
