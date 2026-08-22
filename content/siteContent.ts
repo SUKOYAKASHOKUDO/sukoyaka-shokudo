@@ -241,16 +241,45 @@ export const sponsors: Sponsor[] = [
   { name: "株式会社明治様", support: "チョコレート、グミなど" },
 ];
 
-export type CommunityPartner = {
+export type CorporateSponsor = {
   name: string;
   summary: string;
-  url: string;
-  logo?: string;
-  supportLabel?: string;
+  message: string;
+  logo: string;
+  officialUrl: string;
+  sponsorSince: string;
+  sponsorPeriod: string;
+  status: "draft" | "active" | "inactive";
+  displayOrder: number;
+  publicationStartsAt?: string;
+  publicationEndsAt?: string;
 };
 
-// 会社情報・ロゴ・URLの掲載許可を確認できた企業のみ追加してください。
-export const communityPartners: CommunityPartner[] = [];
+// 正式なスポンサー契約と掲載許可を確認できた企業のみ追加してください。
+// 食材・物資提供者は上の sponsors で管理し、この配列には追加しません。
+export const corporateSponsors: CorporateSponsor[] = [];
+
+export function getPublishedCorporateSponsors(
+  referenceDate = new Date(),
+): CorporateSponsor[] {
+  const dateKey = referenceDate.toISOString().slice(0, 10);
+
+  return corporateSponsors
+    .filter((sponsor) => {
+      if (sponsor.status !== "active") return false;
+      if (
+        sponsor.publicationStartsAt &&
+        sponsor.publicationStartsAt > dateKey
+      ) {
+        return false;
+      }
+      if (sponsor.publicationEndsAt && sponsor.publicationEndsAt < dateKey) {
+        return false;
+      }
+      return true;
+    })
+    .sort((a, b) => a.displayOrder - b.displayOrder);
+}
 
 export const supportBankAccount = {
   bankName: "北海道銀行",
