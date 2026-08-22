@@ -4502,7 +4502,7 @@ section[id] {
 
 .about-media-card__body h2 {
   margin: 0 0 18px;
-  font-size: clamp(28px, 3.4vw, 46px);
+  font-size: clamp(28px, 3.2vw, 42px);
   line-height: 1.45;
 }
 
