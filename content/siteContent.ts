@@ -224,7 +224,7 @@ export const sponsors: Sponsor[] = [
   { name: "One's Own Master様", support: "飲料" },
   { name: "株式会社pit様", support: "お米" },
   { name: "株式会社TASKAL様", support: "野菜とお肉とヨーグルト" },
-  { name: "株式会社YOKI 代表取締役佐藤様", support: "飲料" },
+  { name: "株式会社YOKI 代表取締役\n佐藤様", support: "飲料" },
   { name: "株式会社エフエー天内様", support: "野菜や果物" },
   { name: "株式会社かめはたリカーズ様", support: "飲料" },
   { name: "キープグループ小林様", support: "お米" },

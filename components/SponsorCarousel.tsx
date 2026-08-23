@@ -84,7 +84,14 @@ export function SponsorCarousel({ sponsors }: SponsorCarouselProps) {
             <span className="sponsor-carousel-number" aria-hidden="true">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3>{sponsor.name}</h3>
+            <h3>
+              {sponsor.name.split("\n").map((line, lineIndex) => (
+                <span key={`${sponsor.name}-${lineIndex}`}>
+                  {lineIndex > 0 && <br />}
+                  {line}
+                </span>
+              ))}
+            </h3>
             <p>
               <span>ご支援：</span>
               {sponsor.support}
