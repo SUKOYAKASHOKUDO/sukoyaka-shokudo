@@ -2249,8 +2249,18 @@ body::selection {
   line-height: 1.95;
 }
 
-.corporate-sponsor-keep-together {
-  white-space: nowrap;
+.corporate-sponsor-report-line {
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .corporate-sponsor-report-note {
+    font-size: 14px;
+  }
+
+  .corporate-sponsor-report-line {
+    white-space: nowrap;
+  }
 }
 
 .corporate-sponsor-report-section small {

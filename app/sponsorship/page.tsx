@@ -255,9 +255,11 @@ export default function PartnersPage() {
                 いただいた協賛金は、食材費、調味料、衛生用品、会場設備、広報費など、すこやか食堂の活動運営全般に活用します。
                 <br />
                 <br />
-                年間スポンサー活動報告書は、企業サイトのサステナビリティ・CSRページや社内報などで、地域貢献の取り組みを紹介する際の
-                <span className="corporate-sponsor-keep-together">
-                  参考資料としてご利用いただけます。
+                <span className="corporate-sponsor-report-line">
+                  年間スポンサー活動報告書は、企業サイトのサステナビリティ・CSRページや社内報などで、
+                </span>
+                <span className="corporate-sponsor-report-line">
+                  地域貢献の取り組みを紹介する際の参考資料としてご利用いただけます。
                 </span>
               </p>
               <small>
