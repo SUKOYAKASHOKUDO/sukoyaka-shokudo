@@ -2468,6 +2468,54 @@ body::selection {
   text-decoration: none;
 }
 
+.corporate-sponsor-preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.corporate-sponsor-preview-card {
+  width: min(100%, 23rem);
+  flex-basis: auto;
+}
+
+.corporate-sponsor-logo-placeholder {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  border: 1px dashed rgba(57, 112, 112, 0.28);
+  background:
+    radial-gradient(circle at 50% 25%, rgba(223, 242, 241, 0.85), transparent 58%),
+    #fffdf8;
+  color: #739092;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.corporate-sponsor-logo-placeholder > span {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.corporate-sponsor-logo-placeholder > strong {
+  color: #3f7477;
+  font-size: 1rem;
+}
+
+.corporate-sponsor-card-copy .corporate-sponsor-preview-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 1.15rem;
+  color: #789092;
+  font-size: 0.88rem;
+  font-weight: 750;
+  gap: 0.4rem;
+  letter-spacing: normal;
+}
+
 .corporate-sponsor-carousel-arrow {
   position: absolute;
   z-index: 2;
