@@ -2254,8 +2254,8 @@ body::selection {
 }
 
 @media (min-width: 1200px) {
-  .corporate-sponsor-report-note {
-    font-size: 14px;
+  .corporate-sponsor-report-grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
   }
 
   .corporate-sponsor-report-line {
