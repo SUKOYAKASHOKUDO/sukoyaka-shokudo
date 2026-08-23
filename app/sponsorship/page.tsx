@@ -169,10 +169,6 @@ export default function PartnersPage() {
                   スポンサーについて相談する
                   <span aria-hidden="true">↗</span>
                 </a>
-                <a className="corporate-sponsor-text-link" href="/sponsorship">
-                  スポンサー制度を見る
-                  <span aria-hidden="true">↓</span>
-                </a>
               </div>
             </div>
             <aside
