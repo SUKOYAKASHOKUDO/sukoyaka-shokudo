@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CorporateSponsorCarousel } from "../../components/CorporateSponsorCarousel";
+import { PartnerShowcaseCard } from "../../components/PartnerShowcaseCard";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { SponsorshipHashCleanup } from "../../components/SponsorshipHashCleanup";
@@ -222,24 +223,11 @@ export default function PartnersPage() {
                   className="corporate-sponsor-preview"
                   aria-label="スポンサー企業紹介カードの掲載イメージ"
                 >
-                  <article className="corporate-sponsor-card corporate-sponsor-preview-card">
-                    <div className="corporate-sponsor-logo corporate-sponsor-logo-placeholder">
-                      <span>COMPANY LOGO</span>
-                      <strong>企業ロゴ</strong>
-                    </div>
-                    <div className="corporate-sponsor-card-copy">
-                      <span>掲載イメージ</span>
-                      <h3>スポンサー企業名</h3>
-                      <p>会社概要を簡潔にご紹介します。</p>
-                      <blockquote>
-                        すこやか食堂への応援メッセージを掲載します。
-                      </blockquote>
-                      <span className="corporate-sponsor-preview-link">
-                        公式サイトを見る
-                        <span aria-hidden="true">↗</span>
-                      </span>
-                    </div>
-                  </article>
+                  <PartnerShowcaseCard
+                    name="貴社名"
+                    summary="会社や事業の概要、地域への想い、ご支援についてのメッセージなどを、読みやすく簡潔にご紹介します。"
+                    preview
+                  />
                 </div>
                 <article className="corporate-sponsor-recruitment">
                   <div>

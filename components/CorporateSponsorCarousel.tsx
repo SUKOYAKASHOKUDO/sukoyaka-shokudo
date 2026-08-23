@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   type KeyboardEvent,
   useCallback,
@@ -9,6 +8,7 @@ import {
   useState,
 } from "react";
 import type { CorporateSponsor } from "../content/siteContent";
+import { PartnerShowcaseCard } from "./PartnerShowcaseCard";
 
 export function CorporateSponsorCarousel({
   sponsors,
@@ -83,30 +83,14 @@ export function CorporateSponsorCarousel({
         onScroll={updatePosition}
       >
         {sponsors.map((sponsor) => (
-          <article className="corporate-sponsor-card" key={sponsor.name}>
-            <div className="corporate-sponsor-logo">
-              <Image
-                src={sponsor.logo}
-                alt={`${sponsor.name}のロゴ`}
-                fill
-                sizes="(max-width: 760px) 70vw, (max-width: 1020px) 38vw, 30vw"
-              />
-            </div>
-            <div className="corporate-sponsor-card-copy">
-              <span>{sponsor.sponsorPeriod}</span>
-              <h3>{sponsor.name}</h3>
-              <p>{sponsor.summary}</p>
-              <blockquote>{sponsor.message}</blockquote>
-              <a
-                href={sponsor.officialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                公式サイトを見る
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </article>
+          <PartnerShowcaseCard
+            key={sponsor.name}
+            name={sponsor.name}
+            summary={`${sponsor.summary} ${sponsor.message}`}
+            url={sponsor.officialUrl}
+            logo={sponsor.logo}
+            supportLabel={sponsor.sponsorPeriod}
+          />
         ))}
       </div>
       <button
