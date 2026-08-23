@@ -3637,3 +3637,16 @@ body::selection {
     outline-offset: -2px;
   }
 }
+
+/* Keep the preview label safely inside the arched logo frame. */
+.partner-logo-arch > span {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 10px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
