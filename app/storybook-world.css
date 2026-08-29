@@ -648,19 +648,38 @@ body::selection {
 }
 
 .operator-summary-section {
-  padding-block: clamp(28px, 3.5vw, 44px);
+  padding-block: clamp(14px, 2vw, 24px);
 }
 
 .operator-summary-section .mashiro-reading-layout {
-  gap: clamp(20px, 3vw, 42px);
+  align-items: center;
+  grid-template-columns: minmax(330px, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(14px, 2.5vw, 32px);
+}
+
+.operator-summary-section .mashiro-reading-layout aside {
+  padding-top: 12px;
+}
+
+.operator-summary-section .mashiro-kicker {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.operator-summary-section .mashiro-reading-layout aside h2 {
+  margin: 0;
+  white-space: nowrap;
 }
 
 .operator-summary-section .mashiro-prose {
-  padding: clamp(20px, 2.5vw, 30px);
+  padding: 8px 14px;
+  border-width: 2px;
+  border-radius: 18px;
 }
 
 .operator-summary-section .mashiro-prose p {
   margin: 0;
+  line-height: 1.55;
 }
 
 .mashiro-section h2,
@@ -1942,11 +1961,16 @@ body::selection {
   }
 
   .operator-summary-section {
-    padding-block: 28px;
+    padding-block: 14px;
+  }
+
+  .operator-summary-section .mashiro-reading-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .operator-summary-section .mashiro-prose {
-    padding: 20px;
+    padding: 8px 12px;
   }
 
   .mashiro-statement,
