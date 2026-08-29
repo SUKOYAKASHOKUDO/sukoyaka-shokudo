@@ -647,6 +647,22 @@ body::selection {
   padding-block: clamp(72px, 8vw, 118px);
 }
 
+.operator-summary-section {
+  padding-block: clamp(28px, 3.5vw, 44px);
+}
+
+.operator-summary-section .mashiro-reading-layout {
+  gap: clamp(20px, 3vw, 42px);
+}
+
+.operator-summary-section .mashiro-prose {
+  padding: clamp(20px, 2.5vw, 30px);
+}
+
+.operator-summary-section .mashiro-prose p {
+  margin: 0;
+}
+
 .mashiro-section h2,
 .mashiro-section-title h2,
 .mashiro-video-grid h2,
@@ -1923,6 +1939,14 @@ body::selection {
 
   .mashiro-section {
     padding-block: 64px;
+  }
+
+  .operator-summary-section {
+    padding-block: 28px;
+  }
+
+  .operator-summary-section .mashiro-prose {
+    padding: 20px;
   }
 
   .mashiro-statement,

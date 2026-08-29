@@ -19,7 +19,7 @@ export default function OperatorPage() {
       </a>
       <SiteHeader />
       <main id="main" className="mashiro-site team-page">
-        <section className="mashiro-section mashiro-soft-section">
+        <section className="mashiro-section mashiro-soft-section operator-summary-section">
           <div className="shell mashiro-reading-layout">
             <aside>
               <p className="mashiro-kicker">運営企業 · OPERATOR</p>
@@ -27,10 +27,6 @@ export default function OperatorPage() {
             </aside>
             <div className="mashiro-prose">
               <p>{legacyTeam.operator[0]}</p>
-              <h3>事業例</h3>
-              {legacyTeam.operator.slice(1).map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
             </div>
           </div>
         </section>
