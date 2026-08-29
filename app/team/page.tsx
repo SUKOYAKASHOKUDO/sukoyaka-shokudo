@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
+import { ZaikaiSapporoArticle } from "../../components/ZaikaiSapporoArticle";
 import { legacyTeam } from "../../content/legacyContent";
 
 export const metadata: Metadata = {
@@ -62,6 +63,8 @@ export default function TeamPage() {
             </div>
           </div>
         </section>
+
+        <ZaikaiSapporoArticle />
 
         <section id="volunteer" className="mashiro-section">
           <div className="shell mashiro-volunteer-grid">
