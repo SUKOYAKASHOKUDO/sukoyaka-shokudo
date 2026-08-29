@@ -4,6 +4,11 @@ import { site } from "../content/siteContent";
 import "./globals.css";
 import "./storybook-world.css";
 
+const socialTitle = "すこやか食堂｜あたたかいごはんと、安心できる居場所";
+const socialDescription =
+  "子どもたちが、あたたかいごはんを食べながら安心して過ごせる地域の居場所です。";
+const socialImage = "/images/brand/sukoyaka-ogp.jpg";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -21,28 +26,26 @@ export const metadata: Metadata = {
     "ボランティア",
   ],
   openGraph: {
-    title: "すこやか食堂｜みんなで囲む、地域の食卓",
-    description:
-      "札幌市中央区の子ども食堂。開催情報、ご支援、活動の様子をご案内します。",
+    title: socialTitle,
+    description: socialDescription,
     url: "/",
     siteName: site.name,
     type: "website",
     locale: "ja_JP",
     images: [
       {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "すこやか食堂",
+        url: socialImage,
+        width: 1254,
+        height: 1254,
+        alt: "子ども食堂 すこやか食堂",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "すこやか食堂｜みんなで囲む、地域の食卓",
-    description:
-      "札幌市中央区の子ども食堂。開催情報、ご支援、活動の様子をご案内します。",
-    images: ["/opengraph-image"],
+    card: "summary",
+    title: socialTitle,
+    description: socialDescription,
+    images: [socialImage],
   },
   alternates: {
     canonical: "/",
