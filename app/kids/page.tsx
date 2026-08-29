@@ -250,6 +250,7 @@ export default function SchedulePage() {
                   日<rt>ひ</rt>
                 </ruby>
               </h2>
+              <p className={styles.comicReminder}>おやくそくも まもってね！</p>
             </div>
 
             <ol className={styles.comicGrid}>

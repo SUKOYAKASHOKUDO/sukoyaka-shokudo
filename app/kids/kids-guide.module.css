@@ -154,6 +154,14 @@
   letter-spacing: 0.08em;
 }
 
+.sectionHeading .comicReminder {
+  margin: 20px 0 0;
+  color: var(--suko-teal);
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
 .comicGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -267,30 +275,32 @@
 }
 
 .rulesSection {
+  padding: clamp(48px, 6vw, 76px) 0;
   background:
     radial-gradient(circle at 90% 16%, rgba(255, 255, 255, 0.72) 0 64px, transparent 66px),
     linear-gradient(180deg, #e5f7f3 0%, #f2fbf8 100%);
 }
 
 .rulesPanel {
-  width: min(720px, calc(100% - 40px));
+  width: min(860px, calc(100% - 40px));
   margin-inline: auto;
-  padding: 38px 44px 30px;
+  padding: 28px 30px 26px;
   border: 3px solid rgba(255, 255, 255, 0.94);
-  border-radius: 32px;
+  border-radius: 28px;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 18px 38px rgba(7, 88, 103, 0.1);
 }
 
 .rulesPanel h2 {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  font-size: clamp(26px, 3.4vw, 38px);
   text-align: center;
 }
 
 .rulesGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -298,26 +308,25 @@
 
 .ruleCard {
   display: grid;
-  grid-template-columns: 46px 1fr;
-  gap: 15px;
-  align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(7, 88, 103, 0.14);
-}
-
-.ruleCard:last-child {
-  border-bottom: 0;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: start;
+  min-height: 96px;
+  padding: 14px 15px;
+  border: 1px solid rgba(7, 88, 103, 0.13);
+  border-radius: 16px;
+  background: #f7fcfa;
 }
 
 .ruleCard > span {
   display: grid;
-  width: 46px;
-  height: 46px;
+  width: 36px;
+  height: 36px;
   place-items: center;
   border-radius: 50%;
   background: var(--suko-teal);
   color: #fff;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 900;
 }
 
@@ -336,9 +345,9 @@
 .ruleCard p {
   margin: 0;
   color: var(--suko-teal-dark);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
-  line-height: 1.75;
+  line-height: 1.65;
 }
 
 .firstVisitSection {
@@ -539,10 +548,13 @@
   }
 
   .comicSection,
-  .rulesSection,
   .firstVisitSection,
   .actionSection {
     padding: 68px 0;
+  }
+
+  .rulesSection {
+    padding: 44px 0;
   }
 
   .comicGrid,
@@ -587,9 +599,14 @@
     font-size: 15px;
   }
 
+  .sectionHeading .comicReminder {
+    margin-top: 16px;
+    font-size: 15px;
+  }
+
   .rulesPanel {
-    width: min(720px, calc(100% - 28px));
-    padding: 28px 20px 20px;
+    width: min(860px, calc(100% - 28px));
+    padding: 24px 16px 18px;
     border-radius: 24px;
   }
 
@@ -601,7 +618,8 @@
   .ruleCard {
     grid-template-columns: 42px 1fr;
     gap: 12px;
-    padding: 12px 0;
+    min-height: 0;
+    padding: 12px;
   }
 
   .ruleCard > span {
