@@ -233,9 +233,7 @@ export default function SchedulePage() {
           <div className={styles.sectionInner}>
             <div className={styles.sectionHeading}>
               <p>
-                <ruby>
-                  4つのコマ<rt>よっつの こま</rt>
-                </ruby>
+                4つのコマ
                 で みてみよう
               </p>
               <h2 id="comic-title">
