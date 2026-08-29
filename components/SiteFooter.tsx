@@ -49,8 +49,8 @@ export function SiteFooter() {
         </div>
 
         <nav className="footer-team-nav" aria-label="フッターメニュー">
-          <Link href="/team#team">私たち</Link>
-          <Link href="/team#volunteer">ボランティア</Link>
+          <Link href="/team#team">私たちについて</Link>
+          <Link href="/team#volunteer">ボランティア募集</Link>
         </nav>
       </div>
 
