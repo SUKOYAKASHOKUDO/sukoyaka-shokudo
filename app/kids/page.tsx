@@ -15,7 +15,7 @@ const comicPanels = [
   {
     number: "1",
     title: "「きょうは やってるかな？」",
-    description: "おうちの人と ひにちを みてみよう！",
+    description: "おうちの ひとと ひにちを みてみよう！",
     artClass: "topLeft",
     toneClass: "yellow",
     alt: "クマとウサギがカレンダーとスマートフォンで開催日を確認しているイラスト",
@@ -23,7 +23,7 @@ const comicPanels = [
   {
     number: "2",
     title: "「こんにちは！」",
-    description: "すこやか食堂へ ようこそ。",
+    description: "すこやかしょくどうへ ようこそ。",
     artClass: "topRight",
     toneClass: "mint",
     alt: "食堂の入口でクマがウサギと小鳥を迎えているイラスト",
@@ -31,7 +31,7 @@ const comicPanels = [
   {
     number: "3",
     title: "「みんなで いただきます！」",
-    description: "ちゅうがくせいまでの こどもは 0えんだよ。",
+    description: "ちゅうがくせいまでの こどもは むりょうだよ。",
     artClass: "bottomLeft",
     toneClass: "coral",
     alt: "クマとウサギと小鳥が食卓を囲んで食事を楽しんでいるイラスト",
@@ -43,6 +43,49 @@ const comicPanels = [
     artClass: "bottomRight",
     toneClass: "sky",
     alt: "ウサギが絵本を読み、小鳥が遊び、クマが手を振っているイラスト",
+  },
+] as const;
+
+const kidsRules = [
+  {
+    number: "1",
+    title: "じかんを まもろう",
+    text: "おーぷんは 16じ、らすとおーだーは 17じ30ぷん、くろーずは 18じです。",
+  },
+  {
+    number: "2",
+    title: "そとでは しずかに まとう",
+    text: "まんしょんの まえや そとでは、おおきな こえで おしゃべりしたり、あそびまわったり しないでね。",
+  },
+  {
+    number: "3",
+    title: "あいさつを しよう",
+    text: "きたときは こんにちは、かえるときは ごちそうさまと いってみよう。",
+  },
+  {
+    number: "4",
+    title: "てを きれいに しよう",
+    text: "ごはんの まえに てを あらおう。といれでは あそばないでね。",
+  },
+  {
+    number: "5",
+    title: "たべられる ぶんだけに しよう",
+    text: "たべものを のこさないように、たべきれる ぶんだけ とろう。",
+  },
+  {
+    number: "6",
+    title: "ばらんすよく たべよう",
+    text: "おにくや おさかなだけでなく、やさいも いっしょに たべてみよう。",
+  },
+  {
+    number: "7",
+    title: "つかったものを かたづけよう",
+    text: "じぶんで つかった おさらや こっぷは、じぶんで かたづけよう。",
+  },
+  {
+    number: "8",
+    title: "あれるぎーを かくにんしてね",
+    text: "あれるぎーに あわせた しょくじは つくっていません。しんぱいな ひとは、おうちの ひとと しょくじの なかみを かくにんしてね。",
   },
 ] as const;
 
@@ -173,7 +216,16 @@ export default function SchedulePage() {
           <div className={styles.sectionInner}>
             <div className={styles.sectionHeading}>
               <p>4つのコマで みてみよう</p>
-              <h2 id="comic-title">すこやか食堂に いく日</h2>
+              <h2 id="comic-title">
+                すこやか
+                <ruby>
+                  食堂<rt>しょくどう</rt>
+                </ruby>
+                に いく
+                <ruby>
+                  日<rt>ひ</rt>
+                </ruby>
+              </h2>
             </div>
 
             <ol className={styles.comicGrid}>
@@ -193,6 +245,33 @@ export default function SchedulePage() {
                       <h3>{panel.title}</h3>
                       <p>{panel.description}</p>
                     </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className={styles.rulesSection} aria-labelledby="rules-title">
+          <div className={styles.sectionInner}>
+            <div className={styles.rulesHeading}>
+              <div>
+                <p className={styles.eyebrow}>SUKOYAKA RULES</p>
+                <h2 id="rules-title">おやくそくも まもってね</h2>
+              </div>
+              <p>
+                みんなが きもちよく ごはんを たべられるように、8つの
+                おやくそくを よんでから きてね。
+              </p>
+            </div>
+
+            <ol className={styles.rulesGrid}>
+              {kidsRules.map((rule) => (
+                <li className={styles.ruleCard} key={rule.number}>
+                  <span aria-hidden="true">{rule.number}</span>
+                  <div>
+                    <h3>{rule.title}</h3>
+                    <p>{rule.text}</p>
                   </div>
                 </li>
               ))}

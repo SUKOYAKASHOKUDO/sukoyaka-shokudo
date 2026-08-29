@@ -93,6 +93,7 @@
 }
 
 .comicSection,
+.rulesSection,
 .firstVisitSection,
 .actionSection {
   padding: clamp(76px, 9vw, 132px) 0;
@@ -118,6 +119,7 @@
 }
 
 .sectionHeading h2,
+.rulesHeading h2,
 .firstVisitIntro h2,
 .actionCard h2 {
   margin: 0;
@@ -126,6 +128,17 @@
   font-weight: 900;
   letter-spacing: 0.05em;
   line-height: 1.35;
+}
+
+.sectionHeading ruby {
+  ruby-align: center;
+}
+
+.sectionHeading rt {
+  color: var(--suko-teal);
+  font-size: 0.34em;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 .comicGrid {
@@ -238,6 +251,94 @@
 
 .sky .comicCopy > span {
   background: #218da0;
+}
+
+.rulesSection {
+  background:
+    radial-gradient(circle at 90% 16%, rgba(255, 255, 255, 0.72) 0 64px, transparent 66px),
+    linear-gradient(180deg, #e5f7f3 0%, #f2fbf8 100%);
+}
+
+.rulesHeading {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.rulesHeading > div > p {
+  margin-bottom: 12px;
+}
+
+.rulesHeading > p {
+  margin: 0;
+  color: rgba(7, 88, 103, 0.8);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.95;
+}
+
+.rulesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ruleCard {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 16px;
+  align-items: start;
+  min-height: 156px;
+  padding: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.92);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 12px 24px rgba(7, 88, 103, 0.08);
+}
+
+.ruleCard > span {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--suko-teal);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.ruleCard:nth-child(4n + 2) > span {
+  background: #d59b00;
+}
+
+.ruleCard:nth-child(4n + 3) > span {
+  background: #e86448;
+}
+
+.ruleCard:nth-child(4n + 4) > span {
+  background: #399e7a;
+}
+
+.ruleCard h3 {
+  margin: 1px 0 8px;
+  color: var(--suko-teal-dark);
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.ruleCard p {
+  margin: 0;
+  color: rgba(7, 88, 103, 0.78);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.85;
 }
 
 .firstVisitSection {
@@ -438,12 +539,15 @@
   }
 
   .comicSection,
+  .rulesSection,
   .firstVisitSection,
   .actionSection {
     padding: 68px 0;
   }
 
   .comicGrid,
+  .rulesGrid,
+  .rulesHeading,
   .factGrid,
   .firstVisitIntro {
     grid-template-columns: 1fr;
@@ -482,6 +586,37 @@
 
   .comicCopy p {
     font-size: 15px;
+  }
+
+  .rulesHeading {
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+
+  .rulesHeading > p {
+    font-size: 15px;
+  }
+
+  .ruleCard {
+    grid-template-columns: 46px 1fr;
+    min-height: 0;
+    gap: 13px;
+    padding: 20px 18px;
+    border-radius: 22px;
+  }
+
+  .ruleCard > span {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .ruleCard h3 {
+    font-size: 18px;
+  }
+
+  .ruleCard p {
+    font-size: 14px;
   }
 
   .firstVisitIntro {
