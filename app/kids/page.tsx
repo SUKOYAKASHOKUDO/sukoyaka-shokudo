@@ -50,7 +50,7 @@ const kidsRules = [
   {
     number: "1",
     title: "じかんを まもろう",
-    text: "おーぷんは 16じ、らすとおーだーは 17じ30ぷん、くろーずは 18じです。",
+    text: null,
   },
   {
     number: "2",
@@ -201,13 +201,26 @@ export default function SchedulePage() {
       <main id="main" className={styles.page}>
         <section className={styles.hero} aria-labelledby="kids-guide-title">
           <div className={styles.heroInner}>
-            <p className={styles.eyebrow}>KIDS GUIDE</p>
+            <p className={styles.eyebrow}>
+              <ruby>
+                KIDS GUIDE<rt>きっず がいど</rt>
+              </ruby>
+            </p>
             <h1 id="kids-guide-title">
               こどものみんなへ
-              <span>はじめての すこやか食堂</span>
+              <span>
+                はじめての すこやか
+                <ruby>
+                  食堂<rt>しょくどう</rt>
+                </ruby>
+              </span>
             </h1>
             <p className={styles.heroLead}>
-              こどもも おとなも、いっしょに ごはんを 食べられる まちの食堂です。
+              こどもも おとなも、いっしょに ごはんを たべられる まちの
+              <ruby>
+                食堂<rt>しょくどう</rt>
+              </ruby>
+              です。
             </p>
           </div>
         </section>
@@ -215,7 +228,12 @@ export default function SchedulePage() {
         <section className={styles.comicSection} aria-labelledby="comic-title">
           <div className={styles.sectionInner}>
             <div className={styles.sectionHeading}>
-              <p>4つのコマで みてみよう</p>
+              <p>
+                <ruby>
+                  4つのコマ<rt>よっつの こま</rt>
+                </ruby>
+                で みてみよう
+              </p>
               <h2 id="comic-title">
                 すこやか
                 <ruby>
@@ -256,11 +274,18 @@ export default function SchedulePage() {
           <div className={styles.sectionInner}>
             <div className={styles.rulesHeading}>
               <div>
-                <p className={styles.eyebrow}>SUKOYAKA RULES</p>
+                <p className={styles.eyebrow}>
+                  <ruby>
+                    SUKOYAKA RULES<rt>すこやか るーるず</rt>
+                  </ruby>
+                </p>
                 <h2 id="rules-title">おやくそくも まもってね</h2>
               </div>
               <p>
-                みんなが きもちよく ごはんを たべられるように、8つの
+                みんなが きもちよく ごはんを たべられるように、
+                <ruby>
+                  8つの<rt>やっつの</rt>
+                </ruby>
                 おやくそくを よんでから きてね。
               </p>
             </div>
@@ -271,7 +296,7 @@ export default function SchedulePage() {
                   <span aria-hidden="true">{rule.number}</span>
                   <div>
                     <h3>{rule.title}</h3>
-                    <p>{rule.text}</p>
+                    {rule.text ? <p>{rule.text}</p> : null}
                   </div>
                 </li>
               ))}

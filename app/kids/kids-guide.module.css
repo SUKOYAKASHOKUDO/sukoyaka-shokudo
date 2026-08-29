@@ -5,6 +5,18 @@
   font-family: var(--suko-round);
 }
 
+.page ruby {
+  ruby-align: center;
+  ruby-position: under;
+}
+
+.page rt {
+  color: currentColor;
+  font-size: 0.38em;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
 .hero {
   position: relative;
   isolation: isolate;
@@ -132,6 +144,7 @@
 
 .sectionHeading ruby {
   ruby-align: center;
+  ruby-position: under;
 }
 
 .sectionHeading rt {
