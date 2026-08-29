@@ -49,43 +49,35 @@ const comicPanels = [
 const kidsRules = [
   {
     number: "1",
-    title: "じかんを まもろう",
-    text: null,
+    text: "じかんをまもりましょう。",
   },
   {
     number: "2",
-    title: "そとでは しずかに まとう",
-    text: "まんしょんの まえや そとでは、おおきな こえで おしゃべりしたり、あそびまわったり しないでね。",
+    text: "マンションのまえ(そと)では、しずかに ほどうやちゅうしゃじょうではあそばないようにしましょう。",
   },
   {
     number: "3",
-    title: "あいさつを しよう",
-    text: "きたときは こんにちは、かえるときは ごちそうさまと いってみよう。",
+    text: "あいさつをしましょう。",
   },
   {
     number: "4",
-    title: "てを きれいに しよう",
-    text: "ごはんの まえに てを あらおう。といれでは あそばないでね。",
+    text: "いりぐちやトイレのとびらはしめましょう。とびらではあそばないようにしましょう。",
   },
   {
     number: "5",
-    title: "たべられる ぶんだけに しよう",
-    text: "たべものを のこさないように、たべきれる ぶんだけ とろう。",
+    text: "たべのこさないように、たべられるぶんだけにしましょう。",
   },
   {
     number: "6",
-    title: "ばらんすよく たべよう",
-    text: "おにくや おさかなだけでなく、やさいも いっしょに たべてみよう。",
+    text: "なるべくおなじものばかりではなく、バランスよくたべるようにしましょう。",
   },
   {
     number: "7",
-    title: "つかったものを かたづけよう",
-    text: "じぶんで つかった おさらや こっぷは、じぶんで かたづけよう。",
+    text: "じぶんでつかったものは、じぶんでかたづけましょう。",
   },
   {
     number: "8",
-    title: "あれるぎーを かくにんしてね",
-    text: "あれるぎーに あわせた しょくじは つくっていません。しんぱいな ひとは、おうちの ひとと しょくじの なかみを かくにんしてね。",
+    text: "アレルギーの対応はしておりません⚠",
   },
 ] as const;
 
@@ -226,33 +218,13 @@ export default function SchedulePage() {
         </section>
 
         <section className={styles.rulesSection} aria-labelledby="rules-title">
-          <div className={styles.sectionInner}>
-            <div className={styles.rulesHeading}>
-              <div>
-                <p className={styles.eyebrow}>
-                  <ruby>
-                    SUKOYAKA RULES<rt>すこやか るーるず</rt>
-                  </ruby>
-                </p>
-                <h2 id="rules-title">おやくそくも まもってね</h2>
-              </div>
-              <p>
-                みんなが きもちよく ごはんを たべられるように、
-                <ruby>
-                  8つの<rt>やっつの</rt>
-                </ruby>
-                おやくそくを よんでから きてね。
-              </p>
-            </div>
-
+          <div className={styles.rulesPanel}>
+            <h2 id="rules-title">すこやか食堂でのルール</h2>
             <ol className={styles.rulesGrid}>
               {kidsRules.map((rule) => (
                 <li className={styles.ruleCard} key={rule.number}>
                   <span aria-hidden="true">{rule.number}</span>
-                  <div>
-                    <h3>{rule.title}</h3>
-                    {rule.text ? <p>{rule.text}</p> : null}
-                  </div>
+                  <p>{rule.text}</p>
                 </li>
               ))}
             </ol>

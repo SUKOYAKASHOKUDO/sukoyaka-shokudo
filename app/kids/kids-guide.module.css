@@ -131,7 +131,7 @@
 }
 
 .sectionHeading h2,
-.rulesHeading h2,
+.rulesPanel h2,
 .firstVisitIntro h2,
 .actionCard h2 {
   margin: 0;
@@ -272,30 +272,25 @@
     linear-gradient(180deg, #e5f7f3 0%, #f2fbf8 100%);
 }
 
-.rulesHeading {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
-  gap: 64px;
-  align-items: end;
-  margin-bottom: 48px;
+.rulesPanel {
+  width: min(720px, calc(100% - 40px));
+  margin-inline: auto;
+  padding: 38px 44px 30px;
+  border: 3px solid rgba(255, 255, 255, 0.94);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 18px 38px rgba(7, 88, 103, 0.1);
 }
 
-.rulesHeading > div > p {
-  margin-bottom: 12px;
-}
-
-.rulesHeading > p {
-  margin: 0;
-  color: rgba(7, 88, 103, 0.8);
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.95;
+.rulesPanel h2 {
+  margin-bottom: 24px;
+  text-align: center;
 }
 
 .rulesGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -303,15 +298,15 @@
 
 .ruleCard {
   display: grid;
-  grid-template-columns: 50px 1fr;
-  gap: 16px;
-  align-items: start;
-  min-height: 156px;
-  padding: 24px;
-  border: 3px solid rgba(255, 255, 255, 0.92);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 12px 24px rgba(7, 88, 103, 0.08);
+  grid-template-columns: 46px 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(7, 88, 103, 0.14);
+}
+
+.ruleCard:last-child {
+  border-bottom: 0;
 }
 
 .ruleCard > span {
@@ -338,20 +333,12 @@
   background: #399e7a;
 }
 
-.ruleCard h3 {
-  margin: 1px 0 8px;
-  color: var(--suko-teal-dark);
-  font-size: 19px;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-}
-
 .ruleCard p {
   margin: 0;
-  color: rgba(7, 88, 103, 0.78);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.85;
+  color: var(--suko-teal-dark);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.75;
 }
 
 .firstVisitSection {
@@ -560,7 +547,6 @@
 
   .comicGrid,
   .rulesGrid,
-  .rulesHeading,
   .factGrid,
   .firstVisitIntro {
     grid-template-columns: 1fr;
@@ -601,21 +587,21 @@
     font-size: 15px;
   }
 
-  .rulesHeading {
-    gap: 18px;
-    margin-bottom: 32px;
+  .rulesPanel {
+    width: min(720px, calc(100% - 28px));
+    padding: 28px 20px 20px;
+    border-radius: 24px;
   }
 
-  .rulesHeading > p {
-    font-size: 15px;
+  .rulesPanel h2 {
+    margin-bottom: 18px;
+    font-size: 27px;
   }
 
   .ruleCard {
-    grid-template-columns: 46px 1fr;
-    min-height: 0;
-    gap: 13px;
-    padding: 20px 18px;
-    border-radius: 22px;
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+    padding: 12px 0;
   }
 
   .ruleCard > span {
@@ -624,12 +610,9 @@
     font-size: 18px;
   }
 
-  .ruleCard h3 {
-    font-size: 18px;
-  }
-
   .ruleCard p {
     font-size: 14px;
+    line-height: 1.7;
   }
 
   .firstVisitIntro {
