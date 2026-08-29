@@ -225,6 +225,40 @@ export default function SchedulePage() {
           </div>
         </section>
 
+        <section className={styles.rulesSection} aria-labelledby="rules-title">
+          <div className={styles.sectionInner}>
+            <div className={styles.rulesHeading}>
+              <div>
+                <p className={styles.eyebrow}>
+                  <ruby>
+                    SUKOYAKA RULES<rt>すこやか るーるず</rt>
+                  </ruby>
+                </p>
+                <h2 id="rules-title">おやくそくも まもってね</h2>
+              </div>
+              <p>
+                みんなが きもちよく ごはんを たべられるように、
+                <ruby>
+                  8つの<rt>やっつの</rt>
+                </ruby>
+                おやくそくを よんでから きてね。
+              </p>
+            </div>
+
+            <ol className={styles.rulesGrid}>
+              {kidsRules.map((rule) => (
+                <li className={styles.ruleCard} key={rule.number}>
+                  <span aria-hidden="true">{rule.number}</span>
+                  <div>
+                    <h3>{rule.title}</h3>
+                    {rule.text ? <p>{rule.text}</p> : null}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         <section className={styles.comicSection} aria-labelledby="comic-title">
           <div className={styles.sectionInner}>
             <div className={styles.sectionHeading}>
@@ -263,40 +297,6 @@ export default function SchedulePage() {
                       <h3>{panel.title}</h3>
                       <p>{panel.description}</p>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className={styles.rulesSection} aria-labelledby="rules-title">
-          <div className={styles.sectionInner}>
-            <div className={styles.rulesHeading}>
-              <div>
-                <p className={styles.eyebrow}>
-                  <ruby>
-                    SUKOYAKA RULES<rt>すこやか るーるず</rt>
-                  </ruby>
-                </p>
-                <h2 id="rules-title">おやくそくも まもってね</h2>
-              </div>
-              <p>
-                みんなが きもちよく ごはんを たべられるように、
-                <ruby>
-                  8つの<rt>やっつの</rt>
-                </ruby>
-                おやくそくを よんでから きてね。
-              </p>
-            </div>
-
-            <ol className={styles.rulesGrid}>
-              {kidsRules.map((rule) => (
-                <li className={styles.ruleCard} key={rule.number}>
-                  <span aria-hidden="true">{rule.number}</span>
-                  <div>
-                    <h3>{rule.title}</h3>
-                    {rule.text ? <p>{rule.text}</p> : null}
                   </div>
                 </li>
               ))}
