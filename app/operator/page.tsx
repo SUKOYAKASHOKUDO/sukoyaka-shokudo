@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   title: "私たちについて・ボランティア",
   description:
     "すこやか食堂を運営するミレポリト合同会社と、財界さっぽろ掲載記事をご紹介します。",
-  alternates: { canonical: "/team" },
+  alternates: { canonical: "/operator" },
 };
 
-export default function TeamPage() {
+export default function OperatorPage() {
   return (
     <>
       <a className="skip-link" href="#main">

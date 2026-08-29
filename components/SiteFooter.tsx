@@ -49,7 +49,7 @@ export function SiteFooter() {
         </div>
 
         <nav className="footer-team-nav" aria-label="フッターメニュー">
-          <Link href="/team">私たちについて</Link>
+          <Link href="/operator">私たちについて</Link>
           <Link href="/support">ボランティア募集</Link>
         </nav>
       </div>

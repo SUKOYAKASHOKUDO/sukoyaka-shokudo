@@ -24,7 +24,7 @@ export const site = {
 export const navigation = [
   { href: "/about", label: "すこやか食堂について" },
   { href: "/schedule", label: "日程とメニュー" },
-  { href: "/team", label: "私たち・ボランティア" },
+  { href: "/operator", label: "私たち・ボランティア" },
   { href: "/support", label: "ご支援" },
   { href: "/columns", label: "活動記録" },
   { href: "/recipes", label: "レシピ・食育" },
