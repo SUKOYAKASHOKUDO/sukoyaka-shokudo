@@ -98,31 +98,6 @@ export function ZaikaiSapporoArticle() {
             </figure>
           </div>
 
-          <aside className="zaikai-reprint__company">
-            <h3>会社情報</h3>
-            <div className="zaikai-reprint__table-wrap">
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row">企業名</th>
-                    <td>ミレポリト</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">住所</th>
-                    <td>札幌市中央区南9条西8丁目1-26</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">TEL</th>
-                    <td>080-8261-7040</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">企業URL</th>
-                    <td>https://sukoyakegao.wixstudio.com/kidsdining-sukoy</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </aside>
         </article>
       </div>
     </section>

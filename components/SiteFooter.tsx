@@ -50,7 +50,7 @@ export function SiteFooter() {
 
         <nav className="footer-team-nav" aria-label="フッターメニュー">
           <Link href="/team">私たちについて</Link>
-          <Link href="/team#volunteer">ボランティア募集</Link>
+          <Link href="/support">ボランティア募集</Link>
         </nav>
       </div>
 
