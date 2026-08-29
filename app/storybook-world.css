@@ -3150,6 +3150,15 @@ body::selection {
   font-family: var(--storybook-round);
 }
 
+.zaikai-reprint__media-note {
+  width: min(960px, 100%);
+  margin: 0 auto 18px;
+  color: var(--storybook-coral);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
 .zaikai-reprint__header {
   margin-bottom: clamp(28px, 5vw, 48px);
   border-top: 7px solid var(--storybook-teal);
@@ -3172,6 +3181,11 @@ body::selection {
 
 .zaikai-reprint figure {
   margin: 0;
+}
+
+.zaikai-reprint__lead-photo {
+  width: min(720px, 100%);
+  margin-inline: auto !important;
 }
 
 .zaikai-reprint__image {
@@ -3197,12 +3211,12 @@ body::selection {
 }
 
 .zaikai-reprint__body {
-  width: min(780px, 100%);
-  margin: clamp(42px, 7vw, 74px) auto;
+  min-width: 0;
+  margin: 0;
 }
 
-.zaikai-reprint__body h3 {
-  margin: 0 0 32px;
+.zaikai-reprint__article-heading {
+  margin: clamp(42px, 7vw, 68px) 0 32px;
   color: var(--storybook-teal-deep);
   font-size: clamp(27px, 4vw, 42px);
   font-weight: 900;
@@ -3212,20 +3226,32 @@ body::selection {
 .zaikai-reprint__body p {
   margin: 0 0 20px;
   color: #355d59;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 2.1;
+  line-break: strict;
+  line-height: 2;
+  overflow-wrap: break-word;
+  text-align: justify;
+  text-justify: inter-character;
+}
+
+.zaikai-reprint__content {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(230px, 5fr);
+  gap: clamp(28px, 5vw, 48px);
+  align-items: start;
+  margin-top: 0;
 }
 
 .zaikai-reprint__gallery {
   display: grid;
   align-items: start;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(30px, 5vw, 52px) clamp(22px, 4vw, 38px);
+  grid-template-columns: 1fr;
+  gap: 30px;
 }
 
 .zaikai-reprint__portrait {
-  width: min(320px, 100%);
+  width: min(260px, 100%);
   justify-self: center;
 }
 
@@ -3238,16 +3264,25 @@ body::selection {
 }
 
 @media (max-width: 720px) {
+  .zaikai-reprint__content {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    margin-top: 0;
+  }
+
   .zaikai-reprint__gallery {
     grid-template-columns: 1fr;
+    width: min(440px, 100%);
+    margin-inline: auto;
   }
 
   .zaikai-reprint__portrait {
-    width: min(300px, 86%);
+    width: min(240px, 78%);
   }
 
   .zaikai-reprint__body p {
     font-size: 15px;
+    line-height: 1.95;
   }
 
 }
