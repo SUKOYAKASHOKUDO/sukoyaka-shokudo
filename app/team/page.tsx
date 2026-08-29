@@ -20,7 +20,7 @@ export default function TeamPage() {
       </a>
       <SiteHeader />
       <main id="main" className="mashiro-site team-page">
-        <section className="mashiro-section team-content-start">
+        <section id="team" className="mashiro-section team-content-start">
           <div className="shell mashiro-editorial-grid">
             <figure className="mashiro-editorial-photo">
               <Image
@@ -63,7 +63,7 @@ export default function TeamPage() {
           </div>
         </section>
 
-        <section className="mashiro-section">
+        <section id="volunteer" className="mashiro-section">
           <div className="shell mashiro-volunteer-grid">
             <div>
               <p className="mashiro-kicker">ボランティアについて · VOLUNTEER</p>

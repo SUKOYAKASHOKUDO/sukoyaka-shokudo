@@ -1604,10 +1604,15 @@ body::selection {
   font-family: var(--storybook-round);
 }
 
+.footer-team-nav {
+  display: grid;
+  gap: 12px;
+}
+
 .footer-team-nav a {
   display: inline-flex;
   color: #fff;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.02em;
   text-decoration: none;
@@ -1618,6 +1623,11 @@ body::selection {
 .footer-team-nav a:focus-visible {
   text-decoration: underline;
   text-underline-offset: 5px;
+}
+
+#team,
+#volunteer {
+  scroll-margin-top: 120px;
 }
 
 .site-footer .footer-bottom {
