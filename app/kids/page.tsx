@@ -194,9 +194,7 @@ export default function SchedulePage() {
         <section className={styles.hero} aria-labelledby="kids-guide-title">
           <div className={styles.heroInner}>
             <p className={styles.eyebrow}>
-              <ruby>
-                KIDS GUIDE<rt>きっず がいど</rt>
-              </ruby>
+              KIDS GUIDE
             </p>
             <h1 id="kids-guide-title">
               こどものみんなへ
