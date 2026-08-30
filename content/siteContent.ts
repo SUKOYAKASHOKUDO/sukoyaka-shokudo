@@ -9,7 +9,7 @@ export const site = {
     "〒064-0809 北海道札幌市中央区南9条西8丁目1-26 オリンピア南9条 1階",
   shortAddress: "札幌市中央区南9条西8丁目1-26 オリンピア南9条 1階",
   email: "sukoyakashokudo@gmail.com",
-  emailReception: "（24時間受付）",
+  emailReception: "",
   phone: "080-8216-7040",
   phoneReception: "（電話受付：食堂開催中のみ）",
   phoneHref: "tel:+818082167040",

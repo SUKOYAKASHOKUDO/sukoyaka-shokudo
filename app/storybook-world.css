@@ -2009,9 +2009,7 @@ body::selection {
   }
 
   .storybook-full-logo .sukoyaka-brand-onigiri {
-    width: 58px;
-    height: 48px;
-    flex-basis: 58px;
+    display: none;
   }
 
   .storybook-full-logo .sukoyaka-brand-wordmark {
