@@ -4443,22 +4443,29 @@ body::selection {
 }
 
 .mashiro-interview-dialog__viewport {
-  overflow: auto;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   padding: 86px 16px 40px;
   overscroll-behavior: contain;
-  touch-action: pan-x pan-y pinch-zoom;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.mashiro-interview-dialog__viewport:active {
+  cursor: grabbing;
 }
 
 .mashiro-interview-dialog__image {
   display: block;
   max-width: none;
   height: auto;
-  margin: 0 auto;
+  margin: 0;
   background: #fff;
   box-shadow: 0 14px 48px rgba(0, 0, 0, 0.32);
   transition: width 180ms ease;
+  will-change: transform;
   user-select: none;
 }
 
