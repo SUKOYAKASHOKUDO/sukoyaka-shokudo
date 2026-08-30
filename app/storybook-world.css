@@ -3097,7 +3097,7 @@ body::selection {
 /* The home page uses the same real header as every other page. Crop the
    supplied artwork below that header so its original navigation cannot show. */
 .reference-design-frame-home {
-  aspect-ratio: 1672 / 797.027;
+  aspect-ratio: 1672 / 785.735;
   padding-bottom: 0;
 }
 
@@ -3106,8 +3106,8 @@ body::selection {
   top: 0;
   left: 0;
   width: 100%;
-  height: 118.065%;
-  transform: translateY(-15.3%);
+  height: 119.76%;
+  transform: translateY(-16.5%);
 }
 
 .reference-design-canvas {
