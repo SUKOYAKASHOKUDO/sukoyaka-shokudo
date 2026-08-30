@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { site } from "../content/siteContent";
 
 function FooterInformationNote() {
@@ -54,9 +53,6 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <nav className="footer-team-nav" aria-label="フッターメニュー">
-          <Link href="/operator">私たちについて</Link>
-        </nav>
       </div>
 
       <div className="shell footer-bottom">
