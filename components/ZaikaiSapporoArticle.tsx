@@ -8,7 +8,7 @@ export function ZaikaiSapporoArticle() {
       <div className="shell">
         <div className="zaikai-reprint__media-info">
           <p className="zaikai-reprint__media-note">
-            メディア　財界さっぽろ紹介されました
+            メディア掲載　財界さっぽろにて紹介されました
           </p>
           <div className="zaikai-reprint__source">
             <span>転載許可済</span>
