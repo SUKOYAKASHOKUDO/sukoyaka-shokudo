@@ -3118,7 +3118,7 @@ body::selection {
 }
 
 .reference-design-image-top {
-  clip-path: inset(0 0 36.9% 0);
+  clip-path: inset(15.3% 0 36.9% 0);
 }
 
 .reference-design-image-menu {
