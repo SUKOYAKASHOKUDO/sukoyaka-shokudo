@@ -653,16 +653,20 @@ body::selection {
 
 .operator-summary-section .mashiro-reading-layout {
   align-items: center;
-  grid-template-columns: minmax(330px, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(18px, 3vw, 40px);
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .operator-summary-section .mashiro-reading-layout aside {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 4vw, 42px);
   padding-top: 12px;
 }
 
 .operator-summary-section .mashiro-kicker {
-  margin-bottom: 10px;
+  margin: 0;
+  flex: 0 0 auto;
   font-size: 13px;
 }
 
@@ -675,48 +679,52 @@ body::selection {
   position: relative;
   display: flex;
   overflow: hidden;
-  min-height: 88px;
+  min-height: 70px;
   align-items: center;
-  padding: 16px 24px 16px 72px;
-  border-width: 2px;
-  border-color: rgba(255, 255, 255, 0.96);
-  border-radius: 24px;
+  padding: 12px 66px;
+  border: 3px solid transparent;
+  border-radius: 26px;
   background:
-    radial-gradient(circle at 96% 8%, rgba(255, 225, 143, 0.48), transparent 34%),
-    linear-gradient(135deg, #fffef9 0%, #fff8e7 100%);
-  box-shadow: 0 11px 26px rgba(31, 115, 124, 0.12);
+    radial-gradient(circle at 13px 13px, rgba(239, 127, 111, 0.16) 0 3px, transparent 4px) 0 0 / 54px 54px padding-box,
+    radial-gradient(circle at 40px 38px, rgba(7, 109, 128, 0.13) 0 4px, transparent 5px) 0 0 / 64px 64px padding-box,
+    radial-gradient(circle at 96% 8%, rgba(255, 225, 143, 0.5), transparent 28%) padding-box,
+    linear-gradient(135deg, rgba(255, 254, 249, 0.98) 0%, rgba(255, 247, 222, 0.98) 100%) padding-box,
+    linear-gradient(90deg, #f2a494, #f2cb71, #85d2cf, #b9dfd4, #f2a494) border-box;
+  box-shadow: 0 10px 24px rgba(31, 115, 124, 0.11);
 }
 
 .operator-summary-section .operator-name-story::before {
   position: absolute;
   top: 50%;
-  left: 20px;
+  left: 18px;
   display: grid;
   width: 38px;
   height: 38px;
   transform: translateY(-46%);
   place-items: center;
   border-radius: 50%;
-  background: rgba(239, 184, 118, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: linear-gradient(145deg, #fff0bd, #ffd9c5);
   color: var(--storybook-coral);
-  content: "“";
+  content: "★";
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 35px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1;
 }
 
 .operator-summary-section .operator-name-story::after {
   position: absolute;
-  top: 14px;
-  right: 18px;
-  width: 8px;
-  height: 8px;
+  top: 12px;
+  right: 20px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: rgba(239, 127, 111, 0.42);
+  background: rgba(239, 127, 111, 0.58);
   box-shadow:
-    14px 6px 0 rgba(7, 109, 128, 0.2),
-    4px 18px 0 rgba(239, 184, 118, 0.35);
+    15px 7px 0 rgba(7, 109, 128, 0.3),
+    4px 19px 0 rgba(239, 184, 118, 0.5),
+    -15px 19px 0 rgba(143, 207, 198, 0.38);
   content: "";
 }
 
@@ -724,11 +732,13 @@ body::selection {
   margin: 0;
   color: var(--storybook-teal-deep);
   font-family: var(--storybook-round);
-  font-size: clamp(17px, 1.65vw, 20px);
+  font-size: clamp(17px, 1.55vw, 19px);
   font-weight: 800;
   letter-spacing: 0.035em;
-  line-height: 1.75;
+  line-height: 1.65;
+  text-align: center;
   text-wrap: pretty;
+  white-space: nowrap;
 }
 
 .operator-summary-section .operator-name-story strong {
@@ -2025,6 +2035,14 @@ body::selection {
     gap: 12px;
   }
 
+  .operator-summary-section .mashiro-reading-layout aside {
+    display: block;
+  }
+
+  .operator-summary-section .mashiro-kicker {
+    margin-bottom: 10px;
+  }
+
   .operator-summary-section .operator-name-story {
     min-height: 94px;
     padding: 16px 18px 16px 60px;
@@ -2041,6 +2059,8 @@ body::selection {
   .operator-summary-section .operator-name-story p {
     font-size: 17px;
     line-height: 1.8;
+    text-align: left;
+    white-space: normal;
   }
 
   .mashiro-statement,
