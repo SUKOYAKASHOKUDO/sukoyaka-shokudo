@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { ZaikaiSapporoArticle } from "../../components/ZaikaiSapporoArticle";
-import { legacyTeam } from "../../content/legacyContent";
 
 export const metadata: Metadata = {
   title: "私たちについて・ボランティア",
@@ -25,8 +24,10 @@ export default function OperatorPage() {
               <p className="mashiro-kicker">運営企業 · OPERATOR</p>
               <h2>ミレポリト合同会社</h2>
             </aside>
-            <div className="mashiro-prose">
-              <p>{legacyTeam.operator[0]}</p>
+            <div className="mashiro-prose operator-name-story">
+              <p>
+                <strong>“ミレポリト”</strong>は、フランス語で愛すべき子とゆう意味です。
+              </p>
             </div>
           </div>
         </section>
