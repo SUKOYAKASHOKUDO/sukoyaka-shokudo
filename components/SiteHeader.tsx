@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { site } from "../content/siteContent";
 import { SukoyakaBrandHomeLink } from "./SukoyakaBrandHomeLink";
 
@@ -129,6 +130,13 @@ export function SiteHeader() {
           className="storybook-full-logo"
           priority
         />
+
+        <nav className="storybook-main-nav" aria-label="メインメニュー">
+          <Link href="/operator">
+            <StorybookIcon name="people" />
+            <span>私たちについて</span>
+          </Link>
+        </nav>
 
         <a className="storybook-contact" href={`mailto:${site.email}`}>
           <StorybookIcon name="mail" />
