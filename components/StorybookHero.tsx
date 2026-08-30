@@ -125,12 +125,11 @@ export function StorybookHero() {
               className="reference-brand-home"
               priority
             />
-            <Link
-              className="reference-hotspot reference-hotspot-about"
-              href="/operator"
-            >
-              <span>私たちについて</span>
-            </Link>
+            <div className="reference-header-menu" aria-label="トップメニュー">
+              <Link href="/">HOME</Link>
+              <Link href="/operator">私たちについて</Link>
+              <a href={`mailto:${site.email}`}>お問い合わせ</a>
+            </div>
             {internalHotspots.map((hotspot) => (
               <Link
                 className={`reference-hotspot ${hotspot.className}`}
@@ -140,12 +139,6 @@ export function StorybookHero() {
                 <span>{hotspot.label}</span>
               </Link>
             ))}
-            <a
-              className="reference-hotspot reference-hotspot-contact"
-              href={`mailto:${site.email}`}
-            >
-              <span>お問い合わせ</span>
-            </a>
           </nav>
 
           <nav className="reference-card-replacements" aria-label="目的別のご案内">

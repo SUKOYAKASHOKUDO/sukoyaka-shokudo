@@ -132,16 +132,10 @@ export function SiteHeader() {
         />
 
         <nav className="storybook-main-nav" aria-label="メインメニュー">
-          <Link href="/operator">
-            <StorybookIcon name="people" />
-            <span>私たちについて</span>
-          </Link>
+          <Link href="/">HOME</Link>
+          <Link href="/operator">私たちについて</Link>
+          <a href={`mailto:${site.email}`}>お問い合わせ</a>
         </nav>
-
-        <a className="storybook-contact" href={`mailto:${site.email}`}>
-          <StorybookIcon name="mail" />
-          <span>お問い合わせ</span>
-        </a>
       </div>
     </header>
   );
