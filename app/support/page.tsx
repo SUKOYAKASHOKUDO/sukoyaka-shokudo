@@ -110,10 +110,7 @@ export default function SupportPage() {
 
             <div className="support-method-heading">
               <p className="mashiro-kicker">HOW TO SUPPORT</p>
-              <h2>ボランティアでできること</h2>
-              <p className="support-method-heading__lead">
-                できることから、ひとつずつ。あなたの力を食堂の時間に活かせます。
-              </p>
+              <h2>ボランティア等でできること</h2>
             </div>
             <div className="support-detail-grid support-volunteer-grid">
               {volunteerMethods.map((method) => (
