@@ -161,8 +161,14 @@ export default function Home() {
               </div>
               <div className="mashiro-contact-card">
                 <p>開催日は気軽にご利用ください。</p>
-                <a href={`mailto:${site.email}`}>{site.email}</a>
-                <a href={site.phoneHref}>{site.phone}</a>
+                <a href={`mailto:${site.email}`}>
+                  {site.email}
+                  {site.emailReception}
+                </a>
+                <a href={site.phoneHref}>
+                  {site.phone}
+                  {site.phoneReception}
+                </a>
                 <div className="mashiro-access-links">
                   <a href={site.map} target="_blank" rel="noopener noreferrer">
                     <svg aria-hidden="true" viewBox="0 0 24 24">

@@ -171,13 +171,19 @@ export default function SupportPage() {
             <div className="contact-callout">
               <div>
                 <p className="eyebrow light">CONTACT</p>
-                <h2>ご支援・ボランティアのご相談</h2>
+                <h2>ご支援・ボランティア等のご相談</h2>
                 <p>
                   公式Instagram、メール、電話でご相談いただけます。受入条件や日程を確認するため、物資をお持ち込みになる前にご連絡ください。
                 </p>
                 <div className="contact-details">
-                  <a href={`mailto:${site.email}`}>{site.email}</a>
-                  <a href={site.phoneHref}>{site.phone}</a>
+                  <a href={`mailto:${site.email}`}>
+                    {site.email}
+                    {site.emailReception}
+                  </a>
+                  <a href={site.phoneHref}>
+                    {site.phone}
+                    {site.phoneReception}
+                  </a>
                 </div>
               </div>
               <a

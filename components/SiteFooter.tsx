@@ -39,9 +39,15 @@ export function SiteFooter() {
           <p>{site.shortAddress}</p>
           <p>札幌市電「山鼻9条駅」徒歩4分</p>
           <p>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href={`mailto:${site.email}`}>
+              {site.email}
+              {site.emailReception}
+            </a>
             <span aria-hidden="true"> ／ </span>
-            <a href={site.phoneHref}>{site.phone}</a>
+            <a href={site.phoneHref}>
+              {site.phone}
+              {site.phoneReception}
+            </a>
           </p>
           <p>
             <FooterInformationNote />
