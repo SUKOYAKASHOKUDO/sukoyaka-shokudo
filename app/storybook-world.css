@@ -3926,7 +3926,8 @@ body::selection {
   top: 2.7%;
   left: 33.6%;
   z-index: 2;
-  width: 64.1%;
+  right: 0;
+  width: auto;
   height: 12.6%;
   background: #fffef9;
   pointer-events: none;
@@ -4165,28 +4166,28 @@ body::selection {
 
 @media (max-width: 560px) {
   .storybook-header-panel {
-    min-height: 136px;
-    padding: 12px 14px 13px;
+    min-height: 116px;
+    padding: 10px 12px;
     grid-template-areas: "logo" "nav";
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 4px;
   }
 
   .storybook-full-logo {
     width: min(250px, 100%);
-    height: 64px;
+    height: 54px;
     justify-self: start;
   }
 
   .storybook-full-logo .sukoyaka-brand-onigiri {
-    width: 68px;
-    height: 58px;
-    flex-basis: 68px;
+    width: 58px;
+    height: 48px;
+    flex-basis: 58px;
   }
 
   .storybook-full-logo .sukoyaka-brand-wordmark {
     width: 178px;
-    height: 60px;
+    height: 50px;
   }
 
   .storybook-main-nav {
@@ -4195,8 +4196,8 @@ body::selection {
   }
 
   .storybook-main-nav a {
-    padding: 7px 3px;
-    font-size: clamp(10.5px, 3.1vw, 14px);
+    padding: 5px 3px;
+    font-size: clamp(10px, 3vw, 13px);
   }
 
   .storybook-main-nav a + a::before {
