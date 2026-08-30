@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MashiroInterviewFeature } from "../../components/MashiroInterviewFeature";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { ZaikaiSapporoArticle } from "../../components/ZaikaiSapporoArticle";
@@ -33,6 +34,7 @@ export default function OperatorPage() {
         </section>
 
         <ZaikaiSapporoArticle />
+        <MashiroInterviewFeature />
       </main>
       <SiteFooter />
     </>

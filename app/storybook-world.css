@@ -3978,3 +3978,260 @@ body::selection {
   text-align: center;
   white-space: nowrap;
 }
+
+/* Full-page interview feature placed after the Zaikai Sapporo reprint. */
+.mashiro-interview-section {
+  border-top: 1px solid rgba(7, 109, 128, 0.14);
+  background: #fff;
+  padding: clamp(58px, 7vw, 96px) 0 clamp(72px, 9vw, 124px);
+}
+
+.mashiro-interview__header {
+  width: min(900px, 100%);
+  margin: 0 auto clamp(24px, 4vw, 38px);
+  text-align: center;
+}
+
+.mashiro-interview__eyebrow {
+  margin: 0 0 10px;
+  color: var(--storybook-coral);
+  font-family: var(--storybook-round);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.mashiro-interview__header h2 {
+  margin: 0 0 18px;
+  color: var(--storybook-teal-deep);
+  font-family: var(--storybook-round);
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0.035em;
+  line-height: 1.45;
+}
+
+.mashiro-interview__header > p:last-child {
+  margin: 0;
+  color: #355d59;
+  font-size: clamp(15px, 1.7vw, 18px);
+  font-weight: 700;
+  line-height: 1.9;
+}
+
+.mashiro-interview__hint {
+  width: min(1060px, 100%);
+  margin: 0 auto 12px;
+  color: #52736f;
+  font-family: var(--storybook-round);
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.mashiro-interview__paper {
+  width: min(1060px, 100%);
+  margin: 0 auto;
+}
+
+.mashiro-interview__open {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(36, 79, 75, 0.2);
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(31, 86, 81, 0.1);
+  cursor: zoom-in;
+}
+
+.mashiro-interview__open img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mashiro-interview__open-label {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+  background: rgba(0, 91, 103, 0.9);
+  padding: 9px 14px;
+  color: #fff;
+  font-family: var(--storybook-round);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  box-shadow: 0 8px 18px rgba(0, 91, 103, 0.2);
+}
+
+.mashiro-interview__open:focus-visible {
+  outline: 4px solid rgba(239, 127, 111, 0.7);
+  outline-offset: 5px;
+}
+
+.mashiro-interview-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(13, 37, 39, 0.96);
+  color: #fff;
+}
+
+.mashiro-interview-dialog::backdrop {
+  background: rgba(13, 37, 39, 0.86);
+}
+
+.mashiro-interview-dialog__toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  min-height: 66px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: rgba(8, 43, 47, 0.96);
+  padding: 10px max(14px, env(safe-area-inset-right)) 10px max(14px, env(safe-area-inset-left));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.mashiro-interview-dialog__toolbar p {
+  margin: 0;
+  font-family: var(--storybook-round);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.mashiro-interview-dialog__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mashiro-interview-dialog__actions button,
+.mashiro-interview-dialog__actions > span {
+  display: grid;
+  min-width: 42px;
+  min-height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: var(--storybook-round);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.mashiro-interview-dialog__actions button {
+  cursor: pointer;
+}
+
+.mashiro-interview-dialog__actions button:disabled {
+  opacity: 0.38;
+  cursor: default;
+}
+
+.mashiro-interview-dialog__actions button:focus-visible {
+  outline: 3px solid #ffd98b;
+  outline-offset: 2px;
+}
+
+.mashiro-interview-dialog__actions .mashiro-interview-dialog__close {
+  display: flex;
+  min-width: auto;
+  gap: 7px;
+  padding: 0 15px;
+  background: #fff;
+  color: var(--storybook-teal-deep);
+}
+
+.mashiro-interview-dialog__close span {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.mashiro-interview-dialog__viewport {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  padding: 86px 16px 40px;
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+.mashiro-interview-dialog__image {
+  display: block;
+  max-width: none;
+  height: auto;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.32);
+  transition: width 180ms ease;
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .mashiro-interview-section {
+    padding: 52px 0 72px;
+  }
+
+  .mashiro-interview__header {
+    text-align: left;
+  }
+
+  .mashiro-interview__header > p:last-child br {
+    display: none;
+  }
+
+  .mashiro-interview__hint {
+    text-align: left;
+  }
+
+  .mashiro-interview__open-label {
+    right: 10px;
+    bottom: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
+  .mashiro-interview-dialog__toolbar {
+    min-height: 108px;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
+
+  .mashiro-interview-dialog__toolbar p {
+    font-size: 12px;
+  }
+
+  .mashiro-interview-dialog__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .mashiro-interview-dialog__viewport {
+    padding: 124px 8px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mashiro-interview-dialog__image {
+    transition: none;
+  }
+}
