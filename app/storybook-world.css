@@ -3198,13 +3198,40 @@ body::selection {
   font-family: var(--storybook-round);
 }
 
-.zaikai-reprint__media-note {
+.zaikai-reprint__media-info {
   width: min(960px, 100%);
   margin: 0 auto 18px;
+}
+
+.zaikai-reprint__media-note {
+  margin: 0 0 8px;
   color: var(--storybook-coral);
   font-size: 15px;
   font-weight: 900;
   letter-spacing: 0.08em;
+}
+
+.zaikai-reprint__source {
+  display: flex;
+  align-items: center;
+  gap: 8px 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.zaikai-reprint__source span {
+  border-radius: 999px;
+  background: rgba(7, 109, 128, 0.1);
+  padding: 4px 10px;
+  color: var(--storybook-teal-deep);
+}
+
+.zaikai-reprint__source a {
+  color: var(--storybook-teal-deep);
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .zaikai-reprint__header {

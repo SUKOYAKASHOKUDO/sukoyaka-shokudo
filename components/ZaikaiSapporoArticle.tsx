@@ -6,7 +6,21 @@ export function ZaikaiSapporoArticle() {
   return (
     <section className="zaikai-reprint-section">
       <div className="shell">
-        <p className="zaikai-reprint__media-note">メディアに紹介されました</p>
+        <div className="zaikai-reprint__media-info">
+          <p className="zaikai-reprint__media-note">
+            メディア　財界さっぽろ紹介されました
+          </p>
+          <div className="zaikai-reprint__source">
+            <span>転載許可済</span>
+            <a
+              href="https://www.zaikaisapporo.co.jp/hdb/hdb-article.php?id=20978"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.zaikaisapporo.co.jp/hdb/hdb-article.php?id=20978
+            </a>
+          </div>
+        </div>
         <article className="zaikai-reprint">
           <header className="zaikai-reprint__header">
             <h2>ミレポリト</h2>
