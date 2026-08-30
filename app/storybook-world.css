@@ -3823,7 +3823,7 @@ body::selection {
 
 .reference-brand-home {
   position: absolute;
-  top: 5.2%;
+  top: 3.15%;
   left: 2.75%;
   z-index: 4;
   width: 28.9%;
@@ -3854,7 +3854,7 @@ body::selection {
   left: 2.3%;
   z-index: 1;
   width: 95.4%;
-  height: 5.8%;
+  display: none;
   border-radius: 0 0 clamp(22px, 2.2vw, 38px) clamp(22px, 2.2vw, 38px);
   background: #fffef9;
   pointer-events: none;
@@ -3863,7 +3863,7 @@ body::selection {
 /* Keep the top page header readable while preserving the supplied artwork below it. */
 .reference-header-menu {
   position: absolute;
-  top: 5.2%;
+  top: 3.15%;
   left: 40%;
   z-index: 5;
   display: flex;
@@ -3915,7 +3915,7 @@ body::selection {
   left: 2.3%;
   z-index: 2;
   width: 31.8%;
-  height: 16.7%;
+  height: 12.6%;
   border-radius: clamp(22px, 2.2vw, 38px) 0 0 clamp(22px, 2.2vw, 38px);
   background: #fffef9;
   pointer-events: none;
@@ -3927,7 +3927,7 @@ body::selection {
   left: 33.6%;
   z-index: 2;
   width: 64.1%;
-  height: 16.7%;
+  height: 12.6%;
   background: #fffef9;
   pointer-events: none;
 }
@@ -4066,33 +4066,33 @@ body::selection {
   }
 
   .reference-design-header-extension {
-    height: 16%;
+    display: none;
   }
 
   .reference-brand-home {
-    top: 3.6%;
+    top: 3.15%;
     left: 4%;
-    width: 47%;
-    height: 17%;
+    width: 37%;
+    height: 11.7%;
   }
 
   .reference-header-menu {
-    top: 22.1%;
-    left: 4%;
-    width: 92%;
-    height: 7.2%;
-    justify-content: center;
+    top: 3.15%;
+    left: 40%;
+    width: 56%;
+    height: 11.7%;
+    justify-content: flex-end;
   }
 
   .reference-header-menu a {
     min-height: 0;
-    padding-inline: 3px;
-    font-size: clamp(10px, 3.2vw, 14px);
+    padding-inline: 1px;
+    font-size: clamp(9px, 2.5vw, 12px);
     letter-spacing: 0;
   }
 
   .reference-header-menu a + a::before {
-    margin-right: 3px;
+    margin-right: 2px;
   }
 }
 
