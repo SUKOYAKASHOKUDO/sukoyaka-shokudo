@@ -1410,6 +1410,117 @@ body::selection {
   font-size: clamp(30px, 4vw, 48px);
 }
 
+.support-method-heading__lead {
+  max-width: 620px;
+  margin: 14px auto 0;
+  color: var(--storybook-teal-deep);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.support-volunteer-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.support-volunteer-card {
+  position: relative;
+  display: grid;
+  min-height: 210px;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 22px;
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.98);
+  padding: clamp(24px, 3vw, 34px);
+  isolation: isolate;
+}
+
+.support-volunteer-card::before {
+  position: absolute;
+  z-index: -2;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  content: "";
+  inset: auto -34px -76px auto;
+}
+
+.support-volunteer-card::after {
+  position: absolute;
+  z-index: -1;
+  width: 96px;
+  height: 96px;
+  border: 2px dashed rgba(24, 103, 112, 0.16);
+  border-radius: 50%;
+  content: "";
+  inset: 18px -28px auto auto;
+}
+
+.support-volunteer-card--cooking {
+  background: linear-gradient(135deg, #fff8d8 0%, #fff0b5 100%);
+}
+
+.support-volunteer-card--dining-room {
+  background: linear-gradient(135deg, #e7f8f2 0%, #c9eee2 100%);
+}
+
+.support-volunteer-card--venue {
+  background: linear-gradient(135deg, #e8f4ff 0%, #cee9f6 100%);
+}
+
+.support-volunteer-card--skills {
+  background: linear-gradient(135deg, #fff0e8 0%, #ffd9c8 100%);
+}
+
+.support-volunteer-icon {
+  display: grid;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  place-items: center;
+  border: 4px solid rgba(255, 255, 255, 0.92);
+  border-radius: 28px 28px 28px 10px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 8px 18px rgba(31, 115, 124, 0.12);
+  font-size: 42px;
+  line-height: 1;
+  transform: rotate(-4deg);
+}
+
+.support-volunteer-card:nth-child(even) .support-volunteer-icon {
+  border-radius: 28px 28px 10px 28px;
+  transform: rotate(4deg);
+}
+
+.support-volunteer-card h2 {
+  position: relative;
+  margin: 0 0 12px;
+  color: var(--storybook-teal-deep);
+  font-family: var(--storybook-round);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.support-volunteer-card p {
+  position: relative;
+  max-width: 28em;
+  margin: 0;
+  color: var(--storybook-ink);
+  line-height: 1.85;
+}
+
+.support-volunteer-spark {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: rgba(24, 103, 112, 0.34);
+  font-size: 22px;
+  line-height: 1;
+}
+
 .story-interview-section,
 .story-values-section {
   background: var(--storybook-cream);
@@ -1853,8 +1964,22 @@ body::selection {
   }
 
   .support-audience-grid,
-  .story-reading-grid {
+  .story-reading-grid,
+  .support-volunteer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .support-volunteer-card {
+    min-height: 176px;
+    gap: 16px;
+    padding: 22px;
+  }
+
+  .support-volunteer-icon {
+    width: 66px;
+    height: 66px;
+    flex-basis: 66px;
+    font-size: 36px;
   }
 }
 

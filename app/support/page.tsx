@@ -10,9 +10,35 @@ import {
   site,
   sponsors,
   supportBankAccount,
-  supportMethods,
 } from "../../content/siteContent";
 import { legacySupport } from "../../content/legacyContent";
+
+const volunteerMethods = [
+  {
+    key: "cooking",
+    symbol: "🍳",
+    title: "調理をお手伝い",
+    description: "盛り付けや簡単な調理をお手伝いします。",
+  },
+  {
+    key: "dining-room",
+    symbol: "🍚",
+    title: "食堂をお手伝い",
+    description: "配膳や受付、テーブル準備をお手伝いします。",
+  },
+  {
+    key: "venue",
+    symbol: "🧹",
+    title: "会場をお手伝い",
+    description: "開催前の準備や片付け、清掃をお手伝いします。",
+  },
+  {
+    key: "skills",
+    symbol: "🤝",
+    title: "得意なことで参加",
+    description: "写真や広報など、得意なことを活かせます。",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "すこやか食堂を応援する｜ご支援の案内",
@@ -84,14 +110,27 @@ export default function SupportPage() {
 
             <div className="support-method-heading">
               <p className="mashiro-kicker">HOW TO SUPPORT</p>
-              <h2>支援方法</h2>
+              <h2>ボランティアでできること</h2>
+              <p className="support-method-heading__lead">
+                できることから、ひとつずつ。あなたの力を食堂の時間に活かせます。
+              </p>
             </div>
-            <div className="support-detail-grid">
-              {supportMethods.map((method) => (
-                <article key={method.title}>
-                  <span aria-hidden="true">{method.symbol}</span>
-                  <h2>{method.title}</h2>
-                  <p>{method.description}</p>
+            <div className="support-detail-grid support-volunteer-grid">
+              {volunteerMethods.map((method) => (
+                <article
+                  className={`support-volunteer-card support-volunteer-card--${method.key}`}
+                  key={method.title}
+                >
+                  <span className="support-volunteer-icon" aria-hidden="true">
+                    {method.symbol}
+                  </span>
+                  <div>
+                    <h2>{method.title}</h2>
+                    <p>{method.description}</p>
+                  </div>
+                  <span className="support-volunteer-spark" aria-hidden="true">
+                    ✦
+                  </span>
                 </article>
               ))}
             </div>
