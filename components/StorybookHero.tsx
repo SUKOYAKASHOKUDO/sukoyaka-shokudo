@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { site } from "../content/siteContent";
-import { SukoyakaBrandHomeLink } from "./SukoyakaBrandHomeLink";
 
 const internalHotspots = [
   {
@@ -81,7 +79,7 @@ export function StorybookHero() {
       className="reference-design-hero"
       aria-labelledby="storybook-heading"
     >
-      <div className="reference-design-frame">
+      <div className="reference-design-frame reference-design-frame-home">
         <div className="reference-design-canvas">
           <Image
             className="reference-design-image reference-design-image-top"
@@ -111,25 +109,12 @@ export function StorybookHero() {
             />
           ))}
 
-          <div className="reference-design-header-extension" aria-hidden="true" />
-          <div className="reference-logo-backdrop" aria-hidden="true" />
-          <div className="reference-design-nav-blank" aria-hidden="true" />
-
           <div className="reference-design-copy">
             <h1 id="storybook-heading">おなかも こころも ぽかぽかに。</h1>
             <p>中学生以下 無料／大人 500円</p>
           </div>
 
           <nav className="reference-design-links" aria-label="トップメニュー">
-            <SukoyakaBrandHomeLink
-              className="reference-brand-home"
-              priority
-            />
-            <div className="reference-header-menu" aria-label="トップメニュー">
-              <Link href="/">HOME</Link>
-              <Link href="/operator">私たちについて</Link>
-              <a href={`mailto:${site.email}`}>お問い合わせ</a>
-            </div>
             {internalHotspots.map((hotspot) => (
               <Link
                 className={`reference-hotspot ${hotspot.className}`}

@@ -3094,6 +3094,22 @@ body::selection {
   line-height: 0;
 }
 
+/* The home page uses the same real header as every other page. Crop the
+   supplied artwork below that header so its original navigation cannot show. */
+.reference-design-frame-home {
+  aspect-ratio: 1672 / 797.027;
+  padding-bottom: 0;
+}
+
+.reference-design-frame-home .reference-design-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 118.065%;
+  transform: translateY(-15.3%);
+}
+
 .reference-design-canvas {
   position: relative;
 }
@@ -3118,7 +3134,7 @@ body::selection {
 }
 
 .reference-design-image-top {
-  clip-path: inset(15.3% 0 36.9% 0);
+  clip-path: inset(0 0 36.9% 0);
 }
 
 .reference-design-image-menu {
