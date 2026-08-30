@@ -111,6 +111,7 @@ export function StorybookHero() {
             />
           ))}
 
+          <div className="reference-design-header-extension" aria-hidden="true" />
           <div className="reference-logo-backdrop" aria-hidden="true" />
           <div className="reference-design-nav-blank" aria-hidden="true" />
 
@@ -124,6 +125,12 @@ export function StorybookHero() {
               className="reference-brand-home"
               priority
             />
+            <Link
+              className="reference-hotspot reference-hotspot-about"
+              href="/operator"
+            >
+              <span>私たちについて</span>
+            </Link>
             {internalHotspots.map((hotspot) => (
               <Link
                 className={`reference-hotspot ${hotspot.className}`}

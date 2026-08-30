@@ -3823,7 +3823,7 @@ body::selection {
 
 .reference-brand-home {
   position: absolute;
-  top: 3.15%;
+  top: 5.2%;
   left: 2.75%;
   z-index: 4;
   width: 28.9%;
@@ -3848,13 +3848,25 @@ body::selection {
   outline-offset: 2px;
 }
 
+.reference-design-header-extension {
+  position: absolute;
+  top: 13.6%;
+  left: 2.3%;
+  z-index: 1;
+  width: 95.4%;
+  height: 5.8%;
+  border-radius: 0 0 clamp(22px, 2.2vw, 38px) clamp(22px, 2.2vw, 38px);
+  background: #fffef9;
+  pointer-events: none;
+}
+
 .reference-logo-backdrop {
   position: absolute;
   top: 2.7%;
   left: 2.3%;
   z-index: 2;
   width: 31.8%;
-  height: 12.6%;
+  height: 16.7%;
   border-radius: clamp(22px, 2.2vw, 38px) 0 0 clamp(22px, 2.2vw, 38px);
   background: #fffef9;
   pointer-events: none;
@@ -3866,16 +3878,38 @@ body::selection {
   left: 33.6%;
   z-index: 2;
   width: 45.4%;
-  height: 12.6%;
+  height: 16.7%;
   background: #fffef9;
   pointer-events: none;
 }
 
 .reference-hotspot-about {
-  top: 2.4%;
-  left: 43.5%;
-  width: 7.3%;
-  height: 13.2%;
+  top: 5.2%;
+  left: 66.2%;
+  display: flex;
+  width: 11.6%;
+  height: 11.7%;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.8%;
+  color: var(--storybook-teal-deep);
+  font-family: var(--storybook-round);
+  font-size: clamp(10px, 1.1vw, 16px);
+  font-weight: 900;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.reference-hotspot-about span {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: nowrap;
+  border: 0;
 }
 
 .reference-hotspot-schedule-nav {
@@ -3973,6 +4007,13 @@ body::selection {
   .reference-hotspot:focus-visible {
     outline-width: 2px;
     outline-offset: -2px;
+  }
+
+  .reference-hotspot-about {
+    left: 49.5%;
+    width: 28%;
+    padding-right: 0;
+    font-size: clamp(9px, 2.7vw, 12px);
   }
 }
 
