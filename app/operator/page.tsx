@@ -27,7 +27,7 @@ export default function OperatorPage() {
             </aside>
             <div className="mashiro-prose operator-name-story">
               <p>
-                <strong>“ミレポリト”</strong>は、フランス語で愛すべき子とゆう意味です。
+                「ミ・レポリト」には、子どもたち一人ひとりを「愛しい存在」「大切な存在」と想う気持ちが込められています。
               </p>
             </div>
           </div>
