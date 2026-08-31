@@ -79,5 +79,17 @@ export function getConfiguredInstagramUserId() {
 }
 
 export function getInstagramTestSecret() {
-  return required("INSTAGRAM_TEST_SECRET");
+  const value = required("INSTAGRAM_TEST_SECRET");
+  if (value.length < 32) {
+    throw new InstagramSetupError("configuration_error", 503);
+  }
+  return value;
+}
+
+export function getInstagramOAuthSetupSecret() {
+  const value = required("INSTAGRAM_OAUTH_SETUP_SECRET");
+  if (value.length < 32) {
+    throw new InstagramSetupError("configuration_error", 503);
+  }
+  return value;
 }

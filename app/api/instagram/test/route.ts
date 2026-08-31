@@ -23,9 +23,16 @@ export const dynamic = "force-dynamic";
 function noStoreJson(body: unknown, status: number) {
   return NextResponse.json(body, {
     status,
-    headers: { "Cache-Control": "no-store" },
+    headers: {
+      "Cache-Control": "no-store",
+      Expires: "0",
+      Pragma: "no-cache",
+      "Referrer-Policy": "no-referrer",
+      ...(status === 401 ? { "WWW-Authenticate": "Bearer" } : {}),
+    },
   });
 }
+
 export async function GET(request: NextRequest) {
   try {
     const expectedSecret = getInstagramTestSecret();

@@ -13,7 +13,7 @@
 
 必要なルート:
 
-- `GET /api/instagram/auth`: OAuth開始。`INSTAGRAM_OAUTH_ENABLED=true` の期間だけ利用できます。
+- `GET /api/instagram/auth`: OAuth開始。`INSTAGRAM_OAUTH_ENABLED=true` の期間だけ利用できます。ブラウザのBasic認証にはユーザー名 `instagram` と `INSTAGRAM_OAUTH_SETUP_SECRET` を使います。これはInstagramのパスワードではありません。
 - `GET /api/instagram/callback`: state検証、短期・長期トークン交換、プロアカウントと`mi_repollito`の照合、メディア接続確認を行います。
 - `GET /api/instagram/test`: 管理用Bearer認証後、安全なアカウント情報と最新3件だけを返します。
 
@@ -27,7 +27,7 @@ https://www.sukoyaka-shokudo.com/api/instagram/callback
 
 `INSTAGRAM_ACCESS_TOKEN` はMetaダッシュボードなどから管理者が安全に直接設定できる場合の互換用です。`INSTAGRAM_ACCESS_TOKEN_SEALED` が設定されている場合は暗号化値を優先します。
 
-OAuth承認後は、`INSTAGRAM_OAUTH_ENABLED=false` に戻してください。接続テストは次のように管理用シークレットをHTTPヘッダーへ設定します。URLやチャットへシークレットを貼らないでください。
+`INSTAGRAM_OAUTH_SETUP_SECRET` と `INSTAGRAM_TEST_SECRET` は、それぞれ異なる32文字以上のランダム値にしてください。OAuth承認後は、`INSTAGRAM_OAUTH_ENABLED=false` に戻してください。接続テストは次のように管理用シークレットをHTTPヘッダーへ設定します。URLやチャットへシークレットを貼らないでください。
 
 ```powershell
 $headers = @{ Authorization = "Bearer <INSTAGRAM_TEST_SECRET>" }

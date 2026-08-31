@@ -19,18 +19,29 @@ export const dynamic = "force-dynamic";
 
 const STATE_COOKIE = "sukoyaka_instagram_oauth_state";
 
-function responseWithClearedState(body: unknown, status: number) {
+function privateHeaders() {
+  return {
+    "Cache-Control": "no-store",
+    Expires: "0",
+    Pragma: "no-cache",
+    "Referrer-Policy": "no-referrer",
+  };
+}
+
+function privateResponse(body: unknown, status: number, clearState: boolean) {
   const response = NextResponse.json(body, {
     status,
-    headers: { "Cache-Control": "no-store" },
+    headers: privateHeaders(),
   });
-  response.cookies.set(STATE_COOKIE, "", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/api/instagram/callback",
-    maxAge: 0,
-  });
+  if (clearState) {
+    response.cookies.set(STATE_COOKIE, "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/api/instagram/callback",
+      maxAge: 0,
+    });
+  }
   return response;
 }
 
@@ -39,20 +50,22 @@ function normalizeAccountType(value: string) {
 }
 
 export async function GET(request: NextRequest) {
+  let stateValidated = false;
   try {
     const config = getInstagramOAuthConfig();
     if (!config.enabled) {
       throw new InstagramSetupError("oauth_disabled", 503);
     }
 
-    if (request.nextUrl.searchParams.get("error") === "access_denied") {
-      throw new InstagramSetupError("oauth_cancelled", 400);
-    }
-
     const returnedState = request.nextUrl.searchParams.get("state") ?? "";
     const storedState = request.cookies.get(STATE_COOKIE)?.value ?? "";
     if (!returnedState || !storedState || !safeEqual(returnedState, storedState)) {
       throw new InstagramSetupError("state_mismatch", 400);
+    }
+    stateValidated = true;
+
+    if (request.nextUrl.searchParams.get("error") === "access_denied") {
+      throw new InstagramSetupError("oauth_cancelled", 400);
     }
 
     const code = request.nextUrl.searchParams.get("code")?.trim();
@@ -100,7 +113,7 @@ export async function GET(request: NextRequest) {
       expiresAt,
     });
 
-    return responseWithClearedState(
+    return privateResponse(
       {
         ok: true,
         status: "connected",
@@ -122,12 +135,14 @@ export async function GET(request: NextRequest) {
         })),
       },
       200,
+      true,
     );
   } catch (error) {
     const safe = toSafeInstagramError(error);
-    return responseWithClearedState(
+    return privateResponse(
       { ok: false, error: safe.code },
       safe.status,
+      stateValidated,
     );
   }
 }
