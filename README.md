@@ -1,5 +1,41 @@
 # すこやか食堂 公式サイト
 
+## Instagram API OAuth基盤
+
+このブランチでは、Meta公式の「Instagram API with Instagram Login」を使うためのサーバー側OAuth基盤だけを追加しています。写真ギャラリーの表示は変更していません。
+
+2026年8月31日にMeta公式ドキュメントを確認し、API v26.0、`instagram_business_basic`、次の公式エンドポイントを前提にしています。
+
+- `https://www.instagram.com/oauth/authorize`
+- `https://api.instagram.com/oauth/access_token`
+- `https://graph.instagram.com/access_token`
+- `https://graph.instagram.com/refresh_access_token`
+
+必要なルート:
+
+- `GET /api/instagram/auth`: OAuth開始。`INSTAGRAM_OAUTH_ENABLED=true` の期間だけ利用できます。
+- `GET /api/instagram/callback`: state検証、短期・長期トークン交換、プロアカウントと`mi_repollito`の照合、メディア接続確認を行います。
+- `GET /api/instagram/test`: 管理用Bearer認証後、安全なアカウント情報と最新3件だけを返します。
+
+Metaへ登録する本番Redirect URIは、次の完全一致URLです。
+
+```text
+https://www.sukoyaka-shokudo.com/api/instagram/callback
+```
+
+環境変数名は `.env.example` を参照してください。平文トークンをブラウザへ返さないため、callbackはAES-256-GCMで暗号化した設定値だけを返します。`INSTAGRAM_TOKEN_ENCRYPTION_KEY` は32バイトのランダム値をbase64url形式で設定し、暗号化値を `INSTAGRAM_ACCESS_TOKEN_SEALED` としてVercelへ手動登録します。callbackからVercelへの自動書き込みは行いません。
+
+`INSTAGRAM_ACCESS_TOKEN` はMetaダッシュボードなどから管理者が安全に直接設定できる場合の互換用です。`INSTAGRAM_ACCESS_TOKEN_SEALED` が設定されている場合は暗号化値を優先します。
+
+OAuth承認後は、`INSTAGRAM_OAUTH_ENABLED=false` に戻してください。接続テストは次のように管理用シークレットをHTTPヘッダーへ設定します。URLやチャットへシークレットを貼らないでください。
+
+```powershell
+$headers = @{ Authorization = "Bearer <INSTAGRAM_TEST_SECRET>" }
+Invoke-RestMethod -Uri "https://www.sukoyaka-shokudo.com/api/instagram/test" -Headers $headers
+```
+
+対象Instagramは開発者所有ではないため、開発・テスト中は対象所有者をアプリのTester等へ追加してStandard Accessで確認します。アプリの役割に含まれない第三者へ本番サービスを提供する場合は、`instagram_business_basic` のAdvanced AccessとApp Reviewが必要です。
+
 札幌市中央区の子ども食堂「すこやか食堂」の公式Webサイトです。
 
 ## 技術構成
