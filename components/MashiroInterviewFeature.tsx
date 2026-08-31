@@ -196,7 +196,7 @@ export function MashiroInterviewFeature() {
       <div className="shell">
         <header className="mashiro-interview__header">
           <p className="mashiro-interview__eyebrow">メディア掲載記事</p>
-          <h2 id="mashiro-interview-title">代表 南真白 取材記事</h2>
+          <h2 id="mashiro-interview-title">代表 南 真白 取材記事</h2>
           <p>
             すこやか食堂代表・南真白が、活動への思いや子ども食堂の役割について取材を受けました。
             <br />
