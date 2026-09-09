@@ -4,7 +4,6 @@ import {
   getInstagramProfile,
 } from "../../../../lib/instagram/api";
 import {
-  getConfiguredInstagramUserIdOptional,
   getExpectedInstagramUsername,
   getInstagramApiVersion,
 } from "../../../../lib/instagram/config";
@@ -12,27 +11,23 @@ import {
   InstagramSetupError,
   toSafeInstagramError,
 } from "../../../../lib/instagram/errors";
-import { getServerAccessToken } from "../../../../lib/instagram/security";
 import {
   assertInstagramAdmin,
   privateJson,
 } from "../../../../lib/instagram/http";
+import { getServerAccessToken } from "../../../../lib/instagram/security";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
     assertInstagramAdmin(request);
-
     const apiVersion = getInstagramApiVersion();
-    const expectedUsername = getExpectedInstagramUsername();
-    const expectedUserId = getConfiguredInstagramUserIdOptional();
     const accessToken = getServerAccessToken();
     const profile = await getInstagramProfile(apiVersion, accessToken);
 
     if (
-      profile.username.toLowerCase() !== expectedUsername ||
-      (expectedUserId !== null && profile.userId !== expectedUserId)
+      profile.username.toLowerCase() !== getExpectedInstagramUsername()
     ) {
       throw new InstagramSetupError("unexpected_account", 403);
     }
@@ -41,20 +36,19 @@ export async function GET(request: NextRequest) {
       apiVersion,
       profile.userId,
       accessToken,
-      3,
+      6,
     );
 
     return privateJson(
       {
-        ok: true,
-        account: {
-          userId: profile.userId,
-          username: profile.username,
-          accountType: profile.accountType,
-        },
+        success: true,
+        username: profile.username,
         media: media.map((item) => ({
           id: item.id,
-          mediaType: item.media_type,
+          caption: item.caption,
+          media_type: item.media_type,
+          media_url: item.media_url,
+          thumbnail_url: item.thumbnail_url,
           permalink: item.permalink,
           timestamp: item.timestamp,
         })),
@@ -63,6 +57,6 @@ export async function GET(request: NextRequest) {
     );
   } catch (error) {
     const safe = toSafeInstagramError(error);
-    return privateJson({ ok: false, error: safe.code }, safe.status);
+    return privateJson({ success: false, error: safe.code }, safe.status);
   }
 }

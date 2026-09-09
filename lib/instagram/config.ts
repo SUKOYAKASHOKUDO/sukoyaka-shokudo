@@ -86,9 +86,10 @@ export function getInstagramTestSecret() {
   return value;
 }
 
-export function getInstagramOAuthSetupSecret() {
-  const value = required("INSTAGRAM_OAUTH_SETUP_SECRET");
-  if (value.length < 32) {
+export function getConfiguredInstagramUserIdOptional() {
+  const value = process.env.INSTAGRAM_USER_ID?.trim();
+  if (!value) return null;
+  if (!NUMERIC_ID_PATTERN.test(value)) {
     throw new InstagramSetupError("configuration_error", 503);
   }
   return value;

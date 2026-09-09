@@ -13,6 +13,7 @@ export type InstagramErrorCode =
   | "professional_account_required"
   | "unexpected_account"
   | "media_fetch_failed"
+  | "rate_limited"
   | "access_token_expired"
   | "token_storage_unavailable"
   | "unauthorized"

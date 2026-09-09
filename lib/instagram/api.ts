@@ -60,6 +60,32 @@ async function safeJson(response: Response) {
   }
 }
 
+function apiErrorCode(payload: unknown) {
+  const object = asObject(payload);
+  const error = asObject(object?.error);
+  const value = error?.code ?? object?.code;
+  return typeof value === "number" ? value : null;
+}
+
+function logApiFailure(operation: string, response: Response, payload: unknown) {
+  console.error("[instagram-api] request_failed", {
+    operation,
+    httpStatus: response.status,
+    apiCode: apiErrorCode(payload),
+  });
+}
+
+function isRateLimited(response: Response, payload: unknown) {
+  const code = apiErrorCode(payload);
+  return (
+    response.status === 429 ||
+    code === 4 ||
+    code === 17 ||
+    code === 32 ||
+    code === 613
+  );
+}
+
 export async function exchangeAuthorizationCode(
   config: OAuthConfig,
   code: string,
@@ -82,8 +108,13 @@ export async function exchangeAuthorizationCode(
     throw new InstagramSetupError("network_error", 502);
   }
 
-  const payload = firstDataObject(await safeJson(response));
+  const responsePayload = await safeJson(response);
+  const payload = firstDataObject(responsePayload);
   if (!response.ok || !payload) {
+    logApiFailure("authorization_code_exchange", response, responsePayload);
+    if (isRateLimited(response, responsePayload)) {
+      throw new InstagramSetupError("rate_limited", 429);
+    }
     throw new InstagramSetupError("token_exchange_failed", 502);
   }
 
@@ -129,8 +160,13 @@ export async function exchangeLongLivedToken(
     throw new InstagramSetupError("network_error", 502);
   }
 
-  const payload = asObject(await safeJson(response));
+  const responsePayload = await safeJson(response);
+  const payload = asObject(responsePayload);
   if (!response.ok || !payload) {
+    logApiFailure("long_lived_token_exchange", response, responsePayload);
+    if (isRateLimited(response, responsePayload)) {
+      throw new InstagramSetupError("rate_limited", 429);
+    }
     throw new InstagramSetupError("token_refresh_failed", 502);
   }
 
@@ -162,8 +198,13 @@ export async function refreshLongLivedToken(
     throw new InstagramSetupError("network_error", 502);
   }
 
-  const payload = asObject(await safeJson(response));
+  const responsePayload = await safeJson(response);
+  const payload = asObject(responsePayload);
   if (!response.ok || !payload) {
+    logApiFailure("long_lived_token_refresh", response, responsePayload);
+    if (isRateLimited(response, responsePayload)) {
+      throw new InstagramSetupError("rate_limited", 429);
+    }
     throw new InstagramSetupError("token_refresh_failed", 502);
   }
 
@@ -198,6 +239,10 @@ async function graphGet(
 
   const payload = await safeJson(response);
   if (!response.ok) {
+    logApiFailure(errorCode, response, payload);
+    if (isRateLimited(response, payload)) {
+      throw new InstagramSetupError("rate_limited", 429);
+    }
     throw new InstagramSetupError(
       response.status === 401 ? "access_token_expired" : errorCode,
       response.status === 401 ? 401 : 502,

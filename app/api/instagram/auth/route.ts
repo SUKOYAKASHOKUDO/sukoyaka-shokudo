@@ -1,13 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  getInstagramOAuthConfig,
-  getInstagramOAuthSetupSecret,
-} from "../../../../lib/instagram/config";
+import { getInstagramOAuthConfig } from "../../../../lib/instagram/config";
 import { toSafeInstagramError } from "../../../../lib/instagram/errors";
-import {
-  randomOAuthState,
-  safeEqual,
-} from "../../../../lib/instagram/security";
+import { randomOAuthState } from "../../../../lib/instagram/security";
 
 export const dynamic = "force-dynamic";
 
@@ -23,12 +17,6 @@ function privateHeaders() {
   };
 }
 
-function hasValidSetupAuthorization(request: NextRequest, secret: string) {
-  const supplied = request.headers.get("authorization") ?? "";
-  const expected = `Basic ${Buffer.from(`instagram:${secret}`, "utf8").toString("base64")}`;
-  return supplied.length > 0 && safeEqual(supplied, expected);
-}
-
 export async function GET(request: NextRequest) {
   try {
     const config = getInstagramOAuthConfig();
@@ -36,21 +24,6 @@ export async function GET(request: NextRequest) {
       return NextResponse.json(
         { ok: false, error: "oauth_disabled" },
         { status: 503, headers: privateHeaders() },
-      );
-    }
-
-    const setupSecret = getInstagramOAuthSetupSecret();
-    if (!hasValidSetupAuthorization(request, setupSecret)) {
-      return NextResponse.json(
-        { ok: false, error: "unauthorized" },
-        {
-          status: 401,
-          headers: {
-            ...privateHeaders(),
-            "WWW-Authenticate":
-              'Basic realm="Instagram OAuth Setup", charset="UTF-8"',
-          },
-        },
       );
     }
 

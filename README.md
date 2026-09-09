@@ -4,7 +4,7 @@
 
 このブランチでは、Meta公式の「Instagram API with Instagram Login」を使うためのサーバー側OAuth基盤だけを追加しています。写真ギャラリーの表示は変更していません。
 
-2026年8月31日にMeta公式ドキュメントを確認し、API v26.0、`instagram_business_basic`、次の公式エンドポイントを前提にしています。
+2026年9月8日にMeta公式ドキュメントを再確認し、API v26.0、`instagram_business_basic`、次の公式エンドポイントを前提にしています。
 
 - `https://www.instagram.com/oauth/authorize`
 - `https://api.instagram.com/oauth/access_token`
@@ -13,8 +13,11 @@
 
 必要なルート:
 
-- `GET /api/instagram/auth`: OAuth開始。`INSTAGRAM_OAUTH_ENABLED=true` の期間だけ利用できます。ブラウザのBasic認証にはユーザー名 `instagram` と `INSTAGRAM_OAUTH_SETUP_SECRET` を使います。これはInstagramのパスワードではありません。
-- `GET /api/instagram/callback`: state検証、短期・長期トークン交換、プロアカウントと`mi_repollito`の照合、メディア接続確認を行います。
+- `GET /api/instagram/auth`: OAuth開始。`INSTAGRAM_OAUTH_ENABLED=true` の期間だけ利用できます。所有者へこのURLだけを送り、Instagram公式画面で本人にログイン・許可してもらいます。
+- `GET /api/instagram/callback`: state検証、短期・長期トークン交換、プロアカウントと`mi_repollito`の照合、メディア接続確認、完了画面表示を行います。
+- `GET /api/instagram/status`: 管理用Bearer認証後、接続状態とトークン状態を返します。
+- `GET /api/instagram/media`: 管理用Bearer認証後、最新6件を返します。
+- `POST /api/instagram/refresh`: 管理用Bearer認証後、長期トークンを更新し、Vercelへ再登録する暗号化設定値を返します。
 - `GET /api/instagram/test`: 管理用Bearer認証後、安全なアカウント情報と最新3件だけを返します。
 
 Metaへ登録する本番Redirect URIは、次の完全一致URLです。
@@ -27,14 +30,18 @@ https://www.sukoyaka-shokudo.com/api/instagram/callback
 
 `INSTAGRAM_ACCESS_TOKEN` はMetaダッシュボードなどから管理者が安全に直接設定できる場合の互換用です。`INSTAGRAM_ACCESS_TOKEN_SEALED` が設定されている場合は暗号化値を優先します。
 
-`INSTAGRAM_OAUTH_SETUP_SECRET` と `INSTAGRAM_TEST_SECRET` は、それぞれ異なる32文字以上のランダム値にしてください。OAuth承認後は、`INSTAGRAM_OAUTH_ENABLED=false` に戻してください。接続テストは次のように管理用シークレットをHTTPヘッダーへ設定します。URLやチャットへシークレットを貼らないでください。
+`INSTAGRAM_TEST_SECRET` は32文字以上のランダム値にしてください。OAuth承認後は、`INSTAGRAM_OAUTH_ENABLED=false` に戻してください。接続テストは次のように管理用シークレットをHTTPヘッダーへ設定します。URLやチャットへシークレットを貼らないでください。
 
 ```powershell
 $headers = @{ Authorization = "Bearer <INSTAGRAM_TEST_SECRET>" }
 Invoke-RestMethod -Uri "https://www.sukoyaka-shokudo.com/api/instagram/test" -Headers $headers
+Invoke-RestMethod -Uri "https://www.sukoyaka-shokudo.com/api/instagram/status" -Headers $headers
+Invoke-RestMethod -Uri "https://www.sukoyaka-shokudo.com/api/instagram/media" -Headers $headers
 ```
 
-対象Instagramは開発者所有ではないため、開発・テスト中は対象所有者をアプリのTester等へ追加してStandard Accessで確認します。アプリの役割に含まれない第三者へ本番サービスを提供する場合は、`instagram_business_basic` のAdvanced AccessとApp Reviewが必要です。
+Meta公式仕様では、自分が所有または管理するInstagramプロアカウントだけを扱う場合はStandard AccessでApp Review不要です。一方、今回の`mi_repollito`は開発者が所有・管理しないため、テスター招待に依存せず直接OAuthするには`instagram_business_basic`のAdvanced AccessとApp Reviewが必要です。Instagram Login方式ではFacebook Pageとのリンクは不要です。
+
+長期トークンは60日間有効です。発行から24時間以上経過し、かつ有効期限内で`instagram_business_basic`が維持されている間に`/api/instagram/refresh`でさらに60日間更新できます。DBやKVを追加していないため、返された暗号化設定値は管理者がVercelの`INSTAGRAM_ACCESS_TOKEN_SEALED`へ再登録します。平文トークンはAPIレスポンスへ含めません。
 
 札幌市中央区の子ども食堂「すこやか食堂」の公式Webサイトです。
 
