@@ -1922,6 +1922,10 @@ a {
     display: none;
   }
 
+  .storybook-footer-brand small {
+    display: block;
+  }
+
   .button-small {
     min-height: 38px;
     padding: 6px 15px;
