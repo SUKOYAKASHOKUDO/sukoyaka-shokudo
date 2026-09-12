@@ -28,7 +28,11 @@ export default function Home() {
         <aside className="mashiro-notice" aria-label="大切なお知らせ">
           <div className="shell">
             <span>NOTICE</span>
-            <p>{site.informationNote}</p>
+            <p>
+              {"開催日時・料金・支援方法は変更される場合があります。"}
+              <br className="mashiro-notice-mobile-break" />
+              {"最新情報は公式Instagramをご確認ください。"}
+            </p>
             <a
               href={site.instagram}
               target="_blank"

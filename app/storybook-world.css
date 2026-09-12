@@ -647,6 +647,10 @@ body::selection {
   font-weight: 900;
 }
 
+.mashiro-notice-mobile-break {
+  display: none;
+}
+
 .mashiro-section {
   position: relative;
   padding-block: clamp(72px, 8vw, 118px);
@@ -1984,6 +1988,10 @@ body::selection {
 }
 
 @media (max-width: 560px) {
+  .mashiro-notice-mobile-break {
+    display: block;
+  }
+
   .page-intro-mobile-title > span {
     display: block;
     white-space: nowrap;
