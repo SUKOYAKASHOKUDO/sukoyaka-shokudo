@@ -4967,6 +4967,48 @@ body::selection {
   }
 }
 
+/* Keep the exact PC artwork, with selectable HTML labels over its lettering. */
+@media (min-width: 768px) {
+  .storybook-main-nav {
+    container-type: inline-size;
+  }
+
+  .storybook-main-nav a,
+  .storybook-main-nav a:hover,
+  .storybook-main-nav a:focus-visible {
+    opacity: 1;
+    -webkit-user-drag: none;
+  }
+
+  .storybook-main-nav a span {
+    position: absolute;
+    top: 50%;
+    left: 28%;
+    opacity: 1;
+    color: transparent;
+    font-size: 3.35cqw;
+    line-height: 1;
+    white-space: nowrap;
+    transform: translateY(-50%);
+    cursor: text;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  .storybook-main-nav a:first-child span {
+    left: 34%;
+  }
+
+  .storybook-main-nav a:last-child span {
+    left: 29%;
+  }
+
+  .storybook-main-nav a span::selection {
+    background: #07788a;
+    color: #fff;
+  }
+}
+
 /* Mobile uses the same artwork and proportional layout without changing PC. */
 @media (max-width: 767px) {
   .storybook-site-header.site-header {

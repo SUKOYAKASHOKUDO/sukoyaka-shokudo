@@ -164,7 +164,15 @@ export function SiteHeader() {
           <span />
         </button>
 
-        <nav className="storybook-main-nav" aria-label="メインメニュー">
+        <nav
+          className="storybook-main-nav"
+          aria-label="メインメニュー"
+          onDragStart={(event) => {
+            if (window.matchMedia("(min-width: 768px)").matches) {
+              event.preventDefault();
+            }
+          }}
+        >
           <Link href="/">
             <HeaderNavIcon name="home" />
             <span>HOME</span>
