@@ -4213,6 +4213,14 @@ body::selection {
     line-height: 1.25;
   }
 
+  .reference-card-replacement-support strong {
+    font-size: clamp(7px, 2vw, 11px);
+  }
+
+  .reference-card-replacement-support strong span {
+    white-space: nowrap;
+  }
+
   .reference-card-replacement-story strong {
     white-space: normal;
   }
