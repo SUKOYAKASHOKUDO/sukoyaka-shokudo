@@ -851,6 +851,10 @@ body::selection {
   line-height: 1.8;
 }
 
+.mashiro-intro-opening {
+  white-space: pre-line;
+}
+
 .mashiro-statement h2 {
   margin: 20px 0 26px;
   font-size: clamp(38px, 4.3vw, 60px);
@@ -2223,6 +2227,10 @@ body::selection {
 
   .mashiro-intro .mashiro-statement > p:first-child {
     line-height: 1.2;
+  }
+
+  .mashiro-intro-opening {
+    white-space: normal;
   }
 
   .mashiro-contact-card .mashiro-access-links a {

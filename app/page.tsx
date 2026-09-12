@@ -84,7 +84,7 @@ export default function Home() {
               <span>OUR MESSAGE</span>
             </div>
             <div className="mashiro-statement">
-              <p style={{ whiteSpace: "pre-line" }}>
+              <p className="mashiro-intro-opening">
                 {legacyAbout.opening[0]}
               </p>
               <h2>
