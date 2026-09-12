@@ -1830,37 +1830,47 @@ body::selection {
 }
 
 .site-footer .footer-instagram-button {
-  display: inline-flex;
-  min-height: 44px;
+  display: flex;
+  width: fit-content;
+  min-height: 42px;
   margin-top: 14px;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(234, 105, 98, 0.28);
   border-radius: 999px;
-  background: #fff;
-  padding: 9px 20px;
-  color: #076d80;
-  font-size: 13px;
-  font-weight: 900;
-  line-height: 1.4;
+  background: linear-gradient(135deg, #fff9f1, #fff0ec);
+  padding: 9px 15px;
+  color: #ce5f5a;
+  font-size: 12px;
+  font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 8px 18px rgba(1, 49, 57, 0.2);
+  gap: 8px;
   transition:
     transform 180ms ease,
-    background 180ms ease,
+    border-color 180ms ease,
     box-shadow 180ms ease;
 }
 
 .site-footer .footer-instagram-button:hover,
 .site-footer .footer-instagram-button:focus-visible {
-  background: var(--storybook-yellow);
-  box-shadow: 0 12px 24px rgba(1, 49, 57, 0.26);
+  border-color: rgba(8, 116, 134, 0.48);
+  box-shadow: 0 8px 18px rgba(8, 116, 134, 0.13);
   transform: translateY(-2px);
 }
 
 .site-footer .footer-instagram-button:focus-visible {
-  outline: 3px solid #fff;
+  outline: 3px solid var(--storybook-yellow);
   outline-offset: 4px;
+}
+
+.site-footer .footer-instagram-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .footer-team-nav {
@@ -2353,12 +2363,22 @@ body::selection {
     padding-right: 74px;
   }
 
+  .site-footer .footer-instagram-button {
+    width: calc(100% - 56px);
+  }
+
   .back-to-top-arrow {
     font-size: 25px;
   }
 
   .back-to-top-label {
     font-size: 8px;
+  }
+}
+
+@media (min-width: 388px) and (max-width: 560px) {
+  .site-footer .footer-instagram-button {
+    width: calc((100% - 68px) / 2);
   }
 }
 
