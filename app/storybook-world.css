@@ -4854,7 +4854,7 @@ body::selection {
     position: relative;
     z-index: 2;
     padding: 0;
-    background: linear-gradient(180deg, #fff 72%, #f8fdfc 88%, #e5f9f8 100%);
+    background: #cbeef2;
   }
 
   .reference-design-hero {
@@ -4872,7 +4872,7 @@ body::selection {
     overflow: hidden;
     border: 0;
     border-radius: 0;
-    background: #fff;
+    background: #cbeef2;
     padding: 0;
     box-shadow: none;
   }
@@ -4889,6 +4889,8 @@ body::selection {
     pointer-events: none;
     user-select: none;
     transform: translateY(-28.314917%);
+    /* Hide only the reference's exterior background; retain the frame inside. */
+    clip-path: inset(31.353591% 0.368324% 33.977901% round 3.5% / 10.5%);
   }
 
   .storybook-header-hills,
@@ -5015,7 +5017,7 @@ body::selection {
     position: relative;
     z-index: 2;
     padding: 0;
-    background: linear-gradient(180deg, #fff 72%, #f8fdfc 88%, #e5f9f8 100%);
+    background: #cbeef2;
   }
 
   .storybook-header-panel {
@@ -5027,7 +5029,7 @@ body::selection {
     overflow: hidden;
     border: 0;
     border-radius: 0;
-    background: #fff;
+    background: #cbeef2;
     padding: 0;
     box-shadow: none;
   }
@@ -5044,6 +5046,7 @@ body::selection {
     pointer-events: none;
     user-select: none;
     transform: translateY(-28.314917%);
+    clip-path: inset(31.353591% 0.368324% 33.977901% round 3.5% / 10.5%);
   }
 
   .storybook-header-hills,
