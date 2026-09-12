@@ -3,6 +3,11 @@
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { site } from "../content/siteContent";
+import {
+  getSkyHeaderArtwork,
+  HEADER_ARTWORK_SOURCE,
+  HEADER_SKY_COLOR,
+} from "../lib/headerBackground";
 import { SukoyakaBrandHomeLink } from "./SukoyakaBrandHomeLink";
 
 type HeaderIconName = "home" | "about" | "mail";
@@ -97,9 +102,24 @@ function HeaderPlantDecor() {
 }
 
 export function SiteHeader() {
+  const [headerArtwork, setHeaderArtwork] = useState(HEADER_ARTWORK_SOURCE);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
   const navigationArtClipId = useId();
+
+  useEffect(() => {
+    let active = true;
+    getSkyHeaderArtwork()
+      .then((artwork) => {
+        if (active) setHeaderArtwork(artwork);
+      })
+      .catch(() => {
+        // Keep the original artwork if local canvas rendering is unavailable.
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -117,7 +137,7 @@ export function SiteHeader() {
       <div className="storybook-header-panel">
         <img
           className="storybook-pc-reference-art"
-          src="/images/sukoyaka-header-pc-reference.png"
+          src={headerArtwork}
           alt=""
           aria-hidden="true"
           draggable={false}
@@ -133,10 +153,10 @@ export function SiteHeader() {
               <rect x="895" y="100" width="1020" height="110" />
             </clipPath>
           </defs>
-          <rect x="895" y="100" width="1020" height="110" fill="#fffefd" />
+          <rect x="895" y="100" width="1020" height="110" fill={HEADER_SKY_COLOR} />
           <g transform="translate(1405 155) scale(0.8) translate(-1405 -155)">
             <image
-              href="/images/sukoyaka-header-pc-reference.png"
+              href={headerArtwork}
               x="0"
               y="-205"
               width="2172"
