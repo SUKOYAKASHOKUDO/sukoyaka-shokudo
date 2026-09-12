@@ -5125,15 +5125,117 @@ body::selection {
   }
 }
 
-/* Only the mobile navigation artwork and matching link areas grow by 30%. */
+.storybook-mobile-header-art,
+.storybook-mobile-nav-art {
+  display: none;
+}
+
+/* Two mobile rows reuse the original artwork, with readable navigation below. */
 @media (max-width: 767px) {
-  .storybook-navigation-art-content {
-    transform: translate(1405px, 155px) scale(1.04) translate(-1405px, -155px);
+  .storybook-site-header.site-header {
+    padding: 4px;
+  }
+
+  .storybook-header-panel {
+    height: 146px;
+    aspect-ratio: auto;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 28px;
+  }
+
+  .storybook-pc-reference-art {
+    display: none;
+  }
+
+  .storybook-pc-navigation-art {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .storybook-header-panel > .storybook-mobile-header-art {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  .storybook-mobile-header-art svg {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+  }
+
+  .storybook-mobile-brand-art {
+    top: 12px;
+    left: 10px;
+    width: min(72%, 280px);
+    clip-path: polygon(0 0, 90% 0, 90% 35%, 100% 35%, 100% 100%, 0 100%);
+  }
+
+  .storybook-mobile-nature-art {
+    top: 8px;
+    right: 0;
+    width: 70px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 35% 100%, 35% 45%, 0 45%);
+  }
+
+  .storybook-mobile-plant-art {
+    bottom: 2px;
+    left: 0;
+    width: 17px;
+  }
+
+  .storybook-mobile-cloud-art {
+    top: 62px;
+    right: 28px;
+    width: 22px;
+  }
+
+  .storybook-mobile-hills-art {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+  }
+
+  .storybook-full-logo {
+    top: 10px;
+    left: 10px;
+    width: min(72%, 280px);
+    height: 66px;
   }
 
   .storybook-main-nav {
-    transform: scale(1.3);
-    transform-origin: 50.37% 51.66%;
+    top: 82px;
+    left: 12px;
+    width: calc(100% - 24px);
+    height: 50px;
+    grid-template-columns: 185fr 340fr 295fr;
+    transform: none;
+  }
+
+  .storybook-main-nav a,
+  .storybook-main-nav a:hover,
+  .storybook-main-nav a:focus-visible {
+    min-height: 44px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .storybook-main-nav a > .storybook-header-icon,
+  .storybook-main-nav a > span {
+    display: none;
+  }
+
+  .storybook-main-nav .storybook-mobile-nav-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 50px;
+    opacity: 1;
+    overflow: hidden;
   }
 }
 

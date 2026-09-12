@@ -12,6 +12,22 @@ import { SukoyakaBrandHomeLink } from "./SukoyakaBrandHomeLink";
 
 type HeaderIconName = "home" | "about" | "mail";
 
+function HeaderReferenceArt({
+  artId,
+  className,
+  viewBox,
+}: {
+  artId: string;
+  className: string;
+  viewBox: string;
+}) {
+  return (
+    <svg className={className} viewBox={viewBox} aria-hidden="true" focusable="false">
+      <use href={`#${artId}`} />
+    </svg>
+  );
+}
+
 function HeaderNavIcon({ name }: { name: HeaderIconName }) {
   return (
     <svg
@@ -106,6 +122,7 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
   const navigationArtClipId = useId();
+  const mobileArtImageId = useId();
 
   useEffect(() => {
     let active = true;
@@ -149,6 +166,7 @@ export function SiteHeader() {
           focusable="false"
         >
           <defs>
+            <image id={mobileArtImageId} href={headerArtwork} width="2172" height="724" />
             <clipPath id={navigationArtClipId}>
               <rect x="895" y="100" width="1020" height="110" />
             </clipPath>
@@ -168,6 +186,13 @@ export function SiteHeader() {
             />
           </g>
         </svg>
+        <div className="storybook-mobile-header-art" aria-hidden="true">
+          <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-brand-art" viewBox="25 245 800 187" />
+          <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nature-art" viewBox="1780 240 380 185" />
+          <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-plant-art" viewBox="10 365 80 113" />
+          <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-cloud-art" viewBox="780 250 100 55" />
+          <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-hills-art" viewBox="90 445 2010 33" />
+        </div>
         <span className="storybook-header-hills" aria-hidden="true" />
         <HeaderPlantDecor />
         <HeaderNatureDecor />
@@ -196,17 +221,20 @@ export function SiteHeader() {
             }
           }}
         >
-          <Link href="/">
+          <Link href="/" aria-label="HOME">
             <HeaderNavIcon name="home" />
             <span>HOME</span>
+            <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nav-art" viewBox="920 305 185 110" />
           </Link>
-          <Link href="/operator">
+          <Link href="/operator" aria-label="私たちについて">
             <HeaderNavIcon name="about" />
             <span>私たちについて</span>
+            <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nav-art" viewBox="1180 305 340 110" />
           </Link>
-          <a href={`mailto:${site.email}`}>
+          <a href={`mailto:${site.email}`} aria-label="お問い合わせ">
             <HeaderNavIcon name="mail" />
             <span>お問い合わせ</span>
+            <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nav-art" viewBox="1600 305 295 110" />
           </a>
         </nav>
 
