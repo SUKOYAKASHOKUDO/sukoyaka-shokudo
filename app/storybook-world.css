@@ -4838,6 +4838,115 @@ body::selection {
   }
 }
 
+/*
+ * Desktop reference artwork.
+ * The supplied PC reference is the visual source of truth. The artwork stays
+ * decorative while the logo and navigation remain real, keyboard-accessible
+ * links positioned over their corresponding areas.
+ */
+.storybook-pc-reference-art {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .storybook-site-header.site-header {
+    padding: 0;
+    background: #fff;
+  }
+
+  .storybook-header-panel {
+    position: relative;
+    display: block;
+    width: min(100%, 2172px);
+    min-height: 0;
+    aspect-ratio: 2172 / 255;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .storybook-pc-reference-art {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    transform: translateY(-28.314917%);
+  }
+
+  .storybook-header-hills,
+  .storybook-header-plant,
+  .storybook-header-nature {
+    display: none;
+  }
+
+  .storybook-full-logo {
+    position: absolute !important;
+    z-index: 2;
+    top: 9%;
+    left: 3%;
+    display: block;
+    width: 34%;
+    height: 78%;
+    opacity: 0;
+  }
+
+  .storybook-main-nav {
+    position: absolute !important;
+    z-index: 2;
+    top: 33%;
+    left: 39.5%;
+    display: grid;
+    width: 43%;
+    height: 40%;
+    grid-template-columns: 25% 43% 32%;
+  }
+
+  .storybook-main-nav a {
+    min-height: 0;
+    height: 100%;
+    border-radius: 12px;
+    padding: 0;
+    color: transparent;
+    font-size: 0;
+    gap: 0;
+    opacity: 0;
+    transform: none;
+  }
+
+  .storybook-main-nav a + a::before,
+  .storybook-main-nav a::after {
+    display: none;
+  }
+
+  .storybook-main-nav a:hover,
+  .storybook-main-nav a:focus-visible {
+    color: transparent;
+    outline: 3px solid rgba(7, 120, 138, 0.65);
+    outline-offset: 2px;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .storybook-main-nav a:hover {
+    outline-color: transparent;
+  }
+
+  .storybook-main-nav svg,
+  .storybook-main-nav span {
+    opacity: 0;
+  }
+}
+
 /* Keep the preview label safely inside the arched logo frame. */
 .partner-logo-arch > span {
   display: block;

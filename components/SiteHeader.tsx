@@ -114,6 +114,13 @@ export function SiteHeader() {
   return (
     <header className="site-header storybook-site-header">
       <div className="storybook-header-panel">
+        <img
+          className="storybook-pc-reference-art"
+          src="/images/sukoyaka-header-pc-reference.png"
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+        />
         <span className="storybook-header-hills" aria-hidden="true" />
         <HeaderPlantDecor />
         <HeaderNatureDecor />
