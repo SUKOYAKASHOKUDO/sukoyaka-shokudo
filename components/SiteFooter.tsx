@@ -59,9 +59,6 @@ export function SiteFooter() {
         <small>
           © 2023年- {site.name}
         </small>
-        <small>
-          <FooterInformationNote />
-        </small>
       </div>
     </footer>
   );
