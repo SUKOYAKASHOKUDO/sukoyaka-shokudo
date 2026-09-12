@@ -4862,24 +4862,6 @@ body::selection {
     margin-top: -1px;
   }
 
-  .reference-design-hero::before {
-    position: absolute;
-    z-index: 6;
-    top: 0;
-    left: -5%;
-    width: 110%;
-    height: clamp(20px, 2.2vw, 36px);
-    border-radius: 0 0 50% 50% / 0 0 100% 100%;
-    background: linear-gradient(
-      180deg,
-      rgba(229, 249, 248, 0.98) 0%,
-      rgba(218, 246, 245, 0.72) 48%,
-      rgba(202, 241, 243, 0) 100%
-    );
-    content: "";
-    pointer-events: none;
-  }
-
   .storybook-header-panel {
     position: relative;
     display: block;
