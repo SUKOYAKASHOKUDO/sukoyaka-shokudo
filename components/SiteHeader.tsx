@@ -154,7 +154,10 @@ export function SiteHeader() {
             </clipPath>
           </defs>
           <rect x="895" y="100" width="1020" height="110" fill={HEADER_SKY_COLOR} />
-          <g transform="translate(1405 155) scale(0.8) translate(-1405 -155)">
+          <g
+            className="storybook-navigation-art-content"
+            transform="translate(1405 155) scale(0.8) translate(-1405 -155)"
+          >
             <image
               href={headerArtwork}
               x="0"

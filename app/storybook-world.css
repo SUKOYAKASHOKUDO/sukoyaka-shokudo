@@ -5125,6 +5125,18 @@ body::selection {
   }
 }
 
+/* Only the mobile navigation artwork and matching link areas grow by 30%. */
+@media (max-width: 767px) {
+  .storybook-navigation-art-content {
+    transform: translate(1405px, 155px) scale(1.04) translate(-1405px, -155px);
+  }
+
+  .storybook-main-nav {
+    transform: scale(1.3);
+    transform-origin: 50.37% 51.66%;
+  }
+}
+
 /* Keep the preview label safely inside the arched logo frame. */
 .partner-logo-arch > span {
   display: block;
