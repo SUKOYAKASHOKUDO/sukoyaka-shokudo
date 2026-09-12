@@ -60,6 +60,7 @@ export default function SupportPage() {
         <PageIntro
           eyebrow="SUPPORT SUKOYAKA"
           title="すこやか食堂を応援する"
+          mobileTitleLines={["すこやか食堂を", "応援する"]}
           description="個人、企業・団体の皆さまからの、食材・物品、ボランティア、寄付金、協賛などのご支援についてご案内します。"
         />
 

@@ -3,10 +3,16 @@ import Link from "next/link";
 type PageIntroProps = {
   eyebrow: string;
   title: string;
+  mobileTitleLines?: readonly string[];
   description: string;
 };
 
-export function PageIntro({ eyebrow, title, description }: PageIntroProps) {
+export function PageIntro({
+  eyebrow,
+  title,
+  mobileTitleLines,
+  description,
+}: PageIntroProps) {
   return (
     <section className="page-intro">
       <div className="shell page-intro-inner">
@@ -19,7 +25,13 @@ export function PageIntro({ eyebrow, title, description }: PageIntroProps) {
           <span aria-hidden="true" />
           <div>
             <p className="eyebrow">{eyebrow}</p>
-            <h1>{title}</h1>
+            <h1
+              className={mobileTitleLines ? "page-intro-mobile-title" : undefined}
+            >
+              {mobileTitleLines
+                ? mobileTitleLines.map((line) => <span key={line}>{line}</span>)
+                : title}
+            </h1>
           </div>
           <span aria-hidden="true" />
         </div>

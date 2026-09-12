@@ -1984,6 +1984,11 @@ body::selection {
 }
 
 @media (max-width: 560px) {
+  .page-intro-mobile-title > span {
+    display: block;
+    white-space: nowrap;
+  }
+
   .shell {
     width: min(100% - 28px, 1180px);
   }
