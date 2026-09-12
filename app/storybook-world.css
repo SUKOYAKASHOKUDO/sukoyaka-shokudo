@@ -4867,7 +4867,7 @@ body::selection {
     display: block;
     width: min(100%, 2172px);
     min-height: 0;
-    aspect-ratio: 2172 / 295;
+    aspect-ratio: 2172 / 280;
     overflow: hidden;
     border: 0;
     border-radius: 0;
@@ -4899,22 +4899,22 @@ body::selection {
   .storybook-full-logo {
     position: absolute !important;
     z-index: 2;
-    top: 7.8%;
+    top: 8.2%;
     left: 3%;
     display: block;
     width: 34%;
-    height: 67.4%;
+    height: 71%;
     opacity: 0;
   }
 
   .storybook-main-nav {
     position: absolute !important;
     z-index: 2;
-    top: 28.5%;
+    top: 30%;
     left: 39.5%;
     display: grid;
     width: 43%;
-    height: 34.6%;
+    height: 36.5%;
     grid-template-columns: 25% 43% 32%;
   }
 
