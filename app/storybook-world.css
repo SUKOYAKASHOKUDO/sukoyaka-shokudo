@@ -4757,7 +4757,7 @@ body::selection {
   .storybook-menu-toggle {
     position: relative;
     z-index: 3;
-    display: grid;
+    display: none;
     align-self: center;
   }
 
