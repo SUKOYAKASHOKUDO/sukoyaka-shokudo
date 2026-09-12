@@ -4350,7 +4350,7 @@ body::selection {
   gap: clamp(24px, 3vw, 58px);
 }
 
-.storybook-header-panel > :not(.storybook-header-hills, .storybook-header-plant, .storybook-header-nature) {
+.storybook-header-panel > :not(.storybook-header-hills, .storybook-header-plant, .storybook-header-nature, .storybook-pc-reference-art, .storybook-pc-navigation-art) {
   position: relative;
   z-index: 2;
 }
@@ -4844,7 +4844,8 @@ body::selection {
  * decorative while the logo and navigation remain real, keyboard-accessible
  * links positioned over their corresponding areas.
  */
-.storybook-pc-reference-art {
+.storybook-pc-reference-art,
+.storybook-pc-navigation-art {
   display: none;
 }
 
@@ -4896,6 +4897,17 @@ body::selection {
     display: none;
   }
 
+  .storybook-pc-navigation-art {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
   .storybook-full-logo {
     position: absolute !important;
     z-index: 2;
@@ -4910,12 +4922,12 @@ body::selection {
   .storybook-main-nav {
     position: absolute !important;
     z-index: 2;
-    top: 30%;
-    left: 39.5%;
+    top: 36.5%;
+    left: 45.8%;
     display: grid;
-    width: 43%;
+    width: 37.5%;
     height: 36.5%;
-    grid-template-columns: 25% 43% 32%;
+    grid-template-columns: 25% 44% 31%;
   }
 
   .storybook-main-nav a {

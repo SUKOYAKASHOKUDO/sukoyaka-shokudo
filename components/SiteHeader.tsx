@@ -99,6 +99,7 @@ function HeaderPlantDecor() {
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
+  const navigationArtClipId = useId();
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -121,6 +122,29 @@ export function SiteHeader() {
           aria-hidden="true"
           draggable={false}
         />
+        <svg
+          className="storybook-pc-navigation-art"
+          viewBox="0 0 2172 280"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <defs>
+            <clipPath id={navigationArtClipId}>
+              <rect x="895" y="100" width="1020" height="110" />
+            </clipPath>
+          </defs>
+          <rect x="895" y="100" width="1020" height="110" fill="#fffefd" />
+          <g transform="translate(1405 155) scale(0.8) translate(-1405 -155)">
+            <image
+              href="/images/sukoyaka-header-pc-reference.png"
+              x="0"
+              y="-205"
+              width="2172"
+              height="724"
+              clipPath={`url(#${navigationArtClipId})`}
+            />
+          </g>
+        </svg>
         <span className="storybook-header-hills" aria-hidden="true" />
         <HeaderPlantDecor />
         <HeaderNatureDecor />
