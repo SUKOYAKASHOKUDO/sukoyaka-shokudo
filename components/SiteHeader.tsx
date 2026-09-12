@@ -1,140 +1,168 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useId, useState } from "react";
 import { site } from "../content/siteContent";
 import { SukoyakaBrandHomeLink } from "./SukoyakaBrandHomeLink";
 
-type IconName =
-  | "home"
-  | "bowl"
-  | "calendar"
-  | "people"
-  | "heart"
-  | "notebook"
-  | "book"
-  | "building"
-  | "pot"
-  | "pin"
-  | "mail";
+type HeaderIconName = "home" | "about" | "mail";
 
-function StorybookIcon({ name }: { name: IconName }) {
-  const common = {
-    fill: "none",
-    stroke: "currentColor",
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    strokeWidth: 2.2,
-  };
-
+function HeaderNavIcon({ name }: { name: HeaderIconName }) {
   return (
-    <svg viewBox="0 0 32 32" aria-hidden="true">
+    <svg
+      className={`storybook-header-icon storybook-header-icon-${name}`}
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+    >
       {name === "home" && (
         <>
-          <path {...common} d="m4 15 12-10 12 10" />
-          <path {...common} d="M7 13v14h18V13M13 27v-8h6v8" />
+          <path d="M7 30 32 8l25 22-6 1v24H38V40H26v15H13V31Z" />
+          <path d="M22 28h20" />
         </>
       )}
-      {name === "bowl" && (
-        <>
-          <ellipse {...common} cx="16" cy="10" rx="11" ry="5" />
-          <path {...common} d="M5 10c1 9 5 14 11 14s10-5 11-14" />
-          <path {...common} d="M12 27h8" />
-        </>
-      )}
-      {name === "calendar" && (
-        <>
-          <rect {...common} x="5" y="7" width="22" height="20" rx="3" />
-          <path {...common} d="M10 4v6M22 4v6M5 13h22" />
-          <path
-            {...common}
-            d="M10 18h2M16 18h2M22 18h1M10 23h2M16 23h2M22 23h1"
-          />
-        </>
-      )}
-      {name === "people" && (
-        <>
-          <circle {...common} cx="11" cy="11" r="4" />
-          <circle {...common} cx="22" cy="12" r="3.5" />
-          <path
-            {...common}
-            d="M4 26c1-6 4-9 8-9s7 3 8 9M18 19c5-1 8 2 9 7"
-          />
-        </>
-      )}
-      {name === "heart" && (
-        <path
-          {...common}
-          d="M16 27S5 20 5 12a6 6 0 0 1 11-3 6 6 0 0 1 11 3c0 8-11 15-11 15Z"
-        />
-      )}
-      {name === "notebook" && (
+
+      {name === "about" && (
         <>
           <path
-            {...common}
-            d="M6 6h16a4 4 0 0 1 4 4v17H10a4 4 0 0 1-4-4Z"
+            className="storybook-header-heart-outline"
+            d="M32 56C25 49 9 39 9 23 9 13 16 7 25 7c4 0 7 2 9 5 3-3 6-5 10-5 9 0 16 6 16 16 0 16-17 27-28 33Z"
           />
-          <path {...common} d="M10 6v21M14 12h8M14 17h8M14 22h6" />
+          <circle cx="22" cy="27" r="5" />
+          <circle cx="32" cy="24" r="5.5" />
+          <circle cx="43" cy="27" r="5" />
+          <path d="M15 45c1-8 4-12 8-12 3 0 5 2 6 5 1-6 4-9 8-9 4 0 7 3 8 9 1-3 3-5 6-5 4 0 7 4 8 12" />
+          <path d="M29 38v11M45 38v9M22 38v9" />
         </>
       )}
-      {name === "book" && (
-        <>
-          <path
-            {...common}
-            d="M4 7c5-2 9-1 12 2v18c-3-3-7-4-12-2ZM28 7c-5-2-9-1-12 2v18c3-3 7-4 12-2Z"
-          />
-          <path {...common} d="M16 9v18" />
-        </>
-      )}
-      {name === "building" && (
-        <>
-          <path {...common} d="M5 27V13h9v14M14 27V5h13v22M2 27h28" />
-          <path
-            {...common}
-            d="M8 17h3M8 22h3M18 10h4M18 15h4M18 20h4"
-          />
-        </>
-      )}
-      {name === "pot" && (
-        <>
-          <path {...common} d="M7 12h18l-2 13H9Z" />
-          <path
-            {...common}
-            d="M5 14H2M27 14h3M11 8c-2-2 1-3 0-5M17 8c-2-2 1-3 0-5M23 8c-2-2 1-3 0-5"
-          />
-        </>
-      )}
-      {name === "pin" && (
-        <>
-          <path
-            {...common}
-            d="M16 28S7 19 7 12a9 9 0 1 1 18 0c0 7-9 16-9 16Z"
-          />
-          <circle {...common} cx="16" cy="12" r="3" />
-        </>
-      )}
+
       {name === "mail" && (
         <>
-          <rect {...common} x="4" y="7" width="24" height="18" rx="3" />
-          <path {...common} d="m5 9 11 9L27 9" />
+          <rect x="6" y="13" width="52" height="39" rx="7" />
+          <path d="m10 18 22 18 22-18" />
         </>
       )}
     </svg>
   );
 }
 
+function HeaderNatureDecor() {
+  return (
+    <svg
+      className="storybook-header-nature"
+      viewBox="0 0 300 118"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle className="storybook-header-sun-dot" cx="212" cy="28" r="9" />
+      <circle className="storybook-header-sun-wash" cx="244" cy="78" r="24" />
+      <circle className="storybook-header-sun-dot" cx="278" cy="95" r="5" />
+
+      <g className="storybook-header-bird" transform="translate(84 0)">
+        <ellipse cx="62" cy="31" rx="25" ry="16" />
+        <circle cx="40" cy="25" r="10" />
+        <path d="m31 24-13-5 11 10Z" />
+        <path d="M66 28c8-17 22-22 34-23-3 17-15 26-31 28Z" />
+        <path d="m81 37 24 6-18 9-17-13Z" />
+        <circle className="storybook-header-bird-eye" cx="38" cy="22" r="1.7" />
+      </g>
+
+      <path className="storybook-header-branch" d="M118 92c36-13 62-31 87-59" />
+      <path className="storybook-header-twig" d="m151 75-11-19M171 63l5-24M190 48l20-9" />
+      <ellipse className="storybook-header-leaf" cx="139" cy="51" rx="7" ry="17" transform="rotate(-42 139 51)" />
+      <ellipse className="storybook-header-leaf" cx="176" cy="39" rx="7" ry="18" transform="rotate(24 176 39)" />
+      <ellipse className="storybook-header-leaf" cx="210" cy="37" rx="7" ry="17" transform="rotate(66 210 37)" />
+      <circle className="storybook-header-flower" cx="157" cy="68" r="4" />
+      <circle className="storybook-header-flower" cx="198" cy="47" r="3.5" />
+    </svg>
+  );
+}
+
+function HeaderPlantDecor() {
+  return (
+    <svg
+      className="storybook-header-plant"
+      viewBox="0 0 80 96"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M29 94C30 66 27 41 19 15" />
+      <path d="M30 72c13-15 23-25 39-33M27 57C18 47 12 39 7 29" />
+      <ellipse cx="18" cy="15" rx="7" ry="13" transform="rotate(-18 18 15)" />
+      <ellipse cx="9" cy="29" rx="7" ry="12" transform="rotate(-43 9 29)" />
+      <ellipse cx="51" cy="54" rx="7" ry="15" transform="rotate(44 51 54)" />
+      <circle cx="67" cy="38" r="5" />
+      <circle cx="27" cy="80" r="5" />
+    </svg>
+  );
+}
+
 export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuId = useId();
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
+
   return (
     <header className="site-header storybook-site-header">
       <div className="storybook-header-panel">
-        <SukoyakaBrandHomeLink
-          className="storybook-full-logo"
-          priority
-        />
+        <span className="storybook-header-hills" aria-hidden="true" />
+        <HeaderPlantDecor />
+        <HeaderNatureDecor />
+
+        <SukoyakaBrandHomeLink className="storybook-full-logo" priority />
+
+        <button
+          className="storybook-menu-toggle"
+          type="button"
+          aria-label={menuOpen ? "補助メニューを閉じる" : "補助メニューを開く"}
+          aria-expanded={menuOpen}
+          aria-controls={menuId}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
 
         <nav className="storybook-main-nav" aria-label="メインメニュー">
-          <Link href="/">HOME</Link>
-          <Link href="/operator">私たちについて</Link>
-          <a href={`mailto:${site.email}`}>お問い合わせ</a>
+          <Link href="/">
+            <HeaderNavIcon name="home" />
+            <span>HOME</span>
+          </Link>
+          <Link href="/operator">
+            <HeaderNavIcon name="about" />
+            <span>私たちについて</span>
+          </Link>
+          <a href={`mailto:${site.email}`}>
+            <HeaderNavIcon name="mail" />
+            <span>お問い合わせ</span>
+          </a>
+        </nav>
+
+        <nav
+          id={menuId}
+          className="storybook-aux-nav"
+          aria-label="補助メニュー"
+          hidden={!menuOpen}
+        >
+          <Link href="/schedule" onClick={() => setMenuOpen(false)}>
+            日程とメニュー
+          </Link>
+          <Link href="/recipes" onClick={() => setMenuOpen(false)}>
+            レシピとコラム
+          </Link>
+          <Link href="/support" onClick={() => setMenuOpen(false)}>
+            すこやか食堂を応援する
+          </Link>
         </nav>
       </div>
     </header>

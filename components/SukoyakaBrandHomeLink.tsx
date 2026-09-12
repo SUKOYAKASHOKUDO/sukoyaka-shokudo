@@ -56,7 +56,7 @@ export function SukoyakaBrandHomeLink({
 
       <svg
         className="sukoyaka-brand-wordmark"
-        viewBox="195 36 343 112"
+        viewBox="195 40 343 100"
         aria-hidden="true"
         focusable="false"
         preserveAspectRatio="xMidYMid meet"
