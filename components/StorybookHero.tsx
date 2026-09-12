@@ -24,32 +24,7 @@ const internalHotspots = [
   },
 ] as const;
 
-const menuImageSlices = [
-  {
-    name: "kids",
-    src: "/images/brand/hero-menu-kids.webp",
-    width: 518,
-    height: 163,
-  },
-  {
-    name: "family",
-    src: "/images/brand/hero-menu-family.webp",
-    width: 492,
-    height: 163,
-  },
-  {
-    name: "schedule",
-    src: "/images/brand/hero-menu-schedule.webp",
-    width: 518,
-    height: 138,
-  },
-  {
-    name: "recipes",
-    src: "/images/brand/hero-menu-recipes.webp",
-    width: 492,
-    height: 138,
-  },
-] as const;
+const menuImageSlices = ["kids", "family", "schedule", "recipes"] as const;
 
 const replacementCards = [
   {
@@ -119,22 +94,19 @@ export function StorybookHero() {
           />
 
           {menuImageSlices.map((slice) => (
-            <span
-              className={`reference-design-menu-slice reference-design-menu-slice-${slice.name}`}
+            <Image
+              className={`reference-design-image reference-design-image-menu reference-design-image-menu-${slice}`}
+              src="/images/brand/sukoyaka-site-design-wordmark.webp"
+              alt=""
               aria-hidden="true"
-              key={slice.name}
-            >
-              <Image
-                src={slice.src}
-                alt=""
-                width={slice.width}
-                height={slice.height}
-                sizes="(max-width: 760px) 32vw, 520px"
-                priority
-                unoptimized
-                draggable={false}
-              />
-            </span>
+              width={1672}
+              height={941}
+              sizes="100vw"
+              priority
+              unoptimized
+              draggable={false}
+              key={slice}
+            />
           ))}
 
           <div className="reference-design-copy">
