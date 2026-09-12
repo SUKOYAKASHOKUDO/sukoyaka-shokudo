@@ -2221,6 +2221,10 @@ body::selection {
     border-radius: 27px;
   }
 
+  .mashiro-intro .mashiro-statement > p:first-child {
+    line-height: 1.4;
+  }
+
   .mashiro-contact-card .mashiro-access-links a {
     flex: 1 1 138px;
   }
