@@ -4852,7 +4852,7 @@ body::selection {
   .storybook-site-header.site-header {
     position: relative;
     z-index: 2;
-    padding: 0;
+    padding: 0 0 clamp(24px, 2.6vw, 44px);
     background: #fff;
   }
 
