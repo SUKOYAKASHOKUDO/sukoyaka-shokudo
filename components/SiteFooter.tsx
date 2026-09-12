@@ -51,6 +51,15 @@ export function SiteFooter() {
           <p>
             <FooterInformationNote />
           </p>
+          <a
+            className="footer-instagram-button"
+            href={site.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ミレポリトのInstagramを新しいタブで開く"
+          >
+            ミレポリトのInstagram
+          </a>
         </div>
 
       </div>
