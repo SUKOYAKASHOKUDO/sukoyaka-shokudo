@@ -217,7 +217,9 @@ export function SiteHeader() {
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nature-art" viewBox="1780 240 380 185" />
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-plant-art" viewBox="10 365 80 113" />
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-cloud-art" viewBox="780 250 100 55" />
-          <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-hills-art" viewBox="90 445 2010 33" />
+          <div className="storybook-mobile-lower-frame-art">
+            <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-lower-frame-source" viewBox="0 0 2172 724" />
+          </div>
         </div>
         <span className="storybook-header-hills" aria-hidden="true" />
         <HeaderPlantDecor />
