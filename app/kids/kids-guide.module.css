@@ -515,6 +515,20 @@
   text-underline-offset: 5px;
 }
 
+@media (min-width: 761px) {
+  .comicCard {
+    padding-bottom: 0;
+  }
+
+  .comicCopy {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin: -16px 22px 0;
+  }
+}
+
 @media (max-width: 760px) {
   .hero {
     min-height: 310px;
