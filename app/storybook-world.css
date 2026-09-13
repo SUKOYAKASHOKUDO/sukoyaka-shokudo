@@ -5151,7 +5151,8 @@ body::selection {
     aspect-ratio: auto;
     border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: 28px 28px 12px 12px;
-    border-bottom-color: rgba(255, 255, 255, 0.45);
+    /* Do not draw a pale horizontal rule across the sky-colored hero join. */
+    border-bottom-color: transparent;
   }
 
   .storybook-pc-reference-art {
