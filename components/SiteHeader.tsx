@@ -218,6 +218,8 @@ export function SiteHeader() {
             {/* Cover only the pale background sliver below the rice mascot.
                 The mascot, lettering and shared PC artwork stay untouched. */}
             <rect x="125" y="425" width="145" height="7" fill={HEADER_SKY_COLOR} />
+            {/* Remove the flower beside the mascot in the mobile crop only. */}
+            <rect x="25" y="365" width="60" height="67" fill={HEADER_SKY_COLOR} />
           </svg>
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nature-art" viewBox="1780 240 380 185" />
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-plant-art" viewBox="10 365 80 113" />
