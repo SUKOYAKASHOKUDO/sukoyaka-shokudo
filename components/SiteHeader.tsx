@@ -124,6 +124,8 @@ export function SiteHeader() {
   const navigationArtClipId = useId();
   const mobileArtImageId = useId();
   const birdRemovalClipId = useId();
+  const navigationSourceArtId = useId();
+  const navigationFragmentClipId = useId();
 
   useEffect(() => {
     let active = true;
@@ -185,6 +187,17 @@ export function SiteHeader() {
               height="724"
               clipPath={`url(#${birdRemovalClipId})`}
             />
+            {/* The navigation crop catches the top edge of the lower cloud.
+                Remove that fragment only, retaining the complete background cloud. */}
+            <clipPath id={navigationFragmentClipId} clipPathUnits="userSpaceOnUse">
+              <path
+                clipRule="evenodd"
+                d="M0 0H2172V724H0Z M1740 400H1860V450H1740Z"
+              />
+            </clipPath>
+            <g id={navigationSourceArtId} clipPath={`url(#${navigationFragmentClipId})`}>
+              <use href={`#${mobileArtImageId}`} />
+            </g>
             <clipPath id={navigationArtClipId}>
               <rect x="895" y="100" width="1020" height="110" />
             </clipPath>
@@ -195,7 +208,7 @@ export function SiteHeader() {
             transform="translate(1405 155) scale(0.8) translate(-1405 -155)"
           >
             <g clipPath={`url(#${navigationArtClipId})`}>
-              <use href={`#${mobileArtImageId}`} transform="translate(0 -205)" />
+              <use href={`#${navigationSourceArtId}`} transform="translate(0 -205)" />
             </g>
           </g>
         </svg>
@@ -247,7 +260,7 @@ export function SiteHeader() {
           <a href={`mailto:${site.email}`} aria-label="お問い合わせ">
             <HeaderNavIcon name="mail" />
             <span>お問い合わせ</span>
-            <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nav-art" viewBox="1600 305 295 110" />
+            <HeaderReferenceArt artId={navigationSourceArtId} className="storybook-mobile-nav-art" viewBox="1600 305 295 110" />
           </a>
         </nav>
 
