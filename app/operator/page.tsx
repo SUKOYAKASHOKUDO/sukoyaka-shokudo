@@ -5,7 +5,7 @@ import { SiteHeader } from "../../components/SiteHeader";
 import { ZaikaiSapporoArticle } from "../../components/ZaikaiSapporoArticle";
 
 export const metadata: Metadata = {
-  title: "私たちについて・ボランティア",
+  title: "私たちについて",
   description:
     "すこやか食堂を運営するミレポリト合同会社と、財界さっぽろ掲載記事をご紹介します。",
   alternates: { canonical: "/operator" },
