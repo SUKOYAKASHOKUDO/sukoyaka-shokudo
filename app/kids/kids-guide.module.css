@@ -529,6 +529,12 @@
     margin: -16px 22px 0;
   }
 
+  /* Match the visible frame edges: the top artwork has 14px less bottom
+     whitespace per 768px-wide panel. Keep the following row in place. */
+  .comicCard:nth-child(-n + 2) .comicCopy {
+    margin-top: calc(-16px + 1.822916667%);
+    margin-bottom: -1.822916667%;
+  }
 }
 
 @media (max-width: 760px) {
