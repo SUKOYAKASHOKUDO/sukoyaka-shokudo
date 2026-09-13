@@ -123,6 +123,7 @@ export function SiteHeader() {
   const menuId = useId();
   const navigationArtClipId = useId();
   const mobileArtImageId = useId();
+  const birdRemovalClipId = useId();
 
   useEffect(() => {
     let active = true;
@@ -152,13 +153,16 @@ export function SiteHeader() {
   return (
     <header className="site-header storybook-site-header">
       <div className="storybook-header-panel">
-        <img
+        <svg
           className="storybook-pc-reference-art"
-          src={headerArtwork}
-          alt=""
+          viewBox="0 0 2172 724"
+          width="2172"
+          height="724"
           aria-hidden="true"
-          draggable={false}
-        />
+          focusable="false"
+        >
+          <use href={`#${mobileArtImageId}`} />
+        </svg>
         <svg
           className="storybook-pc-navigation-art"
           viewBox="0 0 2172 280"
@@ -166,7 +170,21 @@ export function SiteHeader() {
           focusable="false"
         >
           <defs>
-            <image id={mobileArtImageId} href={headerArtwork} width="2172" height="724" />
+            {/* Hide only the source bird and dotted flight trail. All other
+                source artwork remains unchanged in both responsive layouts. */}
+            <clipPath id={birdRemovalClipId} clipPathUnits="userSpaceOnUse">
+              <path
+                clipRule="evenodd"
+                d="M0 0H2172V724H0Z M1810 240H1915V287H2000V327H1898V310H1810Z"
+              />
+            </clipPath>
+            <image
+              id={mobileArtImageId}
+              href={headerArtwork}
+              width="2172"
+              height="724"
+              clipPath={`url(#${birdRemovalClipId})`}
+            />
             <clipPath id={navigationArtClipId}>
               <rect x="895" y="100" width="1020" height="110" />
             </clipPath>
@@ -176,14 +194,9 @@ export function SiteHeader() {
             className="storybook-navigation-art-content"
             transform="translate(1405 155) scale(0.8) translate(-1405 -155)"
           >
-            <image
-              href={headerArtwork}
-              x="0"
-              y="-205"
-              width="2172"
-              height="724"
-              clipPath={`url(#${navigationArtClipId})`}
-            />
+            <g clipPath={`url(#${navigationArtClipId})`}>
+              <use href={`#${mobileArtImageId}`} transform="translate(0 -205)" />
+            </g>
           </g>
         </svg>
         <div className="storybook-mobile-header-art" aria-hidden="true">
