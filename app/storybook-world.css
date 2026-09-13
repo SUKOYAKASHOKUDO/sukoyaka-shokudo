@@ -5146,8 +5146,9 @@ body::selection {
   }
 
   .storybook-header-panel {
-    /* Mobile frame only: 146px × 85%. Artwork keeps its original proportions. */
-    height: 124.1px;
+    /* 13% is the tightest whole-percent reduction retaining the complete
+       280px-wide brand and the 50px navigation hit areas without overlap. */
+    height: 127.02px;
     aspect-ratio: auto;
     border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: 28px 28px 12px 12px;
@@ -5230,7 +5231,7 @@ body::selection {
   }
 
   .storybook-main-nav {
-    top: 66px;
+    top: 74px;
     left: 12px;
     width: calc(100% - 24px);
     height: 50px;
