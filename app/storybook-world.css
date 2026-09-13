@@ -5146,7 +5146,8 @@ body::selection {
   }
 
   .storybook-header-panel {
-    height: 146px;
+    /* Mobile frame only: 146px × 85%. Artwork keeps its original proportions. */
+    height: 124.1px;
     aspect-ratio: auto;
     border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: 28px 28px 12px 12px;
@@ -5178,7 +5179,7 @@ body::selection {
   }
 
   .storybook-mobile-brand-art {
-    top: 12px;
+    top: 8px;
     left: 10px;
     width: min(72%, 280px);
     clip-path: polygon(0 0, 90% 0, 90% 35%, 100% 35%, 100% 100%, 0 100%);
@@ -5222,14 +5223,14 @@ body::selection {
   }
 
   .storybook-full-logo {
-    top: 10px;
+    top: 6px;
     left: 10px;
     width: min(72%, 280px);
     height: 66px;
   }
 
   .storybook-main-nav {
-    top: 82px;
+    top: 66px;
     left: 12px;
     width: calc(100% - 24px);
     height: 50px;
