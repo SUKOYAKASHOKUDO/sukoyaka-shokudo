@@ -136,7 +136,7 @@ export default function SupportPage() {
             <div className="support-process">
               <div>
                 <p className="eyebrow">BEFORE CONTACT</p>
-                <h2>ご相談前にお知らせいただきたいこと</h2>
+                <h2>ご相談時にお知らせいただきたいこと</h2>
               </div>
               <ol>
                 <li>
