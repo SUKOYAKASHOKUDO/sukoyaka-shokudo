@@ -213,7 +213,12 @@ export function SiteHeader() {
           </g>
         </svg>
         <div className="storybook-mobile-header-art" aria-hidden="true">
-          <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-brand-art" viewBox="25 245 800 187" />
+          <svg className="storybook-mobile-brand-art" viewBox="25 245 800 187" aria-hidden="true" focusable="false">
+            <use href={`#${mobileArtImageId}`} />
+            {/* Cover only the pale background sliver below the rice mascot.
+                The mascot, lettering and shared PC artwork stay untouched. */}
+            <rect x="125" y="425" width="145" height="7" fill={HEADER_SKY_COLOR} />
+          </svg>
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nature-art" viewBox="1780 240 380 185" />
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-plant-art" viewBox="10 365 80 113" />
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-cloud-art" viewBox="780 250 100 55" />
