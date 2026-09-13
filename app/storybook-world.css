@@ -5133,7 +5133,16 @@ body::selection {
 /* Two mobile rows reuse the original artwork, with readable navigation below. */
 @media (max-width: 767px) {
   .storybook-site-header.site-header {
-    padding: 4px;
+    /* Separate the lower frame from the flags using the same sky as PC. */
+    padding: 4px 4px 12px;
+    background: #cbeef2;
+  }
+
+  .reference-design-hero {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    background: #cbeef2;
   }
 
   .storybook-header-panel {
