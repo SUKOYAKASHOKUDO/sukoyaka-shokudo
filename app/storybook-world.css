@@ -5146,13 +5146,12 @@ body::selection {
   }
 
   .storybook-header-panel {
-    /* 13% is the tightest whole-percent reduction retaining the complete
-       280px-wide brand and the 50px navigation hit areas without overlap. */
-    height: 127.02px;
+    /* Trim only the spare bottom pixel; retain the complete brand and nav. */
+    height: 126.02px;
     aspect-ratio: auto;
     border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: 28px 28px 12px 12px;
-    border-bottom-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.45);
   }
 
   .storybook-pc-reference-art {
@@ -5205,12 +5204,9 @@ body::selection {
   }
 
   .storybook-mobile-lower-frame-art {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    aspect-ratio: 2172 / 60;
-    overflow: hidden;
+    /* Mobile join stays sky-colored instead of layering the green source wave.
+       The panel border retains the frame outline; PC artwork is untouched. */
+    display: none;
   }
 
   .storybook-mobile-lower-frame-source {
