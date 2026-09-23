@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { site } from "../content/siteContent";
 import {
-  getSkyHeaderArtwork,
   HEADER_ARTWORK_SOURCE,
   HEADER_SKY_COLOR,
 } from "../lib/headerBackground";
@@ -118,7 +117,6 @@ function HeaderPlantDecor() {
 }
 
 export function SiteHeader() {
-  const [headerArtwork, setHeaderArtwork] = useState(HEADER_ARTWORK_SOURCE);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
   const navigationArtClipId = useId();
@@ -126,20 +124,6 @@ export function SiteHeader() {
   const birdRemovalClipId = useId();
   const navigationSourceArtId = useId();
   const navigationFragmentClipId = useId();
-
-  useEffect(() => {
-    let active = true;
-    getSkyHeaderArtwork()
-      .then((artwork) => {
-        if (active) setHeaderArtwork(artwork);
-      })
-      .catch(() => {
-        // Keep the original artwork if local canvas rendering is unavailable.
-      });
-    return () => {
-      active = false;
-    };
-  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -153,21 +137,20 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <header className="site-header storybook-site-header">
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href={HEADER_ARTWORK_SOURCE}
+        type="image/webp"
+        fetchPriority="high"
+      />
+      <header className="site-header storybook-site-header">
       <div className="storybook-header-panel">
         <svg
-          className="storybook-pc-reference-art"
-          viewBox="0 0 2172 724"
-          width="2172"
-          height="724"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <use href={`#${mobileArtImageId}`} />
-        </svg>
-        <svg
-          className="storybook-pc-navigation-art"
-          viewBox="0 0 2172 280"
+          className="storybook-header-art-definitions"
+          width="0"
+          height="0"
           aria-hidden="true"
           focusable="false"
         >
@@ -182,7 +165,7 @@ export function SiteHeader() {
             </clipPath>
             <image
               id={mobileArtImageId}
-              href={headerArtwork}
+              href={HEADER_ARTWORK_SOURCE}
               width="2172"
               height="724"
               clipPath={`url(#${birdRemovalClipId})`}
@@ -202,6 +185,23 @@ export function SiteHeader() {
               <rect x="895" y="100" width="1020" height="110" />
             </clipPath>
           </defs>
+        </svg>
+        <svg
+          className="storybook-pc-reference-art"
+          viewBox="0 0 2172 724"
+          width="2172"
+          height="724"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <use href={`#${mobileArtImageId}`} />
+        </svg>
+        <svg
+          className="storybook-pc-navigation-art"
+          viewBox="0 0 2172 280"
+          aria-hidden="true"
+          focusable="false"
+        >
           <rect x="895" y="100" width="1020" height="110" fill={HEADER_SKY_COLOR} />
           <g
             className="storybook-navigation-art-content"
@@ -222,17 +222,13 @@ export function SiteHeader() {
             <rect x="25" y="365" width="60" height="67" fill={HEADER_SKY_COLOR} />
           </svg>
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-nature-art" viewBox="1780 240 380 185" />
-          <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-plant-art" viewBox="10 365 80 113" />
           <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-cloud-art" viewBox="780 250 100 55" />
-          <div className="storybook-mobile-lower-frame-art">
-            <HeaderReferenceArt artId={mobileArtImageId} className="storybook-mobile-lower-frame-source" viewBox="0 0 2172 724" />
-          </div>
         </div>
         <span className="storybook-header-hills" aria-hidden="true" />
         <HeaderPlantDecor />
         <HeaderNatureDecor />
 
-        <SukoyakaBrandHomeLink className="storybook-full-logo" priority />
+        <SukoyakaBrandHomeLink className="storybook-full-logo" artwork={false} />
 
         <button
           className="storybook-menu-toggle"
@@ -290,6 +286,7 @@ export function SiteHeader() {
           </Link>
         </nav>
       </div>
-    </header>
+      </header>
+    </>
   );
 }

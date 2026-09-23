@@ -4350,9 +4350,15 @@ body::selection {
   gap: clamp(24px, 3vw, 58px);
 }
 
-.storybook-header-panel > :not(.storybook-header-hills, .storybook-header-plant, .storybook-header-nature, .storybook-pc-reference-art, .storybook-pc-navigation-art) {
+.storybook-header-panel > :not(.storybook-header-hills, .storybook-header-plant, .storybook-header-nature, .storybook-header-art-definitions, .storybook-pc-reference-art, .storybook-pc-navigation-art) {
   position: relative;
   z-index: 2;
+}
+
+.storybook-header-art-definitions {
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .storybook-header-hills {
@@ -5193,31 +5199,10 @@ body::selection {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 35% 100%, 35% 45%, 0 45%);
   }
 
-  .storybook-mobile-plant-art {
-    /* The full PC lower frame already contains this plant; avoid a second crop. */
-    display: none !important;
-  }
-
   .storybook-mobile-cloud-art {
     top: 62px;
     right: 28px;
     width: 22px;
-  }
-
-  .storybook-mobile-lower-frame-art {
-    /* Mobile join stays sky-colored instead of layering the green source wave.
-       The panel border retains the frame outline; PC artwork is untouched. */
-    display: none;
-  }
-
-  .storybook-mobile-lower-frame-source {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    /* Same unscaled source and frame clipping as PC, showing source y=425..485. */
-    transform: translateY(33.01105%);
-    clip-path: inset(31.353591% 0.368324% 33.977901% round 3.5% / 10.5%);
   }
 
   .storybook-full-logo {
