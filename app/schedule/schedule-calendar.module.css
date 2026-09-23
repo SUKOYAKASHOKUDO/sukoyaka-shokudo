@@ -336,6 +336,11 @@
   font-size: clamp(27px, 3.5vw, 42px);
 }
 
+.sectionHeading .checkTitle {
+  font-size: clamp(17px, 5.2vw, 42px);
+  white-space: nowrap;
+}
+
 .checkGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

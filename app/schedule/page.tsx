@@ -89,7 +89,9 @@ export default async function SchedulePage() {
           <div className={styles.sectionInner}>
             <div className={styles.sectionHeading}>
               <p className={styles.eyebrow}>BEFORE YOUR VISIT</p>
-              <h2 id="check-title">来る前に確認すること</h2>
+              <h2 className={styles.checkTitle} id="check-title">
+                お越しになる前にご確認ください
+              </h2>
             </div>
 
             <div className={styles.checkGrid}>
