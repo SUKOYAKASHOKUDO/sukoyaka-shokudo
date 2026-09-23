@@ -25,7 +25,9 @@ function getHttpsUrl(value: string | undefined) {
  * response when credentials and post-selection rules are available.
  */
 export async function getInstagramCalendarData(): Promise<InstagramCalendarData> {
-  const imageUrl = getHttpsUrl(process.env.INSTAGRAM_CALENDAR_IMAGE_URL);
+  const imageUrl =
+    getHttpsUrl(process.env.INSTAGRAM_CALENDAR_IMAGE_URL) ??
+    "/images/schedule/2026-09-calendar.jpg";
   const postUrl =
     getHttpsUrl(process.env.INSTAGRAM_CALENDAR_POST_URL) ?? site.instagram;
 
