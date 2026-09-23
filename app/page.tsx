@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { InstagramGallery } from "../components/InstagramGallery";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import { StorybookHero } from "../components/StorybookHero";
@@ -100,37 +99,6 @@ export default function Home() {
                 <span aria-hidden="true">↗</span>
               </Link>
             </div>
-          </div>
-        </section>
-
-        <section
-          className="mashiro-section mashiro-instagram-section"
-          id="instagram"
-          aria-labelledby="instagram-heading"
-        >
-          <div className="shell">
-            <div className="mashiro-instagram-heading">
-              <div>
-                <p className="mashiro-kicker">INSTAGRAM</p>
-                <h2 id="instagram-heading">すこやか食堂の日々</h2>
-              </div>
-              <div className="mashiro-instagram-intro">
-                <p>
-                  食卓の様子や当日のメニュー、地域のみなさんとの活動をご紹介しています。
-                </p>
-                <a
-                  className="mashiro-button"
-                  href={site.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagramでもっと見る
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </div>
-
-            <InstagramGallery />
           </div>
         </section>
 
