@@ -85,13 +85,6 @@ const partnershipPlans = [
   },
 ] as const;
 
-const reportItems = [
-  "年間開催回数",
-  "活動写真",
-  "協賛金の活用について",
-  "すこやか食堂からの感謝メッセージ",
-] as const;
-
 const sponsorSteps = [
   {
     number: "01",
@@ -326,40 +319,6 @@ export default function PartnersPage() {
                 </article>
               </>
             )}
-          </div>
-        </section>
-
-        <section className="mashiro-section corporate-sponsor-report-section">
-          <div className="shell corporate-sponsor-report-grid">
-            <div>
-              <SectionHeading
-                eyebrow="ANNUAL REPORT"
-                title="年1回、活動の様子をご報告します"
-                description="スポンサー企業の皆さまには、年度終了後に、年間開催回数や活動の様子をまとめたA4・1枚の年間スポンサー活動報告書をお送りします。"
-              />
-              <p className="corporate-sponsor-report-note">
-                いただいた協賛金は、食材費、調味料、衛生用品、会場設備、広報費など、すこやか食堂の活動運営全般に活用します。
-                <br />
-                <br />
-                <span className="corporate-sponsor-report-line">
-                  年間スポンサー活動報告書は、企業サイトのサステナビリティ・CSRページや社内報などで、
-                </span>
-                <span className="corporate-sponsor-report-line">
-                  地域貢献の取り組みを紹介する際の参考資料としてご利用いただけます。
-                </span>
-              </p>
-              <small>
-                活動写真を社外向けに転載する場合は、事前にすこやか食堂へご確認ください。
-              </small>
-            </div>
-            <ul className="corporate-sponsor-report-list">
-              {reportItems.map((item, index) => (
-                <li key={item}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
