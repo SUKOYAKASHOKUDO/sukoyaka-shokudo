@@ -2573,6 +2573,114 @@ body::selection {
   line-height: 1.85;
 }
 
+.corporate-partnership-menu-section {
+  background: #f8fbf8;
+}
+
+.corporate-partnership-menu-section .corporate-sponsor-heading h2 {
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
+.corporate-partnership-menu-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.corporate-partnership-menu-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1.45rem, 2.4vw, 2rem);
+  background: #fff;
+  border: 1px solid rgba(62, 112, 112, 0.14);
+  border-radius: 1.45rem;
+  box-shadow: 0 0.8rem 2rem rgba(37, 89, 91, 0.055);
+}
+
+.corporate-partnership-menu-card.is-volunteer {
+  background:
+    radial-gradient(circle at 90% 8%, rgba(200, 169, 92, 0.1), transparent 8rem),
+    #fffdf8;
+  border-color: rgba(184, 155, 86, 0.3);
+}
+
+.corporate-partnership-menu-card h3 {
+  min-height: 3.1em;
+  margin: 0;
+  color: #2d575a;
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.corporate-partnership-menu-price {
+  align-self: flex-start;
+  padding: 0.55rem 0.85rem;
+  margin: 1rem 0 1.25rem;
+  color: #2f6b6e;
+  background: #edf7f5;
+  border-radius: 0.75rem;
+  font-size: clamp(1.15rem, 1.7vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.corporate-partnership-menu-card.is-volunteer
+  .corporate-partnership-menu-price {
+  color: #79642f;
+  background: #f6f0df;
+}
+
+.corporate-partnership-menu-card ul {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  color: #5d7376;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  list-style: none;
+}
+
+.corporate-partnership-menu-card li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.corporate-partnership-menu-card li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.38rem;
+  height: 0.38rem;
+  content: "";
+  background: #e29570;
+  border-radius: 50%;
+}
+
+.corporate-partnership-menu-description {
+  margin: 0;
+  color: #5d7376;
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+
+.corporate-partnership-menu-card small {
+  display: block;
+  margin-top: 1rem;
+  color: #7a8584;
+  font-size: 0.75rem;
+  line-height: 1.75;
+}
+
+.corporate-partnership-menu-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
 .corporate-sponsor-list-section,
 .corporate-sponsor-faq-section {
   background: #eff8f7;
@@ -3132,6 +3240,10 @@ body::selection {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .corporate-partnership-menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .corporate-sponsor-flow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -3176,13 +3288,19 @@ body::selection {
   }
 
   .corporate-sponsor-benefits,
+  .corporate-partnership-menu-grid,
   .corporate-sponsor-flow {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .corporate-sponsor-benefits article,
+  .corporate-partnership-menu-card,
   .corporate-sponsor-flow li {
     padding: 1.35rem;
+  }
+
+  .corporate-partnership-menu-card h3 {
+    min-height: auto;
   }
 
   .corporate-sponsor-recruitment,
@@ -3231,6 +3349,7 @@ body::selection {
 
 @media (max-width: 440px) {
   .corporate-sponsor-actions .mashiro-button,
+  .corporate-partnership-menu-actions .mashiro-button,
   .corporate-sponsor-recruitment .mashiro-button,
   .corporate-sponsor-cta .mashiro-button {
     width: 100%;

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { CorporateSponsorCarousel } from "../../components/CorporateSponsorCarousel";
 import { PartnerShowcaseCard } from "../../components/PartnerShowcaseCard";
 import { SiteFooter } from "../../components/SiteFooter";
@@ -47,6 +48,44 @@ const sponsorshipBenefits = [
   },
 ] as const;
 
+const partnershipPlans = [
+  {
+    title: "企業スポンサー",
+    price: "月額10,000円〜",
+    benefits: [
+      "公式サイトに企業名・ロゴ掲載",
+      "応援メッセージ掲載",
+      "年1回の活動報告",
+    ],
+  },
+  {
+    title: "PRパートナー",
+    price: "月額20,000円〜",
+    benefits: [
+      "店内パンフレット・ポスター設置",
+      "シニア向け／ファミリー向けPRスペース掲載",
+      "食材・商品提供企業として紹介",
+    ],
+  },
+  {
+    title: "地域共創パートナー",
+    price: "月額30,000円〜",
+    benefits: [
+      "地域イベント・体験企画との連携",
+      "CSR・地域貢献活動として紹介",
+      "企業特性に合わせた連携企画を相談",
+    ],
+  },
+  {
+    title: "専門家連携パートナー",
+    price: "参加費無料",
+    description:
+      "司法書士・税理士・弁護士・FPなどの専門家と連携し、地域住民向けの無料相談機会を設けます。",
+    note: "※専門家連携はボランティアでのご参加を基本とし、相談会での営業・勧誘等については運営ルールを設けます。",
+    volunteer: true,
+  },
+] as const;
+
 const reportItems = [
   "年間開催回数",
   "活動写真",
@@ -92,7 +131,7 @@ const sponsorFaqs = [
   {
     question: "スポンサー料金はいくらですか？",
     answer:
-      "ご希望の期間や掲載内容などを確認しながら、個別にご案内します。ご相談いただいた時点で、お申込みが決まることはありません。",
+      "企業スポンサーは月額10,000円からご用意しています。店内PRや地域連携など、ご希望に合わせたプランもございます。",
   },
   {
     question: "小さな会社でもスポンサーになれますか？",
@@ -127,7 +166,7 @@ function SectionHeading({
   description,
 }: {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   description?: string;
 }) {
   return (
@@ -179,7 +218,7 @@ export default function PartnersPage() {
               <ul>
                 <li>公式サイトで企業情報をご紹介</li>
                 <li>年1回、A4・1枚の活動報告</li>
-                <li>金額・契約期間・掲載条件は個別案内</li>
+                <li>企業スポンサー 月額10,000円〜</li>
               </ul>
             </aside>
           </div>
@@ -200,6 +239,57 @@ export default function PartnersPage() {
                   <p>{benefit.description}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mashiro-section corporate-partnership-menu-section">
+          <div className="shell">
+            <SectionHeading
+              eyebrow="PARTNERSHIP MENU"
+              title={
+                <>
+                  企業・地域<wbr />パートナーメニュー
+                </>
+              }
+              description="企業・専門家の皆さまと連携し、それぞれの形で地域を支える仕組みをご用意しています。"
+            />
+            <div className="corporate-partnership-menu-grid">
+              {partnershipPlans.map((plan) => (
+                <article
+                  className={`corporate-partnership-menu-card${
+                    "volunteer" in plan && plan.volunteer
+                      ? " is-volunteer"
+                      : ""
+                  }`}
+                  key={plan.title}
+                >
+                  <h3>{plan.title}</h3>
+                  <p className="corporate-partnership-menu-price">
+                    {plan.price}
+                  </p>
+                  {"benefits" in plan ? (
+                    <ul>
+                      {plan.benefits.map((benefit) => (
+                        <li key={benefit}>{benefit}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <>
+                      <p className="corporate-partnership-menu-description">
+                        {plan.description}
+                      </p>
+                      <small>{plan.note}</small>
+                    </>
+                  )}
+                </article>
+              ))}
+            </div>
+            <div className="corporate-partnership-menu-actions">
+              <a className="mashiro-button" href={sponsorMailto}>
+                スポンサー・連携について相談する
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
         </section>
