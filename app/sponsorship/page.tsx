@@ -81,7 +81,6 @@ const partnershipPlans = [
     price: "参加費無料",
     description:
       "司法書士・税理士・弁護士・FPなどの専門家と連携し、地域住民向けの無料相談機会を設けます。",
-    note: "※専門家連携はボランティアでのご参加を基本とし、相談会での営業・勧誘等については運営ルールを設けます。",
     volunteer: true,
   },
 ] as const;
@@ -275,12 +274,9 @@ export default function PartnersPage() {
                       ))}
                     </ul>
                   ) : (
-                    <>
-                      <p className="corporate-partnership-menu-description">
-                        {plan.description}
-                      </p>
-                      <small>{plan.note}</small>
-                    </>
+                    <p className="corporate-partnership-menu-description">
+                      {plan.description}
+                    </p>
                   )}
                 </article>
               ))}
