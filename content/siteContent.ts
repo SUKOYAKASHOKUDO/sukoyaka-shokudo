@@ -182,8 +182,10 @@ export const storyPage = {
   movie: {
     eyebrow: "MOVIE",
     title: "動画で知る、すこやか食堂",
-    description:
-      "子ども食堂ですが、子どもに限らずどなたでもご利用いただけます。活動の空気感や、食を通じた地域とのつながりを、動画でご覧いただけます。",
+    descriptionLine1:
+      "子ども食堂ですが、子どもに限らずどなたでもご利用いただけます。",
+    descriptionLine2:
+      "活動の空気感や、食を通じた地域とのつながりを、動画でご覧いただけます。",
   },
 } as const;
 

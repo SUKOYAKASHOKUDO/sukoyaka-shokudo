@@ -47,7 +47,11 @@ export default function Home() {
             <div className="story-movie-heading">
               <p className="mashiro-kicker">{storyPage.movie.eyebrow}</p>
               <h2>{storyPage.movie.title}</h2>
-              <p>{storyPage.movie.description}</p>
+              <p>
+                {storyPage.movie.descriptionLine1}
+                <br />
+                {storyPage.movie.descriptionLine2}
+              </p>
             </div>
             <div className="story-video-grid">
               {youtubeVideos.map((video) => (
