@@ -61,9 +61,6 @@ export default async function SchedulePage() {
               <div className={styles.calendarCopy}>
                 <p className={styles.eyebrow}>LATEST CALENDAR</p>
                 <h2 id="calendar-title">次回の開催を確認する</h2>
-                <p>
-                  この枠には、Instagram連携後に公式アカウントで公開した開催カレンダー画像が表示されます。
-                </p>
                 <div className={styles.noticeBox}>
                   <strong>ご来場前に、もう一度ご確認ください</strong>
                   <p>
@@ -79,7 +76,6 @@ export default async function SchedulePage() {
                   Instagramで最新情報を見る
                   <span aria-hidden="true">↗</span>
                 </a>
-                <small className={styles.accountName}>@mi_repollito</small>
               </div>
             </div>
           </div>
