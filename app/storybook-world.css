@@ -1610,6 +1610,7 @@ body::selection {
 .mashiro-message-panels {
   display: grid;
   margin-top: clamp(30px, 4vw, 46px);
+  align-items: stretch;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(12px, 2vw, 24px);
 }
@@ -1618,7 +1619,7 @@ body::selection {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
 }
