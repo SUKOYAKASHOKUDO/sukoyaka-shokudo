@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
@@ -103,6 +104,14 @@ export default function Home() {
                 すこやか食堂の思いを読む
                 <span aria-hidden="true">↗</span>
               </Link>
+              <Image
+                className="mashiro-message-panel"
+                src="/images/home/our-message-iida-panel.png"
+                alt="『おいしいね』からつながっていく、すこやか食堂で食事を楽しむ子どもたち"
+                width={1517}
+                height={1079}
+                sizes="(max-width: 760px) calc(100vw - 76px), 850px"
+              />
             </div>
           </div>
         </section>

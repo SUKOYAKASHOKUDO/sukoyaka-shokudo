@@ -1597,6 +1597,13 @@ body::selection {
   text-wrap: balance;
 }
 
+.mashiro-message-panel {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: clamp(30px, 4vw, 46px);
+}
+
 .story-movie-message strong {
   display: block;
   font-weight: 900;
