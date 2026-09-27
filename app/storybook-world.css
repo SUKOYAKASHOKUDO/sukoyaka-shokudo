@@ -1598,7 +1598,7 @@ body::selection {
   height: auto;
   margin: 0;
   align-items: center;
-  justify-self: center;
+  justify-self: start;
   border: 1px solid rgba(23, 112, 122, 0.22);
   border-left: 4px solid var(--storybook-teal);
   border-radius: 14px;
@@ -1614,7 +1614,7 @@ body::selection {
 
 .story-movie-feature-grid {
   display: grid;
-  width: min(1120px, 100%);
+  width: min(920px, 100%);
   margin: clamp(18px, 2.4vw, 26px) auto 34px;
   align-items: stretch;
   grid-template-columns: 1fr;
