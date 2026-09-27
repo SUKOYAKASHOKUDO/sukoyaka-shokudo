@@ -122,6 +122,22 @@ export default function Home() {
                   height={450}
                   sizes="(max-width: 760px) calc(100vw - 76px), 50vw"
                 />
+                <Image
+                  className="mashiro-message-panel mashiro-message-panel--bento"
+                  src="/images/home/bento-500-support-promo.jpg"
+                  alt="大人のお弁当購入が子ども食堂への寄付につながる500円弁当のご案内"
+                  width={1774}
+                  height={887}
+                  sizes="(max-width: 760px) calc(100vw - 76px), 50vw"
+                />
+                <Image
+                  className="mashiro-message-panel mashiro-message-panel--bento"
+                  src="/images/home/bento-meal-photo.jpg"
+                  alt="すこやか食堂のお弁当"
+                  width={600}
+                  height={450}
+                  sizes="(max-width: 760px) calc(100vw - 76px), 50vw"
+                />
               </div>
             </div>
           </div>

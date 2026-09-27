@@ -1651,6 +1651,10 @@ body::selection {
   object-position: center top;
 }
 
+.mashiro-message-panel--bento {
+  object-position: center;
+}
+
 @media (max-width: 760px) {
   .mashiro-message-panels {
     grid-template-columns: 1fr;
