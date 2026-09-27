@@ -1588,12 +1588,15 @@ body::selection {
 
 .story-movie-heading {
   width: min(920px, 100%);
-  margin: 0 auto 34px;
+  margin: 0 auto;
 }
 
 .story-movie-message {
-  width: min(820px, 100%);
-  margin: clamp(18px, 2.4vw, 26px) 0 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  align-items: center;
   border: 1px solid rgba(23, 112, 122, 0.22);
   border-left: 4px solid var(--storybook-teal);
   border-radius: 14px;
@@ -1605,6 +1608,30 @@ body::selection {
   letter-spacing: 0.02em;
   line-height: 1.6;
   text-wrap: balance;
+}
+
+.story-movie-feature-grid {
+  display: grid;
+  width: min(1120px, 100%);
+  margin: clamp(18px, 2.4vw, 26px) auto 34px;
+  align-items: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+}
+
+.story-movie-promo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 2 / 1;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  .story-movie-feature-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .mashiro-message-panels {

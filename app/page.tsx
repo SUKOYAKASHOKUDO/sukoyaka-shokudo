@@ -50,9 +50,19 @@ export default function Home() {
               <p className="story-movie-description">
                 {storyPage.movie.descriptionLine2}
               </p>
+            </div>
+            <div className="story-movie-feature-grid">
               <p className="story-movie-message">
                 <strong>{storyPage.movie.descriptionLine1}</strong>
               </p>
+              <Image
+                className="story-movie-promo"
+                src="/images/home/bento-500-support-promo.jpg"
+                alt="大人のお弁当購入が子ども食堂への寄付につながる500円弁当のご案内"
+                width={1774}
+                height={887}
+                sizes="(max-width: 760px) calc(100vw - 40px), 50vw"
+              />
             </div>
             <div className="story-video-grid">
               {youtubeVideos.map((video) => (
