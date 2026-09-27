@@ -1600,7 +1600,10 @@ body::selection {
 .mashiro-message-panel {
   display: block;
   width: 100%;
+  aspect-ratio: 16 / 9;
   height: auto;
+  object-fit: cover;
+  object-position: center top;
   margin-top: clamp(30px, 4vw, 46px);
 }
 
