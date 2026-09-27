@@ -47,11 +47,11 @@ export default function Home() {
             <div className="story-movie-heading">
               <p className="mashiro-kicker">{storyPage.movie.eyebrow}</p>
               <h2>{storyPage.movie.title}</h2>
-              <p className="story-movie-message">
-                <strong>{storyPage.movie.descriptionLine1}</strong>
-              </p>
               <p className="story-movie-description">
                 {storyPage.movie.descriptionLine2}
+              </p>
+              <p className="story-movie-message">
+                <strong>{storyPage.movie.descriptionLine1}</strong>
               </p>
             </div>
             <div className="story-video-grid">
