@@ -1593,15 +1593,17 @@ body::selection {
 
 .story-movie-message {
   display: flex;
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   height: auto;
   margin: 0;
   align-items: center;
+  justify-self: center;
   border: 1px solid rgba(23, 112, 122, 0.22);
   border-left: 4px solid var(--storybook-teal);
   border-radius: 14px;
   background: linear-gradient(135deg, rgba(213, 244, 241, 0.98), rgba(255, 243, 211, 0.96));
-  padding: clamp(16px, 2.2vw, 22px);
+  padding: 10px 16px;
   box-shadow: 0 10px 26px rgba(26, 100, 108, 0.08);
   color: #c94f3d;
   font-size: clamp(20px, 2.3vw, 28px);
