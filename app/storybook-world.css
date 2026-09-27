@@ -1606,7 +1606,7 @@ body::selection {
   padding: 10px 16px;
   box-shadow: 0 10px 26px rgba(26, 100, 108, 0.08);
   color: #c94f3d;
-  font-size: clamp(20px, 2.3vw, 28px);
+  font-size: clamp(18px, 2.1vw, 26px);
   letter-spacing: 0.02em;
   line-height: 1.6;
   text-wrap: balance;
