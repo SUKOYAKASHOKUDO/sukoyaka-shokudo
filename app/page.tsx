@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import { StorybookHero } from "../components/StorybookHero";
@@ -96,10 +95,6 @@ export default function Home() {
               {legacyAbout.opening.slice(1).map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
-              <Link className="mashiro-arrow-link" href="/about">
-                すこやか食堂の思いを読む
-                <span aria-hidden="true">↗</span>
-              </Link>
               <Image
                 className="mashiro-message-panel"
                 src="/images/home/our-message-iida-panel.png"
