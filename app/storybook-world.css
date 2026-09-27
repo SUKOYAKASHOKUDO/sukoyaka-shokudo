@@ -1624,6 +1624,12 @@ body::selection {
   object-position: center top;
 }
 
+.mashiro-message-panel:nth-child(2) {
+  align-self: start;
+  aspect-ratio: 2 / 1;
+  height: auto;
+}
+
 @media (max-width: 760px) {
   .mashiro-message-panels {
     grid-template-columns: 1fr;
