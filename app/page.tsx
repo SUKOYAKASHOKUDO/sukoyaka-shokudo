@@ -95,14 +95,24 @@ export default function Home() {
               {legacyAbout.opening.slice(1).map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
-              <Image
-                className="mashiro-message-panel"
-                src="/images/home/our-message-iida-panel.png"
-                alt="『おいしいね』からつながっていく、すこやか食堂で食事を楽しむ子どもたち"
-                width={1517}
-                height={1079}
-                sizes="(max-width: 760px) calc(100vw - 76px), 560px"
-              />
+              <div className="mashiro-message-panels">
+                <Image
+                  className="mashiro-message-panel"
+                  src="/images/home/our-message-iida-panel.png"
+                  alt="『おいしいね』からつながっていく、すこやか食堂で食事を楽しむ子どもたち"
+                  width={1517}
+                  height={1079}
+                  sizes="(max-width: 760px) calc(100vw - 76px), 50vw"
+                />
+                <Image
+                  className="mashiro-message-panel"
+                  src="/images/home/sukoyaka-community-prep.jpg"
+                  alt="すこやか食堂の食事を準備する様子"
+                  width={600}
+                  height={450}
+                  sizes="(max-width: 760px) calc(100vw - 76px), 50vw"
+                />
+              </div>
             </div>
           </div>
         </section>
