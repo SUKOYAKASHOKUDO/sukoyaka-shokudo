@@ -1581,7 +1581,28 @@ body::selection {
   margin: 0 auto 34px;
 }
 
-.story-movie-heading > p:last-child {
+.story-movie-message {
+  margin: clamp(22px, 3vw, 34px) 0 0;
+  border: 1px solid rgba(23, 112, 122, 0.22);
+  border-left: 5px solid var(--storybook-teal);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(229, 248, 247, 0.96), rgba(255, 250, 232, 0.94));
+  padding: clamp(20px, 3vw, 30px);
+  box-shadow: 0 14px 34px rgba(26, 100, 108, 0.08);
+  color: var(--storybook-teal-deep);
+  font-size: clamp(20px, 2.5vw, 30px);
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+  text-wrap: balance;
+}
+
+.story-movie-message strong {
+  display: block;
+  font-weight: 900;
+}
+
+.story-movie-description {
+  margin: 20px 0 0;
   color: var(--storybook-teal-deep);
   line-height: 1.85;
 }

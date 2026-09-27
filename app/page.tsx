@@ -47,9 +47,10 @@ export default function Home() {
             <div className="story-movie-heading">
               <p className="mashiro-kicker">{storyPage.movie.eyebrow}</p>
               <h2>{storyPage.movie.title}</h2>
-              <p>
-                {storyPage.movie.descriptionLine1}
-                <br />
+              <p className="story-movie-message">
+                <strong>{storyPage.movie.descriptionLine1}</strong>
+              </p>
+              <p className="story-movie-description">
                 {storyPage.movie.descriptionLine2}
               </p>
             </div>
