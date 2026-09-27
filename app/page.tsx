@@ -92,11 +92,7 @@ export default function Home() {
               <p className="mashiro-intro-opening">
                 {legacyAbout.opening[0]}
               </p>
-              <h2>
-                食事は、
-                <br />
-                おいしく楽しいものです。
-              </h2>
+              <h2>食事は、おいしく楽しいものです。</h2>
               {legacyAbout.opening.slice(1).map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -110,7 +106,7 @@ export default function Home() {
                 alt="『おいしいね』からつながっていく、すこやか食堂で食事を楽しむ子どもたち"
                 width={1517}
                 height={1079}
-                sizes="(max-width: 760px) calc(100vw - 76px), 850px"
+                sizes="(max-width: 760px) calc(100vw - 76px), 560px"
               />
             </div>
           </div>

@@ -813,6 +813,16 @@ body::selection {
   letter-spacing: 0.2em;
 }
 
+.mashiro-intro-grid {
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 3vw, 38px);
+}
+
+.mashiro-intro .mashiro-statement {
+  width: 100%;
+  max-width: none;
+}
+
 .mashiro-intro-grid,
 .mashiro-editorial-grid,
 .mashiro-reading-layout,
@@ -852,7 +862,7 @@ body::selection {
 }
 
 .mashiro-intro-opening {
-  white-space: pre-line;
+  white-space: normal;
 }
 
 .mashiro-statement h2 {
@@ -1599,11 +1609,12 @@ body::selection {
 
 .mashiro-message-panel {
   display: block;
-  width: 100%;
+  width: min(560px, 100%);
   aspect-ratio: 16 / 9;
   height: auto;
   object-fit: cover;
   object-position: center top;
+  margin-right: auto;
   margin-top: clamp(30px, 4vw, 46px);
 }
 
