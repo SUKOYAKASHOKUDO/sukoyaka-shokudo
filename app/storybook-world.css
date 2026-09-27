@@ -1600,11 +1600,11 @@ body::selection {
   border: 1px solid rgba(23, 112, 122, 0.22);
   border-left: 4px solid var(--storybook-teal);
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(229, 248, 247, 0.96), rgba(255, 250, 232, 0.94));
+  background: linear-gradient(135deg, rgba(213, 244, 241, 0.98), rgba(255, 243, 211, 0.96));
   padding: clamp(16px, 2.2vw, 22px);
   box-shadow: 0 10px 26px rgba(26, 100, 108, 0.08);
   color: var(--storybook-teal-deep);
-  font-size: clamp(18px, 2.1vw, 25px);
+  font-size: clamp(20px, 2.3vw, 28px);
   letter-spacing: 0.02em;
   line-height: 1.6;
   text-wrap: balance;
