@@ -137,15 +137,7 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <>
-      <link
-        rel="preload"
-        as="image"
-        href={HEADER_ARTWORK_SOURCE}
-        type="image/webp"
-        fetchPriority="high"
-      />
-      <header className="site-header storybook-site-header">
+    <header className="site-header storybook-site-header">
       <div className="storybook-header-panel">
         <svg
           className="storybook-header-art-definitions"
@@ -286,7 +278,6 @@ export function SiteHeader() {
           </Link>
         </nav>
       </div>
-      </header>
-    </>
+    </header>
   );
 }

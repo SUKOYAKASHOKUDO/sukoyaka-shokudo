@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { BackToTopButton } from "../components/BackToTopButton";
-import { MobileHomeScrollTop } from "../components/MobileHomeScrollTop";
 import { site } from "../content/siteContent";
+import { HEADER_ARTWORK_SOURCE } from "../lib/headerBackground";
 import "./globals.css";
 import "./storybook-world.css";
 
@@ -90,8 +90,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href={HEADER_ARTWORK_SOURCE}
+          type="image/webp"
+          fetchPriority="high"
+        />
+      </head>
       <body>
-        <MobileHomeScrollTop />
         {children}
         <BackToTopButton />
       </body>
