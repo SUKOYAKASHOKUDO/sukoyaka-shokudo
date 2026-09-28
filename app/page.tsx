@@ -53,7 +53,11 @@ export default function Home() {
             </div>
             <div className="story-movie-feature-grid">
               <p className="story-movie-message">
-                <strong>{storyPage.movie.descriptionLine1}</strong>
+                <strong>
+                  子ども食堂ですが、子どもに限らず
+                  <br className="story-movie-mobile-break" />
+                  どなたでもご利用いただけます。
+                </strong>
               </p>
             </div>
             <div className="story-video-grid">

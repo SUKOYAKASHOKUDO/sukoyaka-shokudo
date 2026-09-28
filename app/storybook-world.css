@@ -1671,9 +1671,17 @@ body::selection {
   white-space: nowrap;
 }
 
+.story-movie-mobile-break {
+  display: none;
+}
+
 @media (max-width: 760px) {
   .story-movie-message strong {
     white-space: normal;
+  }
+
+  .story-movie-mobile-break {
+    display: initial;
   }
 }
 
