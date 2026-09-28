@@ -94,9 +94,19 @@ export default function Home() {
                 {legacyAbout.opening[0]}
               </p>
               <h2>食事は、おいしく楽しいものです。</h2>
-              {legacyAbout.opening.slice(1).map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+              {legacyAbout.opening.slice(1).map((paragraph, index) => {
+                const breakAfter = index === 0 ? "日。" : "いく。";
+                const [firstLine, secondLine] = paragraph.split(breakAfter);
+
+                return (
+                  <p key={paragraph}>
+                    {firstLine}
+                    {breakAfter}
+                    <br />
+                    {secondLine}
+                  </p>
+                );
+              })}
               <div className="mashiro-message-panels">
                 <Image
                   className="mashiro-message-panel"
