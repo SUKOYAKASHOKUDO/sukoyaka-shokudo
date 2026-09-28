@@ -81,12 +81,6 @@ export default function RecipesPage() {
                     <p>{recipe.description}</p>
                     <p className="recipe-serving">{recipe.servings}</p>
                     <div className="recipe-card-actions">
-                      <Link
-                        className="button button-small recipe-link"
-                        href={`/recipes/${recipe.slug}`}
-                      >
-                        材料と作り方を見る
-                      </Link>
                       <a
                         className="text-link recipe-sheet-download"
                         href={recipe.recipeSheetUrl}
