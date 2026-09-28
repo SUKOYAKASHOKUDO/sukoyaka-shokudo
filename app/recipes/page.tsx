@@ -55,14 +55,16 @@ export default function RecipesPage() {
                       loading="eager"
                     />
                   </Link>
-                  <Image
-                    className="recipe-card-mascot"
-                    src={recipe.mascotImage}
-                    alt=""
-                    width={210}
-                    height={140}
-                    aria-hidden="true"
-                  />
+                  {recipe.mascotImage ? (
+                    <Image
+                      className="recipe-card-mascot"
+                      src={recipe.mascotImage}
+                      alt=""
+                      width={210}
+                      height={140}
+                      aria-hidden="true"
+                    />
+                  ) : null}
                   <span className="recipe-time">{recipe.time}</span>
                 </div>
                 <div className="recipe-body">

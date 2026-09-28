@@ -376,7 +376,7 @@ export type Recipe = {
   tone: "pumpkin" | "scone";
   cardImage: string;
   cardImageAlt: string;
-  mascotImage: string;
+  mascotImage?: string;
   recipeSheetUrl: string;
   ingredients: string[];
   steps: string[];
@@ -398,7 +398,6 @@ export const recipes: Recipe[] = [
     tone: "pumpkin",
     cardImage: "/images/recipes/pumpkin-mochi-recipe.webp",
     cardImageAlt: "かぼちゃもちの材料と作り方をまとめたレシピシート",
-    mascotImage: "/images/recipes/pumpkin-mochi-mascot.jpg",
     recipeSheetUrl: "/recipes/pumpkin-mochi.pdf",
     ingredients: [
       "かぼちゃ 200g",
