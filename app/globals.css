@@ -1027,9 +1027,40 @@ a {
   background: white;
 }
 
+.recipe-editorial-frame {
+  border: 2px solid rgba(31, 105, 119, 0.28);
+  border-radius: 36px;
+  background: rgba(255, 254, 249, 0.94);
+  padding: clamp(22px, 4vw, 46px);
+  box-shadow: 0 22px 60px rgba(18, 63, 71, 0.1);
+}
+
+.recipe-editorial-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(31, 105, 119, 0.18);
+  padding-bottom: 18px;
+  gap: 20px;
+}
+
+.recipe-editorial-header span {
+  color: var(--teal-900);
+  font-family: var(--font-round);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 900;
+}
+
+.recipe-editorial-header small {
+  color: var(--coral);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
 .recipe-grid {
   display: grid;
-  margin-top: 46px;
+  margin-top: 28px;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
 }
