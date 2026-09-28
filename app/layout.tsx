@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { BackToTopButton } from "../components/BackToTopButton";
+import { MobileHomeScrollTop } from "../components/MobileHomeScrollTop";
 import { site } from "../content/siteContent";
 import "./globals.css";
 import "./storybook-world.css";
@@ -90,6 +91,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
+        <MobileHomeScrollTop />
         {children}
         <BackToTopButton />
       </body>
