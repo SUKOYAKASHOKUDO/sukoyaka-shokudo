@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageIntro } from "../../components/PageIntro";
 import { SiteFooter } from "../../components/SiteFooter";
@@ -29,27 +30,62 @@ export default function RecipesPage() {
         <PageIntro
           eyebrow="RECIPES"
           title="親子で作るレシピ"
-          description="材料と手順に加えて、アレルゲンと調理時の安全注意を確認できます。お子さんが作るときは、必ず大人が付き添ってください。"
+          description="親子で一緒に作れる、やさしくておいしいレシピを集めました。材料と手順、安全上の注意も分かりやすくご覧いただけます。"
         />
         <section className="section listing-section">
           <div className="shell recipe-grid">
             {publishedRecipes.map((recipe) => (
-              <article className="recipe-card" key={recipe.slug}>
-                <div className={`recipe-illustration ${recipe.tone}`}>
-                  <span aria-hidden="true">{recipe.symbol}</span>
-                  <small>{recipe.time}</small>
+              <article
+                className={`recipe-card ${recipe.tone}`}
+                key={recipe.slug}
+              >
+                <div className="recipe-card-visual">
+                  <Link
+                    className="recipe-sheet-link"
+                    href={`/recipes/${recipe.slug}`}
+                    aria-label={`${recipe.title}の材料と作り方を見る`}
+                  >
+                    <Image
+                      className="recipe-sheet-image"
+                      src={recipe.cardImage}
+                      alt={recipe.cardImageAlt}
+                      width={1400}
+                      height={990}
+                      sizes="(max-width: 760px) calc(100vw - 56px), (max-width: 1200px) 46vw, 560px"
+                      loading="eager"
+                    />
+                  </Link>
+                  <Image
+                    className="recipe-card-mascot"
+                    src={recipe.mascotImage}
+                    alt=""
+                    width={210}
+                    height={140}
+                    aria-hidden="true"
+                  />
+                  <span className="recipe-time">{recipe.time}</span>
                 </div>
                 <div className="recipe-body">
-                  <p>{recipe.label}</p>
+                  <p className="recipe-kicker">{recipe.label}</p>
                   <h2>{recipe.title}</h2>
                   <p>{recipe.description}</p>
                   <p className="recipe-serving">{recipe.servings}</p>
-                  <Link
-                    className="text-link recipe-link"
-                    href={`/recipes/${recipe.slug}`}
-                  >
-                    材料と作り方を見る →
-                  </Link>
+                  <div className="recipe-card-actions">
+                    <Link
+                      className="button button-small recipe-link"
+                      href={`/recipes/${recipe.slug}`}
+                    >
+                      材料と作り方を見る
+                    </Link>
+                    <a
+                      className="text-link recipe-sheet-download"
+                      href={recipe.recipeSheetUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      A4レシピを見る →
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}

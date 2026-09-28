@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
         destination: "/operator",
         permanent: true,
       },
+      {
+        source: "/recipes/fluffy-tamagoyaki",
+        destination: "/recipes/pumpkin-mochi",
+        permanent: true,
+      },
     ];
   },
   async headers() {

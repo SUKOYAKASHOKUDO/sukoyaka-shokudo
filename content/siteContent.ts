@@ -373,7 +373,11 @@ export type Recipe = {
   symbol: string;
   time: string;
   servings: string;
-  tone: "egg" | "scone";
+  tone: "pumpkin" | "scone";
+  cardImage: string;
+  cardImageAlt: string;
+  mascotImage: string;
+  recipeSheetUrl: string;
   ingredients: string[];
   steps: string[];
   allergenNote: string;
@@ -383,43 +387,51 @@ export type Recipe = {
 
 export const recipes: Recipe[] = [
   {
-    slug: "fluffy-tamagoyaki",
-    label: "親子でまぜまぜ",
-    title: "ふんわり卵焼き",
+    slug: "pumpkin-mochi",
+    label: "親子でまるめて",
+    title: "かぼちゃもち",
     description:
-      "だしの香りとやさしい甘さ。朝ごはんやお弁当にも使いやすい定番です。",
-    symbol: "🍳",
-    time: "約15分",
+      "かぼちゃをつぶして、まぜて、まるめて。親子で楽しめる、もちもちおやつです。",
+    symbol: "🎃",
+    time: "約40分",
     servings: "作りやすい分量",
-    tone: "egg",
+    tone: "pumpkin",
+    cardImage: "/images/recipes/pumpkin-mochi-recipe.webp",
+    cardImageAlt: "かぼちゃもちの材料と作り方をまとめたレシピシート",
+    mascotImage: "/images/recipes/pumpkin-mochi-mascot.jpg",
+    recipeSheetUrl: "/recipes/pumpkin-mochi.pdf",
     ingredients: [
-      "卵 3個",
-      "だし汁 大さじ2",
-      "砂糖 小さじ1",
-      "しょうゆ 小さじ1/2",
-      "油 少量",
+      "かぼちゃ 200g",
+      "片栗粉 大さじ4",
+      "砂糖 大さじ2",
+      "サラダ油 適量",
     ],
     steps: [
-      "卵と調味料をボウルでよく混ぜます。",
-      "油を薄くひいたフライパンに卵液を数回に分けて流します。",
-      "半熟のうちに巻き、形を整えて食べやすく切ります。",
+      "かぼちゃを丸ごと電子レンジで15分加熱し、上下を返してさらに15分加熱します。",
+      "割って種とワタを取り、皮ごとつぶします。",
+      "かぼちゃ200gに片栗粉と砂糖を混ぜ、好きな形に丸めます。",
+      "油をひいたフライパンで焼き目をつけます。",
     ],
     allergenNote:
-      "アレルゲン：卵・大豆。使用する調味料を含め、各商品の表示を確認してください。",
+      "使用する油を含め、各商品の原材料表示を確認してください。",
     safetyNote:
-      "加熱調理と包丁を使う工程は、必ず大人が行うか付き添ってください。",
+      "電子レンジとフライパンを使う工程は、必ず大人が行うか付き添ってください。加熱時間はかぼちゃの大きさにより調整してください。",
     status: "published",
   },
   {
     slug: "chocolate-scones",
     label: "おやつ時間に",
-    title: "チョコごろごろスコーン",
+    title: "チョコチップスコーン",
     description:
       "材料をさっくり混ぜて焼くだけ。親子で形をつくる工程も楽しめます。",
     symbol: "🍪",
     time: "約30分",
     servings: "6個分の目安",
     tone: "scone",
+    cardImage: "/images/recipes/chocolate-chip-scones-recipe.webp",
+    cardImageAlt: "チョコチップスコーンの材料と作り方をまとめたレシピシート",
+    mascotImage: "/images/recipes/chocolate-chip-scone-mascot.jpg",
+    recipeSheetUrl: "/recipes/chocolate-chip-scones.pdf",
     ingredients: [
       "ホットケーキミックス 200g",
       "無塩バター 50g",
