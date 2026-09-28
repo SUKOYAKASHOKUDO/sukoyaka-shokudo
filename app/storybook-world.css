@@ -1676,6 +1676,11 @@ body::selection {
 }
 
 @media (max-width: 760px) {
+  .story-movie-message {
+    width: 100%;
+    font-size: 20px;
+  }
+
   .story-movie-message strong {
     white-space: normal;
   }
