@@ -1677,11 +1677,36 @@ body::selection {
 
 @media (max-width: 760px) {
   .story-movie-message {
+    position: relative;
+    isolation: isolate;
     width: 100%;
+    overflow: hidden;
     font-size: 20px;
   }
 
+  .story-movie-message::after {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    right: 14px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(240, 184, 78, 0.42) 0 4px, transparent 5px),
+      radial-gradient(ellipse at 50% 22%, rgba(242, 144, 151, 0.24) 0 7px, transparent 8px),
+      radial-gradient(ellipse at 78% 42%, rgba(104, 191, 191, 0.24) 0 7px, transparent 8px),
+      radial-gradient(ellipse at 68% 74%, rgba(242, 144, 151, 0.22) 0 7px, transparent 8px),
+      radial-gradient(ellipse at 32% 74%, rgba(104, 191, 191, 0.22) 0 7px, transparent 8px),
+      radial-gradient(ellipse at 22% 42%, rgba(242, 144, 151, 0.24) 0 7px, transparent 8px);
+    content: "";
+    pointer-events: none;
+    transform: translateY(-50%) rotate(-8deg);
+  }
+
   .story-movie-message strong {
+    position: relative;
+    z-index: 1;
     white-space: normal;
   }
 
