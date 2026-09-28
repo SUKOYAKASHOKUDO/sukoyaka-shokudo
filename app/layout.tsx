@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { BackToTopButton } from "../components/BackToTopButton";
-import { MobileHomeScrollReset } from "../components/MobileHomeScrollReset";
 import { site } from "../content/siteContent";
 import "./globals.css";
 import "./storybook-world.css";
@@ -91,7 +90,6 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <MobileHomeScrollReset />
         {children}
         <BackToTopButton />
       </body>
