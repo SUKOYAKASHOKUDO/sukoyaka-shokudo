@@ -1654,6 +1654,8 @@ body::selection {
 }
 
 .mashiro-message-panel--bento {
+  height: auto;
+  aspect-ratio: 2 / 1;
   object-position: center;
 }
 
