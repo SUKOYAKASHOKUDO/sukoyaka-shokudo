@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { BackToTopButton } from "../components/BackToTopButton";
-import { MobileHomeHistoryPosition } from "../components/MobileHomeHistoryPosition";
 import { site } from "../content/siteContent";
 import { HEADER_ARTWORK_SOURCE } from "../lib/headerBackground";
 import "./globals.css";
@@ -101,7 +100,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <MobileHomeHistoryPosition />
         {children}
         <BackToTopButton />
       </body>
