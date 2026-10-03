@@ -4,9 +4,10 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
 /**
- * Keep mobile returns to the home page at the document top. Link navigation is
- * left to Next.js; history navigation is corrected after the browser has had a
- * chance to restore its persisted scroll position.
+ * Keep mobile returns to the home page at the document top. Mobile HOME-link
+ * navigation uses a normal document navigation so Next.js cannot restore or
+ * focus-scroll the previous home position. History navigation is corrected
+ * after the browser has had a chance to restore its persisted scroll position.
  */
 export function MobileHomeHistoryPosition() {
   const pathname = usePathname();
@@ -46,6 +47,39 @@ export function MobileHomeHistoryPosition() {
     const previousRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = "manual";
 
+    const forceDocumentHomeNavigation = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        !(event.target instanceof Element) ||
+        window.location.pathname === "/"
+      ) {
+        return;
+      }
+
+      const link = event.target.closest<HTMLAnchorElement>("a[href]");
+      if (!link || link.target === "_blank" || link.hasAttribute("download")) {
+        return;
+      }
+
+      const destination = new URL(link.href, window.location.href);
+      if (
+        destination.origin !== window.location.origin ||
+        destination.pathname !== "/" ||
+        destination.hash
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      window.location.assign(`${destination.pathname}${destination.search}`);
+    };
+
     const restoreHistoryHome = () => {
       if (window.location.pathname !== "/") return;
 
@@ -67,6 +101,7 @@ export function MobileHomeHistoryPosition() {
       if (event.persisted) restoreHistoryHome();
     };
 
+    document.addEventListener("click", forceDocumentHomeNavigation, true);
     window.addEventListener("popstate", restoreHistoryHome);
     window.addEventListener("pageshow", restoreCachedHome);
 
@@ -74,6 +109,7 @@ export function MobileHomeHistoryPosition() {
       if (historyRestoreTimer.current !== null) {
         window.clearTimeout(historyRestoreTimer.current);
       }
+      document.removeEventListener("click", forceDocumentHomeNavigation, true);
       window.removeEventListener("popstate", restoreHistoryHome);
       window.removeEventListener("pageshow", restoreCachedHome);
       window.history.scrollRestoration = previousRestoration;
