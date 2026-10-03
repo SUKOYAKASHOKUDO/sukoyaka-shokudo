@@ -1,17 +1,18 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
 /**
- * Mobile browsers restore the previous scroll offset during back/forward
- * navigation. Keep that restoration manual and reveal the home header only
- * when history navigation returns to the home page. Initial page loads and
- * ordinary taps/scrolling are intentionally untouched.
+ * On mobile, prevent Next.js/browser scroll restoration from reopening the
+ * home page below its header. HOME-link navigation is performed without
+ * automatic scrolling, then the completed route transition is placed at the
+ * document top. Desktop behavior and ordinary mobile scrolling are untouched.
  */
 export function MobileHomeHistoryPosition() {
   const pathname = usePathname();
-  const returningHome = useRef(false);
+  const router = useRouter();
+  const previousPathname = useRef(pathname);
   const frames = useRef<number[]>([]);
   const timers = useRef<number[]>([]);
 
@@ -23,18 +24,36 @@ export function MobileHomeHistoryPosition() {
   }, []);
 
   const revealHomeHeader = useCallback(() => {
-    if (window.location.pathname !== "/") return;
+    if (
+      window.location.pathname !== "/" ||
+      !window.matchMedia("(max-width: 767px)").matches
+    ) {
+      return;
+    }
 
     const root = document.documentElement;
-    const previousBehavior = root.style.scrollBehavior;
-    root.style.scrollBehavior = "auto";
+    const previousBehavior = root.style.getPropertyValue("scroll-behavior");
+    const previousPriority = root.style.getPropertyPriority("scroll-behavior");
+
+    root.style.setProperty("scroll-behavior", "auto", "important");
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.scrollingElement?.scrollTo({ top: 0, left: 0, behavior: "auto" });
     root.scrollTop = 0;
     document.body.scrollTop = 0;
-    root.style.scrollBehavior = previousBehavior;
+
+    if (previousBehavior) {
+      root.style.setProperty(
+        "scroll-behavior",
+        previousBehavior,
+        previousPriority,
+      );
+    } else {
+      root.style.removeProperty("scroll-behavior");
+    }
   }, []);
 
   const finishHomeReturn = useCallback(() => {
-    if (!returningHome.current || window.location.pathname !== "/") return;
+    if (window.location.pathname !== "/") return;
 
     clearScheduledRestores();
     revealHomeHeader();
@@ -46,7 +65,7 @@ export function MobileHomeHistoryPosition() {
     });
     frames.current.push(firstFrame);
 
-    [80, 280, 800].forEach((delay) => {
+    [0, 100, 300].forEach((delay) => {
       timers.current.push(window.setTimeout(revealHomeHeader, delay));
     });
   }, [clearScheduledRestores, revealHomeHeader]);
@@ -57,14 +76,7 @@ export function MobileHomeHistoryPosition() {
     const previousRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = "manual";
 
-    const markHistoryReturn = () => {
-      if (window.location.pathname !== "/") return;
-
-      returningHome.current = true;
-      finishHomeReturn();
-    };
-
-    const markHomeLink = (event: MouseEvent) => {
+    const navigateHomeWithoutFrameworkScroll = (event: MouseEvent) => {
       if (
         event.defaultPrevented ||
         event.button !== 0 ||
@@ -84,39 +96,66 @@ export function MobileHomeHistoryPosition() {
 
       const destination = new URL(link.href, window.location.href);
       if (
-        destination.origin === window.location.origin &&
-        destination.pathname === "/" &&
-        window.location.pathname !== "/"
+        destination.origin !== window.location.origin ||
+        destination.pathname !== "/" ||
+        destination.hash ||
+        window.location.pathname === "/"
       ) {
-        returningHome.current = true;
+        return;
+      }
+
+      event.preventDefault();
+      router.push(`${destination.pathname}${destination.search}`, {
+        scroll: false,
+      });
+    };
+
+    const restoreHistoryHome = () => {
+      if (window.location.pathname === "/") {
+        finishHomeReturn();
       }
     };
 
     const finishRestoredPage = (event: PageTransitionEvent) => {
-      if (!event.persisted || window.location.pathname !== "/") return;
-
-      returningHome.current = true;
-      finishHomeReturn();
+      if (event.persisted && window.location.pathname === "/") {
+        finishHomeReturn();
+      }
     };
 
-    document.addEventListener("click", markHomeLink, true);
-    window.addEventListener("popstate", markHistoryReturn);
+    document.addEventListener("click", navigateHomeWithoutFrameworkScroll, true);
+    window.addEventListener("popstate", restoreHistoryHome);
     window.addEventListener("pageshow", finishRestoredPage);
+    window.addEventListener("touchstart", clearScheduledRestores, {
+      passive: true,
+    });
 
     return () => {
       clearScheduledRestores();
-      document.removeEventListener("click", markHomeLink, true);
-      window.removeEventListener("popstate", markHistoryReturn);
+      document.removeEventListener(
+        "click",
+        navigateHomeWithoutFrameworkScroll,
+        true,
+      );
+      window.removeEventListener("popstate", restoreHistoryHome);
       window.removeEventListener("pageshow", finishRestoredPage);
+      window.removeEventListener("touchstart", clearScheduledRestores);
       window.history.scrollRestoration = previousRestoration;
     };
-  }, [clearScheduledRestores, finishHomeReturn]);
+  }, [clearScheduledRestores, finishHomeReturn, router]);
 
   useLayoutEffect(() => {
-    if (pathname !== "/" || !returningHome.current) return;
+    const previous = previousPathname.current;
+    previousPathname.current = pathname;
+
+    if (
+      pathname !== "/" ||
+      previous === "/" ||
+      !window.matchMedia("(max-width: 767px)").matches
+    ) {
+      return;
+    }
 
     finishHomeReturn();
-    returningHome.current = false;
   }, [finishHomeReturn, pathname]);
 
   return null;
