@@ -24,7 +24,16 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  /*
+   * Keep horizontal artwork clipping from turning <body> into a second
+   * scroll container. With `overflow-x: hidden`, the default visible value on
+   * the other axis computes to `auto` (`hidden auto`). Mobile browsers can
+   * then restore that body scroller independently from window.scrollY during
+   * App Router navigation, leaving the page visually above its real top while
+   * every window/document scroll metric still reports zero.
+   */
+  overflow-x: clip;
+  overflow-y: visible;
   background:
     radial-gradient(circle at 8% 4%, rgba(255, 255, 255, 0.74), transparent 17%),
     var(--storybook-cream);
