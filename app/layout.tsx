@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { BackToTopButton } from "../components/BackToTopButton";
+import { RouteScrollReset } from "../components/RouteScrollReset";
 import { site } from "../content/siteContent";
 import { HEADER_ARTWORK_SOURCE } from "../lib/headerBackground";
 import "./globals.css";
@@ -89,8 +90,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" data-scroll-behavior="smooth">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'if ("scrollRestoration" in history) history.scrollRestoration = "manual";',
+          }}
+        />
         <link
           rel="preload"
           as="image"
@@ -100,6 +107,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <RouteScrollReset />
         {children}
         <BackToTopButton />
       </body>
