@@ -5490,6 +5490,75 @@ body::selection {
     /* Keep lettering/icons, not the unrelated hills at the bottom of each crop. */
     clip-path: inset(0 0 13.636364%);
   }
+
+  /*
+   * The source artwork includes its former header in the top 16.5%. Desktop
+   * keeps the historical translated canvas, but on mobile that transformed
+   * the hero/image box itself by about 35px at 390px wide. A route return could
+   * therefore look like the hero had scrolled upward even while every scroll
+   * metric stayed at zero. Keep the same source crop inside stable element
+   * boxes instead, and remap the artwork-relative overlays to the cropped box.
+   */
+  .reference-design-frame-home .reference-design-canvas {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+  }
+
+  .reference-design-frame-home .reference-design-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  .reference-design-frame-home .reference-design-image-top {
+    clip-path: inset(0 0 44.1916% 0);
+  }
+
+  .reference-design-frame-home .reference-design-canvas::after {
+    top: 55.5689%;
+    height: calc(var(--reference-menu-gap) + 0.7186%);
+  }
+
+  .reference-design-frame-home .reference-design-image-menu-kids {
+    clip-path: inset(55.8084% 66% 23.4731% 3% round clamp(24px, 3vw, 48px));
+  }
+
+  .reference-design-frame-home .reference-design-image-menu-family {
+    clip-path: inset(55.8084% 35.3% 23.4731% 35.3% round clamp(24px, 3vw, 48px));
+  }
+
+  .reference-design-frame-home .reference-design-image-menu-schedule {
+    clip-path: inset(78.8024% 66% 3.5928% 3% round clamp(24px, 3vw, 48px));
+  }
+
+  .reference-design-frame-home .reference-design-image-menu-recipes {
+    clip-path: inset(78.8024% 35.3% 3.5928% 35.3% round clamp(24px, 3vw, 48px));
+  }
+
+  .reference-design-frame-home .reference-card-replacement-support {
+    top: 55.988%;
+    height: 20.5988%;
+  }
+
+  .reference-design-frame-home .reference-card-replacement-story {
+    top: 78.7425%;
+    height: 17.5449%;
+  }
+
+  .reference-design-frame-home .reference-hotspot-kids,
+  .reference-design-frame-home .reference-hotspot-family {
+    top: 56.1677%;
+    height: 20%;
+  }
+
+  .reference-design-frame-home .reference-hotspot-schedule-card,
+  .reference-design-frame-home .reference-hotspot-recipes-card {
+    top: 78.9222%;
+    height: 17.006%;
+  }
 }
 
 /* Keep the preview label safely inside the arched logo frame. */

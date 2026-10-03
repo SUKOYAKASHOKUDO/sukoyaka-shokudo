@@ -77,12 +77,14 @@ export function StorybookHero() {
   return (
     <section
       className="reference-design-hero"
+      data-testid="home-hero"
       aria-labelledby="storybook-heading"
     >
       <div className="reference-design-frame reference-design-frame-home">
-        <div className="reference-design-canvas">
+        <div className="reference-design-canvas" data-testid="home-hero-canvas">
           <Image
             className="reference-design-image reference-design-image-top"
+            data-testid="home-hero-image"
             src="/images/brand/sukoyaka-site-design-wordmark.webp"
             alt="水色の空と丘を背景に、おにぎりを持つクマ、食事を持つウサギ、小鳥が描かれた、すこやか食堂のご案内"
             width={1672}
