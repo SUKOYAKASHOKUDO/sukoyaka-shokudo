@@ -59,9 +59,6 @@ export function InstagramCalendarFrame({
       <div className="schedule-calendar-media-bar">
         <span className="schedule-calendar-live-dot" aria-hidden="true" />
         <strong>開催カレンダー</strong>
-        <small>
-          {calendar.status === "ready" ? "最新画像" : "Instagramで更新"}
-        </small>
       </div>
 
       <div className="schedule-calendar-image-frame">
