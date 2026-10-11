@@ -5468,8 +5468,9 @@ body::selection {
 /* Two mobile rows reuse the original artwork, with readable navigation below. */
 @media (max-width: 767px) {
   .storybook-site-header.site-header {
-    /* Match the PC frame-to-hero join without an extra mobile-only sky band. */
-    padding: 4px 4px 0;
+    /* TEMPORARY TEST: allow 16px more space above mobile header artwork.
+       Revert padding-top from 20px to 4px if Yahoo! JAPAN clipping persists. */
+    padding: 20px 4px 0;
     background: #cbeef2;
   }
 
