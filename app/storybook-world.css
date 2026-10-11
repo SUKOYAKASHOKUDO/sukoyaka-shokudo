@@ -5468,9 +5468,9 @@ body::selection {
 /* Two mobile rows reuse the original artwork, with readable navigation below. */
 @media (max-width: 767px) {
   .storybook-site-header.site-header {
-    /* TEMPORARY TEST: allow 16px more space above mobile header artwork.
-       Revert padding-top from 20px to 4px if Yahoo! JAPAN clipping persists. */
-    padding: 20px 4px 0;
+    /* TEMPORARY TEST: allow 28px more space above mobile header artwork.
+       Revert padding-top from 32px to 4px if Yahoo! JAPAN clipping persists. */
+    padding: 32px 4px 0;
     background: #cbeef2;
   }
 
