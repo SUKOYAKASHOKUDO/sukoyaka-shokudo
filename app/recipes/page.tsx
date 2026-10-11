@@ -5,6 +5,8 @@ import { PageIntro } from "../../components/PageIntro";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { recipes } from "../../content/siteContent";
+import { paginateRecipes } from "../../lib/recipePagination";
+import styles from "./recipes.module.css";
 
 export const metadata: Metadata = {
   title: "親子で作るレシピ",
@@ -15,9 +17,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RecipesPage() {
+export default async function RecipesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string | string[] }>;
+}) {
   const publishedRecipes = recipes.filter(
     (recipe) => recipe.status === "published",
+  );
+  const { page, totalPages, items } = paginateRecipes(
+    publishedRecipes,
+    (await searchParams).page,
   );
 
   return (
@@ -34,17 +44,18 @@ export default function RecipesPage() {
         />
         <section className="section listing-section">
           <div
+            id="recipe-note"
             className="shell recipe-editorial-frame"
-            aria-label="すこやかレシピノート 第1号"
+            aria-label={`すこやかレシピノート 第${page}号`}
           >
             <div className="recipe-editorial-header" aria-hidden="true">
               <span>すこやかレシピノート</span>
-              <small>VOL.01</small>
+              <small>VOL.{String(page).padStart(2, "0")}</small>
             </div>
             <div className="recipe-grid">
-              {publishedRecipes.map((recipe) => (
+              {items.map((recipe) => (
                 <article
-                  className={`recipe-card ${recipe.tone}`}
+                  className={`recipe-card ${recipe.tone}${recipe.slug === "ohagi" ? ` ${styles.ohagi}` : ""}`}
                   key={recipe.slug}
                 >
                   <div className="recipe-card-visual">
@@ -94,6 +105,21 @@ export default function RecipesPage() {
                 </article>
               ))}
             </div>
+            {totalPages > 1 ? (
+              <nav className={styles.pagination} aria-label="レシピノートのページ切り替え">
+                {page > 1 ? (
+                  <Link href={page === 2 ? "/recipes#recipe-note" : `/recipes?page=${page - 1}#recipe-note`} rel="prev">
+                    ← 前のページ
+                  </Link>
+                ) : null}
+                <span aria-current="page">{page} / {totalPages}</span>
+                {page < totalPages ? (
+                  <Link href={`/recipes?page=${page + 1}#recipe-note`} rel="next">
+                    次のページ →
+                  </Link>
+                ) : null}
+              </nav>
+            ) : null}
           </div>
         </section>
       </main>

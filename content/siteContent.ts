@@ -448,4 +448,35 @@ export const recipes: Recipe[] = [
       "オーブン、包丁、熱い天板は、必ず大人が扱ってください。",
     status: "published",
   },
+  {
+    slug: "ohagi",
+    label: "お米と切り餅で",
+    title: "おはぎ",
+    description:
+      "お米と切り餅を一緒に炊いて、まるめてあんこで包むおはぎです。きな粉やごまでも楽しめます。",
+    symbol: "🍚",
+    time: "炊飯時間＋仕上げ",
+    servings: "米1合分",
+    tone: "scone",
+    cardImage: "/images/recipes/ohagi-recipe.jpg",
+    cardImageAlt: "おはぎの材料と作り方をまとめたレシピシート",
+    mascotImage: "/images/recipes/ohagi-mascot.jpg",
+    recipeSheetUrl: "/recipes/ohagi.pdf",
+    ingredients: [
+      "うるち米 1合",
+      "切り餅 1個",
+      "あんこ 適量",
+      "きな粉・ごま お好みで",
+    ],
+    steps: [
+      "切り餅を細かく切り、お米と一緒に炊飯器へ。1合分の水で普通に炊きます。",
+      "炊けたら、ごはんをつぶして混ぜます。",
+      "好みの大きさに丸め、あんこで包みます。きな粉やごまをまぶしても楽しめます。",
+    ],
+    allergenNote:
+      "きな粉を使う場合は大豆、ごまを使う場合はごまを含みます。あんこを含め、各商品の原材料表示を確認してください。",
+    safetyNote:
+      "切り餅を切る工程や炊飯器の操作は、大人が行うか付き添ってください。炊きたてのごはんは熱いため、手で触れられる温度まで冷ましてから丸めてください。",
+    status: "published",
+  },
 ];

@@ -1,0 +1,29 @@
+.ohagi :global(.recipe-card-mascot) {
+  object-fit: contain;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  color: var(--teal-800);
+  font-weight: 800;
+}
+
+.pagination a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--teal-800);
+  border-radius: 999px;
+  padding: 8px 18px;
+  background: white;
+}
+
+.pagination a:hover,
+.pagination a:focus-visible {
+  background: var(--teal-100);
+}
