@@ -3554,6 +3554,12 @@ body::selection {
   line-height: 0;
 }
 
+/* Match only the home header to the hero's existing artwork container. */
+.storybook-site-header.site-header:has(+ .mashiro-site .reference-design-frame-home) {
+  width: min(100%, 1672px);
+  margin-inline: auto;
+}
+
 /* The home page uses the same real header as every other page. Crop the
    supplied artwork below that header so its original navigation cannot show. */
 .reference-design-frame-home {
