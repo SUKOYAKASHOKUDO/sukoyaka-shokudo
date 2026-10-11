@@ -5,7 +5,9 @@ import { useEffect, useId, useState } from "react";
 import { site } from "../content/siteContent";
 import {
   HEADER_ARTWORK_SOURCE,
+  HEADER_CLOUD_COLOR,
   HEADER_SKY_COLOR,
+  HEADER_WAVE_COLOR,
 } from "../lib/headerBackground";
 import { SukoyakaBrandHomeLink } from "./SukoyakaBrandHomeLink";
 
@@ -50,8 +52,7 @@ function HeaderNavIcon({ name }: { name: HeaderIconName }) {
           <circle cx="22" cy="27" r="5" />
           <circle cx="32" cy="24" r="5.5" />
           <circle cx="43" cy="27" r="5" />
-          <path d="M15 45c1-8 4-12 8-12 3 0 5 2 6 5 1-6 4-9 8-9 4 0 7 3 8 9 1-3 3-5 6-5 4 0 7 4 8 12" />
-          <path d="M29 38v11M45 38v9M22 38v9" />
+          <path d="M17 44v-6c0-3 2-5 5-5s5 2 5 5v6Z M28 47V36c0-3 2-6 4-6s5 3 5 6v11Z M38 44v-6c0-3 2-5 5-5s5 2 5 5v6Z" />
         </>
       )}
 
@@ -124,6 +125,11 @@ export function SiteHeader() {
   const birdRemovalClipId = useId();
   const navigationSourceArtId = useId();
   const navigationFragmentClipId = useId();
+  const sourceArtworkId = useId();
+  const cloudClipId = useId();
+  const waveClipId = useId();
+  const cloudColorFilterId = useId();
+  const waveColorFilterId = useId();
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -156,12 +162,46 @@ export function SiteHeader() {
               />
             </clipPath>
             <image
-              id={mobileArtImageId}
+              id={sourceArtworkId}
               href={HEADER_ARTWORK_SOURCE}
               width="2172"
               height="724"
               clipPath={`url(#${birdRemovalClipId})`}
             />
+            {/* Recolor the existing pixels at their original coordinates.
+                The source file, cloud contours and wave contour stay intact. */}
+            <clipPath id={cloudClipId} clipPathUnits="userSpaceOnUse">
+              <rect x="780" y="245" width="110" height="65" />
+              <rect x="1755" y="395" width="115" height="65" />
+            </clipPath>
+            <clipPath id={waveClipId} clipPathUnits="userSpaceOnUse">
+              <rect x="0" y="410" width="2172" height="70" />
+            </clipPath>
+            <filter id={cloudColorFilterId} colorInterpolationFilters="sRGB">
+              {/* Sky red = 203; cloud red is approximately 233. The matte
+                  retains the source's soft edges and leaves the sky untouched. */}
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  8.5 0 0 0 -6.766667" result="cloudMatte" />
+              <feFlood floodColor={HEADER_CLOUD_COLOR} result="cloudWhite" />
+              <feComposite in="cloudWhite" in2="cloudMatte" operator="in" result="whiteClouds" />
+              <feComposite in="whiteClouds" in2="SourceGraphic" operator="over" />
+            </filter>
+            <filter id={waveColorFilterId} colorInterpolationFilters="sRGB">
+              {/* Select only the pale green wave: green exceeds blue, red
+                  is above 218 and below 246. Exclude sky, frame and plants. */}
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 32 -32 0 -0.627451" result="greenMatte" />
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  32 0 0 0 -27.356863" result="lightMatte" />
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -255 0 0 0 246" result="notWhiteMatte" />
+              <feComposite in="greenMatte" in2="lightMatte" operator="in" result="paleGreenMatte" />
+              <feComposite in="paleGreenMatte" in2="notWhiteMatte" operator="in" result="waveMatte" />
+              <feFlood floodColor={HEADER_WAVE_COLOR} result="wavePeach" />
+              <feComposite in="wavePeach" in2="waveMatte" operator="in" result="peachWave" />
+              <feComposite in="peachWave" in2="SourceGraphic" operator="over" />
+            </filter>
+            <g id={mobileArtImageId}>
+              <use href={`#${sourceArtworkId}`} />
+              <use href={`#${sourceArtworkId}`} clipPath={`url(#${waveClipId})`} filter={`url(#${waveColorFilterId})`} />
+              <use href={`#${sourceArtworkId}`} clipPath={`url(#${cloudClipId})`} filter={`url(#${cloudColorFilterId})`} />
+            </g>
             {/* The navigation crop catches the top edge of the lower cloud.
                 Remove that fragment only, retaining the complete background cloud. */}
             <clipPath id={navigationFragmentClipId} clipPathUnits="userSpaceOnUse">

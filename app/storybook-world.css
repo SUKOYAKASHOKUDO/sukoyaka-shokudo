@@ -5397,6 +5397,74 @@ body::selection {
   display: none;
 }
 
+/* Render navigation as real text and vectors instead of scaled raster crops.
+   Keep the existing link boxes, header dimensions and responsive layout. */
+.storybook-navigation-art-content {
+  display: none;
+}
+
+.storybook-main-nav a,
+.storybook-main-nav a:hover,
+.storybook-main-nav a:focus-visible {
+  color: #075666;
+  font-weight: 700;
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+.storybook-main-nav a > .storybook-header-icon {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+@media (min-width: 768px) {
+  .storybook-main-nav a > span {
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    color: #075666;
+    font-size: clamp(10px, 3.15cqw, 22px);
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .storybook-main-nav a > .storybook-header-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    width: 5.4cqw;
+    height: 5.4cqw;
+    margin-block: auto;
+  }
+
+  .storybook-main-nav a:nth-child(2) > .storybook-header-icon {
+    left: 9%;
+    width: 7.2cqw;
+    height: 7.2cqw;
+  }
+
+  .storybook-main-nav a:last-child > .storybook-header-icon {
+    left: 7%;
+  }
+
+  .storybook-main-nav a + a::before {
+    top: 0;
+    bottom: 0;
+    display: block;
+    height: 3.8cqw;
+    margin-block: auto;
+    background: rgba(7, 86, 102, 0.28);
+    transform: none;
+  }
+}
+
 /* Two mobile rows reuse the original artwork, with readable navigation below. */
 @media (max-width: 767px) {
   .storybook-site-header.site-header {
@@ -5492,11 +5560,29 @@ body::selection {
 
   .storybook-main-nav a > .storybook-header-icon,
   .storybook-main-nav a > span {
-    display: none;
+    position: static;
+    display: block;
+    color: #075666;
+    opacity: 1;
+    transform: none;
+  }
+
+  .storybook-main-nav a {
+    padding: 0;
+    font-size: clamp(11px, 3.1vw, 13px);
+    font-weight: 700;
+    letter-spacing: 0;
+    gap: clamp(3px, 1vw, 6px);
+  }
+
+  .storybook-main-nav a > .storybook-header-icon {
+    width: clamp(16px, 4.6vw, 20px);
+    height: clamp(16px, 4.6vw, 20px);
+    filter: none;
   }
 
   .storybook-main-nav .storybook-mobile-nav-art {
-    display: block;
+    display: none;
     width: 100%;
     height: auto;
     max-height: 50px;
