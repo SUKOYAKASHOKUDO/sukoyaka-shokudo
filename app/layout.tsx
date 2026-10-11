@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { BackToTopButton } from "../components/BackToTopButton";
 import { RouteScrollReset } from "../components/RouteScrollReset";
+import { MobileHeaderDiagnosticPanel } from "../components/MobileHeaderDiagnosticPanel";
 import { site } from "../content/siteContent";
 import { HEADER_ARTWORK_SOURCE } from "../lib/headerBackground";
+import { mobileHeaderDiagnostics } from "../lib/mobileHeaderDiagnostics";
 import "./globals.css";
 import "./storybook-world.css";
 
@@ -92,6 +94,7 @@ export default function RootLayout({
   return (
     <html lang="ja" data-scroll-behavior="smooth">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: mobileHeaderDiagnostics }} />
         <script
           dangerouslySetInnerHTML={{
             __html:
@@ -110,6 +113,7 @@ export default function RootLayout({
         <RouteScrollReset />
         {children}
         <BackToTopButton />
+        <MobileHeaderDiagnosticPanel />
       </body>
     </html>
   );
