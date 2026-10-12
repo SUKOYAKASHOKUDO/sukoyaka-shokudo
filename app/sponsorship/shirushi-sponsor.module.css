@@ -4,6 +4,17 @@
   gap: 24px;
 }
 
+.body :global(.partner-logo-arch) {
+  border-color: transparent;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.body :global(.partner-logo-arch)::after {
+  display: none;
+}
+
 .body .copy {
   display: contents;
 }
