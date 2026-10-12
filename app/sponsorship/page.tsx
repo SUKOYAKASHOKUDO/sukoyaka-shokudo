@@ -318,7 +318,7 @@ export default function PartnersPage() {
                       >
                         <div className="partner-logo-arch">
                           <Image
-                            src="/images/sponsors/shirushi-logo.webp"
+                            src="/images/sponsors/shirushi-logo-original.png"
                             alt="しるし株式会社のロゴ"
                             fill
                             sizes="96px"
