@@ -296,12 +296,12 @@ export default function PartnersPage() {
             ) : (
               <>
                 <div
-                  className="corporate-sponsor-preview"
+                  className={`corporate-sponsor-preview ${styles.grid}`}
                   aria-label="しるし株式会社のスポンサー企業紹介"
                 >
                   <article
                     className="partner-showcase-card"
-                    style={{ width: "min(100%, 44rem)" }}
+                    style={{ width: "100%" }}
                   >
                     <div
                       className={`partner-showcase-body ${styles.body}`}
