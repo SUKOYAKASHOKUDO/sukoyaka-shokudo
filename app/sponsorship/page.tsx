@@ -308,11 +308,13 @@ export default function PartnersPage() {
                       style={{
                         alignItems: "start",
                         gridTemplateColumns: "96px minmax(0, 1fr)",
+                        paddingBlock: "12px",
+                        rowGap: "8px",
                       }}
                     >
                       <div
                         className="partner-logo-column"
-                        style={{ justifyContent: "flex-start" }}
+                        style={{ justifyContent: "flex-start", gap: "5px" }}
                       >
                         <div className="partner-logo-arch">
                           <Image
@@ -325,7 +327,7 @@ export default function PartnersPage() {
                         </div>
                         <span
                           className="partner-card-label"
-                          style={{ fontSize: "10px", fontWeight: 800 }}
+                          style={{ fontSize: "10px", fontWeight: 800, lineHeight: 1.3 }}
                         >
                           COMMUNITY PARTNER
                         </span>
@@ -348,12 +350,24 @@ export default function PartnersPage() {
                             whiteSpace: "pre-line",
                             fontSize: "14px",
                             fontWeight: 600,
-                            lineHeight: 1.8,
+                            lineHeight: 1.6,
                           }}
                         >
-                          {"しるし株式会社様は、ブロックチェーンやWeb3分野などで事業を展開されています。\n\nすこやか食堂の活動に対し、毎月の継続的なご支援に加え、ご寄付もお寄せいただいており、地域の子どもたちや食堂を利用される皆さまを支えてくださっています。\n\n日頃からの温かいご支援に、心より感謝申し上げます。"}
+                          {"しるし株式会社様は、ブロックチェーンやWeb3分野などで事業を展開されています。\n\nすこやか食堂の活動に対し、毎月の継続的なご支援に加え、ご寄付もお寄せいただいており、地域の子どもたちや食堂を利用される皆さまを支えてくださっています。\n\n日頃からの温かいご支援に、心より感謝申し上げます。"
+                            .split("\n\n")
+                            .map((paragraph, index) => (
+                              <span
+                                key={paragraph}
+                                style={{
+                                  display: "block",
+                                  marginTop: index === 0 ? 0 : "8px",
+                                }}
+                              >
+                                {paragraph}
+                              </span>
+                            ))}
                         </p>
-                        <small style={{ fontSize: "11px", fontWeight: 800 }}>
+                        <small style={{ fontSize: "11px", fontWeight: 800, marginTop: "4px" }}>
                           すこやか食堂の協賛企業
                         </small>
                       </div>
@@ -363,10 +377,11 @@ export default function PartnersPage() {
                       style={{
                         flexDirection: "column",
                         alignItems: "flex-start",
-                        gap: "8px",
+                        gap: "5px",
+                        paddingBlock: "8px",
                       }}
                     >
-                      <strong style={{ fontSize: "12px", fontWeight: 700 }}>
+                      <strong style={{ fontSize: "12px", fontWeight: 700, lineHeight: 1.4 }}>
                         SHIRUSHI Inc.
                       </strong>
                       <div
@@ -374,7 +389,7 @@ export default function PartnersPage() {
                           display: "flex",
                           flexDirection: "column",
                           alignItems: "flex-start",
-                          gap: "8px",
+                          gap: "5px",
                           minWidth: 0,
                           flex: 1,
                         }}
@@ -383,7 +398,7 @@ export default function PartnersPage() {
                           href="https://shirushi.tokyo/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6, whiteSpace: "nowrap" }}
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.5, whiteSpace: "nowrap" }}
                         >
                           OFFICIAL WEBSITE
                         </a>
@@ -391,7 +406,7 @@ export default function PartnersPage() {
                           href="https://note.com/shirushi_web3"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6, whiteSpace: "nowrap" }}
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.5, whiteSpace: "nowrap" }}
                         >
                           https://note.com/shirushi_web3
                         </a>
@@ -399,7 +414,7 @@ export default function PartnersPage() {
                           href="https://shirushi.tokyo/blog/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6, whiteSpace: "nowrap" }}
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.5, whiteSpace: "nowrap" }}
                         >
                           https://shirushi.tokyo/blog/
                         </a>
