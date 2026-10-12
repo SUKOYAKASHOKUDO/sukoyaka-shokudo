@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { CorporateSponsorCarousel } from "../../components/CorporateSponsorCarousel";
 import { SiteFooter } from "../../components/SiteFooter";
@@ -301,9 +302,18 @@ export default function PartnersPage() {
                     <div className="partner-showcase-body">
                       <div className="partner-logo-column">
                         <div className="partner-logo-arch">
-                          <span>SHIRUSHI</span>
+                          <Image
+                            src="/images/sponsors/shirushi-logo.webp"
+                            alt="しるし株式会社のロゴ"
+                            fill
+                            sizes="96px"
+                            style={{ objectFit: "contain", padding: "12px" }}
+                          />
                         </div>
-                        <span className="partner-card-label">
+                        <span
+                          className="partner-card-label"
+                          style={{ fontSize: "10px", fontWeight: 800 }}
+                        >
                           COMMUNITY PARTNER
                         </span>
                       </div>
@@ -317,14 +327,26 @@ export default function PartnersPage() {
                           className="partner-showcase-rule"
                           aria-hidden="true"
                         />
-                        <p style={{ display: "block", whiteSpace: "pre-line" }}>
+                        <p
+                          style={{
+                            display: "block",
+                            whiteSpace: "pre-line",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: 1.8,
+                          }}
+                        >
                           {"しるし株式会社様は、ブロックチェーンやWeb3分野などで事業を展開されています。\n\nすこやか食堂の活動に対し、毎月の継続的なご支援に加え、ご寄付もお寄せいただいており、地域の子どもたちや食堂を利用される皆さまを支えてくださっています。\n\n日頃からの温かいご支援に、心より感謝申し上げます。"}
                         </p>
-                        <small>すこやか食堂の協賛企業</small>
+                        <small style={{ fontSize: "11px", fontWeight: 800 }}>
+                          すこやか食堂の協賛企業
+                        </small>
                       </div>
                     </div>
                     <footer className="partner-showcase-footer">
-                      <strong>SHIRUSHI Inc.</strong>
+                      <strong style={{ fontWeight: 700, flexShrink: 0 }}>
+                        SHIRUSHI Inc.
+                      </strong>
                       <div
                         style={{
                           display: "flex",
@@ -332,12 +354,14 @@ export default function PartnersPage() {
                           alignItems: "flex-start",
                           gap: "8px",
                           minWidth: 0,
+                          flex: 1,
                         }}
                       >
                         <a
                           href="https://shirushi.tokyo/"
                           target="_blank"
                           rel="noopener noreferrer"
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6 }}
                         >
                           OFFICIAL WEBSITE
                         </a>
@@ -345,15 +369,17 @@ export default function PartnersPage() {
                           href="https://note.com/shirushi_web3"
                           target="_blank"
                           rel="noopener noreferrer"
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6 }}
                         >
-                          公式note
+                          https://note.com/<wbr />shirushi_web3
                         </a>
                         <a
                           href="https://shirushi.tokyo/blog/"
                           target="_blank"
                           rel="noopener noreferrer"
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6 }}
                         >
-                          公式ブログ
+                          https://shirushi.tokyo/<wbr />blog/
                         </a>
                       </div>
                     </footer>
