@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { CorporateSponsorCarousel } from "../../components/CorporateSponsorCarousel";
-import { PartnerShowcaseCard } from "../../components/PartnerShowcaseCard";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { SponsorshipHashCleanup } from "../../components/SponsorshipHashCleanup";
@@ -296,13 +295,69 @@ export default function PartnersPage() {
               <>
                 <div
                   className="corporate-sponsor-preview"
-                  aria-label="スポンサー企業紹介カードの掲載イメージ"
+                  aria-label="しるし株式会社のスポンサー企業紹介"
                 >
-                  <PartnerShowcaseCard
-                    name="貴社名"
-                    summary="会社や事業の概要、地域への想い、ご支援についてのメッセージなどを、読みやすく簡潔にご紹介します。"
-                    preview
-                  />
+                  <article className="partner-showcase-card">
+                    <div className="partner-showcase-body">
+                      <div className="partner-logo-column">
+                        <div className="partner-logo-arch">
+                          <span>SHIRUSHI</span>
+                        </div>
+                        <span className="partner-card-label">
+                          COMMUNITY PARTNER
+                        </span>
+                      </div>
+                      <div className="partner-showcase-copy">
+                        <h2>
+                          <span style={{ whiteSpace: "nowrap" }}>しるし</span>
+                          <wbr />
+                          <span style={{ whiteSpace: "nowrap" }}>株式会社</span>
+                        </h2>
+                        <span
+                          className="partner-showcase-rule"
+                          aria-hidden="true"
+                        />
+                        <p style={{ display: "block", whiteSpace: "pre-line" }}>
+                          {"しるし株式会社様は、ブロックチェーンやWeb3分野などで事業を展開されています。\n\nすこやか食堂の活動に対し、毎月の継続的なご支援に加え、ご寄付もお寄せいただいており、地域の子どもたちや食堂を利用される皆さまを支えてくださっています。\n\n日頃からの温かいご支援に、心より感謝申し上げます。"}
+                        </p>
+                        <small>すこやか食堂の協賛企業</small>
+                      </div>
+                    </div>
+                    <footer className="partner-showcase-footer">
+                      <strong>SHIRUSHI Inc.</strong>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "8px",
+                          minWidth: 0,
+                        }}
+                      >
+                        <a
+                          href="https://shirushi.tokyo/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          OFFICIAL WEBSITE
+                        </a>
+                        <a
+                          href="https://note.com/shirushi_web3"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          公式note
+                        </a>
+                        <a
+                          href="https://shirushi.tokyo/blog/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          公式ブログ
+                        </a>
+                      </div>
+                    </footer>
+                  </article>
                 </div>
                 <article className="corporate-sponsor-recruitment">
                   <div>
