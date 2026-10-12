@@ -5,6 +5,7 @@ import { CorporateSponsorCarousel } from "../../components/CorporateSponsorCarou
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { SponsorshipHashCleanup } from "../../components/SponsorshipHashCleanup";
+import styles from "./shirushi-sponsor.module.css";
 import {
   getPublishedCorporateSponsors,
   site,
@@ -298,9 +299,21 @@ export default function PartnersPage() {
                   className="corporate-sponsor-preview"
                   aria-label="しるし株式会社のスポンサー企業紹介"
                 >
-                  <article className="partner-showcase-card">
-                    <div className="partner-showcase-body">
-                      <div className="partner-logo-column">
+                  <article
+                    className="partner-showcase-card"
+                    style={{ width: "min(100%, 44rem)" }}
+                  >
+                    <div
+                      className={`partner-showcase-body ${styles.body}`}
+                      style={{
+                        alignItems: "start",
+                        gridTemplateColumns: "96px minmax(0, 1fr)",
+                      }}
+                    >
+                      <div
+                        className="partner-logo-column"
+                        style={{ justifyContent: "flex-start" }}
+                      >
                         <div className="partner-logo-arch">
                           <Image
                             src="/images/sponsors/shirushi-logo.webp"
@@ -317,16 +330,18 @@ export default function PartnersPage() {
                           COMMUNITY PARTNER
                         </span>
                       </div>
-                      <div className="partner-showcase-copy">
-                        <h2>
-                          <span style={{ whiteSpace: "nowrap" }}>しるし</span>
-                          <wbr />
-                          <span style={{ whiteSpace: "nowrap" }}>株式会社</span>
-                        </h2>
-                        <span
-                          className="partner-showcase-rule"
-                          aria-hidden="true"
-                        />
+                      <div className={`partner-showcase-copy ${styles.copy}`}>
+                        <div className={styles.heading}>
+                          <h2>
+                            <span style={{ whiteSpace: "nowrap" }}>しるし</span>
+                            <wbr />
+                            <span style={{ whiteSpace: "nowrap" }}>株式会社</span>
+                          </h2>
+                          <span
+                            className="partner-showcase-rule"
+                            aria-hidden="true"
+                          />
+                        </div>
                         <p
                           style={{
                             display: "block",

@@ -1,0 +1,15 @@
+@media (max-width: 720px) {
+  .body .copy {
+    display: contents;
+  }
+
+  .body .heading {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .body .copy > p,
+  .body .copy > small {
+    grid-column: 1 / -1;
+  }
+}
