@@ -358,8 +358,15 @@ export default function PartnersPage() {
                         </small>
                       </div>
                     </div>
-                    <footer className="partner-showcase-footer">
-                      <strong style={{ fontWeight: 700, flexShrink: 0 }}>
+                    <footer
+                      className="partner-showcase-footer"
+                      style={{
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                      }}
+                    >
+                      <strong style={{ fontSize: "12px", fontWeight: 700 }}>
                         SHIRUSHI Inc.
                       </strong>
                       <div
@@ -376,7 +383,7 @@ export default function PartnersPage() {
                           href="https://shirushi.tokyo/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6 }}
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6, whiteSpace: "nowrap" }}
                         >
                           OFFICIAL WEBSITE
                         </a>
@@ -384,17 +391,17 @@ export default function PartnersPage() {
                           href="https://note.com/shirushi_web3"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6 }}
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6, whiteSpace: "nowrap" }}
                         >
-                          https://note.com/<wbr />shirushi_web3
+                          https://note.com/shirushi_web3
                         </a>
                         <a
                           href="https://shirushi.tokyo/blog/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6 }}
+                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.6, whiteSpace: "nowrap" }}
                         >
-                          https://shirushi.tokyo/<wbr />blog/
+                          https://shirushi.tokyo/blog/
                         </a>
                       </div>
                     </footer>
