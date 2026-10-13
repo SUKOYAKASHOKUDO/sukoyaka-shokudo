@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import type { ReactNode } from "react";
-import { PartnerShowcaseCard } from "../../components/PartnerShowcaseCard";
+import { SponsorshipCard } from "../../components/PartnerShowcaseCard";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { SponsorshipHashCleanup } from "../../components/SponsorshipHashCleanup";
@@ -295,136 +294,28 @@ export default function PartnersPage() {
                   className={`corporate-sponsor-preview ${styles.grid}`}
                   aria-label="すこやか食堂のスポンサー企業一覧"
                 >
-                  <article
-                    className="partner-showcase-card"
-                    style={{ width: "100%" }}
-                  >
-                    <div
-                      className={`partner-showcase-body ${styles.body}`}
-                      style={{
-                        alignItems: "start",
-                        gridTemplateColumns: "96px minmax(0, 1fr)",
-                        paddingBlock: "12px",
-                        rowGap: "8px",
-                      }}
-                    >
-                      <div
-                        className="partner-logo-column"
-                        style={{ justifyContent: "flex-start", gap: "5px" }}
-                      >
-                        <div className="partner-logo-arch">
-                          <Image
-                            src="/images/sponsors/shirushi-logo-original.png"
-                            alt="しるし株式会社のロゴ"
-                            fill
-                            sizes="96px"
-                            style={{ objectFit: "contain", padding: "12px" }}
-                          />
-                        </div>
-                        <span
-                          className="partner-card-label"
-                          style={{ fontSize: "10px", fontWeight: 800, lineHeight: 1.3 }}
-                        >
-                          COMMUNITY PARTNER
-                        </span>
-                      </div>
-                      <div className={`partner-showcase-copy ${styles.copy}`}>
-                        <div className={styles.heading}>
-                          <h2>
-                            <span style={{ whiteSpace: "nowrap" }}>しるし</span>
-                            <wbr />
-                            <span style={{ whiteSpace: "nowrap" }}>株式会社</span>
-                          </h2>
-                          <span
-                            className="partner-showcase-rule"
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <p
-                          style={{
-                            display: "block",
-                            whiteSpace: "pre-line",
-                            fontSize: "14px",
-                            fontWeight: 600,
-                            lineHeight: 1.6,
-                          }}
-                        >
-                          {"しるし株式会社様は、ブロックチェーンやWeb3分野などで事業を展開されています。\n\nすこやか食堂の活動に対し、毎月の継続的なご支援に加え、ご寄付もお寄せいただいており、地域の子どもたちや食堂を利用される皆さまを支えてくださっています。\n\n日頃からの温かいご支援に、心より感謝申し上げます。"
-                            .split("\n\n")
-                            .map((paragraph, index) => (
-                              <span
-                                key={paragraph}
-                                style={{
-                                  display: "block",
-                                  marginTop: index === 0 ? 0 : "8px",
-                                }}
-                              >
-                                {paragraph}
-                              </span>
-                            ))}
-                        </p>
-                        <small style={{ fontSize: "11px", fontWeight: 800, marginTop: "4px" }}>
-                          すこやか食堂の協賛企業
-                        </small>
-                      </div>
-                    </div>
-                    <footer
-                      className="partner-showcase-footer"
-                      style={{
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        gap: "5px",
-                        paddingBlock: "8px",
-                      }}
-                    >
-                      <strong style={{ fontSize: "12px", fontWeight: 700, lineHeight: 1.4 }}>
-                        SHIRUSHI Inc.
-                      </strong>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "5px",
-                          minWidth: 0,
-                          flex: 1,
-                        }}
-                      >
-                        <a
-                          href="https://shirushi.tokyo/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.5, whiteSpace: "nowrap" }}
-                        >
-                          OFFICIAL WEBSITE
-                        </a>
-                        <a
-                          href="https://note.com/shirushi_web3"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.5, whiteSpace: "nowrap" }}
-                        >
-                          https://note.com/shirushi_web3
-                        </a>
-                        <a
-                          href="https://shirushi.tokyo/blog/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.02em", lineHeight: 1.5, whiteSpace: "nowrap" }}
-                        >
-                          https://shirushi.tokyo/blog/
-                        </a>
-                      </div>
-                    </footer>
-                  </article>
+                  <SponsorshipCard
+                    name="しるし株式会社"
+                    summary={"しるし株式会社様は、ブロックチェーンやWeb3分野などで事業を展開されています。\n\nすこやか食堂の活動に対し、毎月の継続的なご支援に加え、ご寄付もお寄せいただいており、地域の子どもたちや食堂を利用される皆さまを支えてくださっています。\n\n日頃からの温かいご支援に、心より感謝申し上げます。"}
+                    logo="/images/sponsors/shirushi-logo-original.png"
+                    footerName="SHIRUSHI Inc."
+                    links={[
+                      { label: "OFFICIAL WEBSITE", url: "https://shirushi.tokyo/" },
+                      { label: "https://note.com/shirushi_web3", url: "https://note.com/shirushi_web3" },
+                      { label: "https://shirushi.tokyo/blog/", url: "https://shirushi.tokyo/blog/" },
+                    ]}
+                  />
                   {publishedSponsors.map((sponsor) => (
-                    <PartnerShowcaseCard
+                    <SponsorshipCard
                       key={sponsor.name}
                       name={sponsor.name}
-                      summary={`${sponsor.summary} ${sponsor.message}`}
-                      url={sponsor.officialUrl}
+                      summary={[sponsor.summary, sponsor.message].join("\n\n")}
                       logo={sponsor.logo}
                       supportLabel={sponsor.sponsorPeriod}
+                      links={[{
+                        label: sponsor.officialUrl.replace(/^https?:\/\//, "").replace(/\/$/, ""),
+                        url: sponsor.officialUrl,
+                      }]}
                     />
                   ))}
                 </div>
