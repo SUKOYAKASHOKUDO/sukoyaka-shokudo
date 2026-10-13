@@ -34,7 +34,7 @@ export function PartnerShowcaseCard({
                 sizes="(max-width: 720px) 58vw, 260px"
               />
             ) : (
-              <span>YOUR LOGO</span>
+              <span>ありがとう</span>
             )}
           </div>
           <span className="partner-card-label">COMMUNITY PARTNER</span>
