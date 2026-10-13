@@ -267,11 +267,11 @@ export const corporateSponsors: CorporateSponsor[] = [
     summary:
       "札幌市を中心に、賃貸管理・不動産管理や不動産の売買・賃貸仲介を手がける企業です。",
     message:
-      "すこやか食堂へ毎月10,000円の継続的なご寄付をいただいています。温かいご支援に心より感謝申し上げます。",
+      "すこやか食堂へ毎月継続してご寄付をいただいております。温かいご支援に心より感謝申し上げます。",
     logo: "",
     officialUrl: "https://www.s-owners.com/",
     sponsorSince: "",
-    sponsorPeriod: "毎月10,000円の継続寄付",
+    sponsorPeriod: "継続的なご寄付",
     status: "active",
     displayOrder: 1,
   },
