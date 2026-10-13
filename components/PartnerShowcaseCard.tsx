@@ -23,7 +23,6 @@ export function SponsorshipCard({
   name,
   summary,
   logo,
-  supportLabel = "すこやか食堂の協賛企業",
   footerName = name,
   links,
 }: SponsorshipCardProps) {
@@ -69,7 +68,6 @@ export function SponsorshipCard({
               <span key={paragraph}>{paragraph}</span>
             ))}
           </p>
-          <small>{supportLabel}</small>
         </div>
       </div>
       <footer className={`partner-showcase-footer ${styles.footer}`}>
