@@ -422,21 +422,22 @@ export default function PartnersPage() {
                     </footer>
                   </article>
                 </div>
-                <article className="corporate-sponsor-recruitment">
-                  <div>
-                    <span>SPONSOR WANTED</span>
-                    <h3>企業スポンサーを募集しています</h3>
-                    <p>
-                      すこやか食堂では、子どもたちのあたたかな食卓と、安心して過ごせる地域の居場所づくりを継続的に応援してくださる企業を募集しています。
-                    </p>
-                  </div>
-                  <a className="mashiro-button" href={sponsorMailto}>
-                    スポンサーについて相談する
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </article>
+
               </>
             )}
+            <article className="corporate-sponsor-recruitment">
+              <div>
+                <span>SPONSOR WANTED</span>
+                <h3>企業スポンサーを募集しています</h3>
+                <p>
+                  すこやか食堂では、子どもたちのあたたかな食卓と、安心して過ごせる地域の居場所づくりを継続的に応援してくださる企業を募集しています。
+                </p>
+              </div>
+              <a className="mashiro-button" href={sponsorMailto}>
+                スポンサーについて相談する
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
           </div>
         </section>
 
