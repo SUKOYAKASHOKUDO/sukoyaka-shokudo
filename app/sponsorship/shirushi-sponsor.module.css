@@ -48,7 +48,10 @@
 }
 
 .body .heading h2 {
-  min-height: 2.44em;
+  display: flex;
+  min-height: 96px;
+  flex-wrap: wrap;
+  align-content: center;
   text-wrap: wrap;
 }
 
@@ -120,5 +123,9 @@
 @media (max-width: 720px) {
   .grid.grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .body .heading h2 {
+    min-height: 90px;
   }
 }
