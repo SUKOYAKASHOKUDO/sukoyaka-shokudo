@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { CorporateSponsorCarousel } from "../../components/CorporateSponsorCarousel";
+import { PartnerShowcaseCard } from "../../components/PartnerShowcaseCard";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { SponsorshipHashCleanup } from "../../components/SponsorshipHashCleanup";
@@ -291,13 +291,9 @@ export default function PartnersPage() {
               title="すこやか食堂のスポンサー企業"
               description="すこやか食堂の活動を継続的に応援してくださるスポンサー企業をご紹介します。"
             />
-            {publishedSponsors.length > 0 ? (
-              <CorporateSponsorCarousel sponsors={publishedSponsors} />
-            ) : (
-              <>
                 <div
                   className={`corporate-sponsor-preview ${styles.grid}`}
-                  aria-label="しるし株式会社のスポンサー企業紹介"
+                  aria-label="すこやか食堂のスポンサー企業一覧"
                 >
                   <article
                     className="partner-showcase-card"
@@ -421,10 +417,17 @@ export default function PartnersPage() {
                       </div>
                     </footer>
                   </article>
+                  {publishedSponsors.map((sponsor) => (
+                    <PartnerShowcaseCard
+                      key={sponsor.name}
+                      name={sponsor.name}
+                      summary={`${sponsor.summary} ${sponsor.message}`}
+                      url={sponsor.officialUrl}
+                      logo={sponsor.logo}
+                      supportLabel={sponsor.sponsorPeriod}
+                    />
+                  ))}
                 </div>
-
-              </>
-            )}
             <article className="corporate-sponsor-recruitment">
               <div>
                 <span>SPONSOR WANTED</span>
