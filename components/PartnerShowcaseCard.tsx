@@ -77,7 +77,7 @@ export function SponsorshipCard({
         <div className={styles.links}>
           {links.map((link) => (
             <a
-              key={link.url}
+              key={`${link.url}-${link.label}`}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"

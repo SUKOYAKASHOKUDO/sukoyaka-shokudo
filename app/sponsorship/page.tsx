@@ -313,7 +313,10 @@ export default function PartnersPage() {
                       logo={sponsor.logo}
                       logoPadding={0}
                       supportLabel={sponsor.sponsorPeriod}
-                      links={[{
+                      links={[...(sponsor.name === "札幌オーナーズ株式会社" ? [{
+                        label: "OFFICIAL WEBSITE",
+                        url: sponsor.officialUrl,
+                      }] : []), {
                         label: sponsor.officialUrl,
                         url: sponsor.officialUrl,
                       }]}

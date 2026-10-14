@@ -265,7 +265,7 @@ export const corporateSponsors: CorporateSponsor[] = [
   {
     name: "札幌オーナーズ株式会社",
     summary:
-      "札幌市を中心に、賃貸管理・不動産管理や不動産の売買・賃貸仲介を手がける企業です。",
+      "札幌市を中心に、賃貸管理・不動産管理や不動産の売買・賃貸仲介を手がける企業様です。",
     message:
       "すこやか食堂へ毎月継続してご寄付をいただいております。温かいご支援に心より感謝申し上げます。地域の子どもたちの笑顔と、安心できる居場所づくりを支えてくださっています。",
     logo: "/images/sponsors/sapporo-owners-logo.png",
