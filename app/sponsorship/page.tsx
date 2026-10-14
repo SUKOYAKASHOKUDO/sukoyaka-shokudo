@@ -311,9 +311,10 @@ export default function PartnersPage() {
                       name={sponsor.name}
                       summary={[sponsor.summary, sponsor.message].join("\n\n")}
                       logo={sponsor.logo}
+                      logoPadding={0}
                       supportLabel={sponsor.sponsorPeriod}
                       links={[{
-                        label: sponsor.officialUrl.replace(/^https?:\/\//, "").replace(/\/$/, ""),
+                        label: sponsor.officialUrl,
                         url: sponsor.officialUrl,
                       }]}
                     />

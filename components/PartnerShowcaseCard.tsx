@@ -16,6 +16,7 @@ function displayUrl(url: string) {
 
 type SponsorshipCardProps = Omit<PartnerShowcaseCardProps, "url" | "preview"> & {
   footerName?: string;
+  logoPadding?: number;
   links: { label: string; url: string }[];
 };
 
@@ -23,6 +24,7 @@ export function SponsorshipCard({
   name,
   summary,
   logo,
+  logoPadding = 12,
   footerName = name,
   links,
 }: SponsorshipCardProps) {
@@ -41,7 +43,7 @@ export function SponsorshipCard({
                 alt={`${name}のロゴ`}
                 fill
                 sizes="96px"
-                style={{ objectFit: "contain", padding: "12px" }}
+                style={{ objectFit: "contain", padding: logoPadding }}
               />
             ) : (
               <span>ありがとう</span>
