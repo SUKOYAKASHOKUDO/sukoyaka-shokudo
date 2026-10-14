@@ -45,7 +45,6 @@ export default async function NewsArticlePage({ params }: NewsPageProps) {
             <nav className={styles.breadcrumb} aria-label="パンくずリスト"><Link href="/">ホーム</Link><Link href="/news">お知らせ</Link></nav>
             <div className={styles.meta}><span>{post.category}</span><time dateTime={post.publishedAt}>{formatNewsDate(post.publishedAt)}</time></div>
             <h1>{post.title}</h1>
-            {post.author && <p className={styles.author}>著者：{post.author}</p>}
           </header>
           <div className={styles.body}>
             {paragraphs.map((paragraph, index) => (
