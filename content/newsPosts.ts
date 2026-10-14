@@ -40,6 +40,11 @@ export const newsPosts: NewsPost[] = [
         "afterParagraph": 1
       },
       {
+        "src": "/images/news/aka-to-ao-book.jpg",
+        "alt": "絵本『アカとアオ』の表紙",
+        "afterParagraph": 1
+      },
+      {
         "src": "/images/news/aka-to-ao-reading.jpg",
         "alt": "テーブルで絵本を開いて読み聞かせをしている様子",
         "afterParagraph": 4

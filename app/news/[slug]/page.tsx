@@ -35,6 +35,18 @@ export default async function NewsArticlePage({ params }: NewsPageProps) {
   const post = getPublishedNewsPosts().find((item) => item.slug === slug);
   if (!post) notFound();
   const paragraphs = post.body.split("\n\n").filter((paragraph) => !paragraph.startsWith("# "));
+  const renderPhotos = (index: number) => {
+    const photos = post.additionalImages.filter((photo) => photo.afterParagraph === index);
+    const figures = photos.map((photo) => (
+      <figure key={photo.src} className={styles.figure}>
+        <div className={styles.photoFrame}>
+          <Image src={photo.src} alt={photo.alt} fill unoptimized
+            sizes={photos.length > 1 ? "(max-width: 560px) calc((100vw - 48px) / 2), (max-width: 840px) calc((100vw - 60px) / 2), 390px" : "(max-width: 560px) calc(100vw - 28px), 520px"} />
+        </div>
+      </figure>
+    ));
+    return photos.length > 1 ? <div className={styles.photoPair}>{figures}</div> : figures;
+  };
   return (
     <>
       <a className="skip-link" href="#main">本文へ移動</a>
@@ -63,14 +75,7 @@ export default async function NewsArticlePage({ params }: NewsPageProps) {
                       ? <Fragment key={partIndex}>からのご紹介で、<br className={styles.desktopReferralBreak} /></Fragment>
                     : part
                 )) : paragraph}</p>
-                {post.additionalImages.filter((photo) => photo.afterParagraph === index).map((photo) => (
-                  <figure key={photo.src} className={styles.figure}>
-                    <div className={styles.photoFrame}>
-                      <Image src={photo.src} alt={photo.alt} fill unoptimized
-                        sizes="(max-width: 560px) calc(100vw - 28px), 520px" />
-                    </div>
-                  </figure>
-                ))}
+                {renderPhotos(index)}
               </Fragment>
             ))}
           </div>
