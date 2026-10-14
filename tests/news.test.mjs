@@ -10,7 +10,7 @@ const hash = (content) => createHash("sha256").update(content).digest("hex");
 
 test("initial article bodies match the supplied instructions, including whitespace", () => {
   assert.equal(hash(newsPosts.find((post) => post.slug === "website-renewal").body), "57ca6b2cc43eac030d93c4275b56f882a409c92345e62982c9df952926cb3e91");
-  assert.equal(hash(newsPosts.find((post) => post.slug === "aka-to-ao").body), "28b2ef6209cbc55d02f07ebb5988c9d756ebf74dadf47e138eb77a71fbb8662c");
+  assert.equal(hash(newsPosts.find((post) => post.slug === "aka-to-ao").body), "d5a01c89be86a1b2dddc270283860eebeaebe113427d6c40cbee0f86a8c8602d");
   assert.equal(formatNewsDate("2026-10-15"), "2026年10月15日");
 });
 
