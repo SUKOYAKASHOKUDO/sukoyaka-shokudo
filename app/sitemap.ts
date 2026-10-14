@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { columns, recipes, site } from "../content/siteContent";
+import { getPublishedNewsPosts } from "../content/newsPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publishedColumns = columns.filter(
@@ -52,6 +53,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...publishedColumns.map((column) => ({
       url: `${site.url}/columns/${column.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    {
+      url: `${site.url}/news`,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...getPublishedNewsPosts().map((post) => ({
+      url: `${site.url}/news/${post.slug}`,
+      lastModified: post.publishedAt,
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),

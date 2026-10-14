@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HomeNews } from "../components/HomeNews";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import { StorybookHero } from "../components/StorybookHero";
@@ -148,6 +149,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <HomeNews />
 
         <section className="mashiro-section mashiro-faq-section">
           <div className="shell mashiro-faq-grid">
