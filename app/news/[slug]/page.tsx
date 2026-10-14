@@ -49,7 +49,7 @@ export default async function NewsArticlePage({ params }: NewsPageProps) {
           <div className={styles.body}>
             {paragraphs.map((paragraph, index) => (
               <Fragment key={index}>
-                <p>{/^https:\/\//.test(paragraph) ? (
+                <p className={post.slug === "aka-to-ao" && paragraph === "ご紹介くださった山和さん、絵本をお送りくださった出石さん、ありがとうございました。" ? styles.mobileThanksParagraph : undefined}>{/^https:\/\//.test(paragraph) ? (
                   <a href={paragraph} target="_blank" rel="noopener noreferrer">{paragraph}</a>
                 ) : paragraph.startsWith("**") ? paragraph.split("\n").map((line, lineIndex) => (
                   <Fragment key={lineIndex}>{lineIndex > 0 && <br />}<strong>{line.replace(/\*\*/g, "").trimEnd()}</strong></Fragment>
