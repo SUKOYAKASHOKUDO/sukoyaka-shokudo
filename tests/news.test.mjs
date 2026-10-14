@@ -9,8 +9,8 @@ import { paginateNews, NEWS_PER_PAGE } from "../lib/newsPagination.ts";
 const hash = (content) => createHash("sha256").update(content).digest("hex");
 
 test("initial article bodies match the supplied instructions, including whitespace", () => {
-  assert.equal(hash(newsPosts.find((post) => post.slug === "website-renewal").body), "bce2ff2f504ea30cbf59c9a26b67365107098e613778d6b05ed7482ebb516ed0");
-  assert.equal(hash(newsPosts.find((post) => post.slug === "aka-to-ao").body), "5de0311a92db5e5a103e5f84e14b9174b3c1f52f58adaecbdfb2ae7e48c3334a");
+  assert.equal(hash(newsPosts.find((post) => post.slug === "website-renewal").body), "33d83d4c68a9cf152e66094cab646841ccaddd2e9c5c9feab0e472a317d22d13");
+  assert.equal(hash(newsPosts.find((post) => post.slug === "aka-to-ao").body), "28b2ef6209cbc55d02f07ebb5988c9d756ebf74dadf47e138eb77a71fbb8662c");
   assert.equal(formatNewsDate("2026-10-15"), "2026年10月15日");
 });
 

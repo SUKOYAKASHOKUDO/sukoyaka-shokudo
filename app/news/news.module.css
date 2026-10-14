@@ -52,7 +52,7 @@
 .body { color: #315f5a; font-size: 17px; line-height: 1.9; overflow-wrap: anywhere; }
 .body > p { margin: 0 0 24px; white-space: pre-line; }
 .body a { color: #315f5a; text-underline-offset: 4px; }
-.body .xProfileLink { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; font-size: 16px; font-weight: 700; text-decoration: underline; }
+.body .xProfileLink { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; font-size: 16px; font-weight: 700; text-decoration: underline; vertical-align: middle; }
 .xProfileLogo { flex: 0 0 auto; object-fit: contain; }
 .xProfileLink span { min-width: 0; }
 .figure { width: min(520px, 100%); margin: 28px auto 36px; }

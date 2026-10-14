@@ -53,19 +53,14 @@ export default async function NewsArticlePage({ params }: NewsPageProps) {
                   <a href={paragraph} target="_blank" rel="noopener noreferrer">{paragraph}</a>
                 ) : paragraph.startsWith("**") ? paragraph.split("\n").map((line, lineIndex) => (
                   <Fragment key={lineIndex}>{lineIndex > 0 && <br />}<strong>{line.replace(/\*\*/g, "").trimEnd()}</strong></Fragment>
-                )) : post.slug === "aka-to-ao" ? paragraph.split(/(@yama7713)/).map((part, partIndex) => (
-                  part === "@yama7713"
-                    ? <a key={partIndex} href="https://x.com/yama7713" target="_blank" rel="noopener noreferrer">{part}</a>
+                )) : post.slug === "aka-to-ao" ? paragraph.split(/(Xhttps:\/\/x\.com\/yama7713)/).map((part, partIndex) => (
+                  part === "Xhttps://x.com/yama7713"
+                    ? <a key={partIndex} className={styles.xProfileLink} href="https://x.com/yama7713" target="_blank" rel="noopener noreferrer">
+                        <Image className={styles.xProfileLogo} src="/images/news/x-logo.png" alt="X" width={24} height={25} unoptimized />
+                        <span>https://x.com/yama7713</span>
+                      </a>
                     : part
                 )) : paragraph}</p>
-                {post.slug === "aka-to-ao" && paragraph.includes("@yama7713") && (
-                  <p>
-                    <a className={styles.xProfileLink} href="https://x.com/yama7713" target="_blank" rel="noopener noreferrer">
-                      <Image className={styles.xProfileLogo} src="/images/news/x-logo.png" alt="X" width={24} height={25} unoptimized />
-                      <span>https://x.com/yama7713</span>
-                    </a>
-                  </p>
-                )}
                 {post.additionalImages.filter((photo) => photo.afterParagraph === index).map((photo) => (
                   <figure key={photo.src} className={styles.figure}>
                     <div className={styles.photoFrame}>
