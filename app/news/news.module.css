@@ -55,6 +55,7 @@
 .body .xProfileLink { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; font-size: 16px; font-weight: 700; text-decoration: underline; vertical-align: middle; }
 .xProfileLogo { flex: 0 0 auto; object-fit: contain; }
 .xProfileLink span { min-width: 0; }
+.mobileProfileBreak { display: none; }
 .figure { width: min(520px, 100%); margin: 28px auto 36px; }
 .photoFrame { position: relative; width: 100%; aspect-ratio: 3 / 4; border: 2px solid #e2eeea; border-radius: 20px; background: #f4f7f2; overflow: hidden; }
 .photoFrame img { object-fit: contain; }
@@ -72,6 +73,8 @@
   .listing { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 560px) {
+  .mobileProfileBreak { display: initial; }
+  .desktopReferralBreak { display: none; }
   .track { --news-page-size: 1; --news-card-width: calc(100% - 28px); }
   .listing { grid-template-columns: minmax(0, 1fr); }
   .body { font-size: 16px; }

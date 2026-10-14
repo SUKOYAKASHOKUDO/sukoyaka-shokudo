@@ -53,12 +53,14 @@ export default async function NewsArticlePage({ params }: NewsPageProps) {
                   <a href={paragraph} target="_blank" rel="noopener noreferrer">{paragraph}</a>
                 ) : paragraph.startsWith("**") ? paragraph.split("\n").map((line, lineIndex) => (
                   <Fragment key={lineIndex}>{lineIndex > 0 && <br />}<strong>{line.replace(/\*\*/g, "").trimEnd()}</strong></Fragment>
-                )) : post.slug === "aka-to-ao" ? paragraph.split(/(Xhttps:\/\/x\.com\/yama7713)/).map((part, partIndex) => (
-                  part === "Xhttps://x.com/yama7713"
-                    ? <a key={partIndex} className={styles.xProfileLink} href="https://x.com/yama7713" target="_blank" rel="noopener noreferrer">
+                )) : post.slug === "aka-to-ao" ? paragraph.split(/(（Xhttps:\/\/x\.com\/yama7713）|からのご紹介で、\n)/).map((part, partIndex) => (
+                  part === "（Xhttps://x.com/yama7713）"
+                    ? <Fragment key={partIndex}><br className={styles.mobileProfileBreak} />（<a className={styles.xProfileLink} href="https://x.com/yama7713" target="_blank" rel="noopener noreferrer">
                         <Image className={styles.xProfileLogo} src="/images/news/x-logo.png" alt="X" width={24} height={25} unoptimized />
                         <span>https://x.com/yama7713</span>
-                      </a>
+                      </a>）</Fragment>
+                    : part === "からのご紹介で、\n"
+                      ? <Fragment key={partIndex}>からのご紹介で、<br className={styles.desktopReferralBreak} /></Fragment>
                     : part
                 )) : paragraph}</p>
                 {post.additionalImages.filter((photo) => photo.afterParagraph === index).map((photo) => (
