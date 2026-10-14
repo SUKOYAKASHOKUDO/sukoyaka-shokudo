@@ -76,6 +76,7 @@
   .listing { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 560px) {
+  .mobileProfileBreak { display: initial; }
   .desktopReferralBreak { display: none; }
   .track { --news-page-size: 1; --news-card-width: calc(100% - 28px); }
   .listing { grid-template-columns: minmax(0, 1fr); }
