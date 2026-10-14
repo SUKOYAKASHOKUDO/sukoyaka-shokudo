@@ -58,6 +58,14 @@ export default async function NewsArticlePage({ params }: NewsPageProps) {
                     ? <a key={partIndex} href="https://x.com/yama7713" target="_blank" rel="noopener noreferrer">{part}</a>
                     : part
                 )) : paragraph}</p>
+                {post.slug === "aka-to-ao" && paragraph.includes("@yama7713") && (
+                  <p>
+                    <a className={styles.xProfileLink} href="https://x.com/yama7713" target="_blank" rel="noopener noreferrer">
+                      <Image className={styles.xProfileLogo} src="/images/news/x-logo.png" alt="X" width={24} height={25} unoptimized />
+                      <span>https://x.com/yama7713</span>
+                    </a>
+                  </p>
+                )}
                 {post.additionalImages.filter((photo) => photo.afterParagraph === index).map((photo) => (
                   <figure key={photo.src} className={styles.figure}>
                     <div className={styles.photoFrame}>
