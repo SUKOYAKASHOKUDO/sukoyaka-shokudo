@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-news-images.mjs",
     "build": "next build",
+    "postbuild": "node scripts/check-news-images.mjs --built",
+    "verify:news-images": "node scripts/check-news-images.mjs",
+    "diagnose:news-images": "node scripts/diagnose-news-images.mjs",
     "typecheck": "tsc --noEmit",
     "start": "next start"
   },
