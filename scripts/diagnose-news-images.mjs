@@ -41,20 +41,22 @@ try {
         const headers = { "accept-encoding": "identity", ...profiles[profile] };
         const record = { url: url.href, profile, round, requestedAt: new Date().toISOString(), requestHeaders: headers };
         records.push(record);
+        const chunks = [];
+        let data;
+        let received = 0;
         try {
           const response = await fetch(url, { headers, signal: AbortSignal.timeout(30000) });
           record.status = response.status;
           record.responseUrl = response.url;
           record.responseHeaders = Object.fromEntries(response.headers);
-          const chunks = [];
-          let received = 0;
           const bodyStarted = Date.now();
           for await (const chunk of response.body) {
             chunks.push(chunk);
             received += chunk.length;
+            assert.ok(received <= entry.bytes + 1024 * 1024, "response exceeds the diagnostic size limit");
             if (slowKbps) await delay(Math.max(0, received / (slowKbps * 1024) * 1000 - (Date.now() - bodyStarted)));
           }
-          const data = Buffer.concat(chunks);
+          data = Buffer.concat(chunks);
           record.receivedBytes = data.length;
           record.sha256 = sha256(data);
           assert.equal(response.status, 200, "unexpected HTTP status");
@@ -67,6 +69,13 @@ try {
         } catch (error) {
           record.ok = false;
           record.error = error.message;
+          data ??= Buffer.concat(chunks);
+          record.receivedBytes = data.length;
+          record.sha256 = sha256(data);
+          if (data.length) {
+            record.responseBodyFile = `failure-${path.basename(entry.path)}-${profile}-${round}.bin`;
+            await writeFile(path.join(output, record.responseBodyFile), data);
+          }
           throw error; // Stop on the first failure, rather than repeatedly hammering a failing endpoint.
         } finally {
           await save();

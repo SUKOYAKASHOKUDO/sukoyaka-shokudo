@@ -34,7 +34,7 @@ npm run build
 npm run diagnose:news-images -- --base-url=https://www.sukoyaka-shokudo.com --rounds=30 --output-dir=../sukoyaka-image-check
 ```
 
-5画像×4条件×30回の最大600要求。各応答の実URL、時刻、ステータス、全ヘッダー、受信バイト数、SHA-256、全画素ハッシュを `http-report.json` に記録する。Content-Length、MIME、デコード、原本との一致を検証し、最初の失敗で停止する。自動リトライやキャッシュ削除は行わない。1回だけの確認は `--rounds=1` とする。
+5画像×4条件×30回の最大600要求。各応答の実URL、時刻、ステータス、全ヘッダー、受信バイト数、SHA-256、全画素ハッシュを `http-report.json` に記録する。Content-Length、MIME、デコード、原本との一致を検証し、最初の失敗で停止する。失敗時は受信済みの本文も `.bin` として保存する。想定サイズを1MiB以上超える応答は読み取りを停止する。自動リトライやキャッシュ削除は行わない。1回だけの確認は `--rounds=1` とする。
 
 - `normal`: 通常のHTTP GET。
 - `revalidate`: `Cache-Control: no-cache` / `Pragma: no-cache` を要求。ブラウザの強制再読み込みやCDNキャッシュ削除ではない。
