@@ -4,6 +4,7 @@ export type NewsPost = {
   category: string;
   summary: string;
   publishedAt: string;
+  pinned?: boolean;
   author?: string;
   coverImage?: string;
   coverImageAlt?: string;
@@ -15,12 +16,23 @@ export type NewsPost = {
 export const newsPosts: NewsPost[] = [
   {
     "slug": "website-renewal",
+    "pinned": true,
     "title": "すこやか食堂のホームページを新しく公開しました。",
     "category": "お知らせ",
     "summary": "すこやか食堂のホームページを新しく公開しました。日々の活動や温かいご支援をお伝えしていきます。",
     "publishedAt": "2026-10-15",
     "author": "林 祐樹",
     "body": "最近、すこやか食堂のホームページを新しく公開しました。\n\nこんにちは。すこやか食堂の活動を、裏方からお手伝いしている林 祐樹です。\n\n普段は主にホームページの制作などを担当しており、表に出ることはほぼありません。\n\n私自身に子どもはいませんが、子どもたちが安心して過ごし、地域の人々と自然につながれる居場所をつくりたいという代表の思いに共感し、私も微力ながら活動に携わっています。\n\nこのホームページを通じて、食堂の日々の様子や、地域の皆さまからいただいた温かいご支援、ちょっとした出来事などもお伝えしていければと思っています。\n\nこれからも、表には見えないところから、すこやか食堂を支えていければと思っています。\n\nどうぞよろしくお願いいたします。\n\n**すこやか食堂 ボランティア**  \n**林 祐樹**",
+    "additionalImages": [],
+    "status": "published"
+  },
+  {
+    "slug": "sapporo-kaisei-interview",
+    "title": "市立札幌開成中等教育学校の皆さんが取材に来てくださいました。",
+    "category": "活動報告",
+    "summary": "市立札幌開成中等教育学校の生徒の皆さんが、探究学習の一環としてインタビューにお越しくださいました。",
+    "publishedAt": "2026-10-15",
+    "body": "10月15日、市立札幌開成中等教育学校の生徒の皆さんが、探究学習の一環として、すこやか食堂へインタビューにお越しくださいました。\n\n今回の訪問は、子ども食堂が抱える課題や地域社会での役割について調査・研究する活動の一環として行われたものです。\n\n当日は、実際にすこやか食堂を開催している時間帯にお越しいただき、食堂の活動内容や運営の仕組み、子ども食堂の役割などについてお話しする機会となりました。\n\n地域の子ども食堂に関心を持ち、自ら調べ、学ぼうとする皆さんの姿勢は、私たちにとっても大変うれしいものでした。\n\n今回のインタビューが、皆さんの学びや今後の研究活動に少しでもお役に立てれば幸いです。\n\n市立札幌開成中等教育学校の皆さん、このたびはすこやか食堂へお越しいただき、誠にありがとうございました。\n\nすこやか食堂は、これからも地域の皆さんとの交流やつながりを大切にしながら、活動を続けてまいります。",
     "additionalImages": [],
     "status": "published"
   },
@@ -56,5 +68,6 @@ export const newsPosts: NewsPost[] = [
 
 export function getPublishedNewsPosts(posts: readonly NewsPost[] = newsPosts): NewsPost[] {
   return posts.filter((post) => post.status === "published")
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+    .sort((a, b) => Number(Boolean(b.pinned)) - Number(Boolean(a.pinned))
+      || b.publishedAt.localeCompare(a.publishedAt));
 }

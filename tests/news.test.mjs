@@ -21,12 +21,36 @@ test("both supplied photos are kept byte-for-byte", () => {
 
 test("drafts are excluded and later publications come first without mutating source data", () => {
   const posts = [
-    { ...newsPosts[0], slug: "old", publishedAt: "2026-01-01" },
+    { ...newsPosts[0], slug: "old", pinned: false, publishedAt: "2026-01-01" },
     { ...newsPosts[0], slug: "draft", status: "draft", publishedAt: "2026-12-01" },
     { ...newsPosts[1], slug: "new", publishedAt: "2026-10-15" },
   ];
   assert.deepEqual(getPublishedNewsPosts(posts).map((post) => post.slug), ["new", "old"]);
   assert.deepEqual(posts.map((post) => post.slug), ["old", "draft", "new"]);
+});
+
+test("the website announcement stays pinned ahead of future articles and other articles keep their order", () => {
+  const announcement = newsPosts.find((post) => post.slug === "website-renewal");
+  const book = newsPosts.find((post) => post.slug === "aka-to-ao");
+  const posts = [
+    { ...book, slug: "future", publishedAt: "2027-01-01" },
+    { ...book, slug: "same-day-first" },
+    { ...announcement, slug: "draft-pinned", status: "draft" },
+    announcement,
+    { ...book, slug: "same-day-second" },
+    { ...book, slug: "older", publishedAt: "2026-01-01" },
+  ];
+  const originalOrder = posts.map((post) => post.slug);
+  assert.equal(announcement.pinned, true);
+  assert.deepEqual(getPublishedNewsPosts(posts).map((post) => post.slug), [
+    "website-renewal", "future", "same-day-first", "same-day-second", "older",
+  ]);
+  assert.deepEqual(posts.map((post) => post.slug), originalOrder);
+  const publishedSlugs = getPublishedNewsPosts().map((post) => post.slug);
+  assert.equal(publishedSlugs[0], "website-renewal");
+  assert.ok(publishedSlugs.indexOf("sapporo-kaisei-interview") > 0);
+  assert.ok(publishedSlugs.indexOf("sapporo-kaisei-interview") < publishedSlugs.indexOf("aka-to-ao"));
+  assert.equal(publishedSlugs.filter((slug) => slug === "website-renewal").length, 1);
 });
 
 test("fifty articles can be traversed without omission or repetition; invalid pages remain safe", () => {
