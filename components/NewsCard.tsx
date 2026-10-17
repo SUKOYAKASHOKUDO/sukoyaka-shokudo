@@ -3,11 +3,8 @@ import Link from "next/link";
 import type { NewsPost } from "../content/newsPosts";
 import { formatNewsDate } from "../lib/newsFormatting";
 import styles from "../app/news/news.module.css";
-import { HomeNewsImage } from "./HomeNewsImage";
 
-export type NewsCardPost = Pick<NewsPost, "slug" | "title" | "category" | "summary" | "publishedAt" | "coverImage" | "coverImageAlt"> & {
-  homeThumbnail?: { src: string; width: number; height: number };
-};
+export type NewsCardPost = Pick<NewsPost, "slug" | "title" | "category" | "summary" | "publishedAt" | "coverImage" | "coverImageAlt">;
 
 export function NewsCard({ post, headingLevel = 3 }: {
   post: NewsCardPost;
@@ -18,9 +15,7 @@ export function NewsCard({ post, headingLevel = 3 }: {
     <article className={styles.card}>
       <Link className={styles.cardLink} href={`/news/${post.slug}`}>
         <div className={styles.cover}>
-          {post.homeThumbnail ? (
-            <HomeNewsImage key={post.homeThumbnail.src} {...post.homeThumbnail} alt={post.coverImageAlt ?? ""} />
-          ) : post.coverImage ? (
+          {post.coverImage ? (
             <Image src={post.coverImage} alt={post.coverImageAlt ?? ""}
               fill unoptimized sizes="(max-width: 560px) 85vw, 280px" />
           ) : (
