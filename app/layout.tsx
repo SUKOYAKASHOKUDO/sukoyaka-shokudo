@@ -96,13 +96,13 @@ export default function RootLayout({
     <html lang="ja" data-scroll-behavior="smooth">
       <head>
         <script dangerouslySetInnerHTML={{ __html: `if(location.pathname !== "/"){${mobileHeaderDiagnostics}}` }} />
-        {process.env.VERCEL_ENV !== "production" && <script dangerouslySetInnerHTML={{ __html: homeFlowDiagnostics }} />}
         <script
           dangerouslySetInnerHTML={{
             __html:
               'if ("scrollRestoration" in history) history.scrollRestoration = location.pathname === "/" ? "auto" : "manual";',
           }}
         />
+        {process.env.VERCEL_ENV !== "production" && <script dangerouslySetInnerHTML={{ __html: homeFlowDiagnostics }} />}
         <link
           rel="preload"
           as="image"

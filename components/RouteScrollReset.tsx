@@ -15,7 +15,8 @@ export function RouteScrollReset() {
     // The rebuilt homepage uses a normal document and native restoration.
     // Keep the existing route reset only for the unchanged interior pages.
     if (pathname === "/") {
-      history.scrollRestoration = "auto";
+      history.scrollRestoration = process.env.VERCEL_ENV !== "production"
+        && window.__sukoyakaHomeFlow?.experiment === "manual" ? "manual" : "auto";
       return;
     }
     history.scrollRestoration = "manual";
