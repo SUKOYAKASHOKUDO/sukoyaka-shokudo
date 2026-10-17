@@ -1,0 +1,70 @@
+/* Only HomeHeader/HomeHero import this sheet; lower sections use home.module.css. */
+.header, .heroSurface { width: min(100%,1672px); margin-inline: auto; }
+.header, .hero { background: #cbeef2; }
+.headerSurface { display: grid; }
+.headerArtwork, .headerContent { grid-area: 1 / 1; min-width: 0; min-height: 0; }
+.headerArtwork { pointer-events: none; padding-top: calc(12.891344% - 1px); background: url("/images/home-rebuild/header-desktop.png") left top / 100% auto no-repeat; }
+.mobileArtwork, .mobileBrand { display: none; }
+.headerContent { display: grid; grid-template-columns: 3fr 34fr 8.8fr 37.5fr 16.7fr; grid-template-rows: 8.2fr 28.3fr 36.5fr 6.2fr 20.8fr; }
+.brandLink { grid-area: 2 / 2 / 5 / 3; min-width: 0; }
+.mainNav { grid-area: 3 / 4; display: grid; grid-template-columns: 25% 44% 31%; min-width: 0; align-self: start; margin-top: .365px; height: calc(100% + .365px); }
+.mainNav a { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; color: #075666; font-weight: 700; border-radius: 12px; }
+.mainNav a > svg { position: absolute; inset-block: 0; left: 10%; width: min(2.025vw,33.858px); height: min(2.025vw,33.858px); margin-block: auto; }
+.mainNav a:nth-child(2) > svg { left: 9%; width: min(2.7vw,45.144px); height: min(2.7vw,45.144px); }
+.mainNav a:last-child > svg { left: 7%; }
+.mainNav a > span { position: absolute; inset-block: 0; left: 28%; display: flex; align-items: center; white-space: nowrap; font-size: clamp(10px,1.18125vw,19.7505px); letter-spacing: .015em; line-height: 1; }
+.mainNav a:first-child > span { left: 34%; }
+.mainNav a:last-child > span { left: 29%; }
+.mainNav a + a::before { content: ""; position: absolute; inset-block: 0; left: 0; width: 1px; height: min(1.425vw,23.826px); margin-block: auto; background: rgba(7,86,102,.28); }
+.mainNav svg { stroke-linecap: round; stroke-linejoin: round; }
+.mainNav [data-icon="home"] { fill: #f58f87; stroke: rgba(255,255,255,.9); stroke-width: 2; }
+.mainNav [data-icon="about"] { fill: #087f91; stroke: #087f91; stroke-width: 2.5; }
+.mainNav [data-heart] { fill: rgba(255,255,255,.76); stroke: #f48f87; stroke-width: 4; }
+.mainNav [data-icon="mail"] { fill: #f5c654; stroke: #fff; stroke-width: 3; }
+.mainNav a:focus-visible, .brandLink:focus-visible { outline: 3px solid rgba(7,120,138,.65); outline-offset: 2px; }
+.auxToggle, .auxNav { display: none; }
+
+.heroSurface { aspect-ratio: 1672 / 785.735; background: #fdfbf5; }
+.sceneFrame { display: grid; }
+.scene, .sceneFrame::after { grid-area: 1 / 1; }
+.sceneFrame::after { content: ""; align-self: end; height: min(.11256vw,1.882px); background: #fffef9; pointer-events: none; }
+.scene { display: block; width: 100%; height: auto; aspect-ratio: 1672 / 438.506; }
+.heroMenu { position: relative; padding-inline: 3% 2.9%; padding-top: clamp(6px,.7vw,12px); }
+.heroMenu::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: calc(clamp(6px,.7vw,12px) + min(.22512vw,3.764px)); background: #fffef9; pointer-events: none; z-index: 1; }
+.menuRow { display: grid; grid-template-columns: 31fr 1.3fr 29.4fr .85fr 31.55fr; align-items: start; }
+.menuRow + .menuRow { margin-top: 1.106731%; }
+.pictureCard { display: block; min-width: 0; border-radius: clamp(24px,3vw,48px); overflow: hidden; }
+.pictureCard img { display: block; width: 100%; height: 100%; }
+.supportCard { grid-column: 5; display: grid; grid-template-columns: 24% minmax(0,1fr) 11%; gap: 2.5%; align-items: center; border: clamp(2px,.34vw,6px) solid #fff; border-radius: 2.2vw; background: #afe5ce; color: #076d80; line-height: 1.35; }
+.supportCard[data-card="support"] { margin-top: .267567%; aspect-ratio: 527.516 / 161.852; }
+.supportCard[data-card="sponsor"] { aspect-ratio: 527.516 / 137.8565; }
+.supportCard strong { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 100%; min-width: 0; font-size: clamp(8px,2vw,29px); font-weight: 900; letter-spacing: .035em; line-height: 1.35; }
+.supportCard[data-card="sponsor"] strong { flex-direction: row; align-items: center; justify-content: flex-start; white-space: nowrap; }
+.supportIcon { display: grid; width: 72%; aspect-ratio: 1; justify-self: center; place-items: center; border-radius: 50%; background: rgba(255,255,255,.92); line-height: 1; }
+.supportIcon img { width: 88%; height: 88%; object-fit: contain; }
+[data-card="sponsor"] .supportIcon img { width: 86%; height: 86%; border-radius: 50%; }
+.cardArrow { display: grid; place-items: center; width: 72%; aspect-ratio: 1; border-radius: 50%; background: #fff; color: #ed765d; font-size: clamp(15px,2.3vw,36px); font-weight: 900; line-height: 1; }
+.heroMenu a:focus-visible { outline: 4px solid #0a7284; outline-offset: -4px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (max-width: 767px) {
+  .header { padding: 32px 4px 0; }
+  .headerSurface { grid-template-rows: 124.02px; border: 1px solid rgba(255,255,255,.45); border-bottom: 0; border-radius: 28px 28px 12px 12px; }
+  .headerArtwork { padding: 0; background: none; }
+  .mobileArtwork { display: grid; height: 100%; }
+  .natureArtwork, .cloudArtwork { grid-area: 1 / 1; align-self: start; justify-self: end; height: auto; }
+  .natureArtwork { width: 70px; margin-top: 8px; }
+  .cloudArtwork { width: 22px; margin-top: 62px; margin-right: 28px; }
+  .headerContent { grid-template-columns: minmax(0,1fr); grid-template-rows: 74px 50px .02px; }
+  .brandLink { grid-area: 1 / 1; width: min(72%,280px); height: 66px; margin: 6px 0 0 10px; }
+  .mobileBrand { display: block; width: 100%; height: auto; margin-top: 2px; }
+  .mainNav { grid-area: 2 / 1; width: calc(100% - 24px); margin: 0 12px; height: 50px; grid-template-columns: 185fr 340fr 295fr; }
+  .mainNav a { min-height: 44px; gap: clamp(3px,1vw,6px); font-size: clamp(11px,3.1vw,13px); letter-spacing: 0; line-height: 1.3; }
+  .mainNav a > svg, .mainNav a:nth-child(2) > svg, .mainNav a:last-child > svg { position: static; width: clamp(16px,4.6vw,20px); height: clamp(16px,4.6vw,20px); margin: 0; flex: 0 0 auto; }
+  .mainNav a > span { display: block; position: static; font-size: inherit; letter-spacing: 0; line-height: 1.3; }
+  .mainNav a + a::before { display: none; }
+}
+@media (max-width: 560px) {
+  .supportCard strong { line-height: 1.25; }
+  .supportCard[data-card="support"] strong { font-size: clamp(7px,2vw,11px); }
+}

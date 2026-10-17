@@ -1,33 +1,36 @@
 import Image from "next/image";
-import styles from "./home.module.css";
+import styles from "./home-top.module.css";
 
-const artwork = "/images/brand/sukoyaka-site-design-wordmark.webp";
-const pictureCards = [
-  { name: "kids", href: "/kids", label: "こどものみんなへ", viewBox: "50.16 593.771 518.32 162.793" },
-  { name: "family", href: "/about", label: "おうちの方へ", viewBox: "590.216 593.771 491.568 162.793" },
-  { name: "schedule", href: "/schedule", label: "次回の開催", viewBox: "50.16 774.443 518.32 138.327" },
-  { name: "recipes", href: "/recipes", label: "レシピとコラム", viewBox: "590.216 774.443 491.568 138.327" },
-];
+const rows = [
+  [{ name: "kids", href: "/kids", label: "こどものみんなへ", width: 518.32, height: 162.793 },
+   { name: "family", href: "/about", label: "おうちの方へ", width: 491.568, height: 162.793 }],
+  [{ name: "schedule", href: "/schedule", label: "次回の開催", width: 518.32, height: 138.327 },
+   { name: "recipes", href: "/recipes", label: "レシピとコラム", width: 491.568, height: 138.327 }],
+] as const;
 
 export function HomeHero() {
   return <section className={styles.hero} aria-labelledby="storybook-heading" data-home-hero>
     <div className={styles.heroSurface}>
-      <svg className={styles.scene} width="1672" height="438.506" viewBox="0 155.265 1672 438.506" role="img" aria-label="水色の空と丘を背景に、おにぎりを持つクマ、食事を持つウサギ、小鳥が描かれた、すこやか食堂のご案内">
-        <image href={artwork} width="1672" height="941" />
-      </svg>
+      <div className={styles.sceneFrame}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className={styles.scene} src="/images/home-rebuild/hero-scene.png" width="3344" height="878" fetchPriority="high" loading="eager" alt="水色の空と丘を背景に、おにぎりを持つクマ、食事を持つウサギ、小鳥が描かれた、すこやか食堂のご案内" />
+      </div>
       <div className={styles.srOnly}><h1 id="storybook-heading">おなかも こころも ぽかぽかに。</h1><p>中学生以下 無料／大人 500円</p></div>
       <nav className={styles.heroMenu} aria-label="トップメニュー">
-        {pictureCards.map(card => <a key={card.name} href={card.href} data-card={card.name} className={styles.pictureCard}>
-          <svg viewBox={card.viewBox} aria-hidden="true" focusable="false"><image href={artwork} width="1672" height="941" /></svg><span className={styles.srOnly}>{card.label}</span>
-        </a>)}
-        <a className={styles.supportCard} href="/support" data-card="support">
-          <span className={styles.supportIcon} aria-hidden="true"><Image src="/images/brand/support-heart-hands.png" alt="" width={256} height={256} unoptimized /></span>
-          <strong><span>すこやか食堂を</span><span>応援する</span></strong><span className={styles.cardArrow} aria-hidden="true">›</span>
-        </a>
-        <a className={styles.supportCard} href="/sponsorship" data-card="sponsor">
-          <span className={styles.supportIcon} aria-hidden="true"><Image src="/images/brand/support-partners-house-heart.png" alt="" width={447} height={447} unoptimized /></span>
-          <strong><span>スポンサー</span></strong><span className={styles.cardArrow} aria-hidden="true">›</span>
-        </a>
+        {rows.map((cards, index) => <div className={styles.menuRow} key={index}>
+          {cards.map((card, column) => <a key={card.name} href={card.href} data-card={card.name} className={styles.pictureCard} style={{ gridColumn: column === 0 ? 1 : 3, aspectRatio: `${card.width} / ${card.height}` }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`/images/home-rebuild/menu-${card.name}.png`} width={Math.ceil(card.width) * 2} height={Math.ceil(card.height) * 2} alt="" />
+            <span className={styles.srOnly}>{card.label}</span>
+          </a>)}
+          <a className={styles.supportCard} href={index === 0 ? "/support" : "/sponsorship"} data-card={index === 0 ? "support" : "sponsor"}>
+            <span className={styles.supportIcon} aria-hidden="true">{index === 0
+              ? <Image src="/images/brand/support-heart-hands.png" alt="" width={256} height={256} unoptimized />
+              : <Image src="/images/brand/support-partners-house-heart.png" alt="" width={447} height={447} unoptimized />}</span>
+            <strong>{index === 0 ? <><span>すこやか食堂を</span><span>応援する</span></> : <span>スポンサー</span>}</strong>
+            <span className={styles.cardArrow} aria-hidden="true">›</span>
+          </a>
+        </div>)}
       </nav>
     </div>
   </section>;

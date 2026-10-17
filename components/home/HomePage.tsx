@@ -9,13 +9,13 @@ import styles from "./home.module.css";
 /** Homepage document: fresh layout; shared content/assets keep their identity. */
 export function HomePage() {
   return <div className={styles.document} data-home-root>
-    <link rel="preload" as="image" href="/images/brand/sukoyaka-site-design-wordmark.webp" type="image/webp" fetchPriority="high" />
+    <link rel="preload" as="image" href="/images/home-rebuild/hero-scene.png" type="image/png" fetchPriority="high" />
     <a className="skip-link" href="#main">本文へ移動</a>
     <HomeHeader />
     <main id="main" className={styles.main}>
       <HomeHero /><HomeNotice /><HomeMovie /><HomeMessage /><HomeNews /><HomeQuestions /><HomeAccess />
     </main>
     <SiteFooter />
-    {process.env.VERCEL_ENV !== "production" && <HomeDiagnostics />}
+    {process.env.VERCEL_ENV === "preview" && <HomeDiagnostics />}
   </div>;
 }
