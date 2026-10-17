@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 import { site } from "../../content/siteContent";
 import { HomeHeaderArtwork } from "./HomeHeaderArtwork";
-import styles from "./home.module.css";
+import styles from "./home-top.module.css";
 
 function MenuIcon({ name }: { name: "home" | "about" | "mail" }) {
   return <svg viewBox="0 0 64 64" aria-hidden="true" data-icon={name}>
@@ -19,11 +19,12 @@ export function HomeHeader() {
   const items = [{ href: "/", label: "HOME", icon: "home" }, { href: "/operator", label: "私たちについて", icon: "about" }, { href: `mailto:${site.email}`, label: "お問い合わせ", icon: "mail" }] as const;
   return <header className={styles.header} data-home-header>
     <div className={styles.headerSurface}>
-      <div className={styles.desktopArt}><HomeHeaderArtwork id={`${id}-desktop`} kind="desktop" /></div>
-      <div className={styles.brandArt}><HomeHeaderArtwork id={`${id}-brand`} kind="brand" /></div>
-      <div className={styles.natureArt}><HomeHeaderArtwork id={`${id}-nature`} kind="nature" /></div>
-      <div className={styles.cloudArt}><HomeHeaderArtwork id={`${id}-cloud`} kind="cloud" /></div>
-      <a className={styles.brandLink} href="/" aria-label="子ども食堂 すこやか食堂 トップへ" />
+      <HomeHeaderArtwork />
+      <div className={styles.headerContent}>
+      <a className={styles.brandLink} href="/" aria-label="子ども食堂 すこやか食堂 トップへ">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className={styles.mobileBrand} src="/images/home-rebuild/header-brand.png" width="1600" height="374" alt="" />
+      </a>
       <nav className={styles.mainNav} aria-label="メインメニュー">
         {items.map(item => <a key={item.href} href={item.href} aria-label={item.label}><MenuIcon name={item.icon} /><span>{item.label}</span></a>)}
       </nav>
@@ -31,6 +32,7 @@ export function HomeHeader() {
       <nav className={styles.auxNav} aria-label="補助メニュー" id={`${id}-menu`} hidden={!open} onKeyDown={event => { if (event.key === "Escape") setOpen(false); }}>
         <a href="/schedule">日程とメニュー</a><a href="/recipes">レシピとコラム</a><a href="/support">すこやか食堂を応援する</a>
       </nav>
+      </div>
     </div>
   </header>;
 }

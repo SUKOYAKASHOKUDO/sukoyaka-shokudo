@@ -1,0 +1,156 @@
+{
+  "baseline": "6b452c4a4ef9f367bf5d56a09b0c9fd738c5010c",
+  "productionDeployment": "dpl_F1DYgUtpMc1yPCdFpVD3GgAF4BBn",
+  "method": "Chromium renders original production SVG at DPR 2, including original viewport, masks, filters and mobile polygon. Saved as separate PNG. Original source files unchanged.",
+  "originals": [
+    {
+      "file": "public/images/brand/sukoyaka-favicon-180.png",
+      "sha256": "c22654fbe6ae969e1b3a737d6f8821997040894abda1c81b411578348e8b4288",
+      "bytes": 31984,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-favicon-192.png",
+      "sha256": "dfd3eb96f858ddc64307900f2c11e1f70073fab712d2f70779db36b4a5b836cf",
+      "bytes": 35688,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-favicon-32.png",
+      "sha256": "d17018fd57568e995221870c54ae084a685e02f114a9bc5e44ad0b6bda9b9948",
+      "bytes": 2265,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-favicon-512.png",
+      "sha256": "966a596fb7f77c82d57a3884f1055a6ec25f11a647cfa3055a4a12fc6c4f9f1e",
+      "bytes": 190513,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-footer-logo.jpg",
+      "sha256": "114a1ac7df9eaf486712702519e1b8704f1399b3fe626f7562ffebc94c259eb3",
+      "bytes": 183168,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-official-logo.png",
+      "sha256": "248e3e13064aeb19abd7304efad700b3ec023c82f7410a9771f645fddb6dec6a",
+      "bytes": 965740,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-ogp.jpg",
+      "sha256": "114a1ac7df9eaf486712702519e1b8704f1399b3fe626f7562ffebc94c259eb3",
+      "bytes": 183168,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-onigiri-logo-transparent-clean.png",
+      "sha256": "be5386b20d3ed9bd225bca3534639f79c3db2c436a7d0784703431e29786e337",
+      "bytes": 421444,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-onigiri-logo-transparent-clean.webp",
+      "sha256": "f09925f553ebe840fb3ba5c66102aa624a0a478a4361a90c4e019acea7a36596",
+      "bytes": 53924,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-onigiri-logo-transparent.png",
+      "sha256": "2debbb75c15cd8b2c5dd34f7e0c21bc8e3529f5803b24c614064a4c4369448bc",
+      "bytes": 594484,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-site-design-reference.png",
+      "sha256": "af8c3e718e856a1edd19411dd0d0f979c94e0392a2e9b3bd6588ee42a511ae57",
+      "bytes": 1673075,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-site-design-reference.webp",
+      "sha256": "28c0cb98bb677b45289a155b75cbbe00441491de524f8de84b471eb29aacc880",
+      "bytes": 171006,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/sukoyaka-site-design-wordmark.webp",
+      "sha256": "2f65852fde8dfa6775f15c027cf8468181c4f467ebbfe3e75deb20df65ca2123",
+      "bytes": 182324,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/support-heart-hands.png",
+      "sha256": "9511b3f0042e2812e3adcbdbc90f7d32e02f4cd7de2e9431075a97245dd630ad",
+      "bytes": 56474,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/brand/support-partners-house-heart.png",
+      "sha256": "df642277a649360e7c5ca3858d6a557af6736c1274590090fda093648d45bd1a",
+      "bytes": 54972,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/sukoyaka-header-complete.webp",
+      "sha256": "f75abf09dc43395621d34dcd67d291dbd181badde8ac565980b5d3035be9f48f",
+      "bytes": 447438,
+      "lineEndingOnly": false
+    },
+    {
+      "file": "public/images/sukoyaka-header-pc-reference.png",
+      "sha256": "9c35e4379a29f68da9e23c46ace74beb594681fee58192696cf5886efd014aca",
+      "bytes": 774536,
+      "lineEndingOnly": false
+    }
+  ],
+  "derivatives": [
+    {
+      "file": "public/images/home-rebuild/header-brand.png",
+      "sha256": "7eb86c6d956b751eede8ae2fcdef87f5d6b23d2bfdbd1269ed2b822ab4fa6653",
+      "bytes": 308624
+    },
+    {
+      "file": "public/images/home-rebuild/header-cloud.png",
+      "sha256": "02c892377938e826675efb5b750a2c0c9013c90775b550cf7bcf7d83a0c638c8",
+      "bytes": 2902
+    },
+    {
+      "file": "public/images/home-rebuild/header-desktop.png",
+      "sha256": "84ddc276dd0662152ea140416577b5ddfc547ae439919b335934388997c73625",
+      "bytes": 484566
+    },
+    {
+      "file": "public/images/home-rebuild/header-nature.png",
+      "sha256": "f1b4606237fadfaca0821dcf9310b4d0af0a45b44696673d6e60af0233d6131e",
+      "bytes": 50214
+    },
+    {
+      "file": "public/images/home-rebuild/hero-scene.png",
+      "sha256": "c6cf9e552fe98d08877d81e27ae6a8cfce87f3325c1558321787df13f4d3bebb",
+      "bytes": 1421211
+    },
+    {
+      "file": "public/images/home-rebuild/menu-family.png",
+      "sha256": "32487f563e90ecb020ba9872fad219eb488292a01f6b1c0991a8a17336620a5b",
+      "bytes": 167448
+    },
+    {
+      "file": "public/images/home-rebuild/menu-kids.png",
+      "sha256": "9e8a16f1d0ffe3811b2421a3a7adef11cae1b38a5be5e044dbd975e1a7679c70",
+      "bytes": 192596
+    },
+    {
+      "file": "public/images/home-rebuild/menu-recipes.png",
+      "sha256": "41effa1dfccd73164a2b13e6059f0812068d863a599c55e00da37eecf674c37b",
+      "bytes": 134956
+    },
+    {
+      "file": "public/images/home-rebuild/menu-schedule.png",
+      "sha256": "d08a85286360e0548ae771f8ec9704ea56d0146d5b100a82e05b56cc8a9ed18c",
+      "bytes": 124273
+    }
+  ]
+}
