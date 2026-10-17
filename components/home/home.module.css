@@ -199,6 +199,7 @@
 }
 @media (max-width: 760px) {
   .section { padding-block: 64px; }
+  .movieLink .button { width: 100%; }
   .movieMessage { position: relative; isolation: isolate; width: 100%; font-size: 20px; overflow: clip; }
   .movieMessage strong { position: relative; z-index: 1; white-space: normal; }
   .movieMessage::after { content: ""; position: absolute; z-index: 0; top: calc(50% - 29px); right: 14px; width: 58px; height: 58px; border-radius: 50%; background: radial-gradient(circle at 50% 50%,rgba(240,184,78,.42) 0 4px,transparent 5px),radial-gradient(ellipse at 50% 22%,rgba(242,144,151,.24) 0 7px,transparent 8px),radial-gradient(ellipse at 78% 42%,rgba(104,191,191,.24) 0 7px,transparent 8px),radial-gradient(ellipse at 68% 74%,rgba(242,144,151,.22) 0 7px,transparent 8px),radial-gradient(ellipse at 32% 74%,rgba(104,191,191,.22) 0 7px,transparent 8px),radial-gradient(ellipse at 22% 42%,rgba(242,144,151,.24) 0 7px,transparent 8px); rotate: -8deg; pointer-events: none; }
@@ -208,7 +209,8 @@
   .statement .opening { font-size: clamp(19px,2vw,28px); line-height: 1.2; }
   .photos { grid-template-columns: 1fr; }
   .questionLayout h2, .access h2 { font-size: 34px; }
-  .questionList summary { padding-right: 0; font-size: 14px; }
+  .questionList summary { grid-template-columns: 34px 1fr; padding-right: 0; font-size: 14px; }
+  .questionList p { margin-left: 34px; }
   .contactLinks a { flex: 1 1 138px; }
   .mapFrame { padding: 6px; }
   .mapFrame iframe { height: 290px; }
