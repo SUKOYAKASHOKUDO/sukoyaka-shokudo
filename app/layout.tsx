@@ -6,6 +6,7 @@ import { site } from "../content/siteContent";
 import { HEADER_ARTWORK_SOURCE } from "../lib/headerBackground";
 import { mobileHeaderDiagnostics } from "../lib/mobileHeaderDiagnostics";
 import { homeFlowDiagnostics } from "../lib/homeFlowDiagnostics";
+import { yahooEntryDiagnostics } from "../lib/yahooEntryDiagnostics";
 import "./globals.css";
 import "./storybook-world.css";
 
@@ -95,6 +96,7 @@ export default function RootLayout({
   return (
     <html lang="ja" data-scroll-behavior="smooth">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: yahooEntryDiagnostics }} />
         <script dangerouslySetInnerHTML={{ __html: `if(location.pathname !== "/"){${mobileHeaderDiagnostics}}` }} />
         {process.env.VERCEL_ENV === "preview" && <script dangerouslySetInnerHTML={{ __html: homeFlowDiagnostics }} />}
         <script

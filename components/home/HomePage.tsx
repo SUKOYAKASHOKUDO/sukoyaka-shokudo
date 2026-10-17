@@ -1,8 +1,10 @@
+import { Suspense } from "react";
 import { HomeNews } from "../HomeNews";
 import { SiteFooter } from "../SiteFooter";
 import { HomeHeader } from "./HomeHeader";
 import { HomeHero } from "./HomeHero";
 import { HomeDiagnostics } from "./HomeDiagnostics";
+import { YahooEntryDiagnostics } from "./YahooEntryDiagnostics";
 import { HomeAccess, HomeMessage, HomeMovie, HomeNotice, HomeQuestions } from "./HomeSections";
 import styles from "./home.module.css";
 
@@ -17,5 +19,6 @@ export function HomePage() {
     </main>
     <SiteFooter />
     {process.env.VERCEL_ENV === "preview" && <HomeDiagnostics />}
+    <Suspense fallback={null}><YahooEntryDiagnostics /></Suspense>
   </div>;
 }

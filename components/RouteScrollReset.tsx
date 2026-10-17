@@ -12,16 +12,20 @@ export function RouteScrollReset() {
   const pathname = usePathname();
 
   useLayoutEffect(() => {
+    // Mark this effect only; these observations do not assert full hydration.
+    window.__sukoyakaEntryDiagnostic?.capture("route-layout-effect:before");
     // The rebuilt homepage uses a normal document and native restoration.
     // Keep the existing route reset only for the unchanged interior pages.
     if (pathname === "/") {
       history.scrollRestoration = "auto";
+      window.__sukoyakaEntryDiagnostic?.capture("route-layout-effect:after");
       return;
     }
     history.scrollRestoration = "manual";
     if (document.scrollingElement) {
       document.scrollingElement.scrollTop = 0;
     }
+    window.__sukoyakaEntryDiagnostic?.capture("route-layout-effect:after");
   }, [pathname]);
 
   return null;
