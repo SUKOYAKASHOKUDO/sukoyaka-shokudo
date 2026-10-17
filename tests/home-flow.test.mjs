@@ -2,8 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import { homeFlowDiagnostics } from '../lib/homeFlowDiagnostics.ts';
+import { homePreviewPolicy, getHomePreviewMode } from '../lib/homePreviewPolicy.ts';
 
-function environment({ pathname='/', search='?home-debug=1', data=new Map(), unavailable=false }={}) {
+function environment({ pathname='/', search='?home-debug=1', data=new Map(), unavailable=false, policy=true }={}) {
   const listeners=new Map(), frames=[], styles=[], state={top:0,viewportTop:0,scrollY:0};
   const listen=owner=>(event,callback,options)=>{const key=owner+':'+event;const a=listeners.get(key)||[];a.push({callback,options});listeners.set(key,a);};
   const element=Object.freeze({scrollTop:0,scrollLeft:0,scrollHeight:2000,clientHeight:900,
@@ -20,6 +21,7 @@ function environment({ pathname='/', search='?home-debug=1', data=new Map(), una
     innerWidth:390,innerHeight:900,performance:{now:()=>1,getEntriesByType:()=>[{type:'back_forward'}]},
     requestAnimationFrame:callback=>{frames.push(callback);return frames.length;},
     getComputedStyle:()=>({scrollBehavior:styles.length?'auto':'smooth',position:'static',transform:'none',overflowX:'visible',overflowY:'visible'})};
+  if(policy) vm.runInNewContext(homePreviewPolicy,sandbox);
   vm.runInNewContext(homeFlowDiagnostics,sandbox);
   const fire=(owner,event,data={})=>{for(const l of listeners.get(owner+':'+event)||[])l.callback(data);};
   const flush=()=>{let count=0;while(frames.length){if(++count>30)throw Error('Unbounded animation loop');frames.shift()();}};
@@ -82,4 +84,55 @@ test('storage restrictions use bounded memory; coalesced scroll cannot erase all
 
 test('export pauses sampling without changing document state',()=>{
  const b=environment(); const n=b.d.entries.length;b.d.pause();b.d.capture('hidden-export-ui');assert.equal(b.d.entries.length,n);b.d.resume();assert.equal(b.d.entries.at(-1).event,'export-closed');
+});
+
+test('comparison controls work without instrumentation and change one variable only',()=>{
+  const manual=environment({search:'?home-test=manual'});
+  assert.equal(manual.d,undefined);
+  assert.equal(manual.sandbox.history.scrollRestoration,'manual');
+  assert.equal(manual.styles.length,0);
+  assert.equal(manual.state.scrollY,0);
+  const instant=environment({search:'?home-test=instant'});
+  assert.equal(instant.d,undefined);
+  assert.equal(instant.sandbox.history.scrollRestoration,'auto');
+  assert.equal(instant.styles.length,1);
+  assert.ok(instant.styles[0].includes('html:has([data-home-root])'));
+  for(const sample of [manual,instant]) {
+    assert.equal('scrollTo' in sample.window,false);
+    assert.equal('fetch' in sample.sandbox,false);
+    assert.equal('setTimeout' in sample.sandbox,false);
+    assert.equal('setInterval' in sample.sandbox,false);
+  }
+});
+
+test('unsupported modes and other routes remain inert; client mode matches the head policy',()=>{
+  for(const search of ['', '?home-test=unknown', '?home-test=manual-instant']) {
+    const e=environment({search});
+    assert.equal(e.sandbox.history.scrollRestoration,'auto');
+    assert.equal(e.styles.length,0);
+    assert.equal(getHomePreviewMode('/',search),'baseline');
+  }
+  for(const mode of ['manual','instant']) {
+    const search='?home-test='+mode;
+    assert.equal(getHomePreviewMode('/',search),mode);
+    const other=environment({pathname:'/schedule',search});
+    assert.equal(getHomePreviewMode('/schedule',search),'baseline');
+    assert.equal(other.sandbox.history.scrollRestoration,'auto');
+    assert.equal(other.styles.length,0);
+    const sample=environment({search:search+'&home-debug=1'});
+    assert.equal(sample.d.report().experiment,mode);
+    assert.equal(sample.d.entries[0].restoration,mode==='manual'?'manual':'auto');
+  }
+});
+
+test('comparison records do not mix with existing baseline or other mode records',()=>{
+  const data=new Map();
+  for(const mode of ['baseline','manual','instant']) {
+    const e=environment({data,search:'?home-debug=1&home-test='+mode});
+    assert.equal(e.d.report().documentId,1);e.d.persist();
+  }
+  const repeat=environment({data,search:'?home-debug=1&home-test=manual'});
+  assert.equal(repeat.d.report().documentId,2);
+  assert.equal(repeat.d.report().experiment,'manual');
+  repeat.d.clear();assert.equal(data.size,2);
 });

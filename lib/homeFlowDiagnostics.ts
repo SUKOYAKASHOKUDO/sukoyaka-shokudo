@@ -1,4 +1,4 @@
-export type HomeFlowExperiment = "baseline";
+export type HomeFlowExperiment = "baseline" | "manual" | "instant";
 export interface HomeFlowController {
   experiment: HomeFlowExperiment;
   entries: Record<string, unknown>[];
@@ -16,7 +16,8 @@ export const homeFlowDiagnostics = String.raw`
 (() => {
   const params = new URLSearchParams(location.search);
   if (location.pathname !== '/' || params.get('home-debug') !== '1' || window.__sukoyakaHomeFlow) return;
-  const experiment = 'baseline';
+  const mode = params.get('home-test');
+  const experiment = mode === 'manual' || mode === 'instant' ? mode : 'baseline';
   const key = 'sukoyaka:home-reentry:v2:' + experiment;
   const limit = 400, pairLimit = 40, ttl = 60 * 60 * 1000;
   let storage = 'available', prior = null, paused = false, motionPending = false;

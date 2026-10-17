@@ -6,6 +6,7 @@ import { site } from "../content/siteContent";
 import { HEADER_ARTWORK_SOURCE } from "../lib/headerBackground";
 import { mobileHeaderDiagnostics } from "../lib/mobileHeaderDiagnostics";
 import { homeFlowDiagnostics } from "../lib/homeFlowDiagnostics";
+import { homePreviewPolicy } from "../lib/homePreviewPolicy";
 import "./globals.css";
 import "./storybook-world.css";
 
@@ -96,13 +97,16 @@ export default function RootLayout({
     <html lang="ja" data-scroll-behavior="smooth">
       <head>
         <script dangerouslySetInnerHTML={{ __html: `if(location.pathname !== "/"){${mobileHeaderDiagnostics}}` }} />
-        {process.env.VERCEL_ENV === "preview" && <script dangerouslySetInnerHTML={{ __html: homeFlowDiagnostics }} />}
         <script
           dangerouslySetInnerHTML={{
             __html:
               'if ("scrollRestoration" in history) history.scrollRestoration = location.pathname === "/" ? "auto" : "manual";',
           }}
         />
+        {process.env.VERCEL_ENV === "preview" && <>
+          <script dangerouslySetInnerHTML={{ __html: homePreviewPolicy }} />
+          <script dangerouslySetInnerHTML={{ __html: homeFlowDiagnostics }} />
+        </>}
         <link
           rel="preload"
           as="image"
@@ -112,7 +116,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <RouteScrollReset />
+        <RouteScrollReset preview={process.env.VERCEL_ENV === "preview"} />
         {children}
         <BackToTopButton />
         <MobileHeaderDiagnosticPanel />
