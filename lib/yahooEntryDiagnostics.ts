@@ -53,10 +53,29 @@ export const yahooEntryDiagnostics = String.raw`
   const number = v => typeof v === 'number' && Number.isFinite(v) && Math.abs(v) < 1e12
     ? Math.round(v * 1000) / 1000 : null;
   const integer = v => Number.isSafeInteger(v) && v >= 0 && v < 1e9 ? v : null;
+  const timestamp = v => Number.isFinite(v) && v >= 0 && v < 1e13 ? Math.round(v) : null;
   const choice = (v, values) => values.includes(v) ? v : null;
   const pickNumbers = (source, keys) => Object.fromEntries(keys.map(k => [k, number(source?.[k])]));
-  const rectKeys = ['top', 'left', 'width', 'height', 'bottom'];
-  const viewportKeys = ['offsetTop', 'pageTop', 'width', 'height', 'scale'];
+  const rectKeys = ['top', 'left', 'width', 'height', 'bottom', 'right'];
+  const viewportKeys = ['offsetTop', 'offsetLeft', 'pageTop', 'pageLeft', 'width', 'height', 'scale'];
+  const selectors = { html: 'html', body: 'body', root: '[data-home-root]',
+    header: '[data-home-header]', main: 'main#main', hero: '[data-home-hero]' };
+  const hitNames = ['header', 'hero', 'main', 'root', 'html', 'body', 'other', 'none'];
+  const transform = value => {
+    if (value === 'none') return value;
+    if (typeof value !== 'string' || value.length > 512) return null;
+    const match = /^(matrix|matrix3d)\(([-+.\deE,\s]+)\)$/.exec(value);
+    if (!match) return null;
+    const values = match[2].split(',').map(v => v.trim() ? number(Number(v)) : null);
+    return values.length === (match[1] === 'matrix' ? 6 : 16) && values.every(v => v !== null)
+      ? match[1] + '(' + values.join(',') + ')' : null;
+  };
+  const style = source => source ? {
+    transform: transform(source.transform),
+    position: choice(source.position, ['static', 'relative', 'absolute', 'fixed', 'sticky']),
+    overflowX: choice(source.overflowX, ['visible', 'hidden', 'clip', 'scroll', 'auto', 'overlay']),
+    overflowY: choice(source.overflowY, ['visible', 'hidden', 'clip', 'scroll', 'auto', 'overlay'])
+  } : null;
   const navKeys = ['redirectCount', 'redirectStart', 'redirectEnd', 'activationStart',
     'fetchStart', 'responseStart', 'responseEnd', 'domInteractive',
     'domContentLoadedEventStart', 'domContentLoadedEventEnd', 'loadEventStart', 'loadEventEnd'];
@@ -69,15 +88,19 @@ export const yahooEntryDiagnostics = String.raw`
   const sanitize = r => {
     if (!r || !eventNames.includes(r.event) || integer(r.sequence) === null || integer(r.document) === null) return null;
     return { event: r.event, sequence: r.sequence, document: r.document, at: number(r.at),
+      schema: r.schema === 2 ? 2 : null, wallTime: timestamp(r.wallTime), timeOrigin: timestamp(r.timeOrigin),
       ready: choice(r.ready, ['loading', 'interactive', 'complete']),
       visibility: choice(r.visibility, ['hidden', 'visible', 'prerender']),
       scrollY: number(r.scrollY), scrollTop: number(r.scrollTop), bodyScrollTop: number(r.bodyScrollTop),
       restoration: choice(r.restoration, ['auto', 'manual']),
       scrollBehavior: choice(r.scrollBehavior, ['auto', 'smooth']),
+      devicePixelRatio: number(r.devicePixelRatio), fonts: choice(r.fonts, ['loading', 'loaded']),
       innerWidth: number(r.innerWidth), innerHeight: number(r.innerHeight),
       viewport: r.viewport ? pickNumbers(r.viewport, viewportKeys) : null,
-      boxes: Object.fromEntries(['header', 'hero', 'html', 'body', 'root'].map(k =>
+      boxes: Object.fromEntries(Object.keys(selectors).map(k =>
         [k, r.boxes?.[k] ? pickNumbers(r.boxes[k], rectKeys) : null])),
+      styles: Object.fromEntries(Object.keys(selectors).map(k => [k, style(r.styles?.[k])])),
+      hits: Object.fromEntries(['top', 'top16', 'middle', 'bottom'].map(k => [k, choice(r.hits?.[k], hitNames)])),
       geometry: choice(r.geometry, ['sampled', 'not-sampled-in-head']),
       navigation: r.navigation ? { type: choice(r.navigation.type, ['navigate', 'reload', 'back_forward', 'prerender']),
         ...pickNumbers(r.navigation, navKeys) } : null,
@@ -94,7 +117,10 @@ export const yahooEntryDiagnostics = String.raw`
     limitations: ['Zero redirect timing does not exclude cross-origin redirects.',
       'Pointer capture may follow native-app updates; missing input does not prove no tap.',
       'Route markers identify useLayoutEffect only, not completion of React hydration.',
-      'Geometry reads can change rendering timing.'] });
+      'Geometry, computed-style and hit-test reads can change rendering timing.',
+      'Web APIs cannot measure native View bounds, parent translation/clip, WindowInsets or compositor surface offsets.',
+      'Hit tests report DOM ownership at fixed CSS viewport points, not visible pixels or native bounds.',
+      'Only schema=2 entries contain the extended measurements; missing or older values are null.'] });
   const bytes = text => encoder.encode(text).byteLength;
   const trim = (c, lastDocument, events) => {
     while (events.length > maxEvents) events.shift();
@@ -214,9 +240,23 @@ export const yahooEntryDiagnostics = String.raw`
         : u.hostname === 'yahoo.co.jp' || u.hostname.endsWith('.yahoo.co.jp') ? 'Yahoo' : 'other';
     }
   } catch {}
-  const box = selector => {
-    try { const e = document.querySelector(selector); return e ? pickNumbers(e.getBoundingClientRect(), rectKeys) : null; }
+  const box = element => {
+    try { return element ? pickNumbers(element.getBoundingClientRect(), rectKeys) : null; }
     catch { return null; }
+  };
+  const computed = element => {
+    try { return element ? style(getComputedStyle(element)) : null; } catch { return null; }
+  };
+  const hit = (x, y) => {
+    if (typeof document.elementFromPoint !== 'function') return null;
+    try {
+      const element = document.elementFromPoint(x, y);
+      if (!element) return 'none';
+      for (const key of ['header', 'hero', 'main', 'root']) {
+        if (element.closest?.(selectors[key])) return key;
+      }
+      return element === document.body ? 'body' : element === document.documentElement ? 'html' : 'other';
+    } catch { return null; }
   };
   const capture = (event, detail = {}) => {
     if (location.pathname !== '/') { persist(); stop(); return null; }
@@ -225,15 +265,21 @@ export const yahooEntryDiagnostics = String.raw`
       // No geometry/style flush during HTML parsing. Later event snapshots include the actual boxes.
       const geometry = event !== 'head';
       const nav = performance.getEntriesByType?.('navigation')?.[0];
+      const elements = geometry ? Object.fromEntries(Object.entries(selectors).map(([k, s]) => [k, document.querySelector(s)])) : {};
+      const x = Math.max(0, (window.innerWidth - 1) / 2), bottom = Math.max(0, window.innerHeight - 1);
       const entry = sanitize({ event, sequence: ++sequence, document: documentId, at: performance.now(),
+        schema: 2, wallTime: Date.now(), timeOrigin: performance.timeOrigin,
         ready: document.readyState, visibility: document.visibilityState,
         scrollY: window.scrollY, scrollTop: document.scrollingElement?.scrollTop, bodyScrollTop: document.body?.scrollTop,
         restoration: history.scrollRestoration,
         scrollBehavior: geometry ? getComputedStyle(document.documentElement).scrollBehavior : null,
+        devicePixelRatio: window.devicePixelRatio, fonts: document.fonts?.status,
         innerWidth: window.innerWidth, innerHeight: window.innerHeight,
         viewport: window.visualViewport ? pickNumbers(window.visualViewport, viewportKeys) : null,
-        boxes: geometry ? { header: box('[data-home-header]'), hero: box('[data-home-hero]'),
-          html: box('html'), body: box('body'), root: box('[data-home-root]') } : {},
+        boxes: geometry ? Object.fromEntries(Object.entries(elements).map(([k, e]) => [k, box(e)])) : {},
+        styles: geometry ? Object.fromEntries(Object.entries(elements).map(([k, e]) => [k, computed(e)])) : {},
+        hits: geometry ? { top: hit(x, 0), top16: hit(x, Math.min(16, bottom)),
+          middle: hit(x, bottom / 2), bottom: hit(x, bottom) } : {},
         geometry: geometry ? 'sampled' : 'not-sampled-in-head',
         navigation: nav ? { type: nav.type, ...pickNumbers(nav, navKeys) } : null,
         referrer, arrival: { hasQuery: !!location.search, hasFragment: !!location.hash },

@@ -10,33 +10,40 @@ const consent = now => JSON.stringify({version:1, enabledAt:now, expiresAt:now+T
 
 function environment({now=START, data=new Map(), enabled=true, management=false, pathname='/',
   search=management?'?entry-diagnostics=manage':'', blocked=false, quota=false,
-  missingElements=false, missingViewport=false, missingNavigation=false, removeBlocked=false}={}) {
+  missingElements=false, missingViewport=false, missingNavigation=false, missingHitTest=false, removeBlocked=false}={}) {
   if (enabled && !data.has(FLAG)) data.set(FLAG,consent(now));
   let time=now, id=0;
   const listeners=new Map(), frames=new Map(), timers=new Map();
-  const reads={rect:0,style:0,storage:[],mutations:0,network:0};
-  const state={top:0,scrollY:0,scrollTop:0,viewportTop:0,height:844};
+  const reads={rect:0,style:0,hit:0,storage:[],mutations:0,network:0};
+  const state={top:0,scrollY:0,scrollTop:0,viewportTop:0,height:844,hit:'header',
+    transform:'none',position:'static',overflowX:'visible',overflowY:'visible',fonts:'loading'};
   const eventTarget=owner=>({
     addEventListener(event,callback,options){const key=owner+':'+event;const list=listeners.get(key)||[];list.push({callback,options});listeners.set(key,list);},
     removeEventListener(event,callback){const key=owner+':'+event;listeners.set(key,(listeners.get(key)||[]).filter(l=>l.callback!==callback));}
   });
   const el=Object.freeze({get scrollTop(){return state.scrollTop;},getBoundingClientRect(){reads.rect++;return {top:state.top,left:0,width:390,height:157,bottom:state.top+157};}});
-  const viewport=missingViewport?null:{...eventTarget('viewport'),get offsetTop(){return state.viewportTop;},get pageTop(){return state.scrollY+state.viewportTop;},width:390,get height(){return state.height;},scale:1};
+  const viewport=missingViewport?null:{...eventTarget('viewport'),get offsetTop(){return state.viewportTop;},get pageTop(){return state.scrollY+state.viewportTop;},offsetLeft:0,pageLeft:0,width:390,get height(){return state.height;},scale:1};
   const storage={getItem(k){reads.storage.push(k);return data.get(k)??null;},setItem(k,v){if(quota)throw Error('quota');data.set(k,v);},removeItem(k){if(removeBlocked)throw Error('blocked-remove');data.delete(k);}};
+  const hitSelectors={header:'[data-home-header]',hero:'[data-home-hero]',main:'main#main',root:'[data-home-root]'};
+  const hitElement={closest:s=>s===hitSelectors[state.hit]?hitElement:null};
+  for(const key of ['id','className','textContent','innerHTML'])Object.defineProperty(hitElement,key,{get(){throw Error('Forbidden hit-test metadata: '+key);}});
   const document={...eventTarget('document'),readyState:'loading',visibilityState:'visible',documentElement:el,body:el,scrollingElement:el,
+    fonts:{get status(){return state.fonts;}},
+    elementFromPoint:missingHitTest?undefined:()=>{reads.hit++;return missingElements||state.hit==='none'?null:hitElement;},
     referrer:'https://search.yahoo.co.jp/search?p=SEARCH_SECRET',querySelector:()=>missingElements?null:el};
   for(const key of ['cookie','URL','forms'])Object.defineProperty(document,key,{get(){throw Error('Forbidden read: '+key);}});
-  const window={...eventTarget('window'),get scrollY(){return state.scrollY;},innerWidth:390,innerHeight:844,visualViewport:viewport};
+  const window={...eventTarget('window'),get scrollY(){return state.scrollY;},innerWidth:390,innerHeight:844,devicePixelRatio:2.975,visualViewport:viewport};
   Object.defineProperty(window,'localStorage',{get(){if(blocked)throw Error('blocked');return storage;}});
   const forbidden=()=>{reads.mutations++;throw Error('Forbidden mutation or transport');};
   const sandbox={window,document,location:{pathname,search,hash:'',origin:'https://www.sukoyaka-shokudo.com',reload:forbidden},
     history:Object.freeze({scrollRestoration:'auto'}),URLSearchParams,URL,TextEncoder,
-    Date:class extends Date{static now(){return time;}},performance:{now:()=>time-now,getEntriesByType:missingNavigation?undefined:()=>[{
+    Date:class extends Date{static now(){return time;}},performance:{timeOrigin:now,now:()=>time-now,getEntriesByType:missingNavigation?undefined:()=>[{
       name:'https://private.invalid/URL_SECRET',type:'navigate',redirectCount:0,redirectStart:0,redirectEnd:0,activationStart:0,
       domInteractive:12,toJSON:forbidden,privateValue:'NAV_SECRET'}]},
     requestAnimationFrame:callback=>{const n=++id;frames.set(n,callback);return n;},cancelAnimationFrame:n=>frames.delete(n),
     setTimeout:(callback,delay)=>{const n=++id;timers.set(n,{callback,due:time+delay});return n;},clearTimeout:n=>timers.delete(n),
-    getComputedStyle:()=>{reads.style++;return {scrollBehavior:'smooth'};},fetch:forbidden,XMLHttpRequest:forbidden,
+    getComputedStyle:()=>{reads.style++;return {scrollBehavior:'smooth',transform:state.transform,
+      position:state.position,overflowX:state.overflowX,overflowY:state.overflowY};},fetch:forbidden,XMLHttpRequest:forbidden,
     navigator:{sendBeacon:forbidden},setInterval:forbidden};
   window.scrollTo=forbidden;
   vm.runInNewContext(yahooEntryDiagnostics,sandbox);
@@ -57,7 +64,7 @@ function environment({now=START, data=new Map(), enabled=true, management=false,
 test('inactive, expired, invalid and non-home visits have no instrumentation, geometry, timers or logs',()=>{
   const cases=[{enabled:false},{data:new Map([[FLAG,consent(START-TTL)]])},{data:new Map([[FLAG,'invalid']])},
     {data:new Map([[FLAG,JSON.stringify({version:1,enabledAt:START,expiresAt:START+TTL+1})]])},{pathname:'/about'}];
-  for(const options of cases){const e=environment(options);assert.equal(e.controller,undefined);assert.equal(e.manager,undefined);assert.equal(e.countListeners(),0);assert.equal(e.reads.rect,0);assert.equal(e.reads.style,0);assert.equal(e.timers.size,0);assert.equal(e.log(),null);}
+  for(const options of cases){const e=environment(options);assert.equal(e.controller,undefined);assert.equal(e.manager,undefined);assert.equal(e.countListeners(),0);assert.equal(e.reads.rect,0);assert.equal(e.reads.style,0);assert.equal(e.reads.hit,0);assert.equal(e.timers.size,0);assert.equal(e.log(),null);}
 });
 
 test('opening management does not enable diagnosis or measure; deliberate enable arms ordinary root in new documents',()=>{
@@ -156,4 +163,33 @@ test('scroll events coalesce without polling; interior route markers detach with
   const e=environment();for(let i=0;i<500;i++)e.fire('window','scroll');assert.equal(e.frames.size,1);e.flush();assert.equal(e.frames.size,0);
   e.sandbox.location.pathname='/about';e.controller.capture('route-layout-effect:before');assert.equal(e.countListeners(),0);assert.equal(e.controller,undefined);
   assert.equal(e.sandbox.history.scrollRestoration,'auto');assert.equal(e.reads.mutations,0);
+});
+
+test('extended same-document evidence preserves real DPR, absolute time, main boxes and style/hit changes across a tap',()=>{
+  const e=environment();assert.equal(e.reads.hit,0);assert.equal(e.reads.style,0);
+  const head=e.log().events[0];assert.equal(head.schema,2);assert.equal(head.wallTime,START);assert.equal(head.timeOrigin,START);
+  assert.equal(head.devicePixelRatio,2.975);assert.equal(head.boxes.main,null);assert.equal(head.styles.header,null);assert.equal(head.hits.top,null);
+  e.document.readyState='complete';e.fire('window','pageshow',{persisted:false});e.flush();e.advance(3500);
+  e.fire('document','pointerdown',{pointerId:7,pointerType:'touch',target:{}});
+  // Model a style/hit change with unchanged DOM boxes: the observation must retain both states.
+  e.state.transform='matrix(1, 0, 0, 1, 0, -43.7)';e.state.hit='hero';e.state.fonts='loaded';e.advance(25);
+  e.fire('document','pointerup',{pointerId:7,target:{}});e.flush();
+  const rows=e.log().events, before=rows.find(r=>r.event==='pointerdown:capture'), after=rows.find(r=>r.event==='pointerup:rAF2');
+  assert.equal(before.document,after.document);assert.equal(before.timeOrigin,after.timeOrigin);assert.equal(after.wallTime,START+3525);
+  assert.equal(before.boxes.main.top,after.boxes.main.top);assert.equal(before.styles.header.transform,'none');
+  assert.equal(after.styles.header.transform,'matrix(1,0,0,1,0,-43.7)');assert.equal(after.styles.main.position,'static');
+  assert.equal(before.hits.top,'header');assert.equal(after.hits.top,'hero');assert.equal(after.viewport.offsetLeft,0);assert.equal(after.viewport.pageLeft,0);
+  assert.equal(before.fonts,'loading');assert.equal(after.fonts,'loaded');assert.equal(e.reads.mutations,0);
+});
+
+test('unavailable extended APIs and legacy rows remain unknown; export never accepts arbitrary styles or hit metadata',()=>{
+  const e=environment({missingHitTest:true});delete e.window.devicePixelRatio;delete e.sandbox.performance.timeOrigin;
+  e.fire('window','load');let row=e.log().events.at(-1);assert.equal(row.devicePixelRatio,null);assert.equal(row.timeOrigin,null);assert.equal(row.hits.top,null);
+  const log=e.log();row=log.events.at(-1);delete row.schema;delete row.wallTime;
+  row.styles.header={transform:'url(CSS_SECRET)',position:'POSITION_SECRET',overflowX:'OVERFLOW_SECRET',overflowY:'clip',cssText:'PRIVATE_STYLE_SECRET'};
+  row.styles.main={transform:'matrix(1,0,0,1,NaN,0)',position:'sticky'};row.hits={top:'HIT_SECRET',middle:'hero',html:'HTML_SECRET'};
+  e.data.set(LOG,JSON.stringify(log));const m=environment({management:true,data:e.data});const text=m.manager.read().report;
+  for(const token of ['CSS_SECRET','POSITION_SECRET','OVERFLOW_SECRET','PRIVATE_STYLE_SECRET','HIT_SECRET','HTML_SECRET'])assert.ok(!text.includes(token));
+  row=JSON.parse(text).events.at(-1);assert.equal(row.schema,null);assert.equal(row.wallTime,null);assert.equal(row.styles.header.transform,null);
+  assert.equal(row.styles.header.overflowY,'clip');assert.equal(row.styles.main.transform,null);assert.equal(row.hits.top,null);assert.equal(row.hits.middle,'hero');
 });
