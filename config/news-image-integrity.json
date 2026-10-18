@@ -1,6 +1,7 @@
 {
   "version": 1,
   "images": [
+    { "path": "/images/news/shirushi-ohagi-note.jpg", "sha256": "1ac13e8d75cca76bf74f8415d94361a0e281e6215fec0dff9a80cb1620c55223", "bytes": 193122, "format": "jpeg", "width": 1240, "height": 649 },
     { "path": "/images/news/aka-to-ao-book.jpg", "sha256": "37de2442e23aa20d37a2504e13f2bb59d6541429f4f477abe69cdfe7f1e78b3b", "bytes": 338250, "format": "jpeg", "width": 1108, "height": 1477 },
     { "path": "/images/news/aka-to-ao-bookshelf.jpg", "sha256": "7a196ca49f00d301396cf89e04188fdc7b853a75050915d25d414afc728e4e27", "bytes": 1251095, "format": "jpeg", "width": 2268, "height": 4032 },
     { "path": "/images/news/aka-to-ao-reading.jpg", "sha256": "a15bdf5faf26e9b2ab29f894722c1b4c17079218a7d52a667ef4fda4b7118c8e", "bytes": 321776, "format": "jpeg", "width": 1108, "height": 1477 },
