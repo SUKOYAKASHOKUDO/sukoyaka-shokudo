@@ -1,7 +1,8 @@
 /* Only HomeHeader/HomeHero import this sheet; lower sections use home.module.css. */
-.header, .heroSurface { width: min(100%,1672px); margin-inline: auto; }
+.header { width: 100%; }
+.heroSurface { width: min(100%,1672px); margin-inline: auto; }
 .header, .hero { background: #cbeef2; }
-.headerSurface { display: grid; }
+.headerSurface { display: grid; max-width: 1672px; margin-inline: auto; }
 .headerArtwork, .headerContent { grid-area: 1 / 1; min-width: 0; min-height: 0; }
 .headerArtwork { pointer-events: none; padding-top: calc(12.891344% - 1px); background: url("/images/home-rebuild/header-desktop.png") left top / 100% auto no-repeat; }
 .mobileArtwork, .mobileBrand { display: none; }
