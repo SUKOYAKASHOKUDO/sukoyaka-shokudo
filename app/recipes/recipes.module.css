@@ -1,4 +1,4 @@
-.ohagi :global(.recipe-card-mascot) {
+.uncroppedMascot :global(.recipe-card-mascot) {
   object-fit: contain;
 }
 

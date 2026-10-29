@@ -55,7 +55,7 @@ export default async function RecipesPage({
             <div className="recipe-grid">
               {items.map((recipe) => (
                 <article
-                  className={`recipe-card ${recipe.tone}${recipe.slug === "ohagi" ? ` ${styles.ohagi}` : ""}`}
+                  className={`recipe-card ${recipe.tone}${recipe.slug === "ohagi" || recipe.slug === "scallop-takikomi-gohan" ? ` ${styles.uncroppedMascot}` : ""}`}
                   key={recipe.slug}
                 >
                   <div className="recipe-card-visual">

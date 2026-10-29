@@ -505,6 +505,7 @@ export const recipes: Recipe[] = [
     tone: "scone",
     cardImage: "/images/recipes/scallop-takikomi-gohan-recipe.jpg",
     cardImageAlt: "ほたての炊き込みご飯の材料と作り方をまとめたレシピシート",
+    mascotImage: "/images/recipes/scallop-mascot.jpg",
     recipeSheetUrl: "/recipes/scallop-takikomi-gohan.pdf",
     ingredients: [
       "米 2合",
