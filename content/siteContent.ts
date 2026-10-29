@@ -493,4 +493,64 @@ export const recipes: Recipe[] = [
       "切り餅を切る工程や炊飯器の操作は、大人が行うか付き添ってください。炊きたてのごはんは熱いため、手で触れられる温度まで冷ましてから丸めてください。",
     status: "published",
   },
+  {
+    slug: "scallop-takikomi-gohan",
+    label: "炊飯器で手軽に",
+    title: "ほたての炊き込みご飯",
+    description:
+      "ほたてと生姜、昆布をのせて炊飯器で炊く、香り豊かな炊き込みご飯です。",
+    symbol: "🍚",
+    time: "炊飯時間＋仕上げ",
+    servings: "米2合分",
+    tone: "scone",
+    cardImage: "/images/recipes/scallop-takikomi-gohan-recipe.jpg",
+    cardImageAlt: "ほたての炊き込みご飯の材料と作り方をまとめたレシピシート",
+    recipeSheetUrl: "/recipes/scallop-takikomi-gohan.pdf",
+    ingredients: [
+      "米 2合",
+      "ボイルほたて 100g",
+      "おろし生姜 小さじ1",
+      "だしの素 小さじ1",
+      "酒 大さじ1",
+      "みりん 大さじ1",
+      "めんつゆ 大さじ2",
+      "昆布 5cm角1枚",
+      "水 2合の目盛りまで",
+    ],
+    steps: [
+      "米を研ぎ、炊飯釜に入れます。調味料を加え、水を2合の目盛りまで注いで混ぜます。",
+      "ほたて・生姜・昆布をのせ、通常モードで炊きます。",
+      "炊けたら昆布を取り出し、ほたてをほぐしながら混ぜます。",
+    ],
+    allergenNote:
+      "ほたてを使用します。めんつゆ・だしの素など、使用するすべての商品の原材料表示を確認してください。",
+    safetyNote:
+      "炊飯器の操作や熱い炊飯釜を扱う工程は、大人が行うか付き添ってください。生の生姜をすりおろすと香りがよくなります。",
+    status: "published",
+  },
+  {
+    slug: "frozen-grated-ginger",
+    label: "毎日の料理に便利",
+    title: "冷凍おろし生姜",
+    description:
+      "すりおろした生姜を薄く平らにして冷凍。必要な分だけ割って使える、便利な下ごしらえです。",
+    symbol: "🫚",
+    time: "下ごしらえ＋冷凍時間",
+    servings: "作りやすい分量",
+    tone: "scone",
+    cardImage: "/images/recipes/frozen-grated-ginger-recipe.jpg",
+    cardImageAlt: "冷凍おろし生姜の用意するものと作り方をまとめたレシピシート",
+    recipeSheetUrl: "/recipes/frozen-grated-ginger.pdf",
+    ingredients: ["生姜 適量", "冷凍用保存袋 1枚"],
+    steps: [
+      "生姜をすりおろします。",
+      "冷凍用保存袋に入れ、薄く平らに伸ばして冷凍します。",
+      "使うときに必要な分だけパキッと割ります。",
+    ],
+    allergenNote:
+      "生姜を使用します。食物アレルギーがある場合は、使用する食材の表示を確認してください。",
+    safetyNote:
+      "すりおろす工程は、大人が行うか付き添い、指を傷つけないように注意してください。薄く伸ばしておくと、使いたい分だけ取り出しやすくなります。",
+    status: "published",
+  },
 ];
